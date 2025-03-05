@@ -5,19 +5,49 @@ import { AmulLogo, HavLogo, KFCLogo, tvsLogo, DBSLogo, ZomatoLogo, HavName } fro
 
 const LandingClients = () => {
   const [logoStyles, setLogoStyles] = useState<{ [key: string]: React.CSSProperties }>({});
+  const [windowWidth, setWindowWidth] = useState(0);
   const logoRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const logoList = [
-    { id: 1, name: "Amul", image: AmulLogo, size: { width: 170, height: 45 }, position: { x: "-260px", y: "100px" } },
-    { id: 2, name: "Havells", image: HavLogo, size: { width: 50, height: 50 }, position: { x: "305px", y: "70px" } },
-    { id: 3, name: "KFC", image: KFCLogo, size: { width: 140, height: 100 }, position: { x: "460px", y: "-120px" } },
-    { id: 4, name: "TVS", image: tvsLogo, size: { width: 220, height: 100 }, position: { x: "175px", y: "-190px" } },
-    { id: 5, name: "DBS", image: DBSLogo, size: { width: 140, height: 40 }, position: { x: "-350px", y: "-300px" } },
-    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: 150, height: 40 }, position: { x: "10px", y: "275px" } },
-    { id: 7, name: "AmulSmall", image: AmulLogo, size: { width: 70, height: 45 }, position: { x: "-500px", y: "-40px" } },
-    { id: 8, name: "KFCBlurred", image: KFCLogo, size: { width: 70, height: 100 }, position: { x: "470px", y: "220px" } },
-    { id: 9, name: "DBSBlurred", image: DBSLogo, size: { width: 70, height: 40 }, position: { x: "-230px", y: "-180px" } },
+    { id: 1, name: "Amul", image: AmulLogo, size: { width: 150, height: 40 }, position: { x: "-160px", y: "60px" } },
+    { id: 2, name: "Havells", image: HavLogo, size: { width: 45, height: 45 }, position: { x: "195px", y: "40px" } },
+    { id: 3, name: "KFC", image: KFCLogo, size: { width: 120, height: 85 }, position: { x: "280px", y: "-70px" } },
+    { id: 4, name: "TVS", image: tvsLogo, size: { width: 180, height: 82 }, position: { x: "105px", y: "-120px" } },
+    { id: 5, name: "DBS", image: DBSLogo, size: { width: 120, height: 34 }, position: { x: "-210px", y: "-180px" } },
+    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: 130, height: 35 }, position: { x: "8px", y: "165px" } },
+    { id: 7, name: "AmulSmall", image: AmulLogo, size: { width: 60, height: 39 }, position: { x: "-290px", y: "-25px" } },
+    { id: 8, name: "KFCBlurred", image: KFCLogo, size: { width: 60, height: 85 }, position: { x: "290px", y: "130px" } },
+    { id: 9, name: "DBSBlurred", image: DBSLogo, size: { width: 60, height: 34 }, position: { x: "-140px", y: "-110px" } },
   ];
+
+  // Mobile logo positions
+  const mobileLogoList = [
+    { id: 1, name: "Amul", image: AmulLogo, size: { width: 100, height: 27 }, position: { x: "-90px", y: "45px" } },
+    { id: 2, name: "Havells", image: HavLogo, size: { width: 30, height: 30 }, position: { x: "115px", y: "30px" } },
+    { id: 3, name: "KFC", image: KFCLogo, size: { width: 85, height: 60 }, position: { x: "160px", y: "-45px" } },
+    { id: 4, name: "TVS", image: tvsLogo, size: { width: 130, height: 59 }, position: { x: "65px", y: "-75px" } },
+    { id: 5, name: "DBS", image: DBSLogo, size: { width: 85, height: 24 }, position: { x: "-130px", y: "-110px" } },
+    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: 90, height: 24 }, position: { x: "4px", y: "100px" } },
+    { id: 7, name: "AmulSmall", image: AmulLogo, size: { width: 42, height: 27 }, position: { x: "-180px", y: "-15px" } },
+    { id: 8, name: "KFCBlurred", image: KFCLogo, size: { width: 42, height: 60 }, position: { x: "170px", y: "85px" } },
+    { id: 9, name: "DBSBlurred", image: DBSLogo, size: { width: 42, height: 24 }, position: { x: "-85px", y: "-65px" } },
+  ];
+
+  const [currentLogoList, setCurrentLogoList] = useState(logoList);
+
+  // Initialize window width after mount
+  useEffect(() => {
+    const handleResize = () => {
+      const width = typeof window !== 'undefined' ? window.innerWidth : 0;
+      setWindowWidth(width);
+      setCurrentLogoList(width < 768 ? mobileLogoList : logoList);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,14 +58,13 @@ const LandingClients = () => {
           const viewportHeight = window.innerHeight;
           const scrollY = window.scrollY;
 
-          // Calculate visibility and scale based on scroll position
           const distanceFromCenter = Math.abs(rect.top + rect.height / 2 - viewportHeight / 2);
           const scale = Math.max(0.5, 1 - distanceFromCenter / viewportHeight);
           const blur = 5 * (1 - scale);
           const opacity = scale;
 
-          newStyles[logoList[index].id] = {
-            transform: `translate(${logoList[index].position.x}, ${logoList[index].position.y}) scale(${scale})`,
+          newStyles[currentLogoList[index].id] = {
+            transform: `translate(${currentLogoList[index].position.x}, ${currentLogoList[index].position.y}) scale(${scale})`,
             filter: `blur(${blur}px)`,
             opacity: opacity,
           };
@@ -44,35 +73,36 @@ const LandingClients = () => {
       setLogoStyles(newStyles);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial call to set styles
+    if (typeof window !== 'undefined') {
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [currentLogoList]);
 
   return (
     <div className="p-5 flex items-center justify-center h-screen bg-white relative overflow-hidden">
       {/* Smallest Circle */}
-      <div className="absolute w-[357px] h-[338px] rounded-full border border-dashed border-gray-400 opacity-60"></div>
+      <div className="absolute w-[200px] h-[200px] md:w-[250px] md:h-[250px] rounded-full border border-dashed border-gray-400 opacity-60"></div>
 
       {/* Medium Circle */}
-      <div className="absolute w-[570px] h-[542px] rounded-full border border-dashed border-gray-400 opacity-60"></div>
+      <div className="absolute w-[320px] h-[320px] md:w-[400px] md:h-[400px] rounded-full border border-dashed border-gray-400 opacity-60"></div>
 
       {/* Largest Circle with Text */}
-      <div className="absolute w-[951px] h-[926px] rounded-full border border-dashed border-gray-400 opacity-60 flex items-center justify-center">
-        <p className="text-3xl font-medium text-black">Our Clients</p>
+      <div className="absolute w-[480px] h-[480px] md:w-[600px] md:h-[600px] rounded-full border border-dashed border-gray-400 opacity-60 flex items-center justify-center">
+        <p className="text-xl md:text-2xl font-medium text-black">Our Clients</p>
       </div>
 
       {/* Logos with Sizes and Positions */}
-      {logoList.map((logo, index) => (
+      {currentLogoList.map((logo, index) => (
         <div
           key={logo.id}
           ref={(el) => {
-            logoRefs.current[index] = el; // Just assign, don't return
+            logoRefs.current[index] = el;
           }}
-          
           data-logo-id={logo.id}
           className="absolute flex flex-col items-center transition-all duration-500"
           style={{
@@ -88,10 +118,14 @@ const LandingClients = () => {
             height={logo.size.height}
             className="object-contain"
           />
-          {/* Show Name Only for Havells */}
           {logo.name === "Havells" && (
             <div className="flex items-center py-2">
-              <Image src={HavName} alt={logo.name} width={90} height={50} />
+              <Image 
+                src={HavName} 
+                alt={logo.name} 
+                width={windowWidth < 768 ? 63 : 90} 
+                height={windowWidth < 768 ? 35 : 50} 
+              />
             </div>
           )}
         </div>
