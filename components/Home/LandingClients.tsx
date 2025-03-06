@@ -14,7 +14,7 @@ const LandingClients = () => {
     { id: 3, name: "KFC", image: KFCLogo, size: { width: 120, height: 85 }, position: { x: "280px", y: "-70px" } },
     { id: 4, name: "TVS", image: tvsLogo, size: { width: 180, height: 82 }, position: { x: "105px", y: "-120px" } },
     { id: 5, name: "DBS", image: DBSLogo, size: { width: 120, height: 34 }, position: { x: "-210px", y: "-180px" } },
-    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: 130, height: 35 }, position: { x: "8px", y: "165px" } },
+    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: 130, height: 35 }, position: { x: "4px", y: "190px" } },
     { id: 7, name: "AmulSmall", image: AmulLogo, size: { width: 60, height: 39 }, position: { x: "-290px", y: "-25px" } },
     { id: 8, name: "KFCBlurred", image: KFCLogo, size: { width: 60, height: 85 }, position: { x: "290px", y: "130px" } },
     { id: 9, name: "DBSBlurred", image: DBSLogo, size: { width: 60, height: 34 }, position: { x: "-140px", y: "-110px" } },
@@ -27,7 +27,7 @@ const LandingClients = () => {
     { id: 3, name: "KFC", image: KFCLogo, size: { width: 85, height: 60 }, position: { x: "160px", y: "-45px" } },
     { id: 4, name: "TVS", image: tvsLogo, size: { width: 130, height: 59 }, position: { x: "65px", y: "-75px" } },
     { id: 5, name: "DBS", image: DBSLogo, size: { width: 85, height: 24 }, position: { x: "-130px", y: "-110px" } },
-    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: 90, height: 24 }, position: { x: "4px", y: "100px" } },
+    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: 90, height: 24 }, position: { x: "2px", y: "154px" } },
     { id: 7, name: "AmulSmall", image: AmulLogo, size: { width: 42, height: 27 }, position: { x: "-180px", y: "-15px" } },
     { id: 8, name: "KFCBlurred", image: KFCLogo, size: { width: 42, height: 60 }, position: { x: "170px", y: "85px" } },
     { id: 9, name: "DBSBlurred", image: DBSLogo, size: { width: 42, height: 24 }, position: { x: "-85px", y: "-65px" } },
@@ -56,7 +56,7 @@ const LandingClients = () => {
         if (ref) {
           const rect = ref.getBoundingClientRect();
           const viewportHeight = window.innerHeight;
-          const scrollY = window.scrollY;
+          // const scrollY = window.scrollY;
 
           const distanceFromCenter = Math.abs(rect.top + rect.height / 2 - viewportHeight / 2);
           const scale = Math.max(0.5, 1 - distanceFromCenter / viewportHeight);

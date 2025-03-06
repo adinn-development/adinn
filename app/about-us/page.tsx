@@ -1,13 +1,23 @@
 import React from 'react'
-import LandingProjects from '@/components/Home/LandingProjects'
-import LandingDreamProject from '@/components/Home/LandingDreamProject'
-import LandingQueries from '@/components/Home/LandingQueries'
+import Hero from '@/components/AboutUs/Hero'
+import Content from '@/components/AboutUs/Content'
+import CoreValues from '@/components/AboutUs/CoreValues'
+import Footer from '@/components/ReUsableComponents/Footer'
+import Achievements from '@/components/AboutUs/Achievements'
+import ShowCase from '@/components/AboutUs/ShowCase'
+import VideoBanner from '@/components/AboutUs/VideoBanner'  
+
 const page = () => {
   return (
     <div>
-      {/* <LandingProjects /> */}
-      <LandingDreamProject />
-      <LandingQueries />
+     <Hero />
+     <Content />
+     <Achievements />
+
+     <VideoBanner />
+     <CoreValues />
+     <ShowCase />
+<Footer />  
     </div>
   )
 }
