@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { AmulLogo, HavLogo, KFCLogo, tvsLogo, DBSLogo, ZomatoLogo, HavName } from "@/components/ReUsableComponents/Icons/Icons";
 
@@ -7,6 +7,7 @@ const LandingClients = () => {
   const [logoStyles, setLogoStyles] = useState<{ [key: string]: React.CSSProperties }>({});
   const [windowWidth, setWindowWidth] = useState(0);
   const logoRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   const logoList = [
     { id: 1, name: "Amul", image: AmulLogo, size: { width: 150, height: 40 }, position: { x: "-160px", y: "60px" } },
@@ -33,14 +34,21 @@ const LandingClients = () => {
     { id: 9, name: "DBSBlurred", image: DBSLogo, size: { width: 42, height: 24 }, position: { x: "-85px", y: "-65px" } },
   ];
 
-  const [currentLogoList, setCurrentLogoList] = useState(logoList);
+  // Store logo lists in refs to maintain stable references
+  const logoListRef = useRef(logoList);
+  const mobileLogoListRef = useRef(mobileLogoList);
+  
+  // Get current logo list based on isMobile state
+  const getCurrentLogoList = useCallback(() => {
+    return isMobile ? mobileLogoListRef.current : logoListRef.current;
+  }, [isMobile]);
 
   // Initialize window width after mount
   useEffect(() => {
     const handleResize = () => {
       const width = typeof window !== 'undefined' ? window.innerWidth : 0;
       setWindowWidth(width);
-      setCurrentLogoList(width < 768 ? mobileLogoList : logoList);
+      setIsMobile(width < 768);
     };
 
     handleResize(); // Initial check
@@ -49,27 +57,31 @@ const LandingClients = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Handle scroll effect with stable dependencies
   useEffect(() => {
     const handleScroll = () => {
+      const currentList = getCurrentLogoList();
       const newStyles: { [key: string]: React.CSSProperties } = {};
+      
       logoRefs.current.forEach((ref, index) => {
-        if (ref) {
+        if (ref && index < currentList.length) {
+          const logo = currentList[index];
           const rect = ref.getBoundingClientRect();
           const viewportHeight = window.innerHeight;
-          // const scrollY = window.scrollY;
 
           const distanceFromCenter = Math.abs(rect.top + rect.height / 2 - viewportHeight / 2);
           const scale = Math.max(0.5, 1 - distanceFromCenter / viewportHeight);
           const blur = 5 * (1 - scale);
           const opacity = scale;
 
-          newStyles[currentLogoList[index].id] = {
-            transform: `translate(${currentLogoList[index].position.x}, ${currentLogoList[index].position.y}) scale(${scale})`,
+          newStyles[logo.id] = {
+            transform: `translate(${logo.position.x}, ${logo.position.y}) scale(${scale})`,
             filter: `blur(${blur}px)`,
             opacity: opacity,
           };
         }
       });
+      
       setLogoStyles(newStyles);
     };
 
@@ -81,7 +93,10 @@ const LandingClients = () => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
-  }, [currentLogoList]);
+  }, [getCurrentLogoList]); // Only depend on the stable callback
+
+  // Get the current logo list for rendering
+  const currentLogoList = getCurrentLogoList();
 
   return (
     <div className="p-5 flex items-center justify-center h-screen bg-white relative overflow-hidden">

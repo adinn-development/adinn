@@ -97,19 +97,20 @@ const LandingService = () => {
 
     return (
         <div className="h-screen flex flex-col items-center justify-start p-8 overflow-hidden">
-            <div className="w-full flex flex-row items-center justify-between mb-8">
-                <div className="flex flex-row items-center justify-start space-x-3">
-                    <div className="text-[96px] tracking-[-4px] font-bold">OUR</div>
-                    <div className="text-[96px] instrument-font text-[#CF1E00] font-serif italic">
-                        SERVICES
-                    </div>
-                </div>
+          <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-4 md:mb-8 gap-4 md:gap-0">
+                
+            <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">OUR</div>
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] instrument-font text-[#CF1E00] font-serif italic">
+          SERVICES
+          </div>
+        </div>
 
-                <div className="text-[17px]">
-                    We create impactful and high-performing <br /> ads that drive your
+        <div className="text-sm md:text-base lg:text-[17px]">
+        We create impactful and high-performing <br className="hidden md:block" /> ads that drive your
                     business growth.
-                </div>
-            </div>
+        </div>
+      </div>
 
             {/* Scroll Container */}
             <div 

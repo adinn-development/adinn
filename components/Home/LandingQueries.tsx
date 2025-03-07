@@ -47,7 +47,7 @@ const LandingQueries = () => {
           Clearing Up Common  <br className=''/> <span className="text-[#CF1E00] font-serif italic">Queries</span>
         </div>
         <div className="text-[17px] text-center text-[#8693B1] mb-16">
-          Dive into our FAQ section for insights into our services. We've compiled answers <br className=''/> to common questions to ensure you're well-informed.
+          Dive into our FAQ section for insights into our services. We&apos;ve compiled answers <br className=''/> to common questions to ensure you&apos;re well-informed.
         </div>
         <div className="w-full max-w-[800px] px-4">
           {Queries.map((queries, index) => (
