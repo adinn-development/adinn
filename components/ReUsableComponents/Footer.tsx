@@ -42,7 +42,7 @@ const Footer = () => {
             />
             <div className="absolute bottom-3 sm:bottom-6 md:bottom-8 left-3 sm:left-6 md:left-8 flex flex-col gap-1.5 sm:gap-2">
               <div className="text-white text-lg sm:text-2xl md:text-[34px] font-semibold leading-tight">
-                Let's Work Together
+                Let&apos;s Work Together
               </div>
               <span className="text-sm sm:text-base md:text-[21px] text-white/80">
                 adinn@gmail.com

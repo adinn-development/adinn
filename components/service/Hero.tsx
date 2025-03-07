@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { ServiceHero } from '../ReUsableComponents/Icons/Icons';
 import Link from 'next/link';
 

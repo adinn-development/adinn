@@ -70,7 +70,7 @@ const LandingContent = React.memo(() => {
         </motion.span>{" "}
         <motion.span variants={textVariants}>
           creativity and innovation.
-          <span className="text-[#C1C1C1]"> We're</span>
+          <span className="text-[#C1C1C1]"> We&apos;re</span>
         </motion.span>{" "}
         <motion.span className="text-[#C1C1C1]" variants={textVariants}>
           <br /> dedicated to

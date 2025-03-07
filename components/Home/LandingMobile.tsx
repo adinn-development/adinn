@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { MobileLogo, mobileShapeContainer } from '../ReUsableComponents/Icons/Icons';
+import { MobileLogo } from '../ReUsableComponents/Icons/Icons';
 import Image from 'next/image';
 
 const LandingMobile = () => {
@@ -13,7 +13,7 @@ const LandingMobile = () => {
   const [startX, setStartX] = useState<number>(0);
   const [startY, setStartY] = useState<number>(0);
   const [autoSpin, setAutoSpin] = useState<boolean>(true);
-  const [spinSpeed, setSpinSpeed] = useState<number>(1);
+  const [, setSpinSpeed] = useState<number>(1);
   const [videoPlaying, setVideoPlaying] = useState<boolean>(false);
   const phoneRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -21,7 +21,7 @@ const LandingMobile = () => {
   // Enhanced auto spin animation on component mount
   useEffect(() => {
     let animationId: number;
-    let startTime = Date.now();
+    const startTime = Date.now();
     
     const animate = () => {
       if (!autoSpin) return;

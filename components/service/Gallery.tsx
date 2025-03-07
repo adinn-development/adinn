@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import {Gallery1, Gallery2, Gallery3, Gallery4, HandImage} from '@/components/ReUsableComponents/Icons/Icons'
-import { GoArrowUpRight } from 'react-icons/go'
 
 const Gallery = () => {
 

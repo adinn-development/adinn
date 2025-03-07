@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { ProjectImage1, ProjectImage2, IdHero } from '@/components/ReUsableComponents/Icons/Icons';
 import Link from 'next/link';
 import { FiArrowLeft } from 'react-icons/fi';
