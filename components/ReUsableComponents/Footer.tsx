@@ -60,14 +60,14 @@ const Footer = () => {
         </div>
 
         {/* Right Section - Form */}
-        <div className="bg-[#121212] rounded-[20px] sm:rounded-[28px] p-6 sm:p-6 md:p-7.5 w-full md:w-1/2 flex flex-col gap-6 sm:gap-6 md:gap-7">
-          <div className="flex flex-col space-y-4 sm:space-y-5">
+        <div className="bg-[#121212] rounded-[20px] sm:rounded-[28px] p-4 sm:p-6 md:p-7.5 w-full md:w-1/2 flex flex-col gap-6 sm:gap-6 md:gap-7">
+          <div className="flex flex-col space-y-3 sm:space-y-4">
             <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
               NAME
             </label>
             <input className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white" />
           </div>
-          <div className="flex flex-col space-y-4 sm:space-y-5">
+          <div className="flex flex-col space-y-3 sm:space-y-4">
             <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
               EMAIL
             </label>
@@ -75,14 +75,14 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-start justify-between gap-6 sm:gap-6 md:gap-8">
-            <div className="flex flex-col space-y-4 sm:space-y-5 w-full">
+            <div className="flex flex-col space-y-3 sm:space-y-4 w-full">
               <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
                 CONTACT NUMBER
               </label>
               <input className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white" />
             </div>
 
-            <div className="flex flex-col space-y-4 sm:space-y-5 w-full">
+            <div className="flex flex-col space-y-3 sm:space-y-4 w-full">
               <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
                 WEBSITE (OPTIONAL)
               </label>
@@ -90,7 +90,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col space-y-4 sm:space-y-5">
+          <div className="flex flex-col space-y-3 sm:space-y-4">
             <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
               MESSAGE
             </label>
@@ -100,7 +100,7 @@ const Footer = () => {
             />
           </div>
 
-          <div className="mt-4 sm:mt-auto pt-2 sm:pt-4">
+          <div className="mt-3 sm:mt-auto pt-1 ">
             <button className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 rounded-[20px] sm:rounded-[28px] hover:opacity-90 transition-opacity cursor-pointer text-sm sm:text-base">
               SUBMIT
             </button>

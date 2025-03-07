@@ -1,11 +1,16 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 
 // Animation variants for text
 const textVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  hidden: { opacity: 0, transform: "translateY(20px)" },
+  visible: { 
+    opacity: 1, 
+    transform: "translateY(0px)", 
+    transition: { duration: 0.4, ease: "easeOut" } 
+  },
 };
 
 // Staggered container for text animation
@@ -14,23 +19,36 @@ const containerVariants = {
   visible: { 
     opacity: 1,
     transition: { 
-      staggerChildren: 0.15,
-      delayChildren: 0.3,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
       when: "beforeChildren"
     } 
   },
 };
 
-const LandingContent = () => {
+// Main container animation
+const mainContainerVariants = {
+  hidden: { opacity: 0, transform: "translateY(50px)" },
+  visible: { 
+    opacity: 1, 
+    transform: "translateY(0px)",
+    transition: { duration: 0.4, ease: "easeOut" }
+  }
+};
+
+// Button animation
+const buttonVariants = {
+  hidden: { opacity: 0, transform: "translateY(20px)" },
+  visible: { 
+    opacity: 1, 
+    transform: "translateY(0px)",
+    transition: { delay: 0.4, duration: 0.3 }
+  }
+};
+
+const LandingContent = React.memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true);
-    }
-  }, [isInView]);
 
   return (
     <motion.div
@@ -38,14 +56,7 @@ const LandingContent = () => {
       className="flex flex-col items-center justify-center min-h-screen text-black text-center px-6"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={{
-        hidden: { opacity: 0, y: 50 },
-        visible: { 
-          opacity: 1, 
-          y: 0,
-          transition: { duration: 0.8, ease: "easeOut" }
-        }
-      }}
+      variants={mainContainerVariants}
     >
       {/* Text Content */}
       <motion.p
@@ -76,24 +87,21 @@ const LandingContent = () => {
       </motion.p>
 
       {/* Animated Button */}
+      <Link href="/about-us">  
       <motion.button
         className="mt-6 bg-[#FFFFFF] text-[19px] text-black px-6 py-3 rounded-full 
-        shadow-[0px_0px_10px_#F1606026] transition-all duration-300 hover:bg-gray-50"
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { 
-            opacity: 1, 
-            y: 0,
-            transition: { delay: 0.8, duration: 0.6 }
-          }
-        }}
+        shadow-[0px_0px_10px_#F1606026] transition-all duration-300 hover:bg-gray-50 cursor-pointer"
+        variants={buttonVariants}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
         Discover about us
       </motion.button>
+      </Link>
     </motion.div>
   );
-};
+});
+
+LandingContent.displayName = "LandingContent";
 
 export default LandingContent;

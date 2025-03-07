@@ -33,23 +33,23 @@ const ServiceOffered = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 pt-8 md:pt-12 pb-16 md:pb-20 max-w-[1440px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 place-items-center">
-          {contents.map((content, index) => (
-            <div 
-              key={index}
-              className="bg-white p-8 rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-100 w-full max-w-[540px] h-[250px] flex flex-col items-center justify-center text-center"
-            >
-              <h3 className="text-[#BE3234] text-[32px] font-semibold mb-4 text-center">
-                {content.title}
-              </h3>
-              <p className="text-[#616365] text-[17px] leading-relaxed text-center max-w-[400px]">
-                {content.description}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div className="container mx-auto p-4 sm:p-6 lg:p-8 ">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 place-items-center">
+    {contents.map((content, index) => (
+      <div 
+        key={index}
+        className="bg-white rounded-xl hover:shadow-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-100 w-full max-w-[540px] h-[250px] flex flex-col items-center justify-center text-center p-6"
+      >
+        <h3 className="text-[#BE3234] text-[32px] font-semibold mb-4 text-center">
+          {content.title}
+        </h3>
+        <p className="text-[#616365] text-[17px] leading-relaxed text-center max-w-[400px]">
+          {content.description}
+        </p>
       </div>
+    ))}
+  </div>
+</div>
     </div>
   )
 }

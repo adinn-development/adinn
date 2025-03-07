@@ -21,7 +21,8 @@ export { default as Service4 } from '@/public/service/service4.svg';
 export { default as ServiceLogo } from '@/public/service/serviceIcon.svg';
 
 //Mobile Landing Page
-export { default as MobileLogo } from '@/public/Mobile.png';
+export { default as MobileLogo } from '@/public/mobile.svg';
+export { default as mobileShapeContainer } from '@/public/mobileShapeContainer.png';
 
 //PRojects Lanfing page
 export {default as IPLLogo} from '@/public/projects/IPL.png';
@@ -67,3 +68,18 @@ export {default as Gallery2} from '@/public/gallery/gallery2.png';
 export {default as Gallery3} from '@/public/gallery/gallery3.png';
 export {default as Gallery4} from '@/public/gallery/gallery4.png';
     
+//projects
+export {default as ProjectImage1} from '@/public/projects/ProjectImage1.png';
+export {default as ProjectImage2} from '@/public/projects/ProjectImage2.png';
+export {default as ProjectHero} from '@/public/projects/ProjectHero.svg';
+
+
+//service
+export {default as ServiceHero} from '@/public/service/ServiceHero.svg';
+
+
+//about
+export {default as AboutHero} from '@/public/about/AboutHero.svg';
+
+//projects
+export {default as IdHero} from '@/public/projects/IdHero.svg';

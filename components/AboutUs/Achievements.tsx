@@ -17,7 +17,7 @@ const Achievements = () => {
     ]
     
     return (
-        <div className='h-screen flex flex-col justify-start p-8 overflow-hidden'>
+        <div className='flex flex-col justify-start p-8 mb-16'>
             <div className="text-[40px] p-5  leading-[105px] md:text-[90px] md:whitespace-normal whitespace-nowrap font-normal text-start mb-16">
                 Highlights of  {' '}
                 <span className="text-[#CF1E00] font-serif italic">Achievements</span>
