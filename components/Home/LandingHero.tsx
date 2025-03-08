@@ -6,7 +6,7 @@ import Image from "next/image";
 import { BackgroundImage } from "../ReUsableComponents/Icons/Icons";
 import Subtract from "@/public/Subtract.svg";
 import { motion } from "framer-motion";
-import HomeFrame from "@/public/HomeFrame.png";
+import HomeFrame from "@/public/HomeFrame.svg";
 
 const LandingHero = () => {
   const heroSectionRef = useRef<HTMLDivElement>(null);
@@ -25,7 +25,7 @@ const LandingHero = () => {
       animationTimeout.current = setTimeout(() => {
         setIsAnimationInProgress(false);
         setIsScrollLocked(false);
-      }, 1500); // Slower transition delay
+      }, 2000); // Increased from 1500 to 2000 for smoother transition
     };
 
     const resetAnimation = () => {
@@ -66,7 +66,10 @@ const LandingHero = () => {
         <motion.div
           className="sticky top-0 w-full h-screen"
           animate={{ y: hasLeftHeroSection ? "-100%" : "0%" }}
-          transition={{ duration: 1.5, ease: "easeInOut" }} // Smooth transition
+          transition={{ 
+            duration: 2, 
+            ease: [0.45, 0, 0.55, 1] // Custom easing for smoother motion
+          }}
         >
           {/* Top Navigation */}
           <div className="absolute top-0 left-0 w-full z-50">
@@ -92,7 +95,11 @@ const LandingHero = () => {
               scale: isAnimationComplete ? 1.5 : 1,
               opacity: isAnimationComplete ? 0 : 1,
             }}
-            transition={{ duration: 1.5, ease: "easeInOut" }} // Slower and smoother scaling
+            transition={{ 
+              duration: 2,
+              ease: [0.4, 0, 0.2, 1], // Custom easing for scale and fade
+              opacity: { duration: 1.8 } // Slightly faster opacity transition
+            }}
           >
             <Image
               src={Subtract}
@@ -106,18 +113,24 @@ const LandingHero = () => {
 
           {/* Sliding Image (HomeFrame) */}
           <motion.div
-            className="absolute inset-0 -z-10 flex justify-center items-center"
+            className="absolute bottom-0 left-0 right-0 h-[70vh] -z-10 flex justify-center items-end"
             animate={{
               y: isAnimationComplete ? "0%" : "100%",
               opacity: isAnimationComplete ? 1 : 0,
             }}
-            transition={{ duration: 1.5, ease: "easeInOut" }} // Smooth sliding effect
+            transition={{ 
+              duration: 2,
+              ease: [0.22, 1, 0.36, 1], // Custom easing for smooth slide up
+              opacity: { duration: 1.5 }, // Fade in slightly faster
+              y: { duration: 2 } // Full duration for vertical movement
+            }}
           >
             <Image
               src={HomeFrame}
               alt="New Sliding Image"
               layout="fill"
               objectFit="contain"
+              objectPosition="center bottom"
               quality={100}
               priority
             />
