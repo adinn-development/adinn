@@ -43,13 +43,13 @@ const LandingQueries = () => {
   
     return (
       <div className="py-20 flex flex-col items-center">
-        <div className="text-[40px] leading-[105px] md:text-[90px] md:whitespace-normal whitespace-nowrap font-normal text-center mb-16">
-          Clearing Up Common  <br className=''/> <span className="text-[#CF1E00] font-serif italic">Queries</span>
+        <div className="text-[40px] leading-[105px] md:text-[90px] text-[#28334D] md:whitespace-normal whitespace-nowrap font-normal text-center mb-5">
+          Clearing Up Common  <br className=''/> <span className="instrument-font text-[#CF1E00] font-serif italic">Queries</span>
         </div>
         <div className="text-[17px] text-center text-[#8693B1] mb-16">
           Dive into our FAQ section for insights into our services. We&apos;ve compiled answers <br className=''/> to common questions to ensure you&apos;re well-informed.
         </div>
-        <div className="w-full max-w-[800px] px-4">
+        <div className="w-full max-w-[950px] px-4">
           {Queries.map((queries, index) => (
             <div
               key={index}

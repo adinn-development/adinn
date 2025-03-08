@@ -1,8 +1,8 @@
 export { default as AdinnLogo } from '@/public/AdinnLogo.svg';
 export { default as AdinnLogoBlack } from '@/public/AdinnLogoBlack.svg';
-export { default as shape } from '@/public/shape.svg';
+
 export { default as BackgroundImage } from '@/public/image.svg';
-export { default as HomeIcon } from '@/public/HomeAdinn.svg';
+// export { default as HomeIcon } from '@/public/HomeAdinn.svg';
 
 // Client Circle Logos
 export { default as AmulLogo } from '@/public/client/AmulLogo.svg';
@@ -22,7 +22,7 @@ export { default as ServiceLogo } from '@/public/service/serviceIcon.svg';
 
 //Mobile Landing Page
 export { default as MobileLogo } from '@/public/mobile.svg';
-export { default as mobileShapeContainer } from '@/public/mobileShapeContainer.png';
+
 
 //PRojects Lanfing page
 export {default as IPLLogo} from '@/public/projects/IPL.png';
@@ -41,7 +41,7 @@ export {default as Card} from '@/public/footer/card.svg';
 export {default as AdinnLogoFooter} from '@/public/footer/FooterLogo.svg';
 
 //About Us
-export {default as VideoBannerFrame} from '@/public/about/vdFrame.svg';
+export {default as TeamExpertise} from '@/public/about/TeamExpertise.svg';
 //core
 export {default as Reliability} from '@/public/about/core/reliablity.svg';
 export {default as Respect} from '@/public/about/core/respect.svg';
@@ -83,3 +83,4 @@ export {default as AboutHero} from '@/public/about/AboutHero.svg';
 
 //projects
 export {default as IdHero} from '@/public/projects/IdHero.svg';
+export  {default as ProjectOverview} from '@/public/projects/ProjectOverview.png';

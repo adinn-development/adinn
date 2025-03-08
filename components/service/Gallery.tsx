@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import {Gallery1, Gallery2, Gallery3, Gallery4, HandImage} from '@/components/ReUsableComponents/Icons/Icons'
+import Link from 'next/link'
 
 const Gallery = () => {
 
@@ -28,8 +29,8 @@ const Gallery = () => {
        
     ]
   return (
-    <div>
-     <div className="flex flex-col md:flex-row items-center justify-start px-4 sm:px-6 lg:px-20 gap-4 md:gap-3 py-8 md:py-12">
+    <div className="flex flex-col items-center">
+     <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-3 py-8 md:py-12">
         <div className="text-[40px] sm:text-[60px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold text-[#C6C6CB]">
           Projects
         </div>
@@ -67,7 +68,13 @@ const Gallery = () => {
           ))}
         </div>
 
-
+        <div className="flex justify-center w-full mt-20">
+          <Link href="/projects">
+            <button className="bg-[#EEEFF3] text-black px-4 py-2 rounded-[31px] w-[158px] h-[44px] cursor-pointer hover:bg-[#d7dcee] hover:scale-105 transition-all duration-300">
+              View Projects
+            </button>
+          </Link>
+        </div>
     </div>
   )
 }

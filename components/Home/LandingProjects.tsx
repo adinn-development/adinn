@@ -65,11 +65,11 @@ const LandingProjects = () => {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-1 sm:gap-2 text-sm sm:text-base text-[#AFB0B6] hover:text-gray-800 transition-colors"
+                className="group flex items-center gap-1 sm:gap-2 text-sm sm:text-base text-[#AFB0B6] hover:text-gray-800 transition-colors cursor-pointer z-10 relative p-2"
               >
                 <span className="hidden sm:inline">Visit Project</span>
                 <span className="sm:hidden">Visit</span>
-                <GoArrowUpRight className="text-[#AFB0B6] transition-colors group-hover:text-gray-800" />
+                <GoArrowUpRight className="text-[#AFB0B6] group-hover:text-gray-800 transition-colors w-5 h-5" />
               </a>
             </div>
           </div>

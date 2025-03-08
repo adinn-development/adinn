@@ -1,12 +1,13 @@
 import React from 'react';
 import { AboutHero } from '../ReUsableComponents/Icons/Icons';
-
+import TopNav from '../ReUsableComponents/TopNav';
 const Hero = () => {
   return (
     <div
       className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${AboutHero.src})` }}
     >
+      <TopNav />
 
       <div className="absolute bottom-0 left-0 p-6 sm:p-8 text-white max-w-lg">
         <h1 className="text-[54px] font-bold leading-tight drop-shadow-[0_0_10px_rgba(207,30,0,0.5)]">

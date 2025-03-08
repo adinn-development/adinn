@@ -20,6 +20,7 @@ const LandingService = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0); // Track scroll progress
 
   const contents = [
     {
@@ -61,14 +62,13 @@ const LandingService = () => {
     const maxScroll = container.scrollWidth - container.clientWidth;
     const currentScroll = container.scrollLeft;
     const isAtStart = currentScroll <= 0;
-    const isAtEnd = currentScroll >= maxScroll - 10; // Adding small threshold
+    const isAtEnd = currentScroll >= maxScroll - 10; // small threshold
 
-    // If at start and scrolling up, or at end and scrolling down, don't prevent default
+    // Allow default scrolling when at the edges
     if ((isAtStart && e.deltaY < 0) || (isAtEnd && e.deltaY > 0)) {
       return;
     }
 
-    // For horizontal scrolling
     e.preventDefault();
     if (isScrolling) return;
 
@@ -76,7 +76,6 @@ const LandingService = () => {
     const newScrollPosition =
       scrollPosition + (e.deltaY > 0 ? scrollAmount : -scrollAmount);
 
-    // Constrain scroll position
     const constrainedPosition = Math.max(
       0,
       Math.min(newScrollPosition, maxScroll)
@@ -90,7 +89,6 @@ const LandingService = () => {
       behavior: "smooth",
     });
 
-    // Reset scrolling flag after animation
     setTimeout(() => setIsScrolling(false), 500);
   };
 
@@ -104,13 +102,31 @@ const LandingService = () => {
     };
   }, [scrollPosition, isScrolling]);
 
+  // Update scroll progress
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const updateScrollProgress = () => {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const currentScroll = container.scrollLeft;
+      const progress = (currentScroll / maxScroll) * 100;
+      setScrollProgress(progress);
+    };
+
+    container.addEventListener("scroll", updateScrollProgress);
+    return () => {
+      container.removeEventListener("scroll", updateScrollProgress);
+    };
+  }, []);
+
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <div className="h-screen flex flex-col items-center justify-start p-8 overflow-hidden">
+    <div className="h-screen flex flex-col items-center justify-start p-8 overflow-hidden mt-20">
       <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-4 md:mb-8 gap-4 md:gap-0">
         <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">
@@ -121,55 +137,66 @@ const LandingService = () => {
           </div>
         </div>
 
-        <div className="text-sm md:text-base lg:text-[17px]">
-          We create impactful and high-performing{" "}
-          <br className="hidden md:block" /> ads that drive your business
-          growth.
+        <div className="text-sm md:text-base lg:text-[27px]">
+          We create impactful and high-performing
+          <br className="hidden md:block" /> ads that drive your business growth.
         </div>
       </div>
 
-      {/* Scroll Container */}
-      <div
-        ref={scrollContainerRef}
-        className="w-full overflow-x-hidden h-[500px] flex items-center"
-      >
-        <motion.div ref={ref} className="flex gap-6 h-full">
-          {contents.map((item, index) => (
-            <motion.div
-              key={index}
-              className="relative min-w-[600px] h-full"
-              variants={itemVariants}
-              initial="hidden"
-              animate={controls}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="w-full h-full relative">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  className="object-cover rounded-lg"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 600px"
-                  priority={index < 2}
-                />
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white rounded-b-lg">
-                  <div className="flex justify-between items-end">
-                    <h3 className="text-2xl font-bold max-w-[250px]">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm max-w-[250px] text-right">
-                      {item.description}
-                    </p>
+      {/* Wrap scroll container and progress line together */}
+      <div className="relative w-full">
+        {/* Scroll Container */}
+        <div
+          ref={scrollContainerRef}
+          className="w-full overflow-x-hidden h-[500px] flex items-center"
+        >
+          <motion.div ref={ref} className="flex gap-6 h-full">
+            {contents.map((item, index) => (
+              <motion.div
+                key={index}
+                className="relative min-w-[600px] h-full"
+                variants={itemVariants}
+                initial="hidden"
+                animate={controls}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-full h-full relative">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    className="object-cover rounded-lg"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    priority={index < 2}
+                  />
+                  {/* Content Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white rounded-b-lg">
+                    <div className="flex justify-between items-end">
+                      <h3 className="text-2xl font-bold max-w-[250px]">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm max-w-[250px] text-right">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-      <div className="w-full">
-        <Image src={ServiceLogo} alt="Service 5" className="mt-10" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Progress Line positioned at the bottom of the scroll container */}
+        <div
+  className="h-3 mt-4 rounded-[30px]"
+  style={{
+    background: "linear-gradient(to right, #CF1E00, #ED6400)",
+    width: scrollProgress > 0 ? `${scrollProgress}%` : "80px", // Start with a small width
+    transformOrigin: "left",
+    transition: "width 0.3s ease",
+  }}
+></div>
+
       </div>
     </div>
   );

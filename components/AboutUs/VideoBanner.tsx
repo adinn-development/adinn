@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import { VideoBannerFrame } from '../ReUsableComponents/Icons/Icons'
+import { TeamExpertise } from '../ReUsableComponents/Icons/Icons'
 import { motion, useInView } from 'framer-motion';
 
 const VideoBanner = () => {
@@ -49,7 +49,7 @@ const VideoBanner = () => {
       </motion.div>
 
       <motion.div variants={imageVariants}>
-        <Image src={VideoBannerFrame} alt='video' />
+        <Image src={TeamExpertise} alt='video' />
       </motion.div>
     </motion.div>
   );

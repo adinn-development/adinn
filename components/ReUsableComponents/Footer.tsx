@@ -45,7 +45,7 @@ const Footer = () => {
                 Let&apos;s Work Together
               </div>
               <span className="text-sm sm:text-base md:text-[21px] text-white/80">
-                adinn@gmail.com
+                hello@gmail.com
               </span>
             </div>
           </div>
@@ -100,11 +100,12 @@ const Footer = () => {
             />
           </div>
 
-          <div className="mt-3 sm:mt-auto pt-1 ">
-            <button className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 rounded-[20px] sm:rounded-[28px] hover:opacity-90 transition-opacity cursor-pointer text-sm sm:text-base">
-              SUBMIT
-            </button>
-          </div>
+          <button className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer 
+  hover:bg-[#EC2B45] hover:bg-none">
+  SUBMIT
+</button>
+
+
         </div>
       </div>
 
