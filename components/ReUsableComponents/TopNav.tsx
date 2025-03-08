@@ -47,7 +47,7 @@ const TopNav = () => {
                     <Link 
                         key={index} 
                         href={item.link} 
-                        className={`text-[16px] font-medium hover:text-[#CF1E00] transition-all
+                        className={`text-[16px] font-bold hover:text-[#CF1E00] transition-all
                             ${isActive(item.link) ? 'text-[#CF1E00]' : isContactPage ? 'text-black' : 'text-white'}`}
                     >
                         {item.name}
@@ -56,7 +56,7 @@ const TopNav = () => {
             </nav>
 
             {/* Book a Call Button */}
-            <div className='flex items-center'>
+            <div className='flex items-center '>
                 <button className={`w-[121px] h-[42px] rounded-[26px] px-4 py-2 cursor-pointer transition-all
                     ${isContactPage 
                         ? 'bg-black border border-black text-white hover:bg-black hover:text-white' 
