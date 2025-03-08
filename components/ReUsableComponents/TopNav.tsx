@@ -1,10 +1,9 @@
 "use client";
 import React from 'react'
 import Image from 'next/image'
-import { AdinnLogo } from './Icons/Icons'
+import { AdinnLogo, AdinnLogoBlack } from './Icons/Icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {AdinnLogoBlack} from './Icons/Icons'
 
 const TopNav = () => {
     const pathname = usePathname()
@@ -22,9 +21,9 @@ const TopNav = () => {
 
     const isActive = (path: string) => {
         if (path === '/' && pathname === '/') {
-            return true
+            return true;
         }
-        return pathname?.includes(path.toLowerCase()) && path !== '/'
+        return pathname === path;
     }
 
     return (
@@ -47,8 +46,11 @@ const TopNav = () => {
                     <Link 
                         key={index} 
                         href={item.link} 
-                        className={`text-[16px] font-bold hover:text-[#CF1E00] transition-all
-                            ${isActive(item.link) ? 'text-[#CF1E00]' : isContactPage ? 'text-black' : 'text-white'}`}
+                        className={`text-[16px] transition-all
+                            ${isActive(item.link) 
+                                ? 'font-bold text-[#CF1E00]' 
+                                : `font-medium ${isContactPage ? 'text-black' : 'text-white'} hover:text-[#CF1E00] hover:font-bold`
+                            }`}
                     >
                         {item.name}
                     </Link>
