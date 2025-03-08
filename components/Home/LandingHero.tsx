@@ -18,35 +18,27 @@ const LandingHero = () => {
   useEffect(() => {
     const checkScroll = () => {
       if (!heroSectionRef.current) return;
-      
+
       const heroHeight = heroSectionRef.current.clientHeight;
       const scrollPosition = window.scrollY;
       const isScrollingUp = scrollPosition < lastScrollPosition.current;
-      
+
       // Update last scroll position
       lastScrollPosition.current = scrollPosition;
 
       // Handle section visibility
-      if (scrollPosition > heroHeight) {
-        setHasLeftHeroSection(true);
-      } else {
-        setHasLeftHeroSection(false);
-      }
+      setHasLeftHeroSection(scrollPosition > heroHeight);
 
-      // Reset states when scrolling back up
-      if (isScrollingUp && scrollPosition < 100) {
-        setIsAnimationComplete(false);
-        return;
-      }
-
-      // Update animation completion state when scrolling down
-      if (scrollPosition >= 100 && !isAnimationComplete && !isScrollingUp) {
+      // Update animation state only when user scrolls past 100px
+      if (scrollPosition >= 100 && !isAnimationComplete) {
         setIsAnimationComplete(true);
+      } else if (isScrollingUp && scrollPosition < 100) {
+        setIsAnimationComplete(false);
       }
     };
 
-    window.addEventListener('scroll', checkScroll);
-    return () => window.removeEventListener('scroll', checkScroll);
+    window.addEventListener("scroll", checkScroll);
+    return () => window.removeEventListener("scroll", checkScroll);
   }, [isAnimationComplete]);
 
   return (
@@ -97,8 +89,8 @@ const LandingHero = () => {
         <motion.div
           className="absolute inset-0 -z-10 flex justify-center items-center"
           animate={{
-            y: isAnimationComplete ? '0%' : '100%',
-            opacity: isAnimationComplete ? 1 : 0
+            y: isAnimationComplete ? "0%" : "100%",
+            opacity: isAnimationComplete ? 1 : 0,
           }}
           transition={{ duration: 0.5 }}
         >
