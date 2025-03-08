@@ -5,45 +5,43 @@ import TopNav from '../ReUsableComponents/TopNav';
 import Image from 'next/image';
 import { BackgroundImage } from '../ReUsableComponents/Icons/Icons';
 import Subtract from '@/public/Subtract.svg';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import HomeFrame from '@/public/HomeFrame.png';
 
 const LandingHero = () => {
-  const { scrollY } = useScroll();
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
-  const [hasScrolledToNextSection, setHasScrolledToNextSection] = useState(false);
-  const [hasLeftHeroSection, setHasLeftHeroSection] = useState(false);
   const heroSectionRef = useRef<HTMLDivElement>(null);
+  const [hasLeftHeroSection, setHasLeftHeroSection] = useState(false);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+  const lastScrollPosition = useRef(0);
 
-  // Spring-based scroll progress for smooth animations
-  const springProgress = useSpring(scrollY, {
-    stiffness: 100,
-    damping: 30,
-  });
-
-  // Transformations based on scroll progress
-  const subtractScale = useTransform(springProgress, [0, 400], [1, 1.5]);
-  const subtractOpacity = useTransform(springProgress, [0, 400], [1, 0]);
-  const newImageY = useTransform(springProgress, [200, 500], ['100%', '0%']);
-  const newImageOpacity = useTransform(springProgress, [200, 500], [0, 1]);
-
-  // Monitor scroll position and trigger section change
+  // Monitor scroll position
   useEffect(() => {
     const checkScroll = () => {
-      const heroHeight = heroSectionRef.current?.clientHeight || window.innerHeight;
+      if (!heroSectionRef.current) return;
+      
+      const heroHeight = heroSectionRef.current.clientHeight;
+      const scrollPosition = window.scrollY;
+      const isScrollingUp = scrollPosition < lastScrollPosition.current;
+      
+      // Update last scroll position
+      lastScrollPosition.current = scrollPosition;
 
-      if (window.scrollY > heroHeight) {
+      // Handle section visibility
+      if (scrollPosition > heroHeight) {
         setHasLeftHeroSection(true);
-        return;
       } else {
         setHasLeftHeroSection(false);
       }
 
-      if (window.scrollY >= 500 && !isAnimationComplete) {
-        setIsAnimationComplete(true);
-      } else if (window.scrollY < 400) {
+      // Reset states when scrolling back up
+      if (isScrollingUp && scrollPosition < 100) {
         setIsAnimationComplete(false);
-        setHasScrolledToNextSection(false);
+        return;
+      }
+
+      // Update animation completion state when scrolling down
+      if (scrollPosition >= 100 && !isAnimationComplete && !isScrollingUp) {
+        setIsAnimationComplete(true);
       }
     };
 
@@ -51,36 +49,12 @@ const LandingHero = () => {
     return () => window.removeEventListener('scroll', checkScroll);
   }, [isAnimationComplete]);
 
-  // Lock scroll during animation and unlock after
-  useEffect(() => {
-    if (isAnimationComplete && !hasScrolledToNextSection) {
-      // Lock scroll during transition
-      document.body.style.overflow = 'hidden';
-
-      // Get the height of the LandingHero section
-      const heroHeight = heroSectionRef.current?.clientHeight || window.innerHeight;
-
-      // Smoothly scroll to next section
-      window.scrollTo({
-        top: heroHeight,
-        behavior: "smooth",
-      });
-
-      setHasScrolledToNextSection(true);
-
-      // Unlock scroll after transition completes
-      setTimeout(() => {
-        document.body.style.overflow = '';
-      }, 800); // Adjust the delay to match the transition duration
-    }
-  }, [isAnimationComplete, hasScrolledToNextSection]);
-
   return (
     <div className="landing-hero-container relative w-full h-screen" ref={heroSectionRef}>
       <motion.div 
         className="sticky top-0 w-full h-screen overflow-hidden"
         style={{ 
-          y: hasLeftHeroSection ? '-100%' : '0%', // Move section up after leaving
+          y: hasLeftHeroSection ? '-100%' : '0%',
         }}
       >
         {/* Top Navigation */}
@@ -103,10 +77,11 @@ const LandingHero = () => {
         {/* Subtract Image */}
         <motion.div 
           className="absolute inset-0 -z-5 flex justify-center items-center"
-          style={{
-            scale: subtractScale,
-            opacity: subtractOpacity,
+          animate={{
+            scale: isAnimationComplete ? 1.5 : 1,
+            opacity: isAnimationComplete ? 0 : 1
           }}
+          transition={{ duration: 0.5 }}
         >
           <Image 
             src={Subtract} 
@@ -121,10 +96,11 @@ const LandingHero = () => {
         {/* Sliding Image (HomeFrame) */}
         <motion.div
           className="absolute inset-0 -z-10 flex justify-center items-center"
-          style={{
-            y: newImageY,
-            opacity: newImageOpacity,
+          animate={{
+            y: isAnimationComplete ? '0%' : '100%',
+            opacity: isAnimationComplete ? 1 : 0
           }}
+          transition={{ duration: 0.5 }}
         >
           <Image 
             src={HomeFrame} 
