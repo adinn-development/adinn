@@ -229,7 +229,10 @@ const overViewContents = [
     </div>
 
 <Gallery />
+<div className='mt-30 mb-50'>
+
 <LandingDreamProject />
+</div>
 <Footer />
 </>
   );
