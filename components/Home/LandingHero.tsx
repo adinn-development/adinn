@@ -92,13 +92,19 @@ const LandingHero = () => {
           <motion.div
             className="absolute inset-0 -z-5 flex justify-center items-center"
             animate={{
-              scale: isAnimationComplete ? 1.5 : 1,
+              scale: isAnimationComplete ? 2.5 : 1,
               opacity: isAnimationComplete ? 0 : 1,
             }}
             transition={{ 
               duration: 2,
-              ease: [0.4, 0, 0.2, 1], // Custom easing for scale and fade
-              opacity: { duration: 1.8 } // Slightly faster opacity transition
+              ease: [0.32, 0, 0.67, 0],
+              scale: { 
+                duration: 2.5,
+                ease: [0.32, 0, 0.67, 0]
+              },
+              opacity: { 
+                duration: 1.5
+              }
             }}
           >
             <Image
@@ -120,9 +126,15 @@ const LandingHero = () => {
             }}
             transition={{ 
               duration: 2,
-              ease: [0.22, 1, 0.36, 1], // Custom easing for smooth slide up
-              opacity: { duration: 1.5 }, // Fade in slightly faster
-              y: { duration: 2 } // Full duration for vertical movement
+              ease: [0.22, 1, 0.36, 1],
+              y: { 
+                delay: 1.5, // Delay the slide up until Subtract fades
+                duration: 2 
+              },
+              opacity: { 
+                delay: 1.5, // Delay the fade in
+                duration: 1.5 
+              }
             }}
           >
             <Image

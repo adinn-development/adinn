@@ -17,7 +17,11 @@ const page = () => {
      <VideoBanner />
      <CoreValues />
      <ShowCase />
-<Footer />  
+     <div className='mt-50'>
+    
+     <Footer />  
+
+     </div>
     </div>
   )
 }

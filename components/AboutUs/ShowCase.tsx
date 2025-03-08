@@ -46,7 +46,7 @@ const ShowCase = () => {
   //   ];
 
   return (
-    <div className="flex flex-col items-center justify-start p-8 md:p-12 lg:p-16">
+    <div className="flex flex-col items-center justify-start p-8 md:p-12 lg:p-16 mt-50">
       <div className="flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-3 mb-12">
         <div className="text-[40px] sm:text-[60px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">
           Showcase

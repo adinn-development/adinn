@@ -13,7 +13,7 @@ const page = () => {
       <ServiceOffered />
       <Gallery />
       <div className='mt-40 mb-40'>
-      <LandingDreamProject />
+        <LandingDreamProject />
 
       </div>
       <Footer />

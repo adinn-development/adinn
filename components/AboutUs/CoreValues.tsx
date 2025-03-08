@@ -37,7 +37,7 @@ const CoreValues = () => {
     ]
     
     return (
-        <div className="px-4 sm:px-6 md:px-8 py-12">
+        <div className="px-4 sm:px-6 md:px-8 py-12 mt-50">
             <div className="flex flex-col items-center p-2 mb-12">
                 <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 mb-8">
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3">

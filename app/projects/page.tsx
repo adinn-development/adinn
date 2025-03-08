@@ -11,7 +11,6 @@ const page = () => {
       <Contents />
       <Solutions />
       <div className='mt-50 mb-50'>
-
       <LandingDreamProject />
       </div>
       <Footer />    
