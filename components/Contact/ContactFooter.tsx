@@ -31,7 +31,7 @@ const ContactFooter = () => {
   ];
 
   return (
-    <div className="bg-[#0C0C0C] w-full min-h-auto px-4 sm:px-8 md:px-16 py-6 sm:py-10 md:py-12">
+    <div className="bg-[#0C0C0C] w-full min-h-auto px-4 sm:px-8 md:px-16 py-6 sm:py-10 md:py-12 mt-60">
       <div className="flex flex-col md:flex-row justify-between gap-8 mb-7">
         {/* Left Section */}
         <div className="w-full md:w-[48%]">
