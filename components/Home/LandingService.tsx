@@ -144,7 +144,7 @@ const LandingService = () => {
       </div>
 
       {/* Wrap scroll container and progress line together */}
-      <div className="relative w-full">
+      <div className="relative w-full mt-[80px]">
         {/* Scroll Container */}
         <div
           ref={scrollContainerRef}

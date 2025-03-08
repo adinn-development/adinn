@@ -30,7 +30,7 @@ const LandingProjects = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 overflow-hidden">
       <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-4 md:mb-8 gap-4 md:gap-0">
-        <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
+        {/* <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">OUR</div>
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] instrument-font text-[#CF1E00] font-serif italic">
             Projects
@@ -40,10 +40,24 @@ const LandingProjects = () => {
         <div className="text-sm md:text-base lg:text-[17px]">
           Explore the exclusive advantages of partnering with <br className="hidden md:block" /> Adorn for
           all your creative needs.
+        </div> */}
+      {/* </div> */}
+      <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">
+            OUR
+          </div>
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] instrument-font text-[#CF1E00] font-serif italic">
+          Projects
+          </div>
+        </div>
+
+        <div className="text-sm md:text-base lg:text-[27px]">
+        Explore the exclusive advantages of partnering with <br className="hidden md:block" /> Adorn for
+        all your creative needs.
         </div>
       </div>
         
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-x-8 lg:gap-y-12 w-full max-w-[1600px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-x-8 lg:gap-y-12 w-full max-w-[1600px] mt-[80px]">
         {images.map((item, index) => (
           <div key={index} className="flex flex-col gap-3 md:gap-4">
             <div className="bg-white shadow-lg w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[690px] rounded-2xl md:rounded-4xl overflow-hidden">
