@@ -77,7 +77,7 @@ const images = [
 const Solutions = () => {
   return (
     <div>
-      <div className="flex flex-col md:flex-row items-center justify-start px-4 sm:px-6 lg:px-20 gap-4 md:gap-3 py-8 md:py-12 ">
+      <div className="flex flex-col md:flex-row items-center justify-start px-4 sm:px-6 lg:px-20 gap-4 md:gap-3 py-8 md:py-12 mt-[80px] ">
         <div className="text-[40px] sm:text-[60px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold ">
           Outdoor Media
         </div>
@@ -85,7 +85,7 @@ const Solutions = () => {
           Solutions
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-20 mt-[80px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-20 ">
         {images.map((item, index) => (
           <Link
             href={`/projects/${item.id}`}

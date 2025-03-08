@@ -72,7 +72,7 @@ const Form = () => {
       
       {/* Contact Section */}
       <div className="flex flex-col items-center justify-center text-center w-full max-w-[600px] mx-auto">
-        <div className="flex flex-row items-center justify-center">
+        <div className="flex flex-row items-center justify-center ml-10">
           <div className="text-[20px] text-[#6A6B6D]">Contact Us</div>
           <div>
             <Image src={Excellence} alt="Excellence" width={100} height={100} />
@@ -90,7 +90,7 @@ const Form = () => {
       </div>
 
       {/* Form Section */}
-      <div className="max-w-[659px] mx-auto mt-16 p-8 bg-white rounded-2xl shadow-sm">
+      <div className="max-w-[659px] mx-auto mt-16 p-8 bg-white rounded-2xl border border-[#DDDAE0]">
         <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
           {/* Name Fields */}
           <div className="flex flex-col md:flex-row gap-6">

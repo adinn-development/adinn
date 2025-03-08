@@ -29,7 +29,7 @@ const Gallery = () => {
        
     ]
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mt-30">
      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-3 py-8 md:py-12">
         <div className="text-[40px] sm:text-[60px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold text-[#C6C6CB]">
           Projects

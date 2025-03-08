@@ -28,7 +28,7 @@ const LandingProjects = () => {
     ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 overflow-hidden mt-[100PX]">
       <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-4 md:mb-8 gap-4 md:gap-0">
         {/* <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">OUR</div>
