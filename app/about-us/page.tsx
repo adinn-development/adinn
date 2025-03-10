@@ -9,7 +9,7 @@ import VideoBanner from '@/components/AboutUs/VideoBanner'
 
 const page = () => {
   return (
-    <div>
+    <div className='overflow-x-hidden'>
      <Hero />
      <Content />
      <Achievements />

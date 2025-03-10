@@ -10,7 +10,7 @@ import Footer from "@/components/ReUsableComponents/Footer";
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <LandingHero />
       <LandingContent />
       <LandingClients />
