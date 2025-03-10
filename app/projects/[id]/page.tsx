@@ -96,21 +96,18 @@ const ProjectDetailPage = () => {
 
   const contents = [
     {
-      title: "Client",
-      description: "Lorem ipsum dolor sit amet consectetur",
+      title: "Service",
+      description: "3D & Cut - Out",
     },
     {
-      title: "Service",
-      description: "Lorem ipsum dolor sit amet consectetur",
+      title: "Location",
+      description: "Tamil Nadu",
     },
     {
       title: "Year",
       description: "2023",
     },
-    {
-      title: "Location",
-      description: "India",
-    },
+
     
   ];
 
@@ -159,9 +156,9 @@ const overViewContents = [
       style={{ backgroundImage: `url(${IdHero.src})` }}
     >
       <TopNav />
-      <Link href="/projects" className="text-[#CF1E00] flex items-center gap-2 mb-8 px-8">
+      {/* <Link href="/projects" className="text-[#CF1E00] flex items-center gap-2 mb-8 px-8">
         <FiArrowLeft /> Back to all projects
-      </Link>
+      </Link> */}
       
       {/* Main content container */}
       <div className="flex-1 flex flex-col items-center justify-end relative">
@@ -175,7 +172,7 @@ const overViewContents = [
           {project.description.split(' ').map((word, index) => (
             <p 
               key={index} 
-              className={`text-[48px] md:text-[72px] lg:text-[100px] leading-[0.9] ${
+              className={`text-[48px] md:text-[72px] lg:text-[100px] leading-[0.9] uppercase ${
                 index === 1 
                   ? 'bg-gradient-to-t from-transparent to-white bg-clip-text text-transparent font-bold'
                   : 'text-white font-bold'
@@ -188,14 +185,35 @@ const overViewContents = [
       </div>
     </div>
     {/* second section */}
-    <div className="flex flex-col md:flex-row items-center justify-center gap-50 mb-20 mt-20">
+    {/* <div className="flex flex-col md:flex-row items-center justify-center gap-45 mb-20 mt-20">
         {contents.map((content, index) => (
-          <div key={index} className="flex flex-col items-center justify-center gap-3">
+          <div key={index} className="flex flex-col items-center justify-center gap-1">
             <p className="text-[20px] font-bold text-black">{content.title}</p>
             <p className="text-[16px] text-black/50 text-center max-w-[200px]">{content.description}</p>
           </div>
         ))}
-    </div>
+    </div> */}
+    <div className="w-full  mx-auto px-10 mt-20 mb-40">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-[215px] shadow-orange-50">
+                    {contents.map((item, index) => (
+                        <div 
+                            key={index} 
+                            className="flex flex-col items-center text-center justify-center p-8 border-[#E7E5E5] rounded-2xl border
+                                     transition-all duration-300 ease-in-out
+                                     hover:border-[#EC2B45] hover:shadow-lg hover:shadow-[#EC2B45]/20
+                                     hover:-translate-y-1 hover:scale-105
+                                     cursor-pointer"
+                        >
+                            <h3 className="text-[#444349] text-[20px] mb-2 transition-colors duration-300 group-hover:text-[#EC2B45]">
+                                {item.title}
+                            </h3>
+                            <p className="text-[#EC2B45] text-[54px] md:text-4xl font-bold">
+                                {item.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
     <div className="flex flex-row items-center justify-center gap-10 p-8">
       {/* Image Section */}
       <div className="flex  pl-15">
@@ -226,6 +244,7 @@ const overViewContents = [
           ))}
         </div>
       </div>
+      
     </div>
 
 <Gallery />

@@ -6,14 +6,28 @@ export { default as BackgroundImage } from '@/public/image.svg';
 
 // Client Circle Logos
 export { default as AmulLogo } from '@/public/client/AmulLogo.svg';
-export { default as HavLogo } from '@/public/client/HavLogo.svg';
+export { default as HavLogo } from '@/public/client/Havells.png';
 export { default as KFCLogo } from '@/public/client/KFCLogo.svg';
 export { default as tvsLogo } from '@/public/client/tvsLogo.svg';
 export { default as DBSLogo } from '@/public/client/DBSLogo.svg';
 export { default as ZomatoLogo } from '@/public/client/ZomatoLogo.svg';
-export { default as HavName } from '@/public/client/HavelsName.svg';
+export { default as AmulLogo2 } from '@/public/client/AmulLogo2.png';
+export { default as HaierLogo2} from '@/public/client/Haier.png';
+export { default as DaikinLogo } from '@/public/client/DaikinLogo.png';
+export { default as DalmiaLogo } from '@/public/client/dalmia.png';
+export { default as HondaLogo } from '@/public/client/Honda.png';
+export { default as BhimaLogo } from '@/public/client/bhima.png';
+export { default as JSWLogo } from '@/public/client/jsw.png';
+export { default as KalyanLogo } from '@/public/client/Kalyan.png';
+export { default as LLyodLogo } from '@/public/client/LLyod.png';
+export {default as MalabarLogo2} from '@/public/client/malabar.png';
+export { default as MuthhootLogo } from '@/public/client/Muthhoot.png';
+export { default as NipponLogo } from '@/public/client/nippon.png';
+export { default as TataIplLogo } from '@/public/client/TataIpl.png';
+
 
 //services photos
+
 export { default as Service1 } from '@/public/service/service1.svg';
 export { default as Service2 } from '@/public/service/service2.svg';
 export { default as Service3 } from '@/public/service/service3.svg';

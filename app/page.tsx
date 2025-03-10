@@ -17,7 +17,9 @@ export default function Home() {
       <LandingService />
       <LandingMobile />
       <LandingProjects />
-      <LandingDreamProject />
+      <div className="mt-50 mb-50">
+        <LandingDreamProject />
+      </div>
       <LandingQueries />
       <Footer />
 

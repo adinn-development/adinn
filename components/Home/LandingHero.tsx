@@ -110,8 +110,11 @@ const LandingHero = () => {
             <Image
               src={Subtract}
               alt="Subtract Shape"
-              layout="fill"
+              fill
               objectFit="cover"
+              style={{ 
+                objectFit: "cover", 
+              }}
               quality={100}
               priority
             />
@@ -128,24 +131,27 @@ const LandingHero = () => {
               duration: 2,
               ease: [0.22, 1, 0.36, 1],
               y: { 
-                delay: 1.5, // Delay the slide up until Subtract fades
+                delay: 1.5, 
                 duration: 2 
               },
               opacity: { 
-                delay: 1.5, // Delay the fade in
+                delay: 1.5, 
                 duration: 1.5 
               }
             }}
           >
-            <Image
-              src={HomeFrame}
-              alt="New Sliding Image"
-              layout="fill"
-              objectFit="contain"
-              objectPosition="center bottom"
-              quality={100}
-              priority
-            />
+           <Image
+  src={HomeFrame}
+  alt="New Sliding Image"
+  fill
+  priority
+  quality={100}
+  style={{ 
+    objectFit: "contain", 
+    objectPosition: "center bottom" 
+  }}
+/>
+
           </motion.div>
         </motion.div>
       </div>
