@@ -59,16 +59,17 @@ const Hero = () => {
           Lorem ipsum dolor sit amet consectetur.
         </p>
       </div> */}
-                  <div className="absolute inset-0 flex items-center justify-center -mt-10">
-        <div className="flex flex-col items-center text-center">
-          <div className="text-white">
-            <h1 className="text-[54px] font-bold leading-tight instrument-font">
-              Projects
-            </h1>
-            <p className="text-[54px] text-white">
-            Lorem ipsum dolor
-            </p>
-          </div>
+                 <div className="absolute inset-0 flex items-center justify-center -mt-10">
+  <div className="flex flex-col items-center text-center max-w-[600px] px-4">
+    <div className="text-white">
+      <h1 className="text-[54px] font-bold leading-tight instrument-font">
+        About Us
+      </h1>
+      <p className="text-[34px] min-w-min text-white">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Sed do 
+      </p>
+    </div>
 {/* 
           <div className="mt-6 flex space-x-4">
             <Link href="/projects">
