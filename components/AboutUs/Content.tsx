@@ -29,7 +29,7 @@ const Content = () => {
 
     <motion.div
       ref={ref}
-      className="flex flex-col items-center justify-center  text-black text-center px-6 h-screen"
+      className="flex flex-col items-center justify-center  text-black text-center px-6 mt-50 mb-50 "
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={{
