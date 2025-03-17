@@ -77,11 +77,11 @@ const images = [
 const Solutions = () => {
   return (
     <div>
-      <div className="flex flex-col md:flex-row items-center justify-start px-4 sm:px-6 lg:px-20 gap-4 md:gap-3 py-8 md:py-12 mt-[80px] ">
-        <div className="text-[40px] sm:text-[60px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold ">
+      <div className="flex flex-row w-full md:flex-row items-center md:justify-start justify-center sm:px-6 lg:px-20 gap-2 md:gap-3 py-8 md:py-12 mt-[80px] ">
+        <div className="text-[24px] sm:text-[54px] md:text-[54px] tracking-[-2px] md:tracking-[-4px] font-bold whitespace-nowrap ">
           Outdoor Media
         </div>
-        <div className="text-[40px] sm:text-[60px] md:text-[96px] ml-2 instrument-font text-[#CF1E00] font-serif italic">
+        <div className="text-[24px] sm:text-[54px] md:text-[54px] md:ml-2 instrument-font text-[#CF1E00] font-serif italic">
           Solutions
         </div>
       </div>

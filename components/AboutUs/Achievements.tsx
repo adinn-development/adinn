@@ -18,7 +18,7 @@ const Achievements = () => {
     
     return (
         <div className='flex flex-col justify-start p-8'>
-           <div className="text-[24px] sm:text-[40px] md:text-[40px] p-2 md:p-1 leading-[40px] md:leading-[105px] text-center md:text-left lg:text-left md:whitespace-normal  font-normal mb-10 md:mb-16">
+           <div className="text-[24px] sm:text-[40px] md:text-[40px] p-2 md:p-1 leading-[40px] md:leading-[105px] text-center md:text-left lg:text-left md:whitespace-normal  font-normal mb-5 md:mb-16">
     Highlights of {' '}
     <span className="text-[#CF1E00] font-serif instrument-font italic">Achievements</span>
 </div>

@@ -47,28 +47,36 @@ const LandingDreamProject = () => {
     animateToRandomPosition();
 
     // Make IconX draggable with flick effect
-    Draggable.create(icon, {
-      type: "x,y",            // Allow dragging on both axes
-      inertia: true,          // Add momentum
-      bounds: container,      // Stay within container
-      edgeResistance: 1,   // Resistance at edges
-      throwProps: true,       // Enable throwing/flicking
-      onDragStart: function() {
-        gsap.to(this.target, { 
-          duration: 0.3, 
-          scale: 1.05, 
-          opacity: 0.8,
-          rotate: "-10deg" 
-        });
-      },
-      onDragEnd: function() {
-        gsap.to(this.target, { 
-          duration: 0.5, 
-          scale: 1, 
-          opacity: 1,
-          rotate: "-15deg"
-        });
-      }
+    // Draggable.create(icon, {
+    //   type: "x,y",            // Allow dragging on both axes
+    //   inertia: true,          // Add momentum
+    //   bounds: container,      // Stay within container
+    //   edgeResistance: 1,   // Resistance at edges
+    //   throwProps: true,       // Enable throwing/flicking
+    //   onDragStart: function() {
+    //     gsap.to(this.target, { 
+    //       duration: 0.3, 
+    //       scale: 1.05, 
+    //       opacity: 0.8,
+    //       rotate: "-10deg" 
+    //     });
+    //   },
+    //   onDragEnd: function() {
+    //     gsap.to(this.target, { 
+    //       duration: 0.5, 
+    //       scale: 1, 
+    //       opacity: 1,
+    //       rotate: "-15deg"
+    //     });
+    //   }
+    // });
+
+
+    gsap.to(".icon-x", { 
+      duration: 8,
+      rotation: 360,
+      repeat: -1,
+      ease: "none" 
     });
 
     return () => {
@@ -83,11 +91,12 @@ const LandingDreamProject = () => {
   }, []);
 
   return (
-    <div>
-      <div className="flex flex-col mt-10 p-5">
+<div className="flex w-full">
+
+      <div className="flex flex-col w-full max-w-full justify-center p-5 md:h-auto sm:h-auto h-[350px]">
         <div
           ref={containerRef}
-          className="rounded-[25px] w-full h-[462px] container relative overflow-hidden"
+          className="rounded-[25px] w-full h-[462px]  relative overflow-hidden"
           style={{
             background:
               "linear-gradient(155deg, #EC2B45 0%, #BE3234 60%, #790619 100%)",
@@ -96,12 +105,12 @@ const LandingDreamProject = () => {
           {/* Flickable IconX */}
           <div 
             ref={iconRef}
-            className="absolute left-[2.5%] top-[30%] sm:top-[30%] md:top-[30%] lg:top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-15deg] cursor-move"
+            className="absolute left-[2.5%] top-[30%] sm:top-[30%] md:top-[30%] lg:top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-15deg] "
           >
             <Image
               src={Innovation}
               alt="icon-x"
-              className="w-[216.99px] h-[232.07px] md:w-[419px] md:h-[473px] sm:w-[419px] sm:h-[473px] lg:w-[419px] lg:h-[473px] xl:w-[419px] xl:h-[473px]"
+              className="icon-x w-[216.99px] h-[232.07px] md:w-[419px] md:h-[473px] sm:w-[419px] sm:h-[473px] lg:w-[419px] lg:h-[473px] xl:w-[419px] xl:h-[473px]"
               priority
             />
           </div>
@@ -117,7 +126,7 @@ const LandingDreamProject = () => {
           </div>
 
           {/* Text Content */}
-          <div className="absolute top-10 left-10 md:top-20 md:left-[30%] lg:left-[35%]">
+          <div className="absolute top-[25%] left-25  md:top-[30%] md:left-50  sm:top-[30%] sm:left-50">
             <h2 className="text-[24px] md:text-[40px] lg:text-[80px] text-white leading-none">
               Let's Build Your
             </h2>
@@ -143,7 +152,7 @@ const LandingDreamProject = () => {
           </div>
         </div>
       </div>
-    </div>
+</div>
   );
 };
 

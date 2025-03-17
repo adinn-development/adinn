@@ -71,26 +71,27 @@ const Form = () => {
       <ToastContainer position="top-right" autoClose={3000} />
       
       {/* Contact Section */}
-      <div className="flex flex-col items-center justify-center text-center w-full max-w-[600px] mx-auto">
+      <div className="flex flex-col items-center justify-center text-center w-full max-w-[600px] mx-auto mt-2 md:mt-10">
         <div className="flex flex-row items-center justify-center ml-10">
-          <div className="text-[20px] text-[#6A6B6D]">Contact Us</div>
+          <div className="text-14px md:text-[20px] text-[#6A6B6D]">Contact Us</div>
           <div>
-            <Image src={Excellence} alt="Excellence" width={100} height={100} />
+            <Image src={Excellence} alt="Excellence" width={100} height={100}   className="w-[50px] h-[50px] sm:w-[75px] sm:h-[75px] md:w-[100px] md:h-[100px]" />
           </div>
         </div>
 
-        <div className="text-[60px] text-[#000000] font-bold leading-tight -mt-5 mb-5">
+        <div className="text-20px md:text-[60px] text-[#000000] font-bold leading-tight md:-mt-5 mb-5">
           IT&apos;s nice to
           <span className="text-[#CF1E00] italic instrument-font font-serif"> meet ya</span>
         </div>
 
         <div>
-          <Image src={HandImage} alt="HandImage" width={219} height={87} />
+          <Image src={HandImage} alt="HandImage" width={219} height={87} className="md:w-[200px] w-[100px]"/>
         </div>
       </div>
 
       {/* Form Section */}
-      <div className="max-w-[659px] mx-auto mt-16 p-8 bg-white rounded-2xl border border-[#DDDAE0]">
+      <div className="p-10">
+      <div className="max-w-[659px] mx-auto mt-16  p-8 bg-white rounded-2xl border border-[#DDDAE0]">
         <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
           {/* Name Fields */}
           <div className="flex flex-col md:flex-row gap-6">
@@ -173,6 +174,8 @@ const Form = () => {
           </div>
         </form>
       </div>
+        </div>
+     
     </div>
   );
 };

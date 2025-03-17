@@ -29,7 +29,7 @@ const Content = () => {
 
     <motion.div
       ref={ref}
-      className="flex flex-col items-center justify-center  text-black text-center px-6 mt-50 mb-50 "
+      className="flex flex-col items-center justify-center  text-black text-center px-6 md:mt-50 sm:mt-50 mt-15 mb-10  "
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={{
@@ -42,20 +42,20 @@ const Content = () => {
       }}
     >
 
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: 0.6,
           ease: "easeOut"
         }}
-        className='text-[20px] text-[#616065]  mb-10'
+        className='md:text-[20px] sm:text-[20px] text-[16px] text-[#616065] md:mb-10 sm:mb-10 mb-3'
       >
-        Who we are
-      </motion.div>
+        Who we are 
+      </motion.div> 
 
       <motion.p
-        className="w-full text-[50px] leading-[60.4px] mb-10"
+        className="w-full text-[12px] md:text-[48px] sm:text-[48px] md:leading-[60.4px] sm:mb-10 md:mb-10 mb-1"
         variants={containerVariants}
       >
 
@@ -67,19 +67,21 @@ const Content = () => {
           <span className="text-[#C1C1C1]"> headquatered in</span>
         </motion.span>
         <motion.span variants={textVariants}>
-          <br /> Madurai and branch {' '}
+          <br className="hidden sm:block md:block" />
+          {' '}Madurai and branch {' '}
         </motion.span>
         <motion.span className="text-[#C1C1C1]" variants={textVariants}>
-          office in Chennai, catering to
+          office in Chennai, catering to{' '}
         </motion.span>
         <motion.span variants={textVariants}>
-          <br /> entire South India
+          <br className="hidden sm:block md:block" />
+          {' '} entire South India
         </motion.span>
 
       </motion.p>
 
 
-    </motion.div>
+      </motion.div>
   )
 }
 

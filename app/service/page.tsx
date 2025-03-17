@@ -12,7 +12,7 @@ const page = () => {
       <Content />
       <ServiceOffered />
       <Gallery />
-      <div className='mt-40 mb-40'>
+      <div className='md:mt-40 md:mb-40'>
         <LandingDreamProject />
 
       </div>

@@ -10,7 +10,7 @@ const page = () => {
       <Hero />
       <Contents />
       <Solutions />
-      <div className='mt-50 mb-50'>
+      <div className='md:mt-50 md:mb-50 mt-10 mb-20'>
       <LandingDreamProject />
       </div>
       <Footer />    

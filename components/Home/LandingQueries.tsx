@@ -43,7 +43,7 @@ const LandingQueries = () => {
   
     return (
       <div className="py-20 flex flex-col items-center">
-        <div className="text-[40px] leading-[105px] md:text-[90px] text-[#28334D] md:whitespace-normal whitespace-nowrap font-normal text-center mb-5">
+        <div className="text-[40px] md:leading-[105px] md:text-[90px] text-[#28334D] md:whitespace-normal whitespace-nowrap font-normal text-center mb-5">
           Clearing Up Common  <br className=''/> <span className="instrument-font text-[#CF1E00] font-serif italic">Queries</span>
         </div>
         <div className="text-[17px] text-center text-[#8693B1] mb-16">
