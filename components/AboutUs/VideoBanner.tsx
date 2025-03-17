@@ -39,19 +39,20 @@ const VideoBanner = () => {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className='flex flex-col items-center justify-center min-h-screen text-black text-center px-6'
+      className='flex flex-col items-center justify-center mt-30 md:min-h-screen sm:min-h-screen text-black text-center sm:px-6 md:px-6'
     >
       <motion.div
         variants={textVariants}
-        className='text-[44px] md:text-[90px] md:whitespace-normal whitespace-nowrap font-normal text-start mb-16'
+        className='text-[16px] md:text-[44px] md:whitespace-normal whitespace-nowrap font-medium text-start mb:10 sm:mb-16 md:mb-16'
       >
         Team Expertise
       </motion.div>
 
       <motion.div variants={imageVariants}>
-        <Image src={TeamExpertise} alt='video' />
+        <Image src={TeamExpertise} alt='video' className='w-full h-[210.83px] sm:h-full md:h-full' />
       </motion.div>
     </motion.div>
+
   );
 }
 

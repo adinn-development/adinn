@@ -40,7 +40,7 @@ const Content = () => {
             key={index}
             className="bg-[#F6F5F5] px-3 py-15 w-full  rounded-lg hover:shadow-md transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
           >
-            <p className="text-[17px] w-full font-medium leading-relaxed">
+            <p className="text-[14px] md:text-[20px] w-full font-medium leading-relaxed">
               {item.description}
             </p>
           </div>

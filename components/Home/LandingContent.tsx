@@ -53,7 +53,7 @@ const LandingContent = React.memo(() => {
   return (
     <motion.div
       ref={ref}
-      className="flex flex-col items-center justify-center min-h-screen text-black text-center px-6"
+      className="flex flex-col items-center justify-center min-h-screen text-black text-center px-6 "
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={mainContainerVariants}

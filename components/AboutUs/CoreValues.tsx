@@ -37,23 +37,23 @@ const CoreValues = () => {
     ]
     
     return (
-        <div className="px-4 sm:px-6 md:px-8 py-12 mt-50">
-            <div className="flex flex-col items-center p-2 mb-12">
-                <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 mb-8">
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3">
-                        <div className="text-[40px] sm:text-[60px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">
-                            Our Core
-                        </div>
-                        <div className="text-[40px] sm:text-[60px] md:text-[96px] instrument-font text-[#CF1E00] font-serif italic">
-                            Values
-                        </div>
-                    </div>
-
-                    <div className="text-[14px] sm:text-[15px] md:text-[17px] max-w-[400px]">
-                        Explore the exclusive advantages of partnering <br />
-                        with Adorn for all your creative needs.
-                    </div>
-                </div>
+        <div className="px-4 sm:px-6 md:px-8 py-12 mt-30 md:mt-50">
+            <div className="flex flex-col items-center p-2 mg-5 md:mb-12">
+            <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 mb-8">
+  {/* This container needs centering in sm/md */}
+  <div className="flex flex-row text-center justify-center sm:justify-center md:text-left lg:text-left gap-2 md:gap-3 whitespace-nowrap">
+    <div className="text-[24px] sm:text-[96px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold whitespace-nowrap">
+      Our Core
+    </div>
+    <div className="text-[24px] sm:text-[96px] md:text-[96px] instrument-font text-[#CF1E00] font-serif italic">
+      Values
+    </div>
+  </div>
+  <div className="hidden sm:block md:block lg:block text-[14px] sm:text-[15px] md:text-[17px] max-w-[400px]">
+    Explore the exclusive advantages of partnering <br />
+    with Adorn for all your creative needs.
+  </div>
+</div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

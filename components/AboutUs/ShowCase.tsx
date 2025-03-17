@@ -46,17 +46,17 @@ const ShowCase = () => {
   //   ];
 
   return (
-    <div className="flex flex-col items-center justify-start p-8 md:p-12 lg:p-16 mt-50">
-      <div className="flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-3 mb-12">
-        <div className="text-[40px] sm:text-[60px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">
+    <div className="flex flex-col items-center justify-start p-8 md:p-12 lg:p-16 mt-30 md:mt-50">
+      <div className="flex flex-row items-center justify-center gap-2 md:gap-3 mb-5 md:mb-12 w-full whitespace-nowrap">
+        <div className="text-[24px] sm:text-[72px] md:text-[72px] tracking-[-2px] md:tracking-[-4px] font-bold">
           Showcase
         </div>
-        <div className="text-[40px] sm:text-[60px] md:text-[96px] instrument-font text-[#CF1E00] font-serif italic">
+        <div className="text-[24px] sm:text-[72px] md:text-[72px] instrument-font text-[#CF1E00] font-serif italic">
           Our Work
         </div>
       </div>
 
-      <div className="grid grid-cols-6 gap-4 md:gap-6 mb-12 w-full max-w-[1440px] mx-auto">
+      <div className="grid grid-cols-6 gap-2 md:gap-6 mb-12 w-full max-w-[1440px] mx-auto">
         <div className="col-span-1 row-span-2">
           <Image 
             src={Image1} 

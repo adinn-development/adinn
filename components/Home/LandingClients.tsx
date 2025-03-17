@@ -24,23 +24,25 @@ const LandingClients = () => {
   const [logoStyles, setLogoStyles] = useState<{ [key: string]: React.CSSProperties }>({});
   const logoRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   const logoList = [
-    { id: 1, name: "Amul", image: AmulLogo, size: { width: 150, height: 40 }, position: { x: "-200px", y: "400px" } },
-    { id: 2, name: "Havells", image: HavLogo, size: { width: 150, height: 145 }, position: { x: "350px", y: "100px" } },
-    { id: 3, name: "KFC", image: KFCLogo, size: { width: 150, height: 85 }, position: { x: "500px", y: "-70px" } },
-    { id: 4, name: "TVS", image: tvsLogo, size: { width: 220, height: 82 }, position: { x: "245px", y: "-200px" } },
-    { id: 5, name: "DBS", image: DBSLogo, size: { width: 120, height: 34 }, position: { x: "-400px", y: "-260px" } },
-    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: 150, height: 35 }, position: { x: "4px", y: "195px" } },
-    { id: 7, name: "Daikin", image: DaikinLogo, size: { width: 150, height: 40 }, position: { x: "-525px", y: "45px" } },
-    { id: 8, name: "Dalmia", image: DalmiaLogo, size: { width: 150, height: 40 }, position: { x: "250px", y: "440px" } },
-    { id: 9, name: "Honda", image: HondaLogo, size: { width: 150, height: 40 }, position: { x: "-270px", y: "-70px" } },
-    { id: 10, name: "JSW", image: JSWLogo, size: { width: 150, height: 40 }, position: { x: "370px", y: "-350px" } },
-    { id: 11, name: "Kalyan", image: KalyanLogo, size: { width: 150, height: 40 }, position: { x: "-325px", y: "150px" } },
-    { id: 12, name: "LLyod", image: LLyodLogo, size: { width: 150, height: 40 }, position: { x: "-400px", y: "-480px" } },
-    { id: 13, name: "Malabar", image: MalabarLogo2, size: { width: 150, height: 40 }, position: { x: "500px", y: "280px" } },
-    { id: 14, name: "Muthhoot", image: MuthhootLogo, size: { width: 150, height: 40 }, position: { x: "600px", y: "-200px" } },
-    { id: 15, name: "Nippon", image: NipponLogo, size: { width: 150, height: 40 }, position: { x: "-100px", y: "-300px" } },
-    { id: 16, name: "TataIpl", image: TataIplLogo, size: { width: 150, height: 40 }, position: { x: "0px", y: "-440px" } },
+    { id: 1, name: "Amul", image: AmulLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "-100px" : "-200px", y: isMobile ? "200px" : "400px" } },
+    { id: 2, name: "Havells", image: HavLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 80 : 145 }, position: { x: isMobile ? "175px" : "350px", y: isMobile ? "50px" : "100px" } },
+    { id: 3, name: "KFC", image: KFCLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 40 : 85 }, position: { x: isMobile ? "250px" : "500px", y: isMobile ? "-35px" : "-70px" } },
+    { id: 4, name: "TVS", image: tvsLogo, size: { width: isMobile ? 110 : 220, height: isMobile ? 40 : 82 }, position: { x: isMobile ? "120px" : "245px", y: isMobile ? "-100px" : "-200px" } },
+    { id: 5, name: "DBS", image: DBSLogo, size: { width: isMobile ? 60 : 120, height: isMobile ? 17 : 34 }, position: { x: isMobile ? "-200px" : "-400px", y: isMobile ? "-130px" : "-260px" } },
+    { id: 6, name: "Zomato", image: ZomatoLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 35 }, position: { x: isMobile ? "2px" : "4px", y: isMobile ? "100px" : "195px" } },
+    { id: 7, name: "Daikin", image: DaikinLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "-260px" : "-525px", y: isMobile ? "25px" : "45px" } },
+    { id: 8, name: "Dalmia", image: DalmiaLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "125px" : "250px", y: isMobile ? "220px" : "440px" } },
+    { id: 9, name: "Honda", image: HondaLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "-135px" : "-270px", y: isMobile ? "-35px" : "-70px" } },
+    { id: 10, name: "JSW", image: JSWLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "185px" : "370px", y: isMobile ? "-175px" : "-350px" } },
+    { id: 11, name: "Kalyan", image: KalyanLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "-160px" : "-325px", y: isMobile ? "75px" : "150px" } },
+    { id: 12, name: "LLyod", image: LLyodLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "-200px" : "-400px", y: isMobile ? "-240px" : "-480px" } },
+    { id: 13, name: "Malabar", image: MalabarLogo2, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "250px" : "500px", y: isMobile ? "140px" : "280px" } },
+    { id: 14, name: "Muthhoot", image: MuthhootLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "300px" : "600px", y: isMobile ? "-100px" : "-200px" } },
+    { id: 15, name: "Nippon", image: NipponLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "-50px" : "-100px", y: isMobile ? "-150px" : "-300px" } },
+    { id: 16, name: "TataIpl", image: TataIplLogo, size: { width: isMobile ? 80 : 150, height: isMobile ? 20 : 40 }, position: { x: isMobile ? "0px" : "0px", y: isMobile ? "-220px" : "-440px" } },
   ];
 
   useEffect(() => {

@@ -30,7 +30,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#0C0C0C] w-full min-h-auto px-4 sm:px-8 md:px-16 py-6 sm:py-10 md:py-12">
+    <div className="bg-[#0C0C0C] w-full min-h-auto  p-8 md:p-12">
       <div className="flex flex-col md:flex-row items-center md:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
         {/* Left Section */}
         <div className="flex flex-col items-center md:items-start gap-6 sm:gap-7 md:gap-8 w-full md:w-1/2">
@@ -60,7 +60,9 @@ const Footer = () => {
         </div>
 
         {/* Right Section - Form */}
-        <div className="bg-[#121212] rounded-[20px] sm:rounded-[28px] p-4 sm:p-6 md:p-7.5 w-full md:w-1/2 flex flex-col gap-6 sm:gap-6 md:gap-7">
+        {/* <div className="bg-white flex flex-col items-center justify-center"> */}
+
+        <div className="bg-[#121212] rounded-[20px] sm:rounded-[28px] p-5 sm:p-7.5 md:p-7.5 w-full md:w-1/2  flex flex-col gap-6 sm:gap-6 md:gap-7">
           <div className="flex flex-col space-y-3 sm:space-y-4">
             <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
               NAME
@@ -74,9 +76,9 @@ const Footer = () => {
             <input className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white" />
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start justify-between gap-6 sm:gap-6 md:gap-8">
+          <div className="flex flex-row items-start justify-between gap-6 sm:gap-6 md:gap-8">
             <div className="flex flex-col space-y-3 sm:space-y-4 w-full">
-              <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
+              <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px] sm:flex sm:flex-col md:flex md:flex-col">
                 CONTACT NUMBER
               </label>
               <input className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white" />
@@ -100,21 +102,21 @@ const Footer = () => {
             />
           </div>
 
-          <button className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer 
-  hover:bg-[#EC2B45] hover:bg-none">
-  SUBMIT
-</button>
-
-
+          <button
+            className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3  text-[7.5px]  md:text-[12px]  rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer 
+  hover:bg-[#EC2B45] hover:bg-none"
+          >
+            SUBMIT
+          </button>
         </div>
       </div>
 
       <div className="flex flex-col gap-4">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-4">
           {FooterLogos.map((logo, index) => (
             <div
               key={index}
-              className="w-full h-[50px] sm:h-[70px] md:h-[80px] bg-[#121212] rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+              className="w-full h-[50px] sm:h-[70px] md:h-[80px] bg-[#121212] rounded-[12.9px] md:rounded-[28px] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
             >
               <Image
                 src={logo.src}
@@ -126,12 +128,12 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-6 sm:mt-10 md:mt-12">
+      <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-8 sm:mt-10 md:mt-12">
         © designed & developed by TIC GLOBAL.
       </div>
     </div>
+    // </div>
   );
 };
 
 export default Footer;
-

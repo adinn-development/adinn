@@ -1,46 +1,132 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Innovation } from "@/components/ReUsableComponents/Icons/Icons";
+import { gsap } from "gsap";
+import { Draggable } from "gsap/Draggable"; // Import Draggable
+
+// Register plugin (only on client side)
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(Draggable);
+}
 
 const LandingDreamProject = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const blurImageRef = useRef<HTMLDivElement | null>(null);
+  const iconRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const blurImage = blurImageRef.current;
+    const icon = iconRef.current;
+
+    if (!container || !blurImage || !icon) return;
+
+    // Random roaming animation for blur image
+    const animateToRandomPosition = () => {
+      const containerRect = container.getBoundingClientRect();
+      const imageRect = blurImage.getBoundingClientRect();
+      
+      const maxX = containerRect.width - imageRect.width;
+      const maxY = containerRect.height - imageRect.height;
+      
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+      
+      gsap.to(blurImage, {
+        x: randomX,
+        y: randomY,
+        duration: 8,
+        ease: "power1.inOut",
+        onComplete: animateToRandomPosition, // Keep moving
+      });
+    };
+
+    // Set initial position for blur image
+    gsap.set(blurImage, { position: "absolute" });
+    animateToRandomPosition();
+
+    // Make IconX draggable with flick effect
+    Draggable.create(icon, {
+      type: "x,y",            // Allow dragging on both axes
+      inertia: true,          // Add momentum
+      bounds: container,      // Stay within container
+      edgeResistance: 1,   // Resistance at edges
+      throwProps: true,       // Enable throwing/flicking
+      onDragStart: function() {
+        gsap.to(this.target, { 
+          duration: 0.3, 
+          scale: 1.05, 
+          opacity: 0.8,
+          rotate: "-10deg" 
+        });
+      },
+      onDragEnd: function() {
+        gsap.to(this.target, { 
+          duration: 0.5, 
+          scale: 1, 
+          opacity: 1,
+          rotate: "-15deg"
+        });
+      }
+    });
+
+    return () => {
+      // Clean up animations
+      gsap.killTweensOf(blurImage);
+      
+      // Clean up draggable
+      if (Draggable.get(icon)) {
+        Draggable.get(icon).kill();
+      }
+    };
+  }, []);
+
   return (
     <div>
       <div className="flex flex-col mt-10 p-5">
         <div
-          className="rounded-[25px] w-full h-[462px]  relative overflow-hidden"
+          ref={containerRef}
+          className="rounded-[25px] w-full h-[462px] container relative overflow-hidden"
           style={{
             background:
               "linear-gradient(155deg, #EC2B45 0%, #BE3234 60%, #790619 100%)",
           }}
         >
-          <div className="absolute left-[2.5%] top-[30%] sm:top-[30%] md:top-[30%] lg:top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-15deg]">
+          {/* Flickable IconX */}
+          <div 
+            ref={iconRef}
+            className="absolute left-[2.5%] top-[30%] sm:top-[30%] md:top-[30%] lg:top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-15deg] cursor-move"
+          >
             <Image
               src={Innovation}
-              alt="Dream Project"
+              alt="icon-x"
               className="w-[216.99px] h-[232.07px] md:w-[419px] md:h-[473px] sm:w-[419px] sm:h-[473px] lg:w-[419px] lg:h-[473px] xl:w-[419px] xl:h-[473px]"
               priority
             />
           </div>
 
-          <div className="absolute top-10 right-10 md:top-18 md:right-35">
-  <Image
-    src={Innovation}
-    alt="Dream Project"
-    className="w-[116.99px] h-[132.07px] sm:w-[91px] sm:h-[103px] md:w-[116.99px] md:h-[132.07px] lg:w-[116.99px] lg:h-[132.07px] xl:w-[116.99px] xl:h-[132.07px] blur-[2px]"
-    priority
-  />
-</div>
+          {/* Randomly moving blur image */}
+          <div ref={blurImageRef} className="absolute">
+            <Image
+              src={Innovation}
+              alt="blur-small-image"
+              className="w-[116.99px] h-[132.07px] sm:w-[91px] sm:h-[103px] md:w-[116.99px] md:h-[132.07px] lg:w-[116.99px] lg:h-[132.07px] xl:w-[116.99px] xl:h-[132.07px] blur-[2px]"
+              priority
+            />
+          </div>
 
-
-          <div className="flex flex-col mt-30 sm:mt-35  md:mt-35 lg:mt-35 pl-25 sm:pl-30  md:pl-50   -space-y-0">
-            <h2 className="text-[24px] md:text-[24px] lg:text-[80px] text-white leading-none">
+          {/* Text Content */}
+          <div className="absolute top-10 left-10 md:top-20 md:left-[30%] lg:left-[35%]">
+            <h2 className="text-[24px] md:text-[40px] lg:text-[80px] text-white leading-none">
               Let's Build Your
             </h2>
-            <h2 className="text-[24px] md:text-[24px] lg:text-[80px] instrument-font text-white font-serif italic leading-none">
+            <h2 className="text-[24px] md:text-[40px] lg:text-[80px] instrument-font text-white font-serif italic leading-none">
               Dream Project
             </h2>
           </div>
 
+          {/* Call to Action */}
           <div className="absolute bottom-8 right-8 text-white">
             <p className="text-[12px] md:text-[17px] sm:text-[17px] opacity-80 text-right">
               Our team is here to help you succeed.
@@ -49,7 +135,6 @@ const LandingDreamProject = () => {
               <br />
               your brand to new heights.
             </p>
-
             <div className="flex justify-end mt-4">
               <button className="bg-white px-10 py-3 text-[12px] md:text-[16px] text-black rounded-full hover:bg-gray-200 transition-all cursor-pointer hover:scale-105">
                 Book a call

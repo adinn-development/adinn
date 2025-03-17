@@ -25,7 +25,7 @@ const LandingHero = () => {
       animationTimeout.current = setTimeout(() => {
         setIsAnimationInProgress(false);
         setIsScrollLocked(false);
-      }, 2000); // Increased from 1500 to 2000 for smoother transition
+      }, 2000); 
     };
 
     const resetAnimation = () => {
@@ -43,7 +43,7 @@ const LandingHero = () => {
         e.preventDefault();
         if (!isAnimationInProgress && !isAnimationComplete) startAnimation();
       } else if (scrollTop < lastScrollTop && scrollTop === 0) {
-        resetAnimation(); // Reset if user scrolls back to top
+        resetAnimation(); 
       }
 
       lastScrollTop = scrollTop;
@@ -60,15 +60,15 @@ const LandingHero = () => {
     <>
       {/* Hero Section */}
       <div
-        className="landing-hero-container relative w-full h-screen overflow-hidden"
+        className="landing-hero-container relative w-full h-screen mb-40  md:mb-0 overflow-hidden"
         ref={heroSectionRef}
       >
         <motion.div
           className="sticky top-0 w-full h-screen"
           animate={{ y: hasLeftHeroSection ? "-100%" : "0%" }}
-          transition={{ 
-            duration: 2, 
-            ease: [0.45, 0, 0.55, 1] // Custom easing for smoother motion
+          transition={{
+            duration: 2,
+            ease: [0.45, 0, 0.55, 1],
           }}
         >
           {/* Top Navigation */}
@@ -95,16 +95,16 @@ const LandingHero = () => {
               scale: isAnimationComplete ? 2.5 : 1,
               opacity: isAnimationComplete ? 0 : 1,
             }}
-            transition={{ 
+            transition={{
               duration: 2,
               ease: [0.32, 0, 0.67, 0],
-              scale: { 
+              scale: {
                 duration: 2.5,
-                ease: [0.32, 0, 0.67, 0]
+                ease: [0.32, 0, 0.67, 0],
               },
-              opacity: { 
-                duration: 1.5
-              }
+              opacity: {
+                duration: 1.5,
+              },
             }}
           >
             <Image
@@ -112,8 +112,8 @@ const LandingHero = () => {
               alt="Subtract Shape"
               fill
               objectFit="cover"
-              style={{ 
-                objectFit: "cover", 
+              style={{
+                objectFit: "cover",
               }}
               quality={100}
               priority
@@ -127,31 +127,30 @@ const LandingHero = () => {
               y: isAnimationComplete ? "0%" : "100%",
               opacity: isAnimationComplete ? 1 : 0,
             }}
-            transition={{ 
+            transition={{
               duration: 2,
               ease: [0.22, 1, 0.36, 1],
-              y: { 
-                delay: 1.5, 
-                duration: 2 
+              y: {
+                delay: 2,
+                duration: 2,
               },
-              opacity: { 
-                delay: 1.5, 
-                duration: 1.5 
-              }
+              opacity: {
+                delay: 1.5,
+                duration: 1.5,
+              },
             }}
           >
-           <Image
-  src={HomeFrame}
-  alt="New Sliding Image"
-  fill
-  priority
-  quality={100}
-  style={{ 
-    objectFit: "contain", 
-    objectPosition: "center bottom" 
-  }}
-/>
-
+            <Image
+              src={HomeFrame}
+              alt="New Sliding Image"
+              fill
+              priority
+              quality={100}
+              style={{
+                objectFit: "contain",
+                objectPosition: "center bottom",
+              }}
+            />
           </motion.div>
         </motion.div>
       </div>

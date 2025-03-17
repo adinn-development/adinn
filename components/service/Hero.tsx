@@ -9,28 +9,28 @@ const Hero = () => {
       className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${ServiceHero.src})` }}
     >
-    <div className="absolute top-0 left-0 right-0 z-50">
+      <div className="absolute top-0 left-0 right-0 z-50">
         <TopNav />
       </div>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex flex-col items-center text-center">
           <div className="text-white">
-            <h1 className="text-[54px] font-bold leading-tight instrument-font">
+            <h1 className="text-[32px]  md:text-[54px]  font-bold leading-tight instrument-font">
               OOH & Outdoor
             </h1>
-            <p className="text-[54px] text-white">
+            <p className="text-[32px] md:text-[54px] text-white">
               MEDIA SOLUTIONS
             </p>
           </div>
 
           <div className="mt-6 flex space-x-4">
             <Link href="/projects">
-              <button className="bg-[#000000] cursor-pointer text-white px-6 py-3 rounded-full w-[180px] h-[48px] text-center transition-all hover:bg-[#333333] hover:shadow-lg">
+              <button className="bg-[#000000] cursor-pointer border border-[#000000] text-white text-[12px] md:text-[16px] rounded-full w-[130px] h-[40px] md:w-[180px] md:h-[48px] sm:w-[180px] sm:h-[48px] text-center transition-all hover:bg-[#333333] hover:shadow-lg flex items-center justify-center">
                 View Projects
               </button>
             </Link>
             <Link href="/contact">
-              <button className="bg-transparent cursor-pointer border border-[#EEEEEE] text-[#EEEEEE] px-6 py-3 rounded-full w-[180px] h-[48px] text-center transition-all hover:bg-[#EEEEEE]/10 hover:border-white hover:text-white hover:shadow-lg">
+              <button className="bg-transparent cursor-pointer border text-[12px] md:text-[16px] border-[#EEEEEE] text-[#EEEEEE] rounded-full w-[118px] h-[40px] md:w-[180px] md:h-[48px] sm:w-[180px] sm:h-[48px] text-center transition-all hover:bg-[#EEEEEE]/10 hover:border-white hover:text-white hover:shadow-lg flex items-center justify-center">
                 Contact us
               </button>
             </Link>

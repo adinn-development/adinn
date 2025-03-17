@@ -17,7 +17,7 @@ const page = () => {
      <VideoBanner />
      <CoreValues />
      <ShowCase />
-     <div className='mt-50'>
+     <div className='mt-10 md:mt-50'>
     
      <Footer />  
 
