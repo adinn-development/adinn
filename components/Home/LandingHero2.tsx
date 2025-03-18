@@ -12,40 +12,41 @@ gsap.registerPlugin(ScrollTrigger);
 
 const LandingHero2 = () => {
   const heroSectionRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".landing-hero-container",
         start: "top top",
-        scrub: 2, // Increased for even smoother movement
+        scrub: 1, // Increased for smoother movement
         pin: true,
-        markers: false,
+        markers: true, // Added for debugging
       },
       smoothChildTiming: true, // Ensures all animations blend seamlessly
     });
   
     // Extended dead zone (gentle start)
-    tl.to({}, { duration: 1.5 }) // Soft entry before text animation starts
+    tl.to({}, { duration: 0 }) // Soft entry before text animation starts
   
       // Smooth, seamless text animations with subtle overlaps
       .to(".text", {
         scale: 1,
         opacity: 1,
-        duration: 6, // Slightly longer for smoother motion
+        duration: 10, // Increased for smoother motion
         ease: "power4.inOut", // Upgraded easing for extra fluidity
       })
       .to(".text", {
         scale: 3,
         opacity: 1,
-        duration: 6,
+        duration: 10,
         ease: "power4.inOut",
-      }, "-=2") // Overlap by 2s to avoid a rigid transition
+      }, "-=3") // Overlap by 3s to avoid a rigid transition
       .to(".text", {
         scale: 5,
         opacity: 0,
-        duration: 6,
+        duration: 10,
         ease: "power4.inOut",
-      }, "-=2") // Another overlap for smooth fading
+      }, "-=3") // Another overlap for smooth fading
   
       // Ultra-smooth bottom image reveal
       .fromTo(".bottom-image",
@@ -53,14 +54,13 @@ const LandingHero2 = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 9, // Extended for an elegant entrance
+          duration: 20, // Extended for an elegant entrance
           ease: "power4.out", // Power4 for a graceful finish
         },
-        "-=4" // Soft overlap for a natural flow
+        "-=5" // Soft overlap for a natural flow
       );
   
   }, []);
-  
   
   return (
     <>

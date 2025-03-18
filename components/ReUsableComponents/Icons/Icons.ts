@@ -35,7 +35,7 @@ export { default as Service4 } from '@/public/service/service4.svg';
 export { default as ServiceLogo } from '@/public/service/serviceIcon.svg';
 
 //Mobile Landing Page
-export { default as MobileLogo } from '@/public/mobile.svg';
+export { default as MobileLogo } from '@/public/mobile.png';
 
 
 //PRojects Lanfing page
