@@ -53,14 +53,14 @@ const LandingContent = React.memo(() => {
   return (
     <motion.div
       ref={ref}
-      className="flex flex-col items-center justify-center min-h-screen text-black text-center px-6 "
+      className="flex flex-col items-center justify-center md:min-h-screen text-black text-center px-6 "
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={mainContainerVariants}
     >
       {/* Text Content */}
       <motion.p
-        className="w-full text-[50px] leading-[60.4px] mb-10"
+        className="w-full text-[16px] md:text-[48px] sm:text-[48px] md:leading-[60.4px] sm:mb-10 md:mb-10 mb-1"
         variants={containerVariants}
       >
         {/* Animated Words */}

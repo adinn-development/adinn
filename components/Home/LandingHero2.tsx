@@ -20,7 +20,6 @@ const LandingHero2 = () => {
         start: "top top",
         scrub: 1, // Increased for smoother movement
         pin: true,
-        markers: true, // Added for debugging
       },
       smoothChildTiming: true, // Ensures all animations blend seamlessly
     });
@@ -57,7 +56,7 @@ const LandingHero2 = () => {
           duration: 20, // Extended for an elegant entrance
           ease: "power4.out", // Power4 for a graceful finish
         },
-        "-=5" // Soft overlap for a natural flow
+        "-=5" 
       );
   
   }, []);

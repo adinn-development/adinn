@@ -29,7 +29,7 @@ const Content = () => {
 
     <motion.div
       ref={ref}
-      className="flex flex-col items-center justify-center  text-black text-center px-6 md:mt-50 sm:mt-50 mt-15 mb-10  "
+      className="flex flex-col items-center justify-center  text-black text-center px-6 md:mt-50 sm:mt-50 mt-20 mb-10 "
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={{
@@ -55,7 +55,7 @@ const Content = () => {
       </motion.div> 
 
       <motion.p
-        className="w-full text-[12px] md:text-[48px] sm:text-[48px] md:leading-[60.4px] sm:mb-10 md:mb-10 mb-1"
+        className="w-full text-[16px] md:text-[48px] sm:text-[48px] md:leading-[60.4px] sm:mb-10 md:mb-10 mb-1"
         variants={containerVariants}
       >
 
