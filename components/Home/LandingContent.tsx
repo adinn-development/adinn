@@ -89,7 +89,7 @@ const LandingContent = React.memo(() => {
       {/* Animated Button */}
       <Link href="/about-us">  
       <motion.button
-        className="mt-6 bg-[#FFFFFF] text-[19px] text-black px-6 py-3 rounded-full 
+        className="mt-6 bg-[#FFFFFF] text-[15px] md:text-[19px] text-black px-6 py-3 rounded-full 
         shadow-[0px_0px_10px_#F1606026] transition-all duration-300 hover:bg-gray-50 cursor-pointer"
         variants={buttonVariants}
         whileHover={{ scale: 1.05 }}

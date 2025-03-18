@@ -78,7 +78,7 @@ const Footer = () => {
 
           <div className="flex flex-row items-start justify-between gap-6 sm:gap-6 md:gap-8">
             <div className="flex flex-col space-y-3 sm:space-y-4 w-full">
-              <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px] sm:flex sm:flex-col md:flex md:flex-col">
+              <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px] ">
                 CONTACT NUMBER
               </label>
               <input className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white" />

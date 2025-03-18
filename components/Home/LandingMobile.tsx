@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const LandingMobile = () => {
   return (
-    <div className='relative h-screen w-full overflow-hidden bg-white flex flex-col justify-between p-4'>
+    <div className='relative h-screen bg-black w-full overflow-hidden flex flex-col justify-between p-4'>
       {/* WHAT text */}
       <div className='absolute top-[43%] left-[9%] sm:top-[25%] sm:left-[10%] md:top-[30%] md:left-[15%]'>
         <div className='text-[32px] sm:text-[72px] md:text-[120px] font-bold tracking-tighter'>

@@ -51,7 +51,7 @@ const LandingProjects = () => {
           </div>
         </div>
 
-        <div className="text-sm md:text-base lg:text-[27px]">
+        <div className="text-sm md:text-base lg:text-[27px] hidden sm:block md:block">
         Explore the exclusive advantages of partnering with <br className="hidden md:block" /> Adorn for
         all your creative needs.
         </div>

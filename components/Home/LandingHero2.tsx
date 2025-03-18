@@ -86,17 +86,33 @@ const LandingHero2 = () => {
           </div>
 
           {/* Subtract Image */}
-          <div>
+          {/* <div>
             <Image
               src={Subtract}
               alt="Subtract Shape"
               fill
               style={{ objectFit: "cover" }}
               quality={100}
-              className="text"
+              className="text "
               priority
             />
-          </div>
+          </div> */}
+         <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+  <Image
+    src={Subtract}
+    alt="Subtract Shape"
+    fill
+    style={{
+      objectFit: 'cover',  // Ensure the image covers the full height and width of the container
+      width: '100%',
+      height: '100%',
+    }}
+    quality={100}
+    className="text"
+    priority
+  />
+</div>
+
 
           {/* Bottom Image */}
           <div className="absolute bottom-0 w-full h-[50vh]">

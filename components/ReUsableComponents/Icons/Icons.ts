@@ -7,7 +7,7 @@ export { default as BackgroundImage } from '@/public/image.svg';
 // Client Circle Logos
 export { default as AmulLogo } from '@/public/client/AmulLogo.svg';
 export { default as HavLogo } from '@/public/client/Havells.png';
-export { default as KFCLogo } from '@/public/client/KFCLogo.svg';
+export { default as KFCLogo } from '@/public/client/KFC.png';
 export { default as tvsLogo } from '@/public/client/tvsLogo.svg';
 export { default as DBSLogo } from '@/public/client/DBSLogo.svg';
 export { default as ZomatoLogo } from '@/public/client/ZomatoLogo.svg';
@@ -24,8 +24,36 @@ export {default as MalabarLogo2} from '@/public/client/malabar.png';
 export { default as MuthhootLogo } from '@/public/client/Muthhoot.png';
 export { default as NipponLogo } from '@/public/client/nippon.png';
 export { default as TataIplLogo } from '@/public/client/TataIpl.png';
-
-
+export {default as AsianLogo} from '@/public/client/asianLogo.svg';
+export {default as AmbujaLogo } from '@/public/client/ambujaLogo.png';
+export { default as AccLogo} from '@/public/client/acc.png';
+export { default as ActLogo} from '@/public/client/actLogo.svg'
+export {default as AgniLogo} from '@/public/client/agniLogo.png'
+export { default as AmrutanjanLogo} from '@/public/client/Amrutanjan.jpg'
+export { default as BoschIcon} from '@/public/client/Bosch.png'
+export {default as CasLogo} from '@/public/client/Casagrand.png'
+export { default as GrbLogo } from '@/public/client/GRB.png'
+export {default as GrtLogo } from '@/public/client/GRT Jewellery.png'
+export { default as Hatsun} from '@/public/client/Hatsun.png'
+export { default as IOBLogo} from '@/public/client/Indian Overseas Bank.png'
+export {default as JamesLogo} from '@/public/client/James & Co.png'
+export {default as KhadimLogo} from '@/public/client/Khadim.jpg'
+export {default as LGLogo} from '@/public/client/LG.png'
+export {default as LishaLogo} from '@/public/client/LISHA.png'
+export {default as MarutiLogo} from '@/public/client/Maruti Suzuki.png'
+export {default as MetroLogo} from '@/public/client/Metro.png' 
+export {default as PepeLogo} from '@/public/client/Pepe Jeans.png'
+export { default as ShriramLogo} from '@/public/client/Shriram Properties.webp'
+export {default as ShyamLogo} from '@/public/client/Shyam Steel.jpg'
+export { default as SPRLogo} from '@/public/client/SPR City.png'
+export {default as ThangamayilLogo} from '@/public/client/Thangamayil.png'
+export {default as VGNLogo } from '@/public/client/VGN.png'
+export {default as VSTLogo} from '@/public/client/VST Tillers & Tractors.webp'
+export {default as BurgerLogo} from '@/public/client/Burger King.png'
+export {default as HeroLogo } from '@/public/client/Hero MotoCorp.png'
+export {default as ImpexLogo} from '@/public/client/Impex.png'
+export {default as MahindraLogo} from '@/public/client/Mahindra Lifespaces.png'
+export {default as RoyalLogo} from '@/public/client/Royal Enfield.png'
 //services photos
 
 export { default as Service1 } from '@/public/service/service1.svg';
