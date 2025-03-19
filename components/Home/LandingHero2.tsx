@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const LandingHero2 = () => {
   const heroSectionRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -23,10 +23,10 @@ const LandingHero2 = () => {
       },
       smoothChildTiming: true, // Ensures all animations blend seamlessly
     });
-  
+
     // Extended dead zone (gentle start)
     tl.to({}, { duration: 0 }) // Soft entry before text animation starts
-  
+
       // Smooth, seamless text animations with subtle overlaps
       .to(".text", {
         scale: 1,
@@ -46,7 +46,7 @@ const LandingHero2 = () => {
         duration: 10,
         ease: "power4.inOut",
       }, "-=3") // Another overlap for smooth fading
-  
+
       // Ultra-smooth bottom image reveal
       .fromTo(".bottom-image",
         { opacity: 0, y: 150 }, // Start lower for a floating feel
@@ -56,11 +56,11 @@ const LandingHero2 = () => {
           duration: 20, // Extended for an elegant entrance
           ease: "power4.out", // Power4 for a graceful finish
         },
-        "-=5" 
+        "-=5"
       );
-  
+
   }, []);
-  
+
   return (
     <>
       <div
@@ -97,21 +97,21 @@ const LandingHero2 = () => {
               priority
             />
           </div> */}
-         <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-  <Image
-    src={Subtract}
-    alt="Subtract Shape"
-    fill
-    style={{
-      objectFit: 'cover',  // Ensure the image covers the full height and width of the container
-      width: '100%',
-      height: '100%',
-    }}
-    quality={100}
-    className="text"
-    priority
-  />
-</div>
+          <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+            <Image
+              src={Subtract}
+              alt="Subtract Shape"
+              fill
+              style={{
+                objectFit: 'cover',  // Ensure the image covers the full height and width of the container
+                width: '100%',
+                height: '100%',
+              }}
+              quality={100}
+              className="text"
+              priority
+            />
+          </div>
 
 
           {/* Bottom Image */}

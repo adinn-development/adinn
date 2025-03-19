@@ -71,7 +71,7 @@ const Form = () => {
       <ToastContainer position="top-right" autoClose={3000} />
       
       {/* Contact Section */}
-      <div className="flex flex-col items-center justify-center text-center w-full max-w-[600px] mx-auto mt-2 md:mt-10">
+      <div className="flex flex-col items-center justify-center text-center w-full max-w-[600px] mx-auto mt-10 md:mt-10">
         <div className="flex flex-row items-center justify-center ml-10">
           <div className="text-14px md:text-[20px] text-[#6A6B6D]">Contact Us</div>
           <div>
@@ -79,7 +79,7 @@ const Form = () => {
           </div>
         </div>
 
-        <div className="text-20px md:text-[60px] text-[#000000] font-bold leading-tight md:-mt-5 mb-5">
+        <div className="text-[26px] md:text-[60px] text-[#000000] font-bold leading-tight md:-mt-5 mb-5">
           IT&apos;s nice to
           <span className="text-[#CF1E00] italic instrument-font font-serif"> meet ya</span>
         </div>

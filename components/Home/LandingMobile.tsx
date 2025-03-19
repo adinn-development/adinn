@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const LandingMobile = () => {
   return (
-    <div className='relative h-screen bg-black w-full overflow-hidden flex flex-col justify-between p-4'>
+    <div className='relative md:h-screen  w-full overflow-hidden flex flex-col justify-between p-4'>
       {/* WHAT text */}
       <div className='absolute top-[43%] left-[9%] sm:top-[25%] sm:left-[10%] md:top-[30%] md:left-[15%]'>
         <div className='text-[32px] sm:text-[72px] md:text-[120px] font-bold tracking-tighter'>
@@ -49,7 +49,7 @@ const LandingMobile = () => {
 
       </div>
       <div className='block sm:hidden md:hidden'>
-      <div className='flex flex-row gap-5 mt-[550px] w-full bottom-10 left-1/2  justify-center text-center '>
+      <div className='flex flex-row gap-5 mt-[450px] w-full bottom-10 left-1/2  justify-center text-center '>
           <Link href="/about-us">
             <button className='bg-[#EC2B45] w-[113px] h-[40px] text-white text-[12px] rounded-[10px] hover:bg-[#d41c34] transition-all cursor-pointer hover:scale-105'>
               More About Us
