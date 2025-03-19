@@ -5,7 +5,7 @@ import TopNav from "../ReUsableComponents/TopNav";
 import Image from "next/image";
 import { BackgroundImage } from "../ReUsableComponents/Icons/Icons";
 import Subtract from "@/public/Subtract.svg";
-import HomeFrame from "@/public/HomeFrame.svg"; // Ensure this path is correct
+import HomeFrame from "@/public/HomeFrame.svg"; 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -18,43 +18,37 @@ const LandingHero2 = () => {
       scrollTrigger: {
         trigger: ".landing-hero-container",
         start: "top top",
-        scrub: 1, // Increased for smoother movement
+        scrub: 1,
         pin: true,
       },
-      smoothChildTiming: true, // Ensures all animations blend seamlessly
+      smoothChildTiming: true, 
     });
-
-    // Extended dead zone (gentle start)
-    tl.to({}, { duration: 0 }) // Soft entry before text animation starts
-
-      // Smooth, seamless text animations with subtle overlaps
+    tl.to({}, { duration: 0 })
       .to(".text", {
         scale: 1,
         opacity: 1,
-        duration: 10, // Increased for smoother motion
-        ease: "power4.inOut", // Upgraded easing for extra fluidity
+        duration: 10,
+        ease: "power4.inOut",
       })
       .to(".text", {
         scale: 3,
         opacity: 1,
         duration: 10,
         ease: "power4.inOut",
-      }, "-=3") // Overlap by 3s to avoid a rigid transition
+      }, "-=3") 
       .to(".text", {
         scale: 5,
         opacity: 0,
         duration: 10,
         ease: "power4.inOut",
-      }, "-=3") // Another overlap for smooth fading
-
-      // Ultra-smooth bottom image reveal
+      }, "-=3") 
       .fromTo(".bottom-image",
-        { opacity: 0, y: 150 }, // Start lower for a floating feel
+        { opacity: 0, y: 150 }, 
         {
           opacity: 1,
           y: 0,
-          duration: 20, // Extended for an elegant entrance
-          ease: "power4.out", // Power4 for a graceful finish
+          duration: 20,
+          ease: "power4.out", 
         },
         "-=5"
       );
@@ -68,7 +62,6 @@ const LandingHero2 = () => {
         ref={heroSectionRef}
       >
         <div>
-          {/* Top Navigation */}
           <div className="absolute top-0 left-0 w-full z-50">
             <TopNav />
           </div>
@@ -79,38 +72,24 @@ const LandingHero2 = () => {
               src={BackgroundImage}
               alt="Background Image"
               fill
-              objectFit="cover"
+              style={{ objectFit: "cover" }}
               quality={100}
               priority
             />
           </div>
 
-          {/* Subtract Image */}
-          {/* <div>
-            <Image
-              src={Subtract}
-              alt="Subtract Shape"
-              fill
-              style={{ objectFit: "cover" }}
-              quality={100}
-              className="text "
-              priority
-            />
-          </div> */}
-          <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-            <Image
-              src={Subtract}
-              alt="Subtract Shape"
-              fill
-              style={{
-                objectFit: 'cover',  // Ensure the image covers the full height and width of the container
-                width: '100%',
-                height: '100%',
-              }}
-              quality={100}
-              className="text"
-              priority
-            />
+       
+          <div className="absolute inset-0 -z-10 flex items-center justify-center">
+            <div className="w-full  ">
+              <Image
+                src={Subtract}
+                alt="Subtract Shape"
+                fill
+                style={{ objectFit: "cover" }}
+                className="text"
+                priority
+              />
+            </div>
           </div>
 
 
