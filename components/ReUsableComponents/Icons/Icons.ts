@@ -21,7 +21,7 @@ export { default as JSWLogo } from '@/public/client/jsw.png';
 export { default as KalyanLogo } from '@/public/client/Kalyan.png';
 export { default as LLyodLogo } from '@/public/client/LLyod.png';
 export {default as MalabarLogo2} from '@/public/client/malabar.png';
-export { default as MuthhootLogo } from '@/public/client/Muthhoot.png';
+export { default as MuthhootLogo } from '@/public/client/Muthhoot Finance.png';
 export { default as NipponLogo } from '@/public/client/nippon.png';
 export { default as TataIplLogo } from '@/public/client/TataIpl.png';
 export {default as AsianLogo} from '@/public/client/asianLogo.svg';
