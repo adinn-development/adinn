@@ -108,7 +108,7 @@ const LandingHero = () => {
     layout="fill"
     objectFit="cover"
     priority
-    className="hidden sm:block md:block"
+    className="hidden sm:block md:block text"
   />
 </div>
 
