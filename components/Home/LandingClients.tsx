@@ -29,7 +29,7 @@ import {
   CasLogo,
   GrbLogo,
   GrtLogo,
-  Hatsun,
+  HatsunLogo,
   IOBLogo,
   JamesLogo,
   KhadimLogo,
@@ -404,7 +404,7 @@ const LandingClients = () => {
       {
         id: 28,
         name: "Hatsun",
-        image: Hatsun,
+        image: HatsunLogo,
         size: { width: getResponsiveSize(250), height: getResponsiveSize(140) },
         positionIndex: 10,
         section: 1,
