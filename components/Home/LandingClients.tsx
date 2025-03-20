@@ -521,7 +521,7 @@ const LandingClients = () => {
         id: 42,
         name:"Burger",
         image: BurgerLogo,
-        size: { width: getResponsiveSize(15), height: getResponsiveSize(10) },
+        size: { width: getResponsiveSize(100), height: getResponsiveSize(60) },
         positionIndex: 10,
         section: 2,
       },

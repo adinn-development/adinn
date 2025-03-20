@@ -37,7 +37,7 @@ export {default as GrtLogo } from '@/public/client/GRT Jewellery.png'
 export {default as HatsunLogo} from "@/public/client/hatsun.png"
 export { default as IOBLogo} from '@/public/client/Indian Overseas Bank.png'
 export {default as JamesLogo} from '@/public/client/James & Co.png'
-export {default as KhadimLogo} from '@/public/client/Khadim.jpg'
+export {default as KhadimLogo} from '@/public/client/Khadim.png'
 export {default as LGLogo} from '@/public/client/LG.png'
 export {default as LishaLogo} from '@/public/client/LISHA.png'
 export {default as MarutiLogo} from '@/public/client/Maruti Suzuki.png'
