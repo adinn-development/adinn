@@ -10,7 +10,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const LandingHero2 = () => {
+const LandingHero = () => {
   const heroSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -136,4 +136,4 @@ const LandingHero2 = () => {
   );
 };
 
-export default LandingHero2;
+export default LandingHero;
