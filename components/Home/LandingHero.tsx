@@ -127,7 +127,7 @@ const LandingHero = () => {
                 objectFit: "contain",
                 objectPosition: "center bottom",
               }}
-              className="bottom-image"
+              className="bottom-image block sm:hidden md:hidden"
             />
           </div>
         </div>
