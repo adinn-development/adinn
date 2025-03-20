@@ -10,6 +10,7 @@ import {
   ZomatoLogo,
   DaikinLogo,
   DalmiaLogo,
+  BhimaLogo,
   HondaLogo,
   JSWLogo,
   KalyanLogo,
@@ -78,7 +79,7 @@ const LandingClients = () => {
   const sectionInitializedRef = useRef([false, false, false]);
 
   // Circle size increase factor (1.2 = 20% larger)
-  const circleSizeFactor = windowSize.width < 768 ? 1.75 : 1.1; // 1.0 for mobile, 1.1 for larger screens
+  const circleSizeFactor = windowSize.width < 768 ? 1.75 : 1.1; 
 
   // Base circle sizes (before scaling)
   const baseCircleSizes = {
@@ -116,60 +117,62 @@ const LandingClients = () => {
   // Define logo positions
   const positions: Record<string, { x: number; y: number }> = {
     // Section 0 logos
-    Amul: { x: getResponsivePosition(-220), y: getResponsivePosition(380) },
-    Havells: { x: getResponsivePosition(330), y: getResponsivePosition(120) },
-    KFC: { x: getResponsivePosition(480), y: getResponsivePosition(-90) },
-    TVS: { x: getResponsivePosition(235), y: getResponsivePosition(-220) },
-    DBS: { x: getResponsivePosition(-410), y: getResponsivePosition(240) },
-    Zomato: { x: getResponsivePosition(-150), y: getResponsivePosition(300) },
-    Daikin: { x: getResponsivePosition(400), y: getResponsivePosition(-150) },
-    Dalmia: { x: getResponsivePosition(-300), y: getResponsivePosition(200) },
-    Honda: { x: getResponsivePosition(200), y: getResponsivePosition(-300) },
-    JSW: { x: getResponsivePosition(-400), y: getResponsivePosition(100) },
-    Kalyan: { x: getResponsivePosition(400), y: getResponsivePosition(-200) },
-    LLyod: { x: getResponsivePosition(-100), y: getResponsivePosition(-300) },
-    Malabar: { x: getResponsivePosition(100), y: getResponsivePosition(-200) },
-    Muthhoot: { x: getResponsivePosition(-200), y: getResponsivePosition(100) },
-    Nippon: { x: getResponsivePosition(200), y: getResponsivePosition(-100) },
-    TataIpl: { x: getResponsivePosition(-300), y: getResponsivePosition(0) },
+    Amul: { x: getResponsivePosition(-200), y: getResponsivePosition(400) },
+    Havells: { x: getResponsivePosition(350), y: getResponsivePosition(100) },
+    KFC: { x: getResponsivePosition(500), y: getResponsivePosition(-70) },
+    TVS: { x: getResponsivePosition(245), y: getResponsivePosition(-200) },
+    DBS: { x: getResponsivePosition(-400), y: getResponsivePosition(-260) },
+    Zomato: { x: getResponsivePosition(4), y: getResponsivePosition(195) },
+    Bhima:{x:getResponsivePosition(5), y:getResponsivePosition(200)},
+    Daikin: { x: getResponsivePosition(-525), y: getResponsivePosition(45) },
+    Dalmia: { x: getResponsivePosition(250), y: getResponsivePosition(440) },
+    Honda: { x: getResponsivePosition(-270), y: getResponsivePosition(-70) },
+    JSW: { x: getResponsivePosition(370), y: getResponsivePosition(-325) },
+    LLyod: { x: getResponsivePosition(-400), y: getResponsivePosition(-480) },
+    Malabar: { x: getResponsivePosition(500), y: getResponsivePosition(280) },
+    Muthhoot: { x: getResponsivePosition(600), y: getResponsivePosition(-200) },
+    Nippon: { x: getResponsivePosition(-100), y: getResponsivePosition(-300) },
+    TataIpl: { x: getResponsivePosition(0), y: getResponsivePosition(-440) },
+    Kalyan: { x: getResponsivePosition(-325), y: getResponsivePosition(150) },
+
     // Section 1 logos
-    Asian: { x: getResponsivePosition(-200), y: getResponsivePosition(350) },
-    Ambuja: { x: getResponsivePosition(350), y: getResponsivePosition(80) },
-    Acc: { x: getResponsivePosition(490), y: getResponsivePosition(-80) },
-    Act: { x: getResponsivePosition(255), y: getResponsivePosition(-180) },
-    Agni: { x: getResponsivePosition(-380), y: getResponsivePosition(260) },
+    Asian: { x: getResponsivePosition(4), y: getResponsivePosition(215) },
+    Ambuja: { x: getResponsivePosition(370), y: getResponsivePosition(325) },
+    Acc: { x: getResponsivePosition(-200), y: getResponsivePosition(400) },
+    Act: { x: getResponsivePosition(0), y: getResponsivePosition(-440) },
+    Agni: { x: getResponsivePosition(-400), y: getResponsivePosition(-260) },
     Amrutanjan: {
-      x: getResponsivePosition(400),
-      y: getResponsivePosition(-200),
+      x: getResponsivePosition(340),
+      y: getResponsivePosition(-410),
     },
     Bosch: { x: getResponsivePosition(-100), y: getResponsivePosition(-300) },
-    Cas: { x: getResponsivePosition(100), y: getResponsivePosition(-200) },
+    Cas: { x: getResponsivePosition(-525), y: getResponsivePosition(45) },
     Grb: { x: getResponsivePosition(-200), y: getResponsivePosition(100) },
-    Grt: { x: getResponsivePosition(200), y: getResponsivePosition(-100) },
-    Hatsun: { x: getResponsivePosition(-300), y: getResponsivePosition(0) },
+    Grt: { x: getResponsivePosition(350), y: getResponsivePosition(100) },
+    Hatsun: { x: getResponsivePosition(525), y: getResponsivePosition(6) },
     IOB: { x: getResponsivePosition(100), y: getResponsivePosition(-200) },
-    James: { x: getResponsivePosition(-400), y: getResponsivePosition(100) },
+    James: { x: getResponsivePosition(-300), y: getResponsivePosition(-100) },
     Khadim: { x: getResponsivePosition(400), y: getResponsivePosition(-200) },
 
     // Section 2 logos
-    LG: { x: getResponsivePosition(-230), y: getResponsivePosition(370) },
-    Lisha: { x: getResponsivePosition(370), y: getResponsivePosition(110) },
-    Maruti: { x: getResponsivePosition(460), y: getResponsivePosition(-100) },
-    Metro: { x: getResponsivePosition(220), y: getResponsivePosition(-210) },
-    Pepe: { x: getResponsivePosition(-420), y: getResponsivePosition(220) },
-    Shriram: { x: getResponsivePosition(-300), y: getResponsivePosition(0) },
-    SPR: { x: getResponsivePosition(100), y: getResponsivePosition(-200) },
+    LG: { x: getResponsivePosition(-440), y: getResponsivePosition(-260) },
+    Lisha: { x: getResponsivePosition(505), y: getResponsivePosition(-70) },
+    Maruti: { x: getResponsivePosition(525), y: getResponsivePosition(160) },
+    Metro: { x: getResponsivePosition(-80), y: getResponsivePosition(-330) },
+    Pepe: { x: getResponsivePosition(4), y: getResponsivePosition(210) },
+    Shriram: { x: getResponsivePosition(0), y: getResponsivePosition(-485) },
+    SPR: { x: getResponsivePosition(-230), y: getResponsivePosition(370) },
     Thangamayil: {
-      x: getResponsivePosition(-200),
-      y: getResponsivePosition(100),
+      x: getResponsivePosition(-525),
+      y: getResponsivePosition(45),
     },
     VGN: { x: getResponsivePosition(200), y: getResponsivePosition(-100) },
-    VST: { x: getResponsivePosition(-300), y: getResponsivePosition(0) },
-    Burger: { x: getResponsivePosition(100), y: getResponsivePosition(-200) },
-    Hero: { x: getResponsivePosition(-400), y: getResponsivePosition(100) },
+    VST: { x: getResponsivePosition(300), y: getResponsivePosition(100) },
+    Burger: { x: getResponsivePosition(380), y: getResponsivePosition(-450) },
+    Hero: { x: getResponsivePosition(-200), y: getResponsivePosition(100) },
     Impex: { x: getResponsivePosition(400), y: getResponsivePosition(-200) },
-    Mahindra: { x: getResponsivePosition(-300), y: getResponsivePosition(0) },
-    Royal: { x: getResponsivePosition(100), y: getResponsivePosition(-200) },
+    Mahindra: { x: getResponsivePosition(-275), y: getResponsivePosition(-120) },
+    Royal: { x: getResponsivePosition(370), y: getResponsivePosition(365) },
 
     // More logos
   };
@@ -305,12 +308,21 @@ const LandingClients = () => {
         positionIndex: 15,
         section: 0,
       },
+      
     ];
 
     // Section 2 logos
     const section1Logos = [
       {
         id: 17,
+        name: "Bhima",
+        image: BhimaLogo,
+        size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
+        positionIndex: 15,
+        section: 0,
+      },
+      {
+        id: 18,
         name: "Asian",
         image: AsianLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -318,7 +330,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 18,
+        id: 19,
         name: "Ambuja",
         image: AmbujaLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -326,7 +338,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 19,
+        id: 20,
         name: "Acc",
         image: AccLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -334,7 +346,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 20,
+        id: 21,
         name: "Act",
         image: ActLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -342,7 +354,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 21,
+        id: 22,
         name: "Agni",
         image: AgniLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -350,7 +362,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 22,
+        id: 23,
         name: "Amrutanjan",
         image: AmrutanjanLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -358,7 +370,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 23,
+        id: 24,
         name: "Bosch",
         image: BoschIcon,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -366,7 +378,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 24,
+        id: 25,
         name: "Cas",
         image: CasLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -374,15 +386,15 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 25,
+        id: 26,
         name: "Grb",
         image: GrbLogo,
-        size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
+        size: { width: getResponsiveSize(200), height: getResponsiveSize(90) },
         positionIndex: 8,
         section: 1,
       },
       {
-        id: 26,
+        id: 27,
         name: "Grt",
         image: GrtLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -390,15 +402,15 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 27,
+        id: 28,
         name: "Hatsun",
         image: Hatsun,
-        size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
+        size: { width: getResponsiveSize(250), height: getResponsiveSize(140) },
         positionIndex: 10,
         section: 1,
       },
       {
-        id: 28,
+        id: 29,
         name: "IOB",
         image: IOBLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -406,7 +418,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 29,
+        id: 30,
         name: "James",
         image: JamesLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -414,7 +426,7 @@ const LandingClients = () => {
         section: 1,
       },
       {
-        id: 30,
+        id: 31,
         name: "Khadim",
         image: KhadimLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -426,7 +438,7 @@ const LandingClients = () => {
     // Section 3 logos
     const section2Logos = [
       {
-        id: 31,
+        id: 32,
         name: "LG",
         image: LGLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -434,7 +446,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 32,
+        id: 33,
         name: "Lisha",
         image: LishaLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -442,7 +454,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 33,
+        id: 34,
         name: "Maruti",
         image: MarutiLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -450,7 +462,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 34,
+        id: 35,
         name: "Metro",
         image: MetroLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -458,7 +470,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 35,
+        id: 36,
         name: "Pepe",
         image: PepeLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -466,7 +478,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 36,
+        id: 37,
         name: "Shriram",
         image: ShriramLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -474,7 +486,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 37,
+        id: 38,
         name: "SPR",
         image: SPRLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -482,7 +494,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 38,
+        id: 39,
         name: "Thangamayil",
         image: ThangamayilLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -490,7 +502,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 39,
+        id: 40,
         name: "VGN",
         image: VGNLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -498,7 +510,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 40,
+        id: 41,
         name: "VST",
         image: VSTLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -506,15 +518,15 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 41,
-        name: "Burger",
+        id: 42,
+        name:"Burger",
         image: BurgerLogo,
-        size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
+        size: { width: getResponsiveSize(15), height: getResponsiveSize(10) },
         positionIndex: 10,
         section: 2,
       },
       {
-        id: 42,
+        id: 43,
         name: "Hero",
         image: HeroLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -522,7 +534,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 43,
+        id: 44,
         name: "Impex",
         image: ImpexLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -530,7 +542,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 44,
+        id: 45,
         name: "Mahindra",
         image: MahindraLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -538,7 +550,7 @@ const LandingClients = () => {
         section: 2,
       },
       {
-        id: 45,
+        id: 46,
         name: "Royal",
         image: RoyalLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
@@ -619,89 +631,170 @@ const LandingClients = () => {
       !scrollContainerRef.current
     )
       return;
-
+    
+    // Prevent flickering by disabling transitions during initialization
+    const container = scrollContainerRef.current;
+    container.style.visibility = 'hidden';
+    
     gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const numSections = 3;
-      const sectionHeight = window.innerHeight;
-
-      // Clean up any existing ScrollTrigger instances
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
-      }
-
-      // Create markers for each section
-      const markers = sections.map((_, i) => {
-        return ScrollTrigger.create({
-          trigger: scrollContainerRef.current,
-          start: `top+=${sectionHeight * i} top`,
-          end: `top+=${sectionHeight * (i + 1)} top`,
-          onEnter: () => setActiveSection(i),
-          onEnterBack: () => setActiveSection(i),
-          markers: false, // Set to true for debugging
+    
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+      const ctx = gsap.context(() => {
+        const numSections = 3;
+        const sectionHeight = window.innerHeight;
+        
+        // Clean up any existing ScrollTrigger instances
+        ScrollTrigger.getAll().forEach(st => st.kill());
+        
+        // Track scroll direction
+        let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        let scrollDirection = "none";
+        
+        // Initial section setup - ensure section 1 is visible initially
+        setActiveSection(0);
+        
+        // Create main scroll trigger with improved detection for scrolling up
+        const mainTrigger = ScrollTrigger.create({
+          id: "clientsScrollTrigger",
+          trigger: container,
+          start: "top top",
+          end: `+=${sectionHeight * (numSections - 1)}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.3,
+          preventOverlaps: true,
+          onUpdate: function(self) {
+            // Get normalized progress
+            const progress = self.progress;
+            
+            // Detect scroll direction
+            const currentScrollTop = self.scroll();
+            if (currentScrollTop > lastScrollTop) {
+              scrollDirection = "down";
+            } else if (currentScrollTop < lastScrollTop) {
+              scrollDirection = "up";
+            }
+            lastScrollTop = currentScrollTop;
+            
+            // Enhanced section determination with direction awareness
+            let newSection;
+            
+            if (progress < 0.25) {
+              newSection = 0; // First section has a smaller threshold to make it easier to reach
+            } else if (progress < 0.66) {
+              newSection = 1;
+            } else {
+              newSection = 2;
+            }
+            
+            // Special handling for scrolling up to first section
+            if (scrollDirection === "up" && progress < 0.33) {
+              newSection = 0;
+            }
+            
+            // Only update if section changed to prevent flickering
+            if (newSection !== activeSection) {
+              setActiveSection(newSection);
+              
+              // Force refresh visibility immediately
+              document.querySelectorAll('.section-content').forEach((content, index) => {
+                if (index === newSection) {
+                  gsap.to(content, {
+                    opacity: 1,
+                    duration: 0.2,
+                    ease: "power1.out",
+                    pointerEvents: "auto",
+                    overwrite: true
+                  });
+                } else {
+                  gsap.to(content, {
+                    opacity: 0,
+                    duration: 0.2,
+                    ease: "power1.out",
+                    pointerEvents: "none",
+                    overwrite: true
+                  });
+                }
+              });
+            }
+          },
+          snap: {
+            snapTo: [0, 0.5, 1],
+            duration: { min: 0.1, max: 0.3 },
+            ease: "power1.out"
+          }
         });
-      });
-
-      // Main scroll trigger
-      scrollTriggerRef.current = ScrollTrigger.create({
-        id: "clientsScrollTrigger",
-        trigger: scrollContainerRef.current,
-        start: "top top",
-        end: `+=${sectionHeight * (numSections - 1)}`,
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.5,
-        anticipatePin: 1,
-        snap: {
-          snapTo: sections.map((_, i) => i / (numSections - 1)),
-          duration: { min: 0.3, max: 0.8 },
-          ease: "power2.inOut",
-        },
-        onUpdate: (self) => {
-          const currentProgress = self.progress;
-          const currentPosition = self.scroll();
-
-          // Update scroll direction
-          if (currentPosition > lastScrollPosition.current) {
-            scrollDirection.current = "down";
-          } else if (currentPosition < lastScrollPosition.current) {
-            scrollDirection.current = "up";
-          }
-          lastScrollPosition.current = currentPosition;
-
-          // Calculate section based on progress
-          let sectionIndex;
-          if (currentProgress < 0.33) {
-            sectionIndex = 0;
-          } else if (currentProgress < 0.66) {
-            sectionIndex = 1;
-          } else {
-            sectionIndex = 2;
-          }
-
-          // Only update state if section has actually changed
-          if (sectionIndex !== activeSection) {
-            setActiveSection(sectionIndex);
-          }
-        },
-      });
-
-      // Cleanup markers on unmount
+        
+        // Create a specific marker for the first section
+        ScrollTrigger.create({
+          trigger: container,
+          start: "top top",
+          end: `top+=${sectionHeight * 0.5} top`,
+          onEnter: () => setActiveSection(0),
+          onEnterBack: () => setActiveSection(0)
+        });
+        
+        // Make container visible after setup
+        container.style.visibility = 'visible';
+        
+        return () => {
+          mainTrigger.kill();
+        };
+      }, container);
+      
       return () => {
-        markers.forEach(marker => marker.kill());
+        ctx.revert();
       };
-
-    }, scrollContainerRef);
-
+    }, 50);
+    
     return () => {
-      ctx.revert();
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
-      }
+      // Cleanup on component unmount
+      ScrollTrigger.getAll().forEach(st => st.kill());
     };
   }, [logoList, windowSize]);
-
+  
+  // Make sure sections are initially set up correctly
+  useEffect(() => {
+    // Ensure first section is visible on initial load
+    if (activeSection === 0) {
+      const sectionContents = document.querySelectorAll('.section-content');
+      if (sectionContents.length >= 1) {
+        gsap.set(sectionContents[0], { opacity: 1, pointerEvents: "auto" });
+        
+        // Make other sections invisible
+        for (let i = 1; i < sectionContents.length; i++) {
+          gsap.set(sectionContents[i], { opacity: 0, pointerEvents: "none" });
+        }
+      }
+    }
+  }, []);
+  
+  // Handle section content visibility changes
+  useEffect(() => {
+    const sectionContents = document.querySelectorAll('.section-content');
+    if (sectionContents.length >= 3) {
+      sectionContents.forEach((content, index) => {
+        if (index === activeSection) {
+          gsap.to(content, {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power2.out",
+            pointerEvents: "auto",
+            overwrite: true
+          });
+        } else {
+          gsap.to(content, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            pointerEvents: "none",
+            overwrite: true
+          });
+        }
+      });
+    }
+  }, [activeSection]);
   // Update logos when active section changes
   useEffect(() => {
     if (!logoList.length) return;

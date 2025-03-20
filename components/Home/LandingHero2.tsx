@@ -14,21 +14,20 @@ const LandingHero2 = () => {
   const heroSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Clear any existing ScrollTrigger instances
     ScrollTrigger.getAll().forEach(t => t.kill());
     
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".landing-hero-container",
         start: "top top",
-        end: "+=300%", // 3x viewport height for smooth scrolling distance
-        scrub: 1, // Lower value for immediate response with no lag
+        end: "+=300%", 
+        scrub: 1,
         pin: true,
-        anticipatePin: 1, // Smoother pinning
+        anticipatePin: 1,
         snap: {
-          snapTo: "labels", // Snap to the labels we define
-          duration: { min: 0.2, max: 0.5 }, // Quicker snapping
-          directional: false, // Snap in both directions
+          snapTo: "labels", 
+          duration: { min: 0.2, max: 0.5 }, 
+          directional: false, 
         }
       },
       smoothChildTiming: true,
@@ -40,7 +39,7 @@ const LandingHero2 = () => {
         scale: 1,
         opacity: 1,
         duration: 1,
-        ease: "power2.out", // Responsive easing
+        ease: "power2.out", 
       })
       .addLabel("scale1")
       .to(".text", {
@@ -109,7 +108,7 @@ const LandingHero2 = () => {
     layout="fill"
     objectFit="cover"
     priority
-    className="sm:object-contain object-cover text"
+    className="hidden sm:block md:block"
   />
 </div>
 
