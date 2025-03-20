@@ -14,45 +14,69 @@ const LandingHero2 = () => {
   const heroSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Clear any existing ScrollTrigger instances
+    ScrollTrigger.getAll().forEach(t => t.kill());
+    
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".landing-hero-container",
         start: "top top",
-        scrub: 1,
+        end: "+=300%", // 3x viewport height for smooth scrolling distance
+        scrub: 1, // Lower value for immediate response with no lag
         pin: true,
+        anticipatePin: 1, // Smoother pinning
+        snap: {
+          snapTo: "labels", // Snap to the labels we define
+          duration: { min: 0.2, max: 0.5 }, // Quicker snapping
+          directional: false, // Snap in both directions
+        }
       },
-      smoothChildTiming: true, 
+      smoothChildTiming: true,
     });
-    tl.to({}, { duration: 0 })
+    
+    // Add labels for snap points
+    tl.addLabel("start")
       .to(".text", {
         scale: 1,
         opacity: 1,
-        duration: 10,
-        ease: "power4.inOut",
+        duration: 1,
+        ease: "power2.out", // Responsive easing
       })
+      .addLabel("scale1")
+      .to(".text", {
+        scale: 2,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+      })
+      .addLabel("scale2")
       .to(".text", {
         scale: 3,
         opacity: 1,
-        duration: 10,
-        ease: "power4.inOut",
-      }, "-=3") 
+        duration: 1,
+        ease: "power2.out",
+      })
+      .addLabel("scale3")
       .to(".text", {
         scale: 5,
         opacity: 0,
-        duration: 10,
-        ease: "power4.inOut",
-      }, "-=3") 
+        duration: 1.5,
+        ease: "power2.out",
+      })
+      .addLabel("fadeout")
       .fromTo(".bottom-image",
-        { opacity: 0, y: 150 }, 
+        { opacity: 0, y: 150 },
         {
           opacity: 1,
           y: 0,
-          duration: 20,
-          ease: "power4.out", 
-        },
-        "-=5"
-      );
-
+          duration: 2,
+          ease: "power2.out",
+        }
+      )
+      .addLabel("end");
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   return (
@@ -78,19 +102,18 @@ const LandingHero2 = () => {
             />
           </div>
 
-       
-          <div className="absolute inset-0 -z-10 flex items-center justify-center">
-            <div className="w-full  ">
-              <Image
-                src={Subtract}
-                alt="Subtract Shape"
-                fill
-                style={{ objectFit: "cover" }}
-                className="text"
-                priority
-              />
-            </div>
-          </div>
+          <div className="absolute inset-0 -z-10 w-full h-full">
+  <Image
+    src={Subtract}
+    alt=" Shape"
+    layout="fill"
+    objectFit="cover"
+    priority
+    className="sm:object-contain object-cover text"
+  />
+</div>
+
+
 
 
           {/* Bottom Image */}

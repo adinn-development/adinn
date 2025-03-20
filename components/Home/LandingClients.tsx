@@ -586,6 +586,7 @@ const LandingClients = () => {
     if (circleRatio > 0) {
       setLogoList(createLogoSets());
     }
+    
   }, [circleRatio]);
 
   // Initialize logos for active section
@@ -610,6 +611,7 @@ const LandingClients = () => {
     initializedRef.current = true;
   }, [logoList]);
 
+  //scroll animati
   useEffect(() => {
     if (
       !logoList.length ||
@@ -629,6 +631,19 @@ const LandingClients = () => {
         scrollTriggerRef.current.kill();
       }
 
+      // Create markers for each section
+      const markers = sections.map((_, i) => {
+        return ScrollTrigger.create({
+          trigger: scrollContainerRef.current,
+          start: `top+=${sectionHeight * i} top`,
+          end: `top+=${sectionHeight * (i + 1)} top`,
+          onEnter: () => setActiveSection(i),
+          onEnterBack: () => setActiveSection(i),
+          markers: false, // Set to true for debugging
+        });
+      });
+
+      // Main scroll trigger
       scrollTriggerRef.current = ScrollTrigger.create({
         id: "clientsScrollTrigger",
         trigger: scrollContainerRef.current,
@@ -636,20 +651,15 @@ const LandingClients = () => {
         end: `+=${sectionHeight * (numSections - 1)}`,
         pin: true,
         pinSpacing: true,
-        scrub: 1,
+        scrub: 0.5,
         anticipatePin: 1,
-
-        // Improved snap configuration
         snap: {
-          snapTo: [0, 0.5, 1], // Ensure these correspond to your sections
+          snapTo: sections.map((_, i) => i / (numSections - 1)),
           duration: { min: 0.3, max: 0.8 },
           ease: "power2.inOut",
         },
-
         onUpdate: (self) => {
           const currentProgress = self.progress;
-          console.log("Current progress:", currentProgress);
-
           const currentPosition = self.scroll();
 
           // Update scroll direction
@@ -660,7 +670,7 @@ const LandingClients = () => {
           }
           lastScrollPosition.current = currentPosition;
 
-          // Calculate which section we're in with debouncing
+          // Calculate section based on progress
           let sectionIndex;
           if (currentProgress < 0.33) {
             sectionIndex = 0;
@@ -670,15 +680,18 @@ const LandingClients = () => {
             sectionIndex = 2;
           }
 
-          console.log("Current active section:", activeSection);
-
           // Only update state if section has actually changed
           if (sectionIndex !== activeSection) {
-            console.log("Changing to section:", sectionIndex);
             setActiveSection(sectionIndex);
           }
         },
       });
+
+      // Cleanup markers on unmount
+      return () => {
+        markers.forEach(marker => marker.kill());
+      };
+
     }, scrollContainerRef);
 
     return () => {
@@ -693,20 +706,16 @@ const LandingClients = () => {
   useEffect(() => {
     if (!logoList.length) return;
 
-    // Create a scoped animation context
     const ctx = gsap.context(() => {
-      // Animate logos based on active section
       logoList.forEach((logo) => {
         const element = logoRefs.current[logo.id - 1];
         const position = positions[logo.name];
 
         if (!element) return;
 
-        // Control visibility and animation based on section
         if (logo.section === activeSection) {
-          // Show the active section logos
           gsap.to(element, {
-            duration: 1,
+            duration: 0.8,
             x: position.x,
             y: position.y,
             scale: 1,
@@ -716,9 +725,8 @@ const LandingClients = () => {
             overwrite: true,
           });
         } else {
-          // Hide non-active section logos
           gsap.to(element, {
-            duration: 1,
+            duration: 0.8,
             x: position.x,
             y: position.y,
             scale: 0,
@@ -727,7 +735,6 @@ const LandingClients = () => {
             ease: "power2.in",
             overwrite: true,
             onComplete: () => {
-              // Ensure visibility is set to hidden after animation
               gsap.set(element, { visibility: "hidden" });
             },
           });
@@ -780,7 +787,7 @@ const LandingClients = () => {
         >
           <div className="text-center">
             <p
-              className={`text-white font-medium ${
+              className={`text-black font-medium ${
                 windowSize.width < 768
                   ? "text-2xl"
                   : windowSize.width < 1024
@@ -790,7 +797,7 @@ const LandingClients = () => {
             >
               Our Clients
             </p>
-            <p className="text-gray-500 mt-2">Section {activeSection + 1}/3</p>
+            {/* <p className="text-gray-500 mt-2">Section {activeSection + 1}/3</p> */}
           </div>
         </div>
 
