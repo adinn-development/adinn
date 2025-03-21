@@ -105,10 +105,10 @@ const LandingHero = () => {
   <Image
     src={Subtract}
     alt=" Shape"
-    layout="fill"
-    objectFit="cover"
+    fill
+ 
     priority
-    className="hidden sm:block md:block text"
+    className="hidden sm:block md:block text object-cover"
   />
 </div>
 
@@ -127,7 +127,7 @@ const LandingHero = () => {
                 objectFit: "contain",
                 objectPosition: "center bottom",
               }}
-              className="bottom-image block sm:hidden md:hidden"
+              className="bottom-image "
             />
           </div>
         </div>

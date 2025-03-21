@@ -1,6 +1,6 @@
 
 import LandingContent from "@/components/Home/LandingContent";
-import LandingClients from "@/components/Home/LandingClients";
+import LandingClients2 from "@/components/Home/LandingClients2";
 import LandingService from "@/components/Home/LandingService";
 import LandingMobile from "@/components/Home/LandingMobile";
 import LandingProjects from "@/components/Home/LandingProjects";
@@ -20,7 +20,7 @@ export default function Home() {
     <div className="overflow-x-hidden">
       <LandingHero />
       <LandingContent />
-      <LandingClients />
+      <LandingClients2 />
       <LandingService />
       <LandingMobile />
       <LandingProjects />
