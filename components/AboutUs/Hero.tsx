@@ -19,9 +19,10 @@ const Hero = () => {
             <h1 className="text-[54px] font-bold leading-tight instrument-font">
               About Us
             </h1>
-            <p className="text-[34px] min-w-min text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed do
+            <p className="text-[22px] min-w-min text-white">
+            Adinn Advertising Services Limited is a leading full-service advertising agency with
+over 23 years of industry expertise, headquartered in Madurai with a branch office in
+Chennai, catering to clients across South India
             </p>
           </div>
 

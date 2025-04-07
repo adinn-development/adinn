@@ -59,24 +59,39 @@ const Content = () => {
         variants={containerVariants}
       >
 
-        <motion.span variants={textVariants} className='text-[#C1C1C1]'>A </motion.span>
+        <motion.span variants={textVariants} className='text-[#C1C1C1]'>We specialize in leading full-service</motion.span>
         <motion.span variants={textVariants}>
-          23-year-old agency
+        {' '}  advertising agency{' '}
         </motion.span>
+        {/* <motion.span variants={textVariants}>
+          <span className="text-[#C1C1C1]">with
+          over</span>
+        </motion.span> */}
         <motion.span variants={textVariants}>
-          <span className="text-[#C1C1C1]"> headquatered in</span>
-        </motion.span>
-        <motion.span variants={textVariants}>
-          <br className="hidden sm:block md:block" />
-          {' '}Madurai and branch {' '}
+          {/* <br className="hidden sm:block md:block" /> */}
+          {' '}activation, outreach programs, outdoor advertising, digital
+          marketing, and retail branding,{' '}
         </motion.span>
         <motion.span className="text-[#C1C1C1]" variants={textVariants}>
-          office in Chennai, catering to{' '}
+        delivering{' '}
         </motion.span>
         <motion.span variants={textVariants}>
-          <br className="hidden sm:block md:block" />
-          {' '} entire South India
+          {/* <br className="hidden sm:block md:block" /> */}
+          {' '}  ROI-driven solutions {' '}
         </motion.span>
+        <motion.span variants={textVariants}>
+          <span className="text-[#C1C1C1]">with an</span>
+        </motion.span>
+        <motion.span variants={textVariants}>
+          {/* <br className="hidden sm:block md:block" /> */}
+          {' '} integrated
+          infrastructure {' '}
+        </motion.span>
+        <motion.span variants={textVariants}>
+          <span className="text-[#C1C1C1]">that ensures seamless execution. </span>
+        </motion.span>
+
+        {/* <motion.span variants={textVariants}>clients across South India.</motion.span> */}
 
       </motion.p>
 

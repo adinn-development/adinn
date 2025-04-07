@@ -99,7 +99,7 @@ const LandingClients2 = () => {
     Dalmia: { x: getResponsivePosition(250), y: getResponsivePosition(440) },
     Honda: { x: getResponsivePosition(-270), y: getResponsivePosition(-70) },
     JSW: { x: getResponsivePosition(370), y: getResponsivePosition(-325) },
-    LLyod: { x: getResponsivePosition(-400), y: getResponsivePosition(-480) },
+    LLyod: { x: getResponsivePosition(200), y: getResponsivePosition(300) },
     Malabar: { x: getResponsivePosition(500), y: getResponsivePosition(280) },
     Muthhoot: { x: getResponsivePosition(600), y: getResponsivePosition(-200) },
     Nippon: { x: getResponsivePosition(-100), y: getResponsivePosition(-300) },
@@ -243,7 +243,7 @@ const LandingClients2 = () => {
         id: 12,
         name: "LLyod",
         image: LLyodLogo,
-        size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
+        size: { width: getResponsiveSize(120), height: getResponsiveSize(40) },
         positionIndex: 11,
         section: 0,
       },
@@ -659,8 +659,8 @@ const LandingClients2 = () => {
         start: "top top",
         end: `+=${sectionHeight * (numSections - 1)}`,
         pin: true,
-        pinSpacing: true,
-        scrub: true, // Changed to true instead of 0.3 for smoother transitions
+        
+        scrub: 0.3, // Changed to true instead of 0.3 for smoother transitions
         preventOverlaps: true,
         onUpdate: function(self) {
           // Calculate section based on progress, using thresholds for smoother transitions
@@ -684,8 +684,8 @@ const LandingClients2 = () => {
         snap: {
           snapTo: [0, 0.5, 1],
           duration: { min: 0.1, max: 0.3 },
-          delay: 0.1, // Small delay for better user experience
-          ease: "power2.inOut" // Changed ease function for smoother transitions
+          delay: 0.5, // Small delay for better user experience
+          ease: "power1.inOut" // Changed ease function for smoother transitions
         }
       });
       
@@ -834,7 +834,7 @@ const LandingClients2 = () => {
                 width={logo.size.width}
                 height={logo.size.height}
                 className="object-contain"
-                priority={logo.section === 0 || logo.section === 1} // Prioritize first and second section logos
+                // priority={logo.section === 0 || logo.section === 1} // Prioritize first and second section logos
               />
             </div>
           );

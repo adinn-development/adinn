@@ -3,8 +3,8 @@ import React from 'react'
 const Achievements = () => {
     const contents = [
         {
-            title: 'Medias in Chennai',
-            description: '150+'
+            title: 'Member team',
+            description: '130+'
         },
         {
             title: 'Largest in',

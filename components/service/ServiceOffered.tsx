@@ -4,19 +4,19 @@ const ServiceOffered = () => {
   const contents = [
     {
       title: "Hoarding Services",
-      description: " Large, impactful stationary boards  with messages or images.  Captivating visuals for effective  brand communication.",
+      description: "Large-format ads for impactful brand communication",
     },
     {
       title: "Transit Advertising",
-      description: " Placing ads strategically on buses,  trains, taxis, and various vehicles.  Mobile visibility for maximum reach  and brand exposure.",
+      description: "Branding on buses, trains, autos & taxis for high mobility reach",
     },  
     {
       title: "Street Furniture Advertising",
-      description: " Placing ads strategically on buses,  trains, taxis, and various vehicles.  Mobile visibility for maximum reach  and brand exposure.",
+      description: "Bus shelters, benches & kiosks for urban brand visibility",
     },  
     {
       title: "Point of Sale Advertising",
-      description: " Displays and signs in retail locations,  promoting specific products or  promotions. Strategic placement for  enhanced product visibility and  consumer engagement.",
+      description: "In-store displays that drive instant engagement",
     },  
     
     

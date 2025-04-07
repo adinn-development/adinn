@@ -24,28 +24,40 @@ const LandingService = () => {
 
   const contents = [
     {
-      title: "OOH & Outdoor Media Solutions",
+      title: "OOH & Outdoor Advertising",
       description:
         "Redefining luxury in audio with advanced technology and exquisite design.",
       image: Service1,
     },
     {
-      title: "Media Buying & Planning™",
+      title: "Roadshow & Mobile Van Advertising",
       description:
         "Redefining luxury in audio with advanced technology and exquisite design.",
       image: Service2,
     },
     {
-      title: "Exhibition Services™",
+      title: "Digital Marketing",
       description:
         "Redefining luxury in audio with advanced technology and exquisite design.",
       image: Service3,
     },
     {
-      title: "Digital Marketing",
+      title: "Retail Branding & Signage Solutions",
       description:
         "Redefining luxury in audio with advanced technology and exquisite design.",
       image: Service4,
+    },
+    {
+      title: "Events & Activation",
+      description:
+        "Redefining luxury in audio with advanced technology and exquisite design.",
+      image: Service1,
+    },
+    {
+      title: "Media Buying & Planning",
+      description:
+        "Redefining luxury in audio with advanced technology and exquisite design.",
+      image: Service2,
     },
   ];
 

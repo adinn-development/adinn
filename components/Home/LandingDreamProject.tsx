@@ -128,21 +128,20 @@ const LandingDreamProject = () => {
           {/* Text Content */}
           <div className="absolute top-[25%] left-25  md:top-[30%] md:left-50  sm:top-[30%] sm:left-50">
             <h2 className="text-[24px] md:text-[40px] lg:text-[80px] text-white leading-none">
-              Let's Build Your
+              Want to make Your
             </h2>
             <h2 className="text-[24px] md:text-[40px] lg:text-[80px] instrument-font text-white font-serif italic leading-none">
-              Dream Project
+              brand unmissable?
             </h2>
           </div>
 
           {/* Call to Action */}
           <div className="absolute bottom-8 right-8 text-white">
             <p className="text-[12px] md:text-[17px] sm:text-[17px] opacity-80 text-right">
-              Our team is here to help you succeed.
+            Get in touch with Adinn Advertising
+Services today!
               <br />
-              Let's work together to achieve your goals and elevate
-              <br />
-              your brand to new heights.
+              Email: info@adinn.com
             </p>
             <div className="flex justify-end mt-4">
               <button className="bg-white px-10 py-3 text-[12px] md:text-[16px] text-black rounded-full hover:bg-gray-200 transition-all cursor-pointer hover:scale-105">

@@ -7,22 +7,22 @@ const LandingProjects = () => {
     const images = [
         {
            image: TVSLogo,
-           name: "TVS",
+           name: "Roadshow Campaign for Reliance Digital",
            link: "https://www.tvs.com/"
         },
         {
            image: HaierLogo,
-           name: "Haier",
+           name: "Retail Activation for Sathya Electronics",
            link: "https://www.haier.com/"
         },
         {
             image: IPLLogo,
-            name: "IPL",
+            name: "Outdoor Advertising for Avantra",
             link: "https://www.ipl.com/"
         },
         {
             image: MalabarLogo,
-            name: "Malabar",
+            name: "Digital Marketing Success – Selvaganapathy TVS",
             link: "https://www.malabar.com/"
         }
     ];
@@ -74,7 +74,7 @@ const LandingProjects = () => {
             </div>
 
             <div className="flex flex-row items-center justify-between w-full px-2 sm:px-4 md:px-6">
-              <h3 className="text-base sm:text-lg md:text-[20px] font-semibold">{item.name}</h3>
+              <h3 className="text-base sm:text-lg md:text-[20px] font-semibold w-[270px]">{item.name}</h3>
               <a 
                 href={item.link}
                 target="_blank"
