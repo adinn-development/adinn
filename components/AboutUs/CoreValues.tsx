@@ -62,7 +62,7 @@ const CoreValues = () => {
                         key={index} 
                         className="relative overflow-hidden flex flex-col justify-end min-h-[320px] sm:min-h-[360px] 
                                  border-[#E7E5E5] rounded-2xl border p-6 sm:p-8
-                                  hover:border-[#EC2B45] hover:shadow-lg hover:shadow-[#EC2B45]/20
+                                  hover:border-[#EC2B45] hover:shadow-sm hover:shadow-[#EC2B45]/20
                                      hover:-translate-y-1 hover:scale-105 transition-all duration-300"
                     >
                         <div className="absolute top-[-27%] right-[-33%] w-[80%] h-[80%]">

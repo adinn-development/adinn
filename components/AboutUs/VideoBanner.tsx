@@ -39,7 +39,7 @@ const VideoBanner = () => {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className='flex flex-col items-center justify-center mt-30 md:min-h-screen sm:min-h-screen text-black text-center sm:px-6 md:px-6'
+      className='flex flex-col items-center justify-center mt-20 md:min-h-screen sm:min-h-screen text-black text-center sm:px-6 md:px-6'
     >
       <motion.div
         variants={textVariants}

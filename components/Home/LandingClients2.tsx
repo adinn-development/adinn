@@ -764,7 +764,7 @@ const LandingClients2 = () => {
       }, [activeSection, logoList]);
       
   return (
-    <div className="relative " ref={scrollContainerRef} id="landingClients">
+    <div className="relative md:mb-0 mb-[-150px]" ref={scrollContainerRef} id="landingClients" >
       <div
         className=" top-0 left-0 w-full h-screen flex items-center justify-center"
         ref={containerRef}

@@ -8,6 +8,9 @@ import {
   HandImage,
 } from "@/components/ReUsableComponents/Icons/Icons";
 import Link from "next/link";
+import Gallery5 from "@/public/Frame 192.png";
+
+
 
 const Gallery = () => {
   return (
@@ -29,7 +32,7 @@ const Gallery = () => {
       </div>
 
       <div className="grid grid-cols-1 w-full max-w-full mx-auto px-5">
-        <div className="flex flex-col gap-4 md:gap-14 justify-center items-center w-full max-w-full mx-auto px-5">
+        <div className="flex flex-col gap-4 md:gap-14 justify-center items-center w-full max-w-full mx-auto px-5 space-y-1">
           {/* First Row */}
           <div className="flex flex-row gap-4 w-full">
             <div className="text-center w-[70%] max-w-full h-[20vh] lg:h-[40vh]">
@@ -43,10 +46,15 @@ const Gallery = () => {
 
               <div className="hidden sm:block md:block lg:block text-justify align-center justify-center">
                 <div className="flex flex-row justify-between items-center align-center">
-                  <h3 className="text-[28px] font-medium mt-2">3D & Cut-Out</h3>
-                  <p className="text-[16px] text-gray-600">
+
+                  <h3 className="text-[20px] font-medium mt-2">
+                  Digital Marketing Success – Selvaganapathy TVS
+
+                
+                  </h3>
+                  {/* <p className="text-[16px] text-gray-600">
                     Dindugal Thalappakatti
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -61,19 +69,20 @@ const Gallery = () => {
               </div>
 
               <div className="hidden sm:block md:block lg:block text-justify align-center justify-center">
-                <div className="flex flex-row justify-between items-center align-center">
-                  <h3 className="text-[28px] font-medium mt-2">
-                    Geo Targeting
+                <div className="flex flex-row  items-center align-center">
+                  <h3 className="text-[20px] font-medium mt-2">
+                  Retail Activation for Sathya Electronics
+
                   </h3>
-                  <p className="text-[16px] text-gray-600">Malabar</p>
+                  {/* <p className="text-[16px] text-gray-600">Malabar</p> */}
                 </div>
               </div>
             </div>
           </div>
 
           {/* Second Row */}
-          <div className="flex flex-row gap-4 w-full">
-            <div className="text-center w-[70%] max-w-full h-[20vh] lg:h-[40vh]">
+          <div className="flex flex-row justify-between w-full">
+            <div className="text-center w-[33%] max-w-full h-[20vh] lg:h-[40vh]">
               <div className="w-full h-full overflow-hidden hover:scale-101 transition-transform duration-300">
                 <Image
                   src={Gallery3}
@@ -82,15 +91,37 @@ const Gallery = () => {
                 />
               </div>
 
-              <div className="hidden sm:block md:block lg:block text-justify align-center align-center justify-center">
+              <div className="hidden sm:block md:block lg:block text-justify align-center justify-center">
                 <div className="flex flex-row justify-between items-center align-center">
-                  <h3 className="text-[28px] font-medium mt-2">Dynamic</h3>
-                  <p className="text-[16px] text-gray-600">Nippon Paint</p>
+                  
+                  <h3 className="text-[20px] font-medium mt-2"> 
+                  Roadshow Campaign for Reliance Digital
+                  </h3>
+                  {/* <p className="text-[16px] text-gray-600">Nippon Paint</p> */}
                 </div>
               </div>
             </div>
 
-            <div className="text-center w-[30%] max-w-full h-[20vh] lg:h-[40vh]">
+            <div className="text-center w-[32.5%] max-w-full h-[20vh] lg:h-[40vh]">
+              <div className="max-w-full h-full overflow-hidden hover:scale-101 transition-transform duration-300">
+                <Image
+                  src={Gallery5}
+                  alt="Gallery4"
+                  className="w-full h-full object-cover rounded-[16px]"
+                />
+              </div>
+
+              <div className="hidden sm:block md:block lg:block text-justify align-center justify-center">
+                <div className="flex flex-row items-center align-center">
+                  <h3 className="text-[20px] font-medium mt-2 ">
+                  Outdoor Advertising for Avantra
+                  </h3>
+                  {/* <p className="text-[16px] text-gray-600">Nippon Paint</p> */}
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center w-[32.5%] max-w-full h-[20vh] lg:h-[40vh]">
               <div className="max-w-full h-full overflow-hidden hover:scale-101 transition-transform duration-300">
                 <Image
                   src={Gallery4}
@@ -101,10 +132,11 @@ const Gallery = () => {
 
               <div className="hidden sm:block md:block lg:block text-justify align-center justify-center">
                 <div className="flex flex-row justify-between items-center align-center">
-                  <h3 className="text-[28px] font-medium mt-2">
-                    Wall Painting
+                  <h3 className="text-[20px] font-medium mt-2">
+                  Media Buying for Tamil Nadu Bajaj
+
                   </h3>
-                  <p className="text-[16px] text-gray-600">Nippon Paint</p>
+                  {/* <p className="text-[16px] text-gray-600">Nippon Paint</p> */}
                 </div>
               </div>
             </div>

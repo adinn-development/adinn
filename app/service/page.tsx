@@ -5,6 +5,7 @@ import Gallery from '@/components/service/Gallery'
 import Footer from '@/components/ReUsableComponents/Footer'
 import LandingDreamProject from '@/components/Home/LandingDreamProject'
 
+
 const page = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const page = () => {
       <Content />
       <ServiceOffered />
       <Gallery />
+      
       <div className='md:mt-40 md:mb-40'>
         <LandingDreamProject />
 

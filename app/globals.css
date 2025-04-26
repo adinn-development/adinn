@@ -9,3 +9,9 @@ body {
   .instrument-font {
     font-family: var(--font-instrument), serif;
 }
+
+
+
+.custom-video-filter {
+  filter: grayscale(100%) sepia(50%) hue-rotate(50deg) saturate(150%);
+}

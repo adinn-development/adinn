@@ -16,16 +16,17 @@ const Hero = () => {
         <div className="flex flex-col items-center text-center">
           <div className="text-white">
             <h1 className="text-[32px]  md:text-[54px]  font-bold leading-tight instrument-font">
-              OOH & Outdoor
+              Services
             </h1>
-            <p className="text-[32px] md:text-[54px] text-white">
-              MEDIA SOLUTIONS
+            <p className="text-[20px] w-[580px] text-white">
+            To be the beacon of creativity and innovation in the advertising industry, where every
+            brand finds a voice that is not just heard but remembered.
             </p>
           </div>
 
           <div className="mt-6 flex space-x-4">
             <Link href="/projects">
-              <button className="bg-[#000000] cursor-pointer border border-[#000000] text-white text-[12px] md:text-[16px] rounded-full w-[130px] h-[40px] md:w-[180px] md:h-[48px] sm:w-[180px] sm:h-[48px] text-center transition-all hover:bg-[#333333] hover:shadow-lg flex items-center justify-center">
+              <button className="bg-[#000000] cursor-pointer border border-[#000000] text-white text-[12px] md:text-[16px] rounded-full w-[130px] h-[40px] md:w-[180px] md:h-[48px] sm:w-[180px] sm:h-[48px] text-center transition-all hover:bg-[#141414] hover:scale-105 hover:shadow-lg flex items-center justify-center">
                 View Projects
               </button>
             </Link>

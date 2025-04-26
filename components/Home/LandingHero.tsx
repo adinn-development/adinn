@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TopNav from "../ReUsableComponents/TopNav";
 import Image from "next/image";
 import { BackgroundImage } from "../ReUsableComponents/Icons/Icons";
@@ -12,8 +12,49 @@ gsap.registerPlugin(ScrollTrigger);
 
 const LandingHero = () => {
   const heroSectionRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoVisible, setVideoVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    checkIsMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkIsMobile);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  // Set video visible immediately on mobile
+  useEffect(() => {
+    if (isMobile) {
+      setVideoVisible(true);
+      
+      // Force play video on mobile after a short delay
+      setTimeout(() => {
+        if (videoRef.current) {
+          const playPromise = videoRef.current.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(error => {
+              console.error("Video play error:", error);
+            });
+          }
+        }
+      }, 1000);
+    }
+  }, [isMobile]);
 
   useEffect(() => {
+    // Skip animation setup on mobile
+    if (isMobile) return;
+
     ScrollTrigger.getAll().forEach(t => t.kill());
     
     const tl = gsap.timeline({
@@ -28,6 +69,14 @@ const LandingHero = () => {
           snapTo: "labels", 
           duration: { min: 0.2, max: 0.5 }, 
           directional: false, 
+        },
+        onUpdate: (self) => {
+          // Check if we've reached the end of the animation
+          if (self.progress > 0.8) {
+            setVideoVisible(true);
+          } else {
+            setVideoVisible(false);
+          }
         }
       },
       smoothChildTiming: true,
@@ -70,18 +119,38 @@ const LandingHero = () => {
           y: 0,
           duration: 2,
           ease: "power2.out",
+          onComplete: () => {
+            setVideoVisible(true);
+          }
         }
       )
       .addLabel("end");
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
-  }, []);
+  }, [isMobile]);
+
+  // Effect to control video playback
+  useEffect(() => {
+    if (videoRef.current) {
+      if (videoVisible) {
+        const playPromise = videoRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.error("Video play error:", error);
+          });
+        }
+      } else {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+    }
+  }, [videoVisible]);
 
   return (
     <>
       <div
-        className="landing-hero-container relative w-full h-screen mb-40 md:mb-0 overflow-hidden"
+        className={`landing-hero-container relative w-full md:h-screen h-[60vh] ${isMobile ? '' : 'mb-40 md:mb-0'} overflow-hidden`}
         ref={heroSectionRef}
       >
         <div>
@@ -116,19 +185,55 @@ const LandingHero = () => {
 
 
           {/* Bottom Image */}
-          <div className="absolute bottom-0 w-full h-[50vh]">
-            <Image
-              src={HomeFrame}
-              alt="New Sliding Image"
-              fill
-              priority
-              quality={100}
-              style={{
-                objectFit: "contain",
-                objectPosition: "center bottom",
-              }}
-              className="bottom-image "
-            />
+          <div className={`absolute bottom-0 w-full ${isMobile ? 'h-[60vh] z-20' : 'h-[100vh]'}`}>
+            {isMobile && (
+              <div className="w-full h-full flex items-end justify-center">
+                <video
+                  ref={videoRef}
+                  src="/adinn2222.webm[01].webm"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{
+                    objectFit: "contain",
+                    objectPosition: "center bottom",
+                    width: "100%",
+                    height: "auto",
+                    maxHeight: "60vh",
+                    display: "block",
+                    visibility: "visible"
+                  }}
+                  className="w-full opacity-100"
+                />
+              </div>
+            )}
+            
+            {!isMobile && (
+              <video
+                ref={videoRef}
+                src="/adinn2222.webm[01].webm"
+                muted
+                loop
+                playsInline
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center bottom",
+                  maxWidth: "100%",
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: "100vh",
+                  margin: "0 auto",
+                  position: "absolute",
+                  bottom: 0,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  display: "block",
+                  visibility: "visible"
+                }}
+                className="bottom-image w-full"
+              />
+            )}
           </div>
         </div>
       </div>
