@@ -94,7 +94,7 @@ const LandingClients2 = () => {
     TVS: { x: getResponsivePosition(245), y: getResponsivePosition(-200) },
     DBS: { x: getResponsivePosition(-400), y: getResponsivePosition(-260) },
     Zomato: { x: getResponsivePosition(4), y: getResponsivePosition(195) },
-    Bhima:{x:getResponsivePosition(5), y:getResponsivePosition(200)},
+    Bhima:{x:getResponsivePosition(-405), y:getResponsivePosition(200)},
     Daikin: { x: getResponsivePosition(-525), y: getResponsivePosition(45) },
     Dalmia: { x: getResponsivePosition(250), y: getResponsivePosition(440) },
     Honda: { x: getResponsivePosition(-270), y: getResponsivePosition(-70) },
@@ -290,7 +290,7 @@ const LandingClients2 = () => {
         image: BhimaLogo,
         size: { width: getResponsiveSize(150), height: getResponsiveSize(40) },
         positionIndex: 15,
-        section: 0,
+        section: 1,
       },
       {
         id: 18,
@@ -596,6 +596,7 @@ const LandingClients2 = () => {
           const element = logoRefs.current[logo.id - 1];
           if (element) {
             const position = positions[logo.name];
+            // Just set initial position without animation
             gsap.set(element, {
               x: position.x,
               y: position.y,
@@ -614,20 +615,24 @@ const LandingClients2 = () => {
  useEffect(() => {
     const sectionContents = document.querySelectorAll('.section-content');
     if (sectionContents.length >= 3) {
+      // Same animation style for all section contents
       sectionContents.forEach((content, index) => {
         if (index === activeSection) {
-          gsap.to(content, {
-            opacity: 1,
-            duration: 0.3,
-            ease: "power2.out",
-            pointerEvents: "auto",
-            overwrite: true
-          });
+          gsap.fromTo(content, 
+            { opacity: 0 },
+            {
+              opacity: 1,
+              duration: 0.6,
+              ease: "power1.out",
+              pointerEvents: "auto",
+              overwrite: true
+            }
+          );
         } else {
           gsap.to(content, {
             opacity: 0,
-            duration: 0.3,
-            ease: "power2.out",
+            duration: 0.4,
+            ease: "power1.in",
             pointerEvents: "none",
             overwrite: true
           });
@@ -652,15 +657,14 @@ const LandingClients2 = () => {
       const numSections = 3;
       const sectionHeight = window.innerHeight;
       
-      // Create main scroll trigger
+      // Create main scroll trigger with center-center positioning
       const mainTrigger = ScrollTrigger.create({
         id: "clientsScrollTrigger",
         trigger: container,
-        start: "top top",
+        start: "center center", // Center of trigger meets center of viewport
         end: `+=${sectionHeight * (numSections - 1)}`,
         pin: true,
-        
-        scrub: 0.3, // Changed to true instead of 0.3 for smoother transitions
+        scrub: 0.3,
         preventOverlaps: true,
         onUpdate: function(self) {
           // Calculate section based on progress, using thresholds for smoother transitions
@@ -684,9 +688,10 @@ const LandingClients2 = () => {
         snap: {
           snapTo: [0, 0.5, 1],
           duration: { min: 0.1, max: 0.3 },
-          delay: 0.5, // Small delay for better user experience
-          ease: "power1.inOut" // Changed ease function for smoother transitions
-        }
+          delay: 0.5,
+          ease: "power1.inOut"
+        },
+        markers: false // Set to true for debugging
       });
       
       // Make container visible after setup
@@ -700,21 +705,19 @@ const LandingClients2 = () => {
     return () => {
       ctx.revert();
     };
-  }, [logoList, windowSize, activeSection]); // Added activeSection as dependency
+  }, [logoList, windowSize, activeSection]);
   
   // Make sure sections are initially set up correctly  
   useEffect(() => {
-    // Ensure first section is visible on initial load
-    if (activeSection === 0) {
-      const sectionContents = document.querySelectorAll('.section-content');
-      if (sectionContents.length >= 1) {
-        gsap.set(sectionContents[0], { opacity: 1, pointerEvents: "auto" });
-        
-        // Make other sections invisible
-        for (let i = 1; i < sectionContents.length; i++) {
-          gsap.set(sectionContents[i], { opacity: 0, pointerEvents: "none" });
-        }
-      }
+    const sectionContents = document.querySelectorAll('.section-content');
+    if (sectionContents.length >= 1) {
+      // Just set initial visibility without animation
+      sectionContents.forEach((content, index) => {
+        gsap.set(content, { 
+          opacity: index === 0 ? 1 : 0, 
+          pointerEvents: index === 0 ? "auto" : "none" 
+        });
+      });
     }
   }, []);
 
@@ -723,6 +726,7 @@ const LandingClients2 = () => {
         if (!logoList.length) return;
     
         const ctx = gsap.context(() => {
+          // Apply same animation style for all sections
           logoList.forEach((logo) => {
             const element = logoRefs.current[logo.id - 1];
             const position = positions[logo.name];
@@ -730,25 +734,32 @@ const LandingClients2 = () => {
             if (!element) return;
     
             if (logo.section === activeSection) {
-              gsap.to(element, {
-                duration: 0.8,
-                x: position.x,
-                y: position.y,
-                scale: 1,
-                opacity: 1,
-                visibility: "visible",
-                ease: "power2.out",
-                overwrite: true,
-              });
+              // Animation for appearing logos - same for all sections
+              gsap.fromTo(element,
+                {
+                  x: position.x,
+                  y: position.y,
+                  scale: 0,
+                  opacity: 0,
+                  visibility: "hidden",
+                },
+                {
+                  duration: 0.8,
+                  scale: 1,
+                  opacity: 1,
+                  visibility: "visible",
+                  ease: "power1.out",
+                  delay: 0.04 * logo.positionIndex,
+                  overwrite: true,
+                }
+              );
             } else {
+              // Animation for disappearing logos
               gsap.to(element, {
-                duration: 0.8,
-                x: position.x,
-                y: position.y,
+                duration: 0.5,
                 scale: 0,
                 opacity: 0,
-                visibility: "hidden",
-                ease: "power2.in",
+                ease: "power1.in",
                 overwrite: true,
                 onComplete: () => {
                   gsap.set(element, { visibility: "hidden" });
@@ -764,9 +775,9 @@ const LandingClients2 = () => {
       }, [activeSection, logoList]);
       
   return (
-    <div className="relative md:mb-0 mb-[-150px]" ref={scrollContainerRef} id="landingClients" >
+    <div className="relative md:mb-0 mb-[-150px] min-h-screen flex items-center justify-center" ref={scrollContainerRef} id="landingClients">
       <div
-        className=" top-0 left-0 w-full h-screen flex items-center justify-center"
+        className="absolute top-0 left-0 w-full h-screen flex items-center justify-center"
         ref={containerRef}
       >
         {/* Circles */}
@@ -805,6 +816,26 @@ const LandingClients2 = () => {
             </p>
             {/* <p className="text-gray-500 mt-2">Section {activeSection + 1}/3</p> */}
           </div>
+        </div>
+
+        {/* Section Content Wrappers - consistent styling for all sections */}
+        <div className="section-content absolute w-full h-full" style={{ 
+          opacity: activeSection === 0 ? 1 : 0,
+          pointerEvents: activeSection === 0 ? "auto" : "none"
+        }}>
+          {/* Section 0 content */}
+        </div>
+        <div className="section-content absolute w-full h-full" style={{ 
+          opacity: activeSection === 1 ? 1 : 0,
+          pointerEvents: activeSection === 1 ? "auto" : "none"
+        }}>
+          {/* Section 1 content */}
+        </div>
+        <div className="section-content absolute w-full h-full" style={{ 
+          opacity: activeSection === 2 ? 1 : 0,
+          pointerEvents: activeSection === 2 ? "auto" : "none"
+        }}>
+          {/* Section 2 content */}
         </div>
 
         {/* Logos */}

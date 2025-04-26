@@ -10,6 +10,7 @@ import {
 } from "../ReUsableComponents/Icons/Icons";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import gsap from "gsap";
 
 const LandingService = () => {
   const controls = useAnimation();
@@ -18,6 +19,7 @@ const LandingService = () => {
     threshold: 0.1,
   });
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0); // Track scroll progress
@@ -84,24 +86,43 @@ const LandingService = () => {
     e.preventDefault();
     if (isScrolling) return;
 
-    const scrollAmount = 600; // Width of one image
-    const newScrollPosition =
-      scrollPosition + (e.deltaY > 0 ? scrollAmount : -scrollAmount);
-
-    const constrainedPosition = Math.max(
-      0,
-      Math.min(newScrollPosition, maxScroll)
-    );
-
     setIsScrolling(true);
-    setScrollPosition(constrainedPosition);
-
-    container.scrollTo({
-      left: constrainedPosition,
-      behavior: "smooth",
+    
+    const scrollAmount = 600; // Width of one image + gap
+    const direction = e.deltaY > 0 ? 1 : -1;
+    
+    // Calculate the nearest section position for precise snapping
+    // This ensures we're always working with exact section positions
+    const sectionCount = Math.ceil(maxScroll / scrollAmount);
+    const sectionsArray = Array.from({length: sectionCount + 1}, (_, i) => i * scrollAmount);
+    
+    // Find the closest section to current scroll position
+    let currentSectionIndex = 0;
+    let minDistance = Infinity;
+    
+    sectionsArray.forEach((pos, idx) => {
+      const distance = Math.abs(pos - currentScroll);
+      if (distance < minDistance) {
+        minDistance = distance;
+        currentSectionIndex = idx;
+      }
     });
+    
+    // Calculate target section index with boundary check
+    const targetIndex = Math.max(0, Math.min(currentSectionIndex + direction, sectionCount));
+    const targetPosition = sectionsArray[targetIndex];
+    
+    setScrollPosition(targetPosition);
 
-    setTimeout(() => setIsScrolling(false), 500);
+    // Animate scroll with GSAP for smoother control
+    gsap.to(container, {
+      scrollLeft: targetPosition,
+      duration: 0.8,
+      ease: "power2.out",
+      onComplete: () => {
+        setIsScrolling(false);
+      }
+    });
   };
 
   useEffect(() => {
@@ -114,19 +135,30 @@ const LandingService = () => {
     };
   }, [scrollPosition, isScrolling]);
 
-  // Update scroll progress
+  // Update scroll progress with GSAP
   useEffect(() => {
     const container = scrollContainerRef.current;
-    if (!container) return;
+    const progressBar = progressBarRef.current;
+    if (!container || !progressBar) return;
 
     const updateScrollProgress = () => {
       const maxScroll = container.scrollWidth - container.clientWidth;
       const currentScroll = container.scrollLeft;
-      const progress = (currentScroll / maxScroll) * 100;
-      setScrollProgress(progress);
+      const progress = maxScroll > 0 ? (currentScroll / maxScroll) : 0;
+      
+      setScrollProgress(progress * 100);
+      
+      gsap.to(progressBar, {
+        width: `${Math.max(progress * 100, 5)}%`,
+        duration: 0.3,
+        ease: "power2.out"
+      });
     };
 
     container.addEventListener("scroll", updateScrollProgress);
+    // Initialize progress bar
+    updateScrollProgress();
+    
     return () => {
       container.removeEventListener("scroll", updateScrollProgress);
     };
@@ -198,17 +230,20 @@ const LandingService = () => {
           </motion.div>
         </div>
 
-        {/* Progress Line positioned at the bottom of the scroll container */}
-        <div
-  className="h-3 mt-4 rounded-[30px]"
-  style={{
-    background: "linear-gradient(to right, #CF1E00, #ED6400)",
-    width: scrollProgress > 0 ? `${scrollProgress}%` : "80px", // Start with a small width
-    transformOrigin: "left",
-    transition: "width 0.3s ease",
-  }}
-></div>
-
+        {/* Centered Progress Line Container */}
+        {/* <div className="flex justify-center mt-6">
+          <div className="w-[200px] h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              ref={progressBarRef}
+              className="h-full rounded-full"
+              style={{
+                background: "linear-gradient(to right, #CF1E00, #ED6400)",
+                width: "5%",
+                transformOrigin: "left center"
+              }}
+            ></div>
+          </div>
+        </div> */}
       </div>
     </div>
   );
