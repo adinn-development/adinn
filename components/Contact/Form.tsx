@@ -90,7 +90,7 @@ const Form = () => {
       </div>
 
       {/* Form Section */}
-      <div className="p-10">
+      <div className="md:p-10 p-3">
       <div className="max-w-[659px] mx-auto mt-16  p-8 bg-white rounded-2xl border border-[#DDDAE0]">
         <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
           {/* Name Fields */}

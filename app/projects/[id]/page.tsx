@@ -8,6 +8,8 @@ import {
   ProjectImage2,
   IdHero,
   ProjectOverview,
+  Royal,
+  BGBanner,
 } from "@/components/ReUsableComponents/Icons/Icons";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
@@ -77,10 +79,10 @@ const projectsData = [
     projects: [
       {
         id: 7,
-        image: ProjectImage3,
-        alt: "Mobile Van",
-        name: "Mobile Campaign",
-        description: "Brand Activation Van",
+        image: Royal,
+        alt: "Royal Enfield",
+        name: "Royal Enfield",
+        description: "Van",
       },
       {
         id: 8,
@@ -497,41 +499,47 @@ const ProjectDetailPage = () => {
     <>
       {/* Hero Section */}
       <div
-        className="relative w-full h-screen bg-cover bg-center bg-no-repeat overflow-hidden flex flex-col"
+        className="relative w-full md:h-screen h-[400px] bg-cover bg-center bg-no-repeat overflow-hidden flex flex-col"
         style={{ backgroundImage: `url(${IdHero.src})` }}
       >
         <TopNav />
 
-        {/* Back button */}
-        {/* <div className="absolute top-24 left-8 z-20">
-          <Link 
-            href="/projects" 
-            className="text-white hover:text-[#CF1E00] flex items-center gap-2 transition-colors duration-300 bg-black/20 backdrop-blur-sm rounded-full px-4 py-2"
-          >
-            <FiArrowLeft size={20} /> 
-            <span className="hidden sm:inline">Back to Projects</span>
-          </Link>
-        </div> */}
-
         {/* Main content container */}
         <div className="flex-1 flex flex-col items-center justify-end relative">
-          <Image
-            src={ProjectVideoFrame}
-            alt="Project Frame"
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[90%] md:max-w-[90%] lg:max-w-[90%]"
-            priority
-          />
+          <div className="absolute bottom-0 w-full flex justify-center">
+            {/* Background Banner */}
+            <div className="relative w-full max-w-[90%] md:max-w-[55%]">
+              <Image
+                src={BGBanner}
+                alt="Project Frame"
+                className="w-full h-auto"
+                priority
+              />
+
+              {/* Foreground Project Image */}
+              {project && (
+                <div className="absolute bottom-[20%] inset-0 flex justify-center items-end px-2">
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    className="w-full h-[88%] object-cover"
+                    priority
+                  />
+                </div>
+              )}
+            </div>
+          </div>
 
           {/* Project title display */}
-          <div className="flex flex-col items-center z-10 mb-[20%] md:mb-[25%] lg:mb-[30%] px-4">
+          <div className="flex flex-col items-center z-10 mb-[50%] md:mb-[30%] lg:mb-[30%] px-4">
 
 
             {altWords.map((word, index) => (
               <p
                 key={index}
                 className={`text-[32px] sm:text-[48px] md:text-[72px] lg:text-[100px] leading-[0.9] uppercase font-bold ${index === altWords.length - 1
-                    ? "bg-gradient-to-t from-transparent to-white bg-clip-text text-transparent"
-                    : "text-white"
+                  ? "bg-gradient-to-t from-transparent to-white bg-clip-text text-transparent"
+                  : "text-white"
                   }`}
               >
                 {word}
@@ -556,13 +564,15 @@ const ProjectDetailPage = () => {
               <h3 className="text-[#444349] text-[18px] md:text-[20px] mb-2 transition-colors duration-300 group-hover:text-[#EC2B45]">
                 {item.title}
               </h3>
-              <p className="text-[#EC2B45] text-[36px] md:text-[48px] lg:text-[48px] md:whitespace-nowrap font-bold">
+              <p className="text-[#EC2B45] text-[36px] md:text-[48px] lg:text-[48px] xl:whitespace-nowrap font-bold">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
       </div>
+
+
 
       {/* Project Overview Section */}
       <div className="flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-16 px-4 sm:px-6 lg:px-10 mb-20">

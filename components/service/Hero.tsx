@@ -6,7 +6,7 @@ import TopNav from '../ReUsableComponents/TopNav';
 const Hero = () => {
   return (
     <div
-      className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
+      className="relative w-full md:h-screen h-[400px] bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${ServiceHero.src})` }}
     >
       <div className="absolute top-0 left-0 right-0 z-50">
@@ -15,10 +15,10 @@ const Hero = () => {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex flex-col items-center text-center">
           <div className="text-white">
-            <h1 className="text-[32px]  md:text-[54px]  font-bold leading-tight instrument-font">
+            <h1 className="text-[30px]  md:text-[54px]  font-bold leading-tight instrument-font">
               Services
             </h1>
-            <p className="text-[20px] w-[580px] text-white">
+            <p className="md:text-[20px] text-[10px] md:w-[580px] md:px-0 px-5 text-white">
             To be the beacon of creativity and innovation in the advertising industry, where every
             brand finds a voice that is not just heard but remembered.
             </p>

@@ -12,19 +12,19 @@ const Message = () => {
   const contents = [
     {
       name: 'John Doe',
-      tag: 'our CEO',
+      tag: 'Our CEO',
       designation: 'CEO, Adinn',
       message: 'At Adinn, we are committed to being the most reputable agency in the advertising sector. Our mission is to consistently deliver reliable and impactful solutions that exceed expectations, earning the respect of our clients and peers alike.'
     },
     {
       name: 'Mike Ross',
-      tag: 'our Director',
+      tag: 'Our Director',
       designation: 'Director, Adinn',
       message: 'At Adinn, we are committed to being the most reputable agency in the advertising sector. Our mission is to consistently deliver reliable and impactful solutions that exceed expectations, earning the respect of our clients and peers alike.'
     },
     {
       name: 'Frank',
-      tag: 'our Manager',
+      tag: 'Our Manager',
       designation: 'Manager, Adinn',
       message: 'At Adinn, we are committed to being the most reputable agency in the advertising sector. Our mission is to consistently deliver reliable and impactful solutions that exceed expectations, earning the respect of our clients and peers alike.'
     }
@@ -60,24 +60,26 @@ const Message = () => {
   return (
     <div className="slider-container">
       <div className="flex flex-col items-center">
-      <div 
-          className="md:text-[72px] text-3xl text-[#100F0F] font-bold leading-tight text-center mt-20 mb-5 mx-auto md:ml-15 ml-15 lg:ml-72 "
+        <div
+          className="xl:text-[72px] lg:text-[65px] text-xl text-[#100F0F] font-bold leading-tight text-center mt-20 mb-5 pr-[19%]"
           ref={tagContainerRef}
         >
-          <div className="relative  inline-block mx-auto justify-center items-center">
+          <div className="relative inline-block mx-auto justify-center items-center">
             <span>A Message from </span>
-            <span className="absolute  text-[#CF1E00] italic instrument-font font-serif min-w-[120px] inline-block text-left whitespace-nowrap pl-2">
+            <span className="absolute  text-[#CF1E00] italic instrument-font font-serif min-w-[120px] inline-block text-left whitespace-nowrap md:pl-4 pl-2">
               {currentTag}
             </span>
           </div>
         </div>
       </div>
-      
+     
+
+
       <Slider {...settings}>
         {contents.map((content, index) => (
-          <div 
-            key={index} 
-            className="message-slide" 
+          <div
+            key={index}
+            className="message-slide"
             ref={(el) => { messageRef.current[index] = el; }}
           >
             <div className='flex flex-col items-center justify-center max-w-[900px] mx-auto px-4'>
@@ -87,11 +89,11 @@ const Message = () => {
             </div>
 
             <div className='flex flex-row items-center justify-center mt-10 mb-10'>
-              <Image 
-                src={CeoImage} 
-                alt={content.name} 
-                width={80} 
-                height={100} 
+              <Image
+                src={CeoImage}
+                alt={content.name}
+                width={80}
+                height={100}
                 className='w-16 md:w-20'
               />
               <div className='flex flex-col items-start justify-center ml-4'>

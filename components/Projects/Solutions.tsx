@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   ProjectImage1,
   ProjectImage2,
+  Royal,
 } from "../ReUsableComponents/Icons/Icons";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
@@ -22,8 +23,8 @@ const Solutions = () => {
         {
           id: 1,
           image: ProjectImage1,
-          alt: "Outdoor Billboard",
-          name: "LED Billboard",
+          alt: "Amazon Prime",
+          name: "Amazon Prime",
           description: "Times Square Display",
         },
         {
@@ -64,15 +65,15 @@ const Solutions = () => {
       ]
     },
     { 
-      name: "RoadShow", 
+      name: "Roadshow", 
       lastWord: "Events",
       images: [
         {
           id: 7,
-          image: ProjectImage3,
-          alt: "Mobile Van",
-          name: "Mobile Campaign",
-          description: "Brand Activation Van",
+          image: Royal,
+          alt: "Royal Enfield",
+          name: "Royal Enfield",
+          description: "Van",
         },
         {
           id: 8,
@@ -410,7 +411,7 @@ const Solutions = () => {
           {contents.map((content, index) => (
             <button
               key={index}
-              className={`${
+              className={` cursor-pointer ${
                 index === activeIndex 
                   ? 'bg-gradient-to-r from-[#EC2B45] to-[#861927] text-white'
                   : 'bg-[#F5F5F5]/[.26] text-[#333] hover:bg-gradient-to-r hover:from-[#EC2B45] hover:to-[#861927] hover:text-white'
@@ -418,7 +419,7 @@ const Solutions = () => {
               py-2.5 rounded-full
               transform hover:-translate-y-1 transition-all duration-300 ease-in-out
               text-[16px] md:text-[16px] whitespace-nowrap px-4
-              shadow-sm hover:shadow-md min-w-[150px] text-center
+              shadow-sm hover:shadow-md min-w-[150px] text-center cursor-pointer
               `}
               onClick={() => setActiveIndex(index)}
             >

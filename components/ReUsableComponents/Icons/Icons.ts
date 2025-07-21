@@ -126,3 +126,8 @@ export {default as AboutHero} from '@/public/about/AboutHero.svg';
 //projects
 export {default as IdHero} from '@/public/projects/IdHero.svg';
 export  {default as ProjectOverview} from '@/public/projects/ProjectOverview.png';
+export {default as BGBanner} from '@/public/projects/Banner/banner.png';
+
+
+//Project - Roadshow
+export {default as Royal} from '@/public/projects/roadshow/sample.jpeg'

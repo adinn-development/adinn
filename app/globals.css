@@ -3,13 +3,20 @@
 
 body {
     font-family: 'PlusJakartaSans', sans-serif;
+    overflow-x: hidden;
   }
+
 
 
   .instrument-font {
     font-family: var(--font-instrument), serif;
 }
 
+
+
+html {
+  overflow-x: hidden;
+}
 
 
 .custom-video-filter {
