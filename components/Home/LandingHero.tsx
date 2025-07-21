@@ -5,7 +5,7 @@ import TopNav from "../ReUsableComponents/TopNav";
 import Image from "next/image";
 import { BackgroundImage } from "../ReUsableComponents/Icons/Icons";
 import Subtract from "@/public/Subtract.svg";
-import HomeFrame from "@/public/HomeFrame.svg"; 
+import HomeFrame from "@/public/HomeFrame.svg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -21,13 +21,13 @@ const LandingHero = () => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     // Check initially
     checkIsMobile();
-    
+
     // Add resize listener
     window.addEventListener('resize', checkIsMobile);
-    
+
     // Clean up
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
@@ -36,7 +36,7 @@ const LandingHero = () => {
   useEffect(() => {
     if (isMobile) {
       setVideoVisible(true);
-      
+
       // Force play video on mobile after a short delay
       setTimeout(() => {
         if (videoRef.current) {
@@ -56,19 +56,19 @@ const LandingHero = () => {
     if (isMobile) return;
 
     ScrollTrigger.getAll().forEach(t => t.kill());
-    
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".landing-hero-container",
         start: "top top",
-        end: "+=300%", 
+        end: "+=300%",
         scrub: 1,
         pin: true,
         anticipatePin: 1,
         snap: {
-          snapTo: "labels", 
-          duration: { min: 0.2, max: 0.5 }, 
-          directional: false, 
+          snapTo: "labels",
+          duration: { min: 0.2, max: 0.5 },
+          directional: false,
         },
         onUpdate: (self) => {
           // Check if we've reached the end of the animation
@@ -81,14 +81,14 @@ const LandingHero = () => {
       },
       smoothChildTiming: true,
     });
-    
+
     // Add labels for snap points
     tl.addLabel("start")
       .to(".text", {
         scale: 1,
         opacity: 1,
         duration: 1,
-        ease: "power2.out", 
+        ease: "power2.out",
       })
       .addLabel("scale1")
       .to(".text", {
@@ -107,6 +107,13 @@ const LandingHero = () => {
       .addLabel("scale3")
       .to(".text", {
         scale: 5,
+        opacity: 1,
+        duration: 1.5,
+        ease: "power2.out",
+      })
+      .addLabel("scale3")
+      .to(".text", {
+        scale: 7,
         opacity: 0,
         duration: 1.5,
         ease: "power2.out",
@@ -171,15 +178,14 @@ const LandingHero = () => {
           </div>
 
           <div className="absolute inset-0 -z-10 w-full h-full">
-  <Image
-    src={Subtract}
-    alt=" Shape"
-    fill
- 
-    priority
-    className="hidden sm:block md:block text object-cover"
-  />
-</div>
+            <Image
+              src={Subtract}
+              alt=" Shape"
+              fill
+              priority
+              className="hidden sm:block md:block text object-cover"
+            />
+          </div>
 
 
 
@@ -208,7 +214,7 @@ const LandingHero = () => {
                 />
               </div>
             )}
-            
+
             {!isMobile && (
               <video
                 ref={videoRef}

@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div>
       <Hero />
-      <Contents />
+      {/* <Contents /> */}
       <Solutions />
       <div className='md:mt-50 md:mb-50 mt-10 mb-20'>
       <LandingDreamProject />

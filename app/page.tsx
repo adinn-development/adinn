@@ -8,6 +8,7 @@ import LandingDreamProject from "@/components/Home/LandingDreamProject";
 import LandingQueries from "@/components/Home/LandingQueries";
 import Footer from "@/components/ReUsableComponents/Footer";
 import LandingHero from "@/components/Home/LandingHero";
+import LandingClients from "@/components/Home/LandingClients";
 
 
 
@@ -20,7 +21,7 @@ export default function Home() {
     <div className="overflow-x-hidden">
       <LandingHero />
       <LandingContent />
-      <LandingClients2 />
+      <LandingClients />
       <LandingService />
       <LandingMobile />
       <LandingProjects />

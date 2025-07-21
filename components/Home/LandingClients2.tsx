@@ -59,7 +59,7 @@ const LandingClients2 = () => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [circleRatio, setCircleRatio] = useState(1);
   const [logoList, setLogoList] = useState<any[]>([]);
-  const circleSizeFactor = windowSize.width < 768 ? 1.75 : 1.1; 
+  const circleSizeFactor = windowSize.width < 768 ? 1.75 : 1.1;
   const [activeSection, setActiveSection] = useState(0);
   const logoRefs = useRef<(HTMLDivElement | null)[]>([]);
   const initializedRef = useRef(false);
@@ -75,16 +75,16 @@ const LandingClients2 = () => {
     return Math.round(baseSize * circleRatio);
   };
 
-    // Calculate responsive sizes based on the base scale
-    const getResponsiveSize = (baseSize: number) => {
-        return Math.round(baseSize * circleRatio);
-      };
-    
-      // Calculate responsive positions - adjust to account for larger circles
-      const getResponsivePosition = (basePosition: number) => {
-        return Math.round(basePosition * circleRatio * circleSizeFactor);
-      };
-    
+  // Calculate responsive sizes based on the base scale
+  const getResponsiveSize = (baseSize: number) => {
+    return Math.round(baseSize * circleRatio);
+  };
+
+  // Calculate responsive positions - adjust to account for larger circles
+  const getResponsivePosition = (basePosition: number) => {
+    return Math.round(basePosition * circleRatio * circleSizeFactor);
+  };
+
 
   const positions: Record<string, { x: number; y: number }> = {
     // Section 0 logos
@@ -94,7 +94,7 @@ const LandingClients2 = () => {
     TVS: { x: getResponsivePosition(245), y: getResponsivePosition(-200) },
     DBS: { x: getResponsivePosition(-400), y: getResponsivePosition(-260) },
     Zomato: { x: getResponsivePosition(4), y: getResponsivePosition(195) },
-    Bhima:{x:getResponsivePosition(-405), y:getResponsivePosition(200)},
+    Bhima: { x: getResponsivePosition(-405), y: getResponsivePosition(200) },
     Daikin: { x: getResponsivePosition(-525), y: getResponsivePosition(45) },
     Dalmia: { x: getResponsivePosition(250), y: getResponsivePosition(440) },
     Honda: { x: getResponsivePosition(-270), y: getResponsivePosition(-70) },
@@ -105,7 +105,7 @@ const LandingClients2 = () => {
     Nippon: { x: getResponsivePosition(-100), y: getResponsivePosition(-300) },
     TataIpl: { x: getResponsivePosition(0), y: getResponsivePosition(-440) },
     Kalyan: { x: getResponsivePosition(-325), y: getResponsivePosition(150) },
-  
+
     // Section 1 logos
     Asian: { x: getResponsivePosition(4), y: getResponsivePosition(215) },
     Ambuja: { x: getResponsivePosition(370), y: getResponsivePosition(325) },
@@ -124,7 +124,7 @@ const LandingClients2 = () => {
     IOB: { x: getResponsivePosition(100), y: getResponsivePosition(-200) },
     James: { x: getResponsivePosition(-300), y: getResponsivePosition(-100) },
     Khadim: { x: getResponsivePosition(400), y: getResponsivePosition(-200) },
-  
+
     // Section 2 logos
     LG: { x: getResponsivePosition(-440), y: getResponsivePosition(-260) },
     Lisha: { x: getResponsivePosition(505), y: getResponsivePosition(-70) },
@@ -144,9 +144,10 @@ const LandingClients2 = () => {
     Impex: { x: getResponsivePosition(400), y: getResponsivePosition(-200) },
     Mahindra: { x: getResponsivePosition(-275), y: getResponsivePosition(-120) },
     Royal: { x: getResponsivePosition(370), y: getResponsivePosition(365) },
-  
+
     // More logos
   };
+
   // Create logo sets for each section
   const createLogoSets = () => {
     // Section 1 logos
@@ -279,9 +280,9 @@ const LandingClients2 = () => {
         positionIndex: 15,
         section: 0,
       },
-      
+
     ];
-  
+
     // Section 2 logos
     const section1Logos = [
       {
@@ -405,7 +406,7 @@ const LandingClients2 = () => {
         section: 1,
       },
     ];
-  
+
     // Section 3 logos
     const section2Logos = [
       {
@@ -490,7 +491,7 @@ const LandingClients2 = () => {
       },
       {
         id: 42,
-        name:"Burger",
+        name: "Burger",
         image: BurgerLogo,
         size: { width: getResponsiveSize(100), height: getResponsiveSize(60) },
         positionIndex: 10,
@@ -529,12 +530,12 @@ const LandingClients2 = () => {
         section: 2,
       },
     ];
-  
-      return [...section0Logos, ...section1Logos, ...section2Logos];
-    };
+
+    return [...section0Logos, ...section1Logos, ...section2Logos];
+  };
 
 
-      // Calculate the base scale for the entire component
+  // Calculate the base scale for the entire component
   const calculateBaseScale = () => {
     const referenceWidth = 1920;
     const referenceHeight = 1080;
@@ -550,75 +551,75 @@ const LandingClients2 = () => {
     return baseScale;
   };
 
-   
 
-    useEffect(() => {
-        // Handle window resize
-        const handleResize = () => {
-          setWindowSize({
-            width: window.innerWidth,
-            height: window.innerHeight,
-          });
-        };
-    
-        // Initialize
-        if (typeof window !== "undefined") {
-          handleResize();
-          window.addEventListener("resize", handleResize);
-        }
-    
-        return () => {
-          if (typeof window !== "undefined") {
-            window.removeEventListener("resize", handleResize);
-          }
-        };
-      }, []);
-    
-      useEffect(() => {
-        if (windowSize.width > 0 && windowSize.height > 0) {
-          calculateBaseScale();
-        }
-      }, [windowSize]);
-    
+
+  useEffect(() => {
+    // Handle window resize
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Initialize
+    if (typeof window !== "undefined") {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (windowSize.width > 0 && windowSize.height > 0) {
+      calculateBaseScale();
+    }
+  }, [windowSize]);
+
   // Update logo list when circle ratio changes
   useEffect(() => {
     if (circleRatio > 0) {
       setLogoList(createLogoSets());
     }
-    
-  }, [circleRatio]);
-    // Initialize logos for active section
-    useEffect(() => {
-        if (!logoList.length) return;
-    
-        // Set initial visibility for all logos
-        logoList.forEach((logo) => {
-          const element = logoRefs.current[logo.id - 1];
-          if (element) {
-            const position = positions[logo.name];
-            // Just set initial position without animation
-            gsap.set(element, {
-              x: position.x,
-              y: position.y,
-              scale: logo.section === activeSection ? 1 : 0,
-              opacity: logo.section === activeSection ? 1 : 0,
-              visibility: logo.section === activeSection ? "visible" : "hidden",
-            });
-          }
-        });
-    
-        initializedRef.current = true;
-      }, [logoList]);
-    
 
- // Handle section content visibility changes
- useEffect(() => {
+  }, [circleRatio]);
+  // Initialize logos for active section
+  useEffect(() => {
+    if (!logoList.length) return;
+
+    // Set initial visibility for all logos
+    logoList.forEach((logo) => {
+      const element = logoRefs.current[logo.id - 1];
+      if (element) {
+        const position = positions[logo.name];
+        // Just set initial position without animation
+        gsap.set(element, {
+          x: position.x,
+          y: position.y,
+          scale: logo.section === activeSection ? 1 : 0,
+          opacity: logo.section === activeSection ? 1 : 0,
+          visibility: logo.section === activeSection ? "visible" : "hidden",
+        });
+      }
+    });
+
+    initializedRef.current = true;
+  }, [logoList]);
+
+
+  // Handle section content visibility changes
+  useEffect(() => {
     const sectionContents = document.querySelectorAll('.section-content');
     if (sectionContents.length >= 3) {
       // Same animation style for all section contents
       sectionContents.forEach((content, index) => {
         if (index === activeSection) {
-          gsap.fromTo(content, 
+          gsap.fromTo(content,
             { opacity: 0 },
             {
               opacity: 1,
@@ -648,15 +649,15 @@ const LandingClients2 = () => {
       !scrollContainerRef.current
     )
       return;
-      
+
     const container = scrollContainerRef.current;
     container.style.visibility = 'hidden';
-    
+
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       const numSections = 3;
       const sectionHeight = window.innerHeight;
-      
+
       // Create main scroll trigger with center-center positioning
       const mainTrigger = ScrollTrigger.create({
         id: "clientsScrollTrigger",
@@ -666,20 +667,20 @@ const LandingClients2 = () => {
         pin: true,
         scrub: 0.3,
         preventOverlaps: true,
-        onUpdate: function(self) {
+        onUpdate: function (self) {
           // Calculate section based on progress, using thresholds for smoother transitions
           const progress = self.progress;
           let newSection;
-          
+
           // Divide progress into equal sections with thresholds
-          if (progress < 1/numSections) {
+          if (progress < 1 / numSections) {
             newSection = 0; // Section 1
-          } else if (progress < 2/numSections) {
+          } else if (progress < 2 / numSections) {
             newSection = 1; // Section 2
           } else {
             newSection = 2; // Section 3
           }
-          
+
           // Only update if section changed
           if (newSection !== activeSection) {
             setActiveSection(newSection);
@@ -693,87 +694,87 @@ const LandingClients2 = () => {
         },
         markers: false // Set to true for debugging
       });
-      
+
       // Make container visible after setup
       container.style.visibility = 'visible';
-      
+
       return () => {
         mainTrigger.kill();
       };
     }, container);
-    
+
     return () => {
       ctx.revert();
     };
   }, [logoList, windowSize, activeSection]);
-  
+
   // Make sure sections are initially set up correctly  
   useEffect(() => {
     const sectionContents = document.querySelectorAll('.section-content');
     if (sectionContents.length >= 1) {
       // Just set initial visibility without animation
       sectionContents.forEach((content, index) => {
-        gsap.set(content, { 
-          opacity: index === 0 ? 1 : 0, 
-          pointerEvents: index === 0 ? "auto" : "none" 
+        gsap.set(content, {
+          opacity: index === 0 ? 1 : 0,
+          pointerEvents: index === 0 ? "auto" : "none"
         });
       });
     }
   }, []);
 
-    // Update logos when active section changes
-    useEffect(() => {
-        if (!logoList.length) return;
-    
-        const ctx = gsap.context(() => {
-          // Apply same animation style for all sections
-          logoList.forEach((logo) => {
-            const element = logoRefs.current[logo.id - 1];
-            const position = positions[logo.name];
-    
-            if (!element) return;
-    
-            if (logo.section === activeSection) {
-              // Animation for appearing logos - same for all sections
-              gsap.fromTo(element,
-                {
-                  x: position.x,
-                  y: position.y,
-                  scale: 0,
-                  opacity: 0,
-                  visibility: "hidden",
-                },
-                {
-                  duration: 0.8,
-                  scale: 1,
-                  opacity: 1,
-                  visibility: "visible",
-                  ease: "power1.out",
-                  delay: 0.04 * logo.positionIndex,
-                  overwrite: true,
-                }
-              );
-            } else {
-              // Animation for disappearing logos
-              gsap.to(element, {
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-                ease: "power1.in",
-                overwrite: true,
-                onComplete: () => {
-                  gsap.set(element, { visibility: "hidden" });
-                },
-              });
+  // Update logos when active section changes
+  useEffect(() => {
+    if (!logoList.length) return;
+
+    const ctx = gsap.context(() => {
+      // Apply same animation style for all sections
+      logoList.forEach((logo) => {
+        const element = logoRefs.current[logo.id - 1];
+        const position = positions[logo.name];
+
+        if (!element) return;
+
+        if (logo.section === activeSection) {
+          // Animation for appearing logos - same for all sections
+          gsap.fromTo(element,
+            {
+              x: position.x,
+              y: position.y,
+              scale: 0,
+              opacity: 0,
+              visibility: "hidden",
+            },
+            {
+              duration: 0.8,
+              scale: 1,
+              opacity: 1,
+              visibility: "visible",
+              ease: "power1.out",
+              delay: 0.04 * logo.positionIndex,
+              overwrite: true,
             }
+          );
+        } else {
+          // Animation for disappearing logos
+          gsap.to(element, {
+            duration: 0.5,
+            scale: 0,
+            opacity: 0,
+            ease: "power1.in",
+            overwrite: true,
+            onComplete: () => {
+              gsap.set(element, { visibility: "hidden" });
+            },
           });
-        }, containerRef);
-    
-        return () => {
-          ctx.revert();
-        };
-      }, [activeSection, logoList]);
-      
+        }
+      });
+    }, containerRef);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [activeSection, logoList]);
+
   return (
     <div className="relative md:mb-0 mb-[-150px] min-h-screen flex items-center justify-center" ref={scrollContainerRef} id="landingClients">
       <div
@@ -804,13 +805,12 @@ const LandingClients2 = () => {
         >
           <div className="text-center">
             <p
-              className={`text-black font-medium ${
-                windowSize.width < 768
+              className={`text-black font-medium ${windowSize.width < 768
                   ? "text-2xl"
                   : windowSize.width < 1024
-                  ? "text-3xl"
-                  : "text-4xl"
-              }`}
+                    ? "text-3xl"
+                    : "text-4xl"
+                }`}
             >
               Our Clients
             </p>
@@ -819,19 +819,19 @@ const LandingClients2 = () => {
         </div>
 
         {/* Section Content Wrappers - consistent styling for all sections */}
-        <div className="section-content absolute w-full h-full" style={{ 
+        <div className="section-content absolute w-full h-full" style={{
           opacity: activeSection === 0 ? 1 : 0,
           pointerEvents: activeSection === 0 ? "auto" : "none"
         }}>
           {/* Section 0 content */}
         </div>
-        <div className="section-content absolute w-full h-full" style={{ 
+        <div className="section-content absolute w-full h-full" style={{
           opacity: activeSection === 1 ? 1 : 0,
           pointerEvents: activeSection === 1 ? "auto" : "none"
         }}>
           {/* Section 1 content */}
         </div>
-        <div className="section-content absolute w-full h-full" style={{ 
+        <div className="section-content absolute w-full h-full" style={{
           opacity: activeSection === 2 ? 1 : 0,
           pointerEvents: activeSection === 2 ? "auto" : "none"
         }}>
@@ -851,9 +851,8 @@ const LandingClients2 = () => {
               }}
               className="absolute flex flex-col items-center"
               style={{
-                transform: `translate(${position.x}px, ${position.y}px) scale(${
-                  isActive ? 1 : 0
-                })`,
+                transform: `translate(${position.x}px, ${position.y}px) scale(${isActive ? 1 : 0
+                  })`,
                 opacity: isActive ? 1 : 0,
                 visibility: isActive ? "visible" : "hidden",
                 willChange: "transform, opacity, visibility",
@@ -865,7 +864,7 @@ const LandingClients2 = () => {
                 width={logo.size.width}
                 height={logo.size.height}
                 className="object-contain"
-                // priority={logo.section === 0 || logo.section === 1} // Prioritize first and second section logos
+              // priority={logo.section === 0 || logo.section === 1} // Prioritize first and second section logos
               />
             </div>
           );
