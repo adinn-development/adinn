@@ -1,9 +1,21 @@
 "use client";
 import React, { useState } from "react";
 import {
+  BajajRoadshow,
+  BayerRoadshow,
+  DiloRoadshow,
+  JamesRoadshow,
+  kenstarRoadshow,
+  KFCRoadshow,
+  KubotaRoadshow,
+  MuthootRoadshow,
+  NativoRoadshow,
+  PoorvikaRoadshow,
   ProjectImage1,
   ProjectImage2,
   Royal,
+  TitanRoadshow,
+  TracktersRoadshow,
 } from "../ReUsableComponents/Icons/Icons";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
@@ -16,8 +28,8 @@ const ProjectImage6 = ProjectImage2;
 
 const Solutions = () => {
   const contents = [
-    { 
-      name: "Outdoor Media", 
+    {
+      name: "Outdoor Media",
       lastWord: "Solutions",
       images: [
         {
@@ -62,10 +74,10 @@ const Solutions = () => {
           name: "Landmark Display",
           description: "Prime Location Ad",
         },
-      ]
+      ],
     },
-    { 
-      name: "Roadshow", 
+    {
+      name: "Roadshow",
       lastWord: "Events",
       images: [
         {
@@ -77,54 +89,103 @@ const Solutions = () => {
         },
         {
           id: 8,
-          image: ProjectImage4,
-          alt: "Road Show Setup",
-          name: "Live Activation",
-          description: "Interactive Roadshow",
+          image: BajajRoadshow,
+          alt: "Bajaj",
+          name: "Bajaj",
+          description: "Van",
         },
         {
           id: 9,
-          image: ProjectImage3,
-          alt: "Product Demo",
-          name: "Product Launch",
-          description: "Mobile Demo Unit",
+          image: JamesRoadshow,
+          alt: "James & Co",
+          name: "James & Co",
+          description: "Van",
         },
         {
           id: 10,
-          image: ProjectImage4,
-          alt: "Brand Experience",
-          name: "Experience Zone",
-          description: "Mobile Brand Center",
+          image: BayerRoadshow,
+          alt: "Bayer",
+          name: "Bayer",
+          description: "van",
         },
         {
           id: 11,
-          image: ProjectImage3,
-          alt: "Sampling Campaign",
-          name: "Sampling Drive",
-          description: "Product Sampling",
+          image: KFCRoadshow,
+          alt: "KFC",
+          name: "KFC",
+          description: "Van",
         },
         {
           id: 12,
-          image: ProjectImage4,
-          alt: "Promotional Tour",
-          name: "Promo Tour",
-          description: "Multi-city Campaign",
+          image: MuthootRoadshow,
+          alt: "Muthoot Fincorp",
+          name: "Muthoot Fincorp",
+          description: "Van",
         },
-      ]
+        {
+          id: 13,
+          image: DiloRoadshow,
+          alt: "Dilo",
+          name: "Dilo",
+          description: "Van",
+        },
+        {
+          id: 14,
+          image: TracktersRoadshow,
+          alt: "Ishare Trackters",
+          name: "Ishare Trackters",
+          description: "Van",
+        },
+        {
+          id: 15,
+          image: kenstarRoadshow,
+          alt: "Kenstar",
+          name: "Kenstar",
+          description: "Van",
+        },
+        {
+          id: 16,
+          image: KubotaRoadshow,
+          alt: "Kubota",
+          name: "Kubota",
+          description: "Van",
+        },
+        {
+          id: 17,
+          image: TitanRoadshow,
+          alt: "Titan Eye +",
+          name: "Titan Eye +",
+          description: "Van",
+        },
+        {
+          id: 18,
+          image: NativoRoadshow,
+          alt: "Nativo",
+          name: "Nativo",
+          description: "Van",
+        },
+        {
+          id: 19,
+          image: PoorvikaRoadshow,
+          alt: "Poorvika",
+          name: "Poorvika",
+          description: "Van",
+        },
+      ],
     },
-    { 
-      name: "Retail Branding & Signage", 
+    {
+      name: "Retail Branding & Signage",
       lastWord: "Solutions",
       images: [
         {
-          id: 13,
+          id: 19,
           image: ProjectImage5,
           alt: "Store Signage",
           name: "Storefront Design",
           description: "Premium Retail Space",
         },
         {
-          id: 14,
+          id: 20,
           image: ProjectImage6,
           alt: "Interior Branding",
           name: "Interior Signage",
@@ -158,10 +219,10 @@ const Solutions = () => {
           name: "Digital Screens",
           description: "Interactive Displays",
         },
-      ]
+      ],
     },
-    { 
-      name: "Exhibition Design", 
+    {
+      name: "Exhibition Design",
       lastWord: "Services",
       images: [
         {
@@ -206,10 +267,10 @@ const Solutions = () => {
           name: "Visual Graphics",
           description: "Eye-catching Visuals",
         },
-      ]
+      ],
     },
-    { 
-      name: "Events & Activate", 
+    {
+      name: "Events & Activate",
       lastWord: "Solutions",
       images: [
         {
@@ -254,10 +315,10 @@ const Solutions = () => {
           name: "Activations",
           description: "Consumer Engagement",
         },
-      ]
+      ],
     },
-    { 
-      name: "Digital", 
+    {
+      name: "Digital",
       lastWord: "Marketing",
       images: [
         {
@@ -302,10 +363,10 @@ const Solutions = () => {
           name: "Analytics",
           description: "Performance Tracking",
         },
-      ]
+      ],
     },
-    { 
-      name: "Media Buying &", 
+    {
+      name: "Media Buying &",
       lastWord: "Planning",
       images: [
         {
@@ -350,10 +411,10 @@ const Solutions = () => {
           name: "Media Mix",
           description: "Channel Strategy",
         },
-      ]
+      ],
     },
-    { 
-      name: "Rural Engagement", 
+    {
+      name: "Rural Engagement",
       lastWord: "Solutions",
       images: [
         {
@@ -398,7 +459,7 @@ const Solutions = () => {
           name: "Regional Push",
           description: "Vernacular Content",
         },
-      ]
+      ],
     },
   ];
 

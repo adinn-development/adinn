@@ -130,4 +130,25 @@ export {default as BGBanner} from '@/public/projects/Banner/banner.png';
 
 
 //Project - Roadshow
-export {default as Royal} from '@/public/projects/roadshow/sample.jpeg'
+export {default as Royal} from '@/public/projects/roadshow/royal.jpeg'
+export {default as BajajRoadshow} from '@/public/projects/roadshow/bajaj.jpeg'
+export {default as JamesRoadshow} from '@/public/projects/roadshow/james.jpeg'
+export {default as BayerRoadshow} from '@/public/projects/roadshow/bayer.jpeg'
+export { default as KFCRoadshow } from "@/public/projects/roadshow/kfc.jpeg";
+export { default as MuthootRoadshow } from "@/public/projects/roadshow/muthoot.jpeg";
+export { default as DiloRoadshow} from "@/public/projects/roadshow/dilo.jpeg";
+export { default as TracktersRoadshow} from "@/public/projects/roadshow/isharetractors.jpeg";
+export { default as kenstarRoadshow} from "@/public/projects/roadshow/kenstar.jpeg";
+export { default as KubotaRoadshow} from "@/public/projects/roadshow/kubota.jpeg";
+export { default as TitanRoadshow } from "@/public/projects/roadshow/titan.jpeg";
+export { default as NativoRoadshow } from "@/public/projects/roadshow/nativo.jpeg";
+export { default as PoorvikaRoadshow } from "@/public/projects/roadshow/poorvika.jpeg";
+
+
+
+
+
+
+
+
+

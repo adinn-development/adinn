@@ -18,7 +18,7 @@ const TopNav = () => {
             const target = event.target as HTMLElement;
             if (isMenuOpen && !target.closest('.mobile-menu-container') && !target.closest('.menu-button')) {
                 setIsMenuOpen(false);
-            }
+            }   
         };
 
         document.addEventListener('mousedown', handleClickOutside);
@@ -37,7 +37,7 @@ const TopNav = () => {
         { name: 'About Us', link: '/about-us' },
         { name: 'Service', link: '/service' },
         { name: 'Project', link: '/projects' },
-        { name: 'Contact Us', link: '/contact' }
+        // { name: 'Contact Us', link: '/contact' }
     ];
 
     const isActive = (path: string) => pathname === path;
@@ -142,10 +142,13 @@ const TopNav = () => {
                                 }}
                                 className="mt-8"
                             >
-                                <button className="w-[160px] h-[48px] rounded-[26px] px-4 py-2 cursor-pointer 
+<Link href='/contact'>
+<button className="w-[160px] h-[48px] rounded-[26px] px-4 py-2 cursor-pointer 
                                     bg-[#CF1E00] text-white hover:scale-105 transition-all duration-300 hover:shadow-lg">
-                                    Book a Call
+                                    Contact us
                                 </button>
+</Link>
+                                
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -154,13 +157,16 @@ const TopNav = () => {
 
             {/* Book a Call Button (Desktop) */}
             <div className='hidden lg:flex items-center'>
+                <Link href='/contact'>
                 <button className={`w-[121px] h-[42px] rounded-[26px] px-4 py-2 cursor-pointer transition-all
                     ${isContactPage 
                         ? 'bg-black border border-black text-white hover:bg-black hover:text-white' 
                         : 'bg-[#444444] border border-[#989898] text-[#FFFCFC] hover:bg-[#333333]'
                     }`}>
-                    Book a Call
+                    Contact us
                 </button>
+                </Link>
+              
             </div>
         </div>
     );
