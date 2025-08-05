@@ -169,7 +169,7 @@ export {default as Havel} from '@/public/projects/Events/Havells.jpeg'
 export {default as EventLlyod} from '@/public/projects/Events/Llyod.jpeg'
 export {default as bandhan} from '@/public/projects/Events/bandhan.jpeg'
 
-//Projects - Fixutres 
+//Projects - Fixutre 
 export {default as Fixtures1havels} from '@/public/projects/Fixtures/havels.jpg'
 export {default as Fixtures2LLcdm} from '@/public/projects/Fixtures/llyodcdm.jpg'
 export {default as Fixtures3LLdindugal} from '@/public/projects/Fixtures/llyodindugal.jpg'
