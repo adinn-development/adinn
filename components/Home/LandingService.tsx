@@ -129,9 +129,16 @@ const LandingService = () => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    container.addEventListener("wheel", handleWheel, { passive: false });
+    // Only add wheel event listener on desktop (md and above)
+    const handleWheelEvent = (e: WheelEvent) => {
+      if (window.innerWidth >= 768) { // md breakpoint
+        handleWheel(e);
+      }
+    };
+
+    container.addEventListener("wheel", handleWheelEvent, { passive: false });
     return () => {
-      container.removeEventListener("wheel", handleWheel);
+      container.removeEventListener("wheel", handleWheelEvent);
     };
   }, [scrollPosition, isScrolling]);
 
@@ -170,7 +177,7 @@ const LandingService = () => {
   };
 
   return (
-    <div className="md:h-screen mt-[50px]  flex flex-col items-center justify-start md:p-8 overflow-hidden  md:mt-[300PX]">
+    <div className="md:h-screen mt-[50px] flex flex-col items-center justify-start md:p-8 overflow-hidden md:mt-[300PX]">
       <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-4 md:mb-8 gap-4 md:gap-0">
         <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">
@@ -187,8 +194,46 @@ const LandingService = () => {
         </div>
       </div>
 
-      {/* Wrap scroll container and progress line together */}
-      <div className="relative w-full mt-[80px]">
+      {/* Mobile: Static Grid Layout */}
+      <div className="block md:hidden w-full mt-[50px] px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {contents.map((item, index) => (
+            <motion.div
+              key={index}
+              className="relative h-[300px] w-full"
+              variants={itemVariants}
+              initial="hidden"
+              animate={controls}
+              transition={{ duration: 0.2, delay: index * 0.1 }}
+            >
+              <div className="w-full h-full relative">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  className="object-cover rounded-lg"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  priority={index < 4}
+                />
+                {/* Content Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white rounded-b-lg">
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-lg font-bold">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: Horizontal Scroll Layout */}
+      <div className="hidden md:block relative w-full mt-[80px]">
         {/* Scroll Container */}
         <div
           ref={scrollContainerRef}
@@ -210,7 +255,7 @@ const LandingService = () => {
                     alt={item.title}
                     className="object-cover rounded-lg"
                     fill
-                    sizes="(max-width: 768px) 100vw, 600px"
+                    sizes="600px"
                     priority={index < 2}
                   />
                   {/* Content Overlay */}
