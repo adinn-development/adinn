@@ -22,7 +22,8 @@ const LandingService = () => {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0); // Track scroll progress
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [imageErrors, setImageErrors] = useState<{[key: number]: boolean}>({});
 
   const contents = [
     {
@@ -63,11 +64,29 @@ const LandingService = () => {
     },
   ];
 
+  // Debug: Log image sources
+  useEffect(() => {
+    console.log("Image sources:", contents.map(item => ({
+      title: item.title,
+      image: item.image,
+      type: typeof item.image
+    })));
+  }, []);
+
   useEffect(() => {
     if (inView) {
       controls.start("visible");
     }
   }, [controls, inView]);
+
+  const handleImageError = (index: number) => {
+    console.error(`Image failed to load at index ${index}:`, contents[index]);
+    setImageErrors(prev => ({...prev, [index]: true}));
+  };
+
+  const handleImageLoad = (index: number) => {
+    console.log(`Image loaded successfully at index ${index}`);
+  };
 
   const handleWheel = (e: WheelEvent) => {
     if (!scrollContainerRef.current) return;
@@ -76,9 +95,8 @@ const LandingService = () => {
     const maxScroll = container.scrollWidth - container.clientWidth;
     const currentScroll = container.scrollLeft;
     const isAtStart = currentScroll <= 0;
-    const isAtEnd = currentScroll >= maxScroll - 10; // small threshold
+    const isAtEnd = currentScroll >= maxScroll - 10;
 
-    // Allow default scrolling when at the edges
     if ((isAtStart && e.deltaY < 0) || (isAtEnd && e.deltaY > 0)) {
       return;
     }
@@ -88,15 +106,12 @@ const LandingService = () => {
 
     setIsScrolling(true);
     
-    const scrollAmount = 600; // Width of one image + gap
+    const scrollAmount = 600;
     const direction = e.deltaY > 0 ? 1 : -1;
     
-    // Calculate the nearest section position for precise snapping
-    // This ensures we're always working with exact section positions
     const sectionCount = Math.ceil(maxScroll / scrollAmount);
     const sectionsArray = Array.from({length: sectionCount + 1}, (_, i) => i * scrollAmount);
     
-    // Find the closest section to current scroll position
     let currentSectionIndex = 0;
     let minDistance = Infinity;
     
@@ -108,13 +123,11 @@ const LandingService = () => {
       }
     });
     
-    // Calculate target section index with boundary check
     const targetIndex = Math.max(0, Math.min(currentSectionIndex + direction, sectionCount));
     const targetPosition = sectionsArray[targetIndex];
     
     setScrollPosition(targetPosition);
 
-    // Animate scroll with GSAP for smoother control
     gsap.to(container, {
       scrollLeft: targetPosition,
       duration: 0.8,
@@ -129,9 +142,8 @@ const LandingService = () => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    // Only add wheel event listener on desktop (md and above)
     const handleWheelEvent = (e: WheelEvent) => {
-      if (window.innerWidth >= 768) { // md breakpoint
+      if (window.innerWidth >= 768) {
         handleWheel(e);
       }
     };
@@ -142,7 +154,6 @@ const LandingService = () => {
     };
   }, [scrollPosition, isScrolling]);
 
-  // Update scroll progress with GSAP
   useEffect(() => {
     const container = scrollContainerRef.current;
     const progressBar = progressBarRef.current;
@@ -163,7 +174,6 @@ const LandingService = () => {
     };
 
     container.addEventListener("scroll", updateScrollProgress);
-    // Initialize progress bar
     updateScrollProgress();
     
     return () => {
@@ -177,7 +187,7 @@ const LandingService = () => {
   };
 
   return (
-    <div className="md:h-screen mt-[50px] flex flex-col items-center justify-start md:p-8 overflow-hidden md:mt-[300PX]">
+    <div className="md:h-screen mt-[50px] flex flex-col items-center justify-start md:p-8 overflow-hidden md:mt-[300px]">
       <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-4 md:mb-8 gap-4 md:gap-0">
         <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">
@@ -206,15 +216,32 @@ const LandingService = () => {
               animate={controls}
               transition={{ duration: 0.2, delay: index * 0.1 }}
             >
-              <div className="w-full h-full relative">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  className="object-cover rounded-lg"
-                  fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  priority={index < 4}
-                />
+              <div className="w-full h-full relative bg-gray-200 rounded-lg">
+                {imageErrors[index] ? (
+                  // Fallback content when image fails
+                  <div className="w-full h-full flex items-center justify-center bg-gray-300 rounded-lg">
+                    <div className="text-center p-4">
+                      <div className="text-gray-600 mb-2">Image failed to load</div>
+                      <div className="text-sm text-gray-500">{item.title}</div>
+                    </div>
+                  </div>
+                ) : (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    className="object-cover rounded-lg"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    priority={index < 4}
+                    onError={() => handleImageError(index)}
+                    onLoad={() => handleImageLoad(index)}
+                    // Add these props for better loading
+                    quality={75}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                  />
+                )}
+                
                 {/* Content Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white rounded-b-lg">
                   <div className="flex flex-col gap-2">
@@ -234,7 +261,6 @@ const LandingService = () => {
 
       {/* Desktop: Horizontal Scroll Layout */}
       <div className="hidden md:block relative w-full mt-[80px]">
-        {/* Scroll Container */}
         <div
           ref={scrollContainerRef}
           className="w-full overflow-x-hidden h-[500px] flex items-center"
@@ -249,16 +275,30 @@ const LandingService = () => {
                 animate={controls}
                 transition={{ duration: 0.2 }}
               >
-                <div className="w-full h-full relative">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    className="object-cover rounded-lg"
-                    fill
-                    sizes="600px"
-                    priority={index < 2}
-                  />
-                  {/* Content Overlay */}
+                <div className="w-full h-full relative bg-gray-200 rounded-lg">
+                  {imageErrors[index] ? (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-300 rounded-lg">
+                      <div className="text-center p-4">
+                        <div className="text-gray-600 mb-2">Image failed to load</div>
+                        <div className="text-sm text-gray-500">{item.title}</div>
+                      </div>
+                    </div>
+                  ) : (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      className="object-cover rounded-lg"
+                      fill
+                      sizes="600px"
+                      priority={index < 2}
+                      onError={() => handleImageError(index)}
+                      onLoad={() => handleImageLoad(index)}
+                      quality={75}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                    />
+                  )}
+                  
                   <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white rounded-b-lg">
                     <div className="flex justify-between items-end">
                       <h3 className="text-2xl font-bold max-w-[250px]">
@@ -274,21 +314,6 @@ const LandingService = () => {
             ))}
           </motion.div>
         </div>
-
-        {/* Centered Progress Line Container */}
-        {/* <div className="flex justify-center mt-6">
-          <div className="w-[200px] h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              ref={progressBarRef}
-              className="h-full rounded-full"
-              style={{
-                background: "linear-gradient(to right, #CF1E00, #ED6400)",
-                width: "5%",
-                transformOrigin: "left center"
-              }}
-            ></div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
