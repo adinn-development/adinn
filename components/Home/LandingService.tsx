@@ -205,59 +205,69 @@ const LandingService = () => {
       </div>
 
       {/* Mobile: Static Grid Layout */}
-      <div className="block md:hidden w-full mt-[50px] px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {contents.map((item, index) => (
-            <motion.div
-              key={index}
-              className="relative h-[300px] w-full"
-              variants={itemVariants}
-              initial="hidden"
-              animate={controls}
-              transition={{ duration: 0.2, delay: index * 0.1 }}
-            >
-              <div className="w-full h-full relative bg-gray-200 rounded-lg">
-                {imageErrors[index] ? (
-                  // Fallback content when image fails
-                  <div className="w-full h-full flex items-center justify-center bg-gray-300 rounded-lg">
-                    <div className="text-center p-4">
-                      <div className="text-gray-600 mb-2">Image failed to load</div>
-                      <div className="text-sm text-gray-500">{item.title}</div>
-                    </div>
-                  </div>
-                ) : (
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    className="object-cover rounded-lg"
-                    fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    priority={index < 4}
-                    onError={() => handleImageError(index)}
-                    onLoad={() => handleImageLoad(index)}
-                    unoptimized
-                    quality={75}
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                  />
-                )}
-                
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white rounded-b-lg">
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-lg font-bold">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+   // Replace your mobile section with this production-ready version
+
+{/* Mobile: Static Grid Layout - PRODUCTION FIX */}
+<div className="block md:hidden w-full mt-[50px] px-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {contents.map((item, index) => (
+      <div
+        key={index}
+        className="relative w-full h-[300px] bg-gray-100 rounded-lg overflow-hidden"
+        style={{ minHeight: '300px' }} // Force height for production
+      >
+        {/* Production-safe image rendering */}
+        {typeof window !== 'undefined' && window.innerWidth < 768 ? (
+          // Use regular img for mobile in production
+          <img
+            src={typeof item.image === 'object' ? item.image.src : item.image}
+            alt={item.title}
+            className="w-full h-full object-cover rounded-lg"
+            loading={index < 2 ? "eager" : "lazy"}
+            decoding="async"
+            onError={(e) => {
+              console.error(`Mobile img error for ${item.title}:`, e);
+              // Fallback to a placeholder
+              e.currentTarget.src = `data:image/svg+xml;base64,${btoa(`
+                <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100%" height="100%" fill="#f3f4f6"/>
+                  <text x="50%" y="50%" font-family="Arial" font-size="14" fill="#6b7280" text-anchor="middle" dy=".3em">
+                    ${item.title}
+                  </text>
+                </svg>
+              `)}`;
+            }}
+            onLoad={() => console.log(`Mobile img loaded: ${item.title}`)}
+          />
+        ) : (
+          // Use Next.js Image for desktop
+          <Image
+            src={item.image}
+            alt={item.title}
+            className="object-cover rounded-lg"
+            fill
+            sizes="(max-width: 640px) 100vw, 50vw"
+            priority={index < 2}
+            quality={75}
+            onError={() => console.error(`Next Image error: ${item.title}`)}
+          />
+        )}
+        
+        {/* Content Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/20 to-transparent text-white rounded-b-lg z-10">
+          <div className="flex flex-col gap-2">
+            <h3 className="text-lg font-bold leading-tight">
+              {item.title}
+            </h3>
+            <p className="text-xs opacity-90 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
         </div>
       </div>
+    ))}
+  </div>
+</div>
 
       {/* Desktop: Horizontal Scroll Layout */}
       <div className="hidden md:block relative w-full mt-[80px]">
