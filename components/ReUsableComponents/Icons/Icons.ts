@@ -145,10 +145,32 @@ export { default as NativoRoadshow } from "@/public/projects/roadshow/nativo.jpe
 export { default as PoorvikaRoadshow } from "@/public/projects/roadshow/poorvika.jpeg";
 
 
+//Project-Signage
+export {default as Acc} from '@/public/projects/Signage/Acc.jpeg';
+export {default as Ambuja} from '@/public/projects/Signage/Ambuja.jpeg';
+export {default as Dekalb} from '@/public/projects/Signage/Dekalb.jpeg';
+export {default as Esaf} from '@/public/projects/Signage/Esaf.jpeg';
+export {default as Llyod} from '@/public/projects/Signage/LLyod.jpg';
+export {default as milMist} from '@/public/projects/Signage/Milkymist.jpeg';
+export {default as Nip} from '@/public/projects/Signage/Nippon.jpeg';
+export {default as Pupa} from '@/public/projects/Signage/Pupa.jpeg';
+export {default as Ram} from '@/public/projects/Signage/Ramco.jpeg';
+export {default as sankar} from '@/public/projects/Signage/Sankar.jpeg';
+export {default as kirloskar} from '@/public/projects/Signage/kirloskar.jpeg';
 
 
+// Project-outdoor
+export {default as Amazon} from '@/public/projects/Outdoor/Amazon.jpg'
+export {default as Ibaco} from '@/public/projects/Outdoor/Ibaco.jpg'
+export {default as Beema} from '@/public/projects/Outdoor/beema.jpg'
 
+//Projects Events
+export {default as Havel} from '@/public/projects/Events/Havells.jpeg'
+export {default as EventLlyod} from '@/public/projects/Events/Llyod.jpeg'
+export {default as bandhan} from '@/public/projects/Events/bandhan.jpeg'
 
-
-
-
+//Projects - Fixutres 
+export {default as Fixtures1havels} from '@/public/projects/Fixtures/havels.jpg'
+export {default as Fixtures2LLcdm} from '@/public/projects/Fixtures/llyodcdm.jpg'
+export {default as Fixtures3LLdindugal} from '@/public/projects/Fixtures/llyodindugal.jpg'
+export {default as Fixtures4Nippon} from '@/public/projects/Fixtures/nipon.jpg'
