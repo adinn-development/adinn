@@ -82,7 +82,7 @@ const LandingService = () => {
     }
   }, [controls, inView]);
 
-  // Desktop wheel scroll handler
+  // Desktop wheel scroll handler (only for desktop)
   const handleWheel = (e: WheelEvent) => {
     if (isMobile || !scrollContainerRef.current) return;
 
@@ -102,8 +102,7 @@ const LandingService = () => {
     setIsScrolling(true);
     
     // Responsive scroll amount based on screen size
-    const scrollAmount = window.innerWidth >= 1024 ? 600 : 
-                       window.innerWidth >= 768 ? 400 : 300;
+    const scrollAmount = window.innerWidth >= 1024 ? 600 : 400;
     const direction = e.deltaY > 0 ? 1 : -1;
     
     const sectionCount = Math.ceil(maxScroll / scrollAmount);
@@ -136,32 +135,7 @@ const LandingService = () => {
     });
   };
 
-  // Mobile touch handlers
-  const handleTouchStart = useRef<number>(0);
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (!isMobile || !scrollContainerRef.current) return;
-    
-    const touchEnd = e.changedTouches[0].clientX;
-    const touchStart = handleTouchStart.current;
-    const diff = touchStart - touchEnd;
-    
-    if (Math.abs(diff) > 50) { // Minimum swipe distance
-      const container = scrollContainerRef.current;
-      const slideWidth = container.clientWidth;
-      const direction = diff > 0 ? 1 : -1;
-      const newSlide = Math.max(0, Math.min(currentSlide + direction, contents.length - 1));
-      
-      if (newSlide !== currentSlide) {
-        setCurrentSlide(newSlide);
-        gsap.to(container, {
-          scrollLeft: newSlide * slideWidth,
-          duration: 0.5,
-          ease: "power2.out"
-        });
-      }
-    }
-  };
-
+  // Desktop only wheel event listener
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container || isMobile) return;
@@ -172,11 +146,11 @@ const LandingService = () => {
     };
   }, [scrollPosition, isScrolling, isMobile]);
 
-  // Update scroll progress
+  // Update scroll progress (desktop only)
   useEffect(() => {
     const container = scrollContainerRef.current;
     const progressBar = progressBarRef.current;
-    if (!container || !progressBar) return;
+    if (!container || !progressBar || isMobile) return;
 
     const updateScrollProgress = () => {
       const maxScroll = container.scrollWidth - container.clientWidth;
@@ -196,7 +170,7 @@ const LandingService = () => {
     return () => {
       container.removeEventListener("scroll", updateScrollProgress);
     };
-  }, []);
+  }, [isMobile]);
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -230,115 +204,94 @@ const LandingService = () => {
 
       {/* Services Container */}
       <div className="relative w-full mt-8 md:mt-16 lg:mt-20">
-        {/* Scroll Container */}
-        <div
-          ref={scrollContainerRef}
-          className={`w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] flex items-center ${
-            isMobile 
-              ? 'overflow-x-auto snap-x snap-mandatory scrollbar-hide' 
-              : 'overflow-x-hidden'
-          }`}
-          onTouchStart={(e) => {
-            handleTouchStart.current = e.touches[0].clientX;
-          }}
-          onTouchEnd={handleTouchEnd}
-          style={{
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-          }}
-        >
-          <motion.div 
-            ref={ref} 
-            className={`flex h-full ${
-              isMobile 
-                ? 'gap-4' 
-                : 'gap-4 md:gap-6'
-            }`}
-          >
+        {/* Mobile: Static Grid Layout */}
+        {isMobile ? (
+          <div className="grid grid-cols-1 gap-6">
             {contents.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                className={`relative h-full overflow-hidden ${
-                  isMobile 
-                    ? 'min-w-[280px] sm:min-w-[320px] snap-center' 
-                    : 'min-w-[300px] sm:min-w-[350px] md:min-w-[400px] lg:min-w-[500px] xl:min-w-[600px]'
-                } flex-shrink-0`}
-                variants={itemVariants}
-                initial="hidden"
-                animate={controls}
-                transition={{ duration: 0.2, delay: index * 0.1 }}
+                className="relative h-[300px] w-full overflow-hidden"
               >
-                <div className="w-full h-full relative group ">
+                <div className="w-full h-full relative">
                   <Image
                     src={item.image}
                     alt={item.title}
-                    className="object-cover rounded-lg transition-transform duration-300 "
+                    className="object-cover rounded-lg"
                     fill
-                    sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 400px, (max-width: 1280px) 500px, 600px"
+                    sizes="100vw"
                     priority={index < 3}
                   />
                   
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg opacity-80" />
                   
                   {/* Content Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 text-white">
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-3 md:gap-4">
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight max-w-[200px] md:max-w-[250px]">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <div className="flex flex-col gap-3">
+                      <h3 className="text-xl font-bold leading-tight">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm opacity-90 leading-relaxed max-w-[220px] md:max-w-[250px] md:text-right">
+                      <p className="text-sm opacity-90 leading-relaxed">
                         {item.description}
                       </p>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-        </div>
-
-        {/* Progress Bar - Hidden on mobile, shown on desktop */}
-        {/* <div className="hidden md:flex justify-center mt-8">
-          <div className="w-32 sm:w-40 md:w-48 lg:w-[200px] h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              ref={progressBarRef}
-              className="h-full rounded-full transition-all duration-300 ease-out"
-              style={{
-                background: "linear-gradient(to right, #CF1E00, #ED6400)",
-                width: "5%",
-                transformOrigin: "left center"
-              }}
-            />
           </div>
-        </div> */}
+        ) : (
+          /* Desktop: Horizontal Scroll Layout */
+          <div
+            ref={scrollContainerRef}
+            className="w-full h-[400px] lg:h-[450px] xl:h-[500px] flex items-center overflow-x-hidden"
+          >
+            <motion.div 
+              ref={ref} 
+              className="flex h-full gap-4 md:gap-6"
+            >
+              {contents.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="relative h-full min-w-[400px] lg:min-w-[500px] xl:min-w-[600px] flex-shrink-0 overflow-hidden"
+                  variants={itemVariants}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.2, delay: index * 0.1 }}
+                >
+                  <div className="w-full h-full relative group">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      className="object-cover rounded-lg transition-transform duration-300"
+                      fill
+                      sizes="(max-width: 1024px) 400px, (max-width: 1280px) 500px, 600px"
+                      priority={index < 3}
+                    />
+                    
+                    {/* Overlay Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                    
+                    {/* Content Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <div className="flex flex-row justify-between items-end gap-4">
+                        <h3 className="text-2xl font-bold leading-tight max-w-[250px]">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm opacity-90 leading-relaxed max-w-[250px] text-right">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        )}
 
-        {/* Mobile Dots Indicator */}
-        {/* <div className="flex md:hidden justify-center mt-6 space-x-2">
-          {contents.map((_, index) => (
-            <button
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide 
-                  ? 'bg-[#CF1E00] w-6' 
-                  : 'bg-gray-300'
-              }`}
-              onClick={() => {
-                if (scrollContainerRef.current) {
-                  const container = scrollContainerRef.current;
-                  const slideWidth = container.clientWidth;
-                  setCurrentSlide(index);
-                  gsap.to(container, {
-                    scrollLeft: index * slideWidth,
-                    duration: 0.5,
-                    ease: "power2.out"
-                  });
-                }
-              }}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div> */}
+        {/* Progress Bar - Desktop only */}
+       
       </div>
     </div>
   );
