@@ -26,8 +26,8 @@ export const contents = [
        {
           id: 3,
           image: Beema,
-          alt: "Beema",
-          name: "Beema",
+          alt: "Bhima",
+          name: "Bhima",
           description: "Outdoor Banner",
         },
        
