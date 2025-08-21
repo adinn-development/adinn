@@ -4,11 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import {
-  ProjectImage1,
-  ProjectImage2,
   IdHero,
   ProjectOverview,
-  Royal,
 } from "@/components/ReUsableComponents/Icons/Icons";
 import Gallery from "@/components/service/Gallery";
 import Footer from "@/components/ReUsableComponents/Footer";
