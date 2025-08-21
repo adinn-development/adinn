@@ -14,7 +14,6 @@ import LandingClients from "@/components/Home/LandingClients";
 
 
 
-
 export default function Home() {
   return (
     <div className="overflow-x-hidden">

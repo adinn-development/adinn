@@ -5,7 +5,7 @@ import TopNav from "../ReUsableComponents/TopNav";
 import Image from "next/image";
 import { BackgroundImage } from "../ReUsableComponents/Icons/Icons";
 import Subtract from "@/public/Subtract.svg";
-import HomeFrame from "@/public/HomeFrame.svg";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);

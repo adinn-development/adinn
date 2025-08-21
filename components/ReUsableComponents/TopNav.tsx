@@ -35,8 +35,8 @@ const TopNav = () => {
     const navItems = [
         { name: 'Home', link: '/' },
         { name: 'About Us', link: '/about-us' },
-        { name: 'Service', link: '/service' },
-        { name: 'Project', link: '/projects' },
+        { name: 'Services', link: '/service' },
+        { name: 'Projects', link: '/projects' },
         // { name: 'Contact Us', link: '/contact' }
     ];
 

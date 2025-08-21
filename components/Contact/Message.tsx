@@ -12,9 +12,9 @@ const Message = () => {
   const contents = [
     {
       name: 'John Doe',
-      tag: 'Our CEO',
-      designation: 'CEO, Adinn',
-      message: 'At Adinn, we are committed to being the most reputable agency in the advertising sector. Our mission is to consistently deliver reliable and impactful solutions that exceed expectations, earning the respect of our clients and peers alike.'
+      tag: 'Our VP',
+      designation: 'Brand Strategy, Adinn',
+      message: 'Ad Inn have the unique power to inspire, influence and bring brands closer to people in the most authentic way. We don’t just execute– we envision experiences that leave a lasting impression and spark advocacy. Every engagement is an opportunity to build something meaningful for our clients and their customers. Because every brand deserves an experience that speaks louder than words.'
     },
     {
       name: 'Mike Ross',
@@ -82,7 +82,7 @@ const Message = () => {
             className="message-slide"
             ref={(el) => { messageRef.current[index] = el; }}
           >
-            <div className='flex flex-col items-center justify-center max-w-[900px] mx-auto px-4'>
+            <div className='flex flex-col items-center justify-center max-w-[700px] mx-auto px-4'>
               <p className='text-center text-[#838489] text-sm md:text-xl font-medium'>
                 "{content.message}"
               </p>

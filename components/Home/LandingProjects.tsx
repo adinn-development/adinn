@@ -43,7 +43,7 @@ const LandingProjects = () => {
         </div> */}
       {/* </div> */}
       <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
-          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold">
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold ">
             OUR
           </div>
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] instrument-font text-[#CF1E00] font-serif italic">
@@ -51,10 +51,10 @@ const LandingProjects = () => {
           </div>
         </div>
 
-        <div className="text-sm md:text-base lg:text-[27px] hidden sm:block md:block">
+        {/* <div className="text-sm md:text-base lg:text-[27px] hidden sm:block md:block">
         Explore the exclusive advantages of partnering with <br className="hidden md:block" /> Adorn for
         all your creative needs.
-        </div>
+        </div> */}
       </div>
         
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-x-8 lg:gap-y-12 w-full max-w-[1600px] mt-[80px]">

@@ -3,29 +3,36 @@ import React from 'react'
 const ServiceOffered = () => {
   const contents = [
     {
-      title: "OOH & Outdoor Advertising",
+      title: "OOH Media",
       description: "Our daily photo monitoring ensures maximum transparency.",
     },
     {
-      title: "Roadshow Van Advertising",
+      title: "Roadshow",
       description: "Our 250+ custom-built vehicles allow brands to reach audiences directly, covering both urban & rural markets",
     },  
     {
-      title: "Digital Marketing",
+      title: "Signage",
       description: "We bring brands to life online, ensuring their digital presence drives real results.",
     },  
     {
-      title: "Retail Branding  Solutions",
+      title: "Events & Activation",
       description: "From store branding to signage solutions, we create engaging retail experiences.",
     },  
     {
-      title: "Events & Activation",
+      title: "Fixtures",
       description: "Our event team provides end-to-end execution.",
     },  
     {
-      title: "Media Planning & Buying",
+      title: "POPs & Offets",
       description: "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
-    },  
+    }, 
+     {
+      title: "Wall Painting",
+      description: "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
+    },   {
+      title: "Digital Marketing",
+      description: "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
+    },   
  
   ];
   return (
@@ -39,8 +46,8 @@ const ServiceOffered = () => {
   </div>
 </div>
 
-<div className="px-8 sm:px-16 md:px-18 lg:px-22 xl:px-12 2xl:px-62 py-6 sm:py-8 md:py-12 lg:py-16 ">
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 place-items-center">
+<div className="px-8 sm:px-16 md:px-18 lg:px-22 xl:px-12 2xl:px-32 py-6 sm:py-8 md:py-12 lg:py-16 ">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 place-items-center">
     {contents.map((content, index) => (
       <div 
         key={index}

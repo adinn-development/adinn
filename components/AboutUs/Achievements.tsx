@@ -3,16 +3,16 @@ import React from 'react'
 const Achievements = () => {
     const contents = [
         {
-            title: 'Member team',
-            description: '130+'
-        },
-        {
-            title: 'Largest in',
-            description: 'Tamilnadu'
-        },
-        {
-            title: 'Vehicles',
+            title: 'Mobile Vans',
             description: '250+'
+        },
+        {
+            title: 'LED Display Vehicles',
+            description: '150+'
+        },
+        {
+            title: 'Hoardings Around South India',
+            description: '1000+'
         },
     ]
     
