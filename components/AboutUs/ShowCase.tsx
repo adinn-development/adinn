@@ -14,39 +14,9 @@ import {
 } from "@/components/ReUsableComponents/Icons/Icons";
 
 const ShowCase = () => {
-  //   const images = [
-  //     {
-  //       image: Image1,
-  //     },
-  //     {
-  //       image: Image2,
-  //     },
-  //     {
-  //       image: Image3,
-  //     },
-  //     {
-  //       image: Image4,
-  //     },
-  //     {
-  //       image: Image5,
-  //     },
-  //     {
-  //       image: Image6,
-  //     },
-  //     {
-  //       image: Image7,
-  //     },
-  //     {
-  //       image: Image8,
-  //     },
-  //     {
-  //       image: ImageCenter,
-  //     },
-
-  //   ];
 
   return (
-    <div className="flex flex-col items-center justify-start p-8 md:p-12 lg:p-16  md:mt-50">
+    <div className="flex flex-col items-center justify-start p-8 md:p-12 lg:p-16  md:mt-10">
       <div className="flex flex-row items-center justify-center gap-2 md:gap-3 mb-5 md:mb-12 w-full whitespace-nowrap">
         <div className="text-[24px] sm:text-[72px] md:text-[72px] tracking-[-2px] md:tracking-[-4px] font-bold">
           Showcase

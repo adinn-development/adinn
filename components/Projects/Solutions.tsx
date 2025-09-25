@@ -42,7 +42,7 @@ const Solutions = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center px-4 sm:px-6 lg:px-16 md:mt-15 mt:20">
+      <div className="flex justify-center items-center px-4 sm:px-6 lg:px-16 md:mt-15 mt-20">
         <div className="flex flex-wrap justify-center gap-4 max-w-4xl ">
           {contents.map((content, index) => (
             <button

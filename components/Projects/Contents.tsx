@@ -16,7 +16,7 @@ const Contents = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="flex justify-center items-center px-4 sm:px-6 lg:px-16 py-12 md:mt-25 md:mb-10 mt:20">
+    <div className="flex justify-center items-center px-4 sm:px-6 lg:px-16 py-12 md:mt-25 md:mb-10 mt-20">
       <div className="flex flex-wrap justify-center gap-4 max-w-7xl ">
         {contents.map((content, index) => (
           <button

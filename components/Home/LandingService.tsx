@@ -226,19 +226,11 @@ const LandingService = () => {
       data-component-id={componentIdRef.current}
     >
       {/* Header Section - Static for mobile/tablet, animated for lg+ */}
-      <div className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-between mb-8 lg:mb-12 gap-4 lg:gap-8">
-        <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
-          {/* Static text for mobile/tablet */}
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[96px] tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px] font-bold text-gray-900 lg:opacity-0">
-            OUR
-          </div>
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[96px] instrument-font text-[#CF1E00] font-serif italic tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px] lg:opacity-0">
-            SERVICES
-          </div>
+      <div className="w-full flex flex-col lg:flex-row items-start lg:items-start mb-8 lg:mb-12 gap-4 lg:gap-8">
+        <div className="flex flex-row items-start text-start justify-start space-x-2 md:space-x-5 ">
           
-          {/* Animated text for lg+ only */}
           <motion.div 
-            className="hidden lg:block absolute text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[96px] tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px] font-bold text-gray-900"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[96px] tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px] font-bold text-gray-900 "
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -246,7 +238,7 @@ const LandingService = () => {
             OUR
           </motion.div>
           <motion.div 
-            className="hidden lg:block absolute ml-[120px] xl:ml-[200px] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[96px] instrument-font text-[#CF1E00] font-serif italic tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px]"
+            className="  text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[96px] instrument-font text-[#CF1E00] font-serif italic tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px]"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -257,7 +249,7 @@ const LandingService = () => {
       </div>
 
       {/* Services Container */}
-      <div className="relative w-full mt-8 lg:mt-16 lg:mt-20">
+      <div className="relative w-full mt-8 lg:mt-20">
         {/* Mobile/Tablet: Static Grid Layout */}
         <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6">
           {contents.map((item, index) => (
@@ -305,11 +297,11 @@ const LandingService = () => {
                 key={`desktop-${index}`}
                 className="relative h-full min-w-[400px] lg:min-w-[500px] xl:min-w-[600px] flex-shrink-0 overflow-hidden"
               >
-                <div className="w-full h-full relative group">
+                <div className="w-full h-full relative group rounded-lg">
                   <Image
                     src={item.image}
                     alt={item.title}
-                    className="object-cover rounded-lg transition-transform duration-300 ease-out group-hover:scale-105"
+                    className="object-cover rounded-lg transition-transform duration-300 ease-out"
                     fill
                     sizes="(max-width: 1024px) 400px, (max-width: 1280px) 500px, 600px"
                     priority={index < 3}

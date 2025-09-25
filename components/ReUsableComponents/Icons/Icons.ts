@@ -1,176 +1,176 @@
-export { default as AdinnLogo } from '@/public/AdinnLogo.svg';
-export { default as AdinnLogoBlack } from '@/public/AdinnLogoBlack.svg';
+export { default as AdinnLogo } from '@/assets/AdinnLogo.svg';
+export { default as AdinnLogoBlack } from '@/assets/AdinnLogoBlack.svg';
 
-export { default as BackgroundImage } from '@/public/image.svg';
-// export { default as HomeIcon } from '@/public/HomeAdinn.svg';
+export { default as BackgroundImage } from '@/assets/home/image.svg';
+// export { default as HomeIcon } from '@/assets/HomeAdinn.svg';
 
 // Client Circle Logos
-export { default as AmulLogo } from '@/public/client/AmulLogo.svg';
-export { default as HavLogo } from '@/public/client/Havells.png';
-export { default as KFCLogo } from '@/public/client/KFC.png';
-export { default as tvsLogo } from '@/public/client/tvsLogo.svg';
-export { default as DBSLogo } from '@/public/client/DBSLogo.svg';
-export { default as ZomatoLogo } from '@/public/client/ZomatoLogo.svg';
-export { default as AmulLogo2 } from '@/public/client/AmulLogo2.png';
-export { default as HaierLogo2} from '@/public/client/Haier.png';
-export { default as DaikinLogo } from '@/public/client/DaikinLogo.png';
-export { default as DalmiaLogo } from '@/public/client/dalmia.png';
-export { default as HondaLogo } from '@/public/client/Honda.png';
-export { default as BhimaLogo } from '@/public/client/bhima.png';
-export { default as JSWLogo } from '@/public/client/jsw.png';
-export { default as KalyanLogo } from '@/public/client/Kalyan.png';
-export { default as LLyodLogo } from '@/public/client/LLyod.png';
-export {default as MalabarLogo2} from '@/public/client/malabar.png';
-export { default as MuthhootLogo } from '@/public/client/Muthhoot.png';
-export { default as NipponLogo } from '@/public/client/nippon.png';
-export { default as TataIplLogo } from '@/public/client/TataIpl.png';
-export {default as AsianLogo} from '@/public/client/asianLogo.svg';
-export {default as AmbujaLogo } from '@/public/client/ambujaLogo.png';
-export { default as AccLogo} from '@/public/client/acc.png';
-export { default as ActLogo} from '@/public/client/actLogo.svg'
-export {default as AgniLogo} from '@/public/client/agniLogo.png'
-export { default as AmrutanjanLogo} from '@/public/client/amurthajan.png'
-export { default as BoschIcon} from '@/public/client/Bosch.png'
-export {default as CasLogo} from '@/public/client/Casagrand.png'
-export { default as GrbLogo } from '@/public/client/GRB.png'
-export {default as GrtLogo } from '@/public/client/GRT Jewellery.png'
-export {default as HatsunLogo} from "@/public/client/hatsun.png"
-export { default as IOBLogo} from '@/public/client/Indian Overseas Bank.png'
-export {default as JamesLogo} from '@/public/client/James & Co.png'
-export {default as KhadimLogo} from '@/public/client/Khadim.png'
-export {default as LGLogo} from '@/public/client/LG.png'
-export {default as LishaLogo} from '@/public/client/LISHA.png'
-export {default as MarutiLogo} from '@/public/client/Maruti Suzuki.png'
-export {default as MetroLogo} from '@/public/client/Metro.png' 
-export {default as PepeLogo} from '@/public/client/Pepe Jeans.png'
-export { default as ShriramLogo} from '@/public/client/Shriram Properties.webp'
-export {default as ShyamLogo} from '@/public/client/Shyam Steel.jpg'
-export { default as SPRLogo} from '@/public/client/SPR City.png'
-export {default as ThangamayilLogo} from '@/public/client/Thangamayil.png'
-export {default as VGNLogo } from '@/public/client/VGN.png'
-export {default as VSTLogo} from '@/public/client/VST Tillers & Tractors.webp'
-export {default as BurgerLogo} from '@/public/client/Burger King.png'
-export {default as HeroLogo } from '@/public/client/Hero MotoCorp.png'
-export {default as ImpexLogo} from '@/public/client/Impex.png'
-export {default as MahindraLogo} from '@/public/client/Mahindra Lifespaces.png'
-export {default as RoyalLogo} from '@/public/client/Royal Enfield.png'
+export { default as AmulLogo } from '@/assets/client/AmulLogo.svg';
+export { default as HavLogo } from '@/assets/client/Havells.png';
+export { default as KFCLogo } from '@/assets/client/KFC.png';
+export { default as tvsLogo } from '@/assets/client/tvsLogo.svg';
+export { default as DBSLogo } from '@/assets/client/DBSLogo.svg';
+export { default as ZomatoLogo } from '@/assets/client/ZomatoLogo.svg';
+export { default as AmulLogo2 } from '@/assets/client/AmulLogo2.png';
+export { default as HaierLogo2} from '@/assets/client/Haier.png';
+export { default as DaikinLogo } from '@/assets/client/DaikinLogo.png';
+export { default as DalmiaLogo } from '@/assets/client/dalmia.png';
+export { default as HondaLogo } from '@/assets/client/Honda.png';
+export { default as BhimaLogo } from '@/assets/client/bhima.png';
+export { default as JSWLogo } from '@/assets/client/jsw.png';
+export { default as KalyanLogo } from '@/assets/client/Kalyan.png';
+export { default as LLyodLogo } from '@/assets/client/LLyod.png';
+export {default as MalabarLogo2} from '@/assets/client/malabar.png';
+export { default as MuthhootLogo } from '@/assets/client/Muthhoot.png';
+export { default as NipponLogo } from '@/assets/client/nippon.png';
+export { default as TataIplLogo } from '@/assets/client/TataIpl.png';
+export {default as AsianLogo} from '@/assets/client/asianLogo.svg';
+export {default as AmbujaLogo } from '@/assets/client/ambujaLogo.png';
+export { default as AccLogo} from '@/assets/client/acc.png';
+export { default as ActLogo} from '@/assets/client/actLogo.svg'
+export {default as AgniLogo} from '@/assets/client/agniLogo.png'
+export { default as AmrutanjanLogo} from '@/assets/client/amurthajan.png'
+export { default as BoschIcon} from '@/assets/client/Bosch.png'
+export {default as CasLogo} from '@/assets/client/Casagrand.png'
+export { default as GrbLogo } from '@/assets/client/GRB.png'
+export {default as GrtLogo } from '@/assets/client/GRT Jewellery.png'
+export {default as HatsunLogo} from "@/assets/client/hatsun.png"
+export { default as IOBLogo} from '@/assets/client/Indian Overseas Bank.png'
+export {default as JamesLogo} from '@/assets/client/James & Co.png'
+export {default as KhadimLogo} from '@/assets/client/Khadim.png'
+export {default as LGLogo} from '@/assets/client/LG.png'
+export {default as LishaLogo} from '@/assets/client/LISHA.png'
+export {default as MarutiLogo} from '@/assets/client/Maruti Suzuki.png'
+export {default as MetroLogo} from '@/assets/client/Metro.png' 
+export {default as PepeLogo} from '@/assets/client/Pepe Jeans.png'
+export { default as ShriramLogo} from '@/assets/client/Shriram Properties.webp'
+export {default as ShyamLogo} from '@/assets/client/Shyam Steel.jpg'
+export { default as SPRLogo} from '@/assets/client/SPR City.png'
+export {default as ThangamayilLogo} from '@/assets/client/Thangamayil.png'
+export {default as VGNLogo } from '@/assets/client/VGN.png'
+export {default as VSTLogo} from '@/assets/client/VST Tillers & Tractors.webp'
+export {default as BurgerLogo} from '@/assets/client/Burger King.png'
+export {default as HeroLogo } from '@/assets/client/Hero MotoCorp.png'
+export {default as ImpexLogo} from '@/assets/client/Impex.png'
+export {default as MahindraLogo} from '@/assets/client/Mahindra Lifespaces.png'
+export {default as RoyalLogo} from '@/assets/client/Royal Enfield.png'
 //services photos
 
-export { default as Service1 } from '@/public/service/service1.svg';
-export { default as Service2 } from '@/public/service/service2.svg';
-export { default as Service3 } from '@/public/service/service3.svg';
-export { default as Service4 } from '@/public/service/service4.svg';
-export { default as ServiceLogo } from '@/public/service/serviceIcon.svg';
+export { default as Service1 } from '@/assets/service/service1.svg';
+export { default as Service2 } from '@/assets/service/service2.svg';
+export { default as Service3 } from '@/assets/service/service3.svg';
+export { default as Service4 } from '@/assets/service/service4.svg';
+export { default as ServiceLogo } from '@/assets/service/serviceIcon.svg';
 
 //Mobile Landing Page
-export { default as MobileLogo } from '@/public/mobile.png';
+export { default as MobileLogo } from '@/assets/home/mobile.png';
 
 
-//PRojects Lanfing page
-export {default as IPLLogo} from '@/public/projects/IPL.png';
-export {default as HaierLogo} from '@/public/projects/Haier.png';
-export {default as MalabarLogo} from '@/public/projects/Malabar.png';
-export {default as TVSLogo} from '@/public/projects/TVS.png';
+//PRojects Landing page
+export {default as IPLLogo} from '@/assets/projects/IPL.png';
+export {default as HaierLogo} from '@/assets/projects/Haier.png';
+export {default as MalabarLogo} from '@/assets/projects/Malabar.png';
+export {default as TVSLogo} from '@/assets/projects/TVS.png';
 
 
 
 //Footer Icons
-export {default as FacebookLogo} from '@/public/footer/facebook.svg';
-export {default as InstagramLogo} from '@/public/footer/instagram.svg';
-export {default as TwitterLogo} from '@/public/footer/twitter.svg';
-export{ default as YoutubeLogo} from '@/public/footer/youtube.svg';
-export {default as Card} from '@/public/footer/card.svg';
-export {default as AdinnLogoFooter} from '@/public/footer/FooterLogo.svg';
+export {default as FacebookLogo} from '@/assets/footer/facebook.svg';
+export {default as InstagramLogo} from '@/assets/footer/instagram.svg';
+export {default as TwitterLogo} from '@/assets/footer/twitter.svg';
+export{ default as YoutubeLogo} from '@/assets/footer/youtube.svg';
+export {default as Card} from '@/assets/footer/card.svg';
+export {default as AdinnLogoFooter} from '@/assets/footer/FooterLogo.svg';
 
 //About Us
-export {default as TeamExpertise} from '@/public/about/TeamExpertise.svg';
+export {default as TeamExpertise} from '@/assets/about/TeamExpertise.svg';
 //core
-export {default as Reliability} from '@/public/about/core/reliablity.svg';
-export {default as Respect} from '@/public/about/core/respect.svg';
-export {default as Excellence} from '@/public/about/core/excellence.svg';
-export {default as Integrity} from '@/public/about/core/integrity.svg';
-export {default as Innovation} from '@/public/about/core/innovation.svg';
-export {default as Teamwork} from '@/public/about/core/teamwork.svg';
+export {default as Reliability} from '@/assets/about/core/reliablity.svg';
+export {default as Respect} from '@/assets/about/core/respect.svg';
+export {default as Excellence} from '@/assets/about/core/excellence.svg';
+export {default as Integrity} from '@/assets/about/core/integrity.svg';
+export {default as Innovation} from '@/assets/about/core/innovation.svg';
+export {default as Teamwork} from '@/assets/about/core/teamwork.svg';
 
 //work
-export {default as Image1} from '@/public/about/work/image1.png';
-export {default as Image2} from '@/public/about/work/image2.png';
-export {default as Image3} from '@/public/about/work/image3.png';
-export {default as Image4} from '@/public/about/work/image4.png';
-export {default as Image5} from '@/public/about/work/image5.png';
-export {default as Image6} from '@/public/about/work/image6.png';
-export {default as Image7} from '@/public/about/work/image7.png';
-export {default as Image8} from '@/public/about/work/image8.png';
-export {default as ImageCenter} from '@/public/about/work/centerImage.png';
+export {default as Image1} from '@/assets/about/work/image1.png';
+export {default as Image2} from '@/assets/about/work/image2.png';
+export {default as Image3} from '@/assets/about/work/image3.png';
+export {default as Image4} from '@/assets/about/work/image4.png';
+export {default as Image5} from '@/assets/about/work/image5.png';
+export {default as Image6} from '@/assets/about/work/image6.png';
+export {default as Image7} from '@/assets/about/work/image7.png';
+export {default as Image8} from '@/assets/about/work/image8.png';
+export {default as ImageCenter} from '@/assets/about/work/centerImage.png';
 
 //services
-export {default as HandImage} from '@/public/Hand.png';
-export {default as Gallery1} from '@/public/gallery/gallery1.png';
-export {default as Gallery2} from '@/public/gallery/gallery2.png';
-export {default as Gallery3} from '@/public/gallery/gallery3.png';
-export {default as Gallery4} from '@/public/gallery/gallery4.png';
+export {default as HandImage} from'@/assets/service/Hand.png';
+export {default as Gallery1} from '@/assets/service/gallery/gallery1.png';
+export {default as Gallery2} from '@/assets/service/gallery/gallery2.png';
+export {default as Gallery3} from '@/assets/service/gallery/gallery3.png';
+export {default as Gallery4} from '@/assets/service/gallery/gallery4.png';
     
 //projects
-export {default as ProjectImage1} from '@/public/projects/ProjectImage1.png';
-export {default as ProjectImage2} from '@/public/projects/ProjectImage2.png';
-export {default as ProjectHero} from '@/public/projects/ProjectHero.svg';
+export {default as ProjectImage1} from '@/assets/projects/ProjectImage1.png';
+export {default as ProjectImage2} from '@/assets/projects/ProjectImage2.png';
+export {default as ProjectHero} from '@/assets/projects/ProjectHero.svg';
 
 
 //service
-export {default as ServiceHero} from '@/public/service/ServiceHero.svg';
+export {default as ServiceHero} from '@/assets/service/ServiceHero.svg';
 
 
 //about
-export {default as AboutHero} from '@/public/about/AboutHero.svg';
+export {default as AboutHero} from '@/assets/about/AboutHero.svg';
 
 //projects
-export {default as IdHero} from '@/public/projects/IdHero.svg';
-export  {default as ProjectOverview} from '@/public/projects/ProjectOverview.png';
-export {default as BGBanner} from '@/public/projects/Banner/banner.png';
+export {default as IdHero} from '@/assets/projects/IdHero.svg';
+export  {default as ProjectOverview} from '@/assets/projects/ProjectOverview.png';
+export {default as BGBanner} from '@/assets/projects/Banner/banner.png';
 
 
 //Project - Roadshow
-export {default as Royal} from '@/public/projects/roadshow/royal.jpeg'
-export {default as BajajRoadshow} from '@/public/projects/roadshow/bajaj.jpeg'
-export {default as JamesRoadshow} from '@/public/projects/roadshow/james.jpeg'
-export {default as BayerRoadshow} from '@/public/projects/roadshow/bayer.jpeg'
-export { default as KFCRoadshow } from "@/public/projects/roadshow/kfc.jpeg";
-export { default as MuthootRoadshow } from "@/public/projects/roadshow/muthoot.jpeg";
-export { default as DiloRoadshow} from "@/public/projects/roadshow/dilo.jpeg";
-export { default as TracktersRoadshow} from "@/public/projects/roadshow/isharetractors.jpeg";
-export { default as kenstarRoadshow} from "@/public/projects/roadshow/kenstar.jpeg";
-export { default as KubotaRoadshow} from "@/public/projects/roadshow/kubota.jpeg";
-export { default as TitanRoadshow } from "@/public/projects/roadshow/titan.jpeg";
-export { default as NativoRoadshow } from "@/public/projects/roadshow/nativo.jpeg";
-export { default as PoorvikaRoadshow } from "@/public/projects/roadshow/poorvika.jpeg";
+export {default as Royal} from '@/assets/projects/roadshow/royal.jpeg'
+export {default as BajajRoadshow} from '@/assets/projects/roadshow/bajaj.jpeg'
+export {default as JamesRoadshow} from '@/assets/projects/roadshow/james.jpeg'
+export {default as BayerRoadshow} from '@/assets/projects/roadshow/bayer.jpeg'
+export { default as KFCRoadshow } from "@/assets/projects/roadshow/kfc.jpeg";
+export { default as MuthootRoadshow } from "@/assets/projects/roadshow/muthoot.jpeg";
+export { default as DiloRoadshow} from "@/assets/projects/roadshow/dilo.jpeg";
+export { default as TracktersRoadshow} from "@/assets/projects/roadshow/isharetractors.jpeg";
+export { default as kenstarRoadshow} from "@/assets/projects/roadshow/kenstar.jpeg";
+export { default as KubotaRoadshow} from "@/assets/projects/roadshow/kubota.jpeg";
+export { default as TitanRoadshow } from "@/assets/projects/roadshow/titan.jpeg";
+export { default as NativoRoadshow } from "@/assets/projects/roadshow/nativo.jpeg";
+export { default as PoorvikaRoadshow } from "@/assets/projects/roadshow/poorvika.jpeg";
 
 
 //Project-Signage
-export {default as Acc} from '@/public/projects/Signage/Acc.jpeg';
-export {default as Ambuja} from '@/public/projects/Signage/Ambuja.jpeg';
-export {default as Dekalb} from '@/public/projects/Signage/Dekalb.jpeg';
-export {default as Esaf} from '@/public/projects/Signage/Esaf.jpeg';
-export {default as Llyod} from '@/public/projects/Signage/LLyod.jpg';
-export {default as milMist} from '@/public/projects/Signage/Milkymist.jpeg';
-export {default as Nip} from '@/public/projects/Signage/Nippon.jpeg';
-export {default as Pupa} from '@/public/projects/Signage/Pupa.jpeg';
-export {default as Ram} from '@/public/projects/Signage/Ramco.jpeg';
-export {default as sankar} from '@/public/projects/Signage/Sankar.jpeg';
-export {default as kirloskar} from '@/public/projects/Signage/kirloskar.jpeg';
+export {default as Acc} from '@/assets/projects/Signage/Acc.jpeg';
+export {default as Ambuja} from '@/assets/projects/Signage/Ambuja.jpeg';
+export {default as Dekalb} from '@/assets/projects/Signage/Dekalb.jpeg';
+export {default as Esaf} from '@/assets/projects/Signage/Esaf.jpeg';
+export {default as Llyod} from '@/assets/projects/Signage/LLyod.jpg';
+export {default as milMist} from '@/assets/projects/Signage/Milkymist.jpeg';
+export {default as Nip} from '@/assets/projects/Signage/Nippon.jpeg';
+export {default as Pupa} from '@/assets/projects/Signage/Pupa.jpeg';
+export {default as Ram} from '@/assets/projects/Signage/Ramco.jpeg';
+export {default as sankar} from '@/assets/projects/Signage/Sankar.jpeg';
+export {default as kirloskar} from '@/assets/projects/Signage/kirloskar.jpeg';
 
 
 // Project-outdoor
-export {default as Amazon} from '@/public/projects/Outdoor/Amazon.jpg'
-export {default as Ibaco} from '@/public/projects/Outdoor/Ibaco.jpg'
-export {default as Beema} from '@/public/projects/Outdoor/beema.jpg'
+export {default as Amazon} from '@/assets/projects/Outdoor/Amazon.jpg'
+export {default as Ibaco} from '@/assets/projects/Outdoor/Ibaco.jpg'
+export {default as Beema} from '@/assets/projects/Outdoor/beema.jpg'
 
 //Projects Events
-export {default as Havel} from '@/public/projects/Events/Havells.jpeg'
-export {default as EventLlyod} from '@/public/projects/Events/Llyod.jpeg'
-export {default as bandhan} from '@/public/projects/Events/bandhan.jpeg'
+export {default as Havel} from '@/assets/projects/Events/Havells.jpeg'
+export {default as EventLlyod} from '@/assets/projects/Events/Llyod.jpeg'
+export {default as bandhan} from '@/assets/projects/Events/bandhan.jpeg'
 
 //Projects - Fixutre 
-export {default as Fixtures1havels} from '@/public/projects/Fixtures/havels.jpg'
-export {default as Fixtures2LLcdm} from '@/public/projects/Fixtures/llyodcdm.jpg'
-export {default as Fixtures3LLdindugal} from '@/public/projects/Fixtures/llyodindugal.jpg'
-export {default as Fixtures4Nippon} from '@/public/projects/Fixtures/nipon.jpg'
+export {default as Fixtures1havels} from '@/assets/projects/Fixtures/havels.jpg'
+export {default as Fixtures2LLcdm} from '@/assets/projects/Fixtures/llyodcdm.jpg'
+export {default as Fixtures3LLdindugal} from '@/assets/projects/Fixtures/llyodindugal.jpg'
+export {default as Fixtures4Nippon} from '@/assets/projects/Fixtures/nipon.jpg'

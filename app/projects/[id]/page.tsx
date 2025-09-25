@@ -111,35 +111,46 @@ const ProjectDetailPage = () => {
         <TopNav />
 
         {/* Main content container */}
-        <div className="flex-1 flex flex-col items-center justify-end relative ">
-          <div className="absolute bottom-0 w-full flex justify-center">
-            {/* Full Width Project Image */}
+        <div className="flex-1 flex flex-col items-center justify-end relative min-h-[400px] sm:min-h-[500px] lg:min-h-[550px]">
+          {/* Image container - takes 60% height from bottom */}
+          <div className="absolute bottom-0 w-full md:h-[60%] h-[75%] flex justify-center">
             {project && (
-              <div className="w-full flex justify-center">
+              <div className="w-full h-full flex justify-center">
                 <Image
                   src={project.image}
                   alt={project.alt}
-                  className="w-full h-[550px] object-cover"
+                  className="w-full h-full object-cover"
                   priority
                 />
               </div>
             )}
           </div>
 
-          {/* Project title display */}
-          <div className="absolute flex flex-col items-center z-10 mb-[50%] md:mb-[30%] lg:mb-[37%] px-4">
-            {altWords.map((word, index) => (
-              <p
-                key={index}
-                className={`text-[32px] sm:text-[48px] md:text-[72px] lg:text-[100px] leading-[0.9] uppercase font-bold ${
-                  index === altWords.length - 1
-                    ? "bg-gradient-to-t from-transparent to-white bg-clip-text text-transparent"
-                    : "text-white "
-                }`}
-              >
-                {word}
-              </p>
-            ))}
+          {/* Project title display - constrained to top 40% */}
+          <div className="absolute top-0 w-full md:h-[40%] h-[25%] flex flex-col items-center justify-center z-10 px-3 xs:px-4 sm:px-6 md:px-8 lg:px-12">
+            <div className="text-center space-y-0.5 xs:space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4">
+              {altWords.map((word, index) => (
+                <h1
+                  key={index}
+                  className={`             
+            text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl             
+            leading-[0.8] xs:leading-[0.82] sm:leading-[0.85] md:leading-[0.87] lg:leading-[0.9]             
+            uppercase font-bold             
+            transition-all duration-300 ease-out             
+            max-w-full break-words              
+            ${
+              index === altWords.length - 1 ? "text-white" : "text-white "
+            }           
+          `}
+                  style={{
+                    textShadow: index !== altWords.length - 1 ? "none" : "none",
+                    wordBreak: "break-word",
+                  }}
+                >
+                  {word}
+                </h1>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -222,7 +233,7 @@ const ProjectDetailPage = () => {
       <Gallery />
 
       {/* Dream Project Section */}
-      <div className="mt-20 mb-20">
+      <div className="mt-10 mb-10">
         <LandingDreamProject />
       </div>
 

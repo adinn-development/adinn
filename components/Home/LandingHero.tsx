@@ -8,6 +8,7 @@ import Subtract from "@/public/Subtract.svg";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import VideoImage from "../ReUsableComponents/VideoImage";
 gsap.registerPlugin(ScrollTrigger);
 
 const LandingHero = () => {
@@ -87,33 +88,21 @@ const LandingHero = () => {
       .to(".text", {
         scale: 1,
         opacity: 1,
-        duration: 1,
+        duration: 0.2,
         ease: "power2.out",
       })
-      .addLabel("scale1")
+      
+      .addLabel("scale3")
       .to(".text", {
-        scale: 2,
+        scale: 8,
         opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-      })
-      .addLabel("scale2")
-      .to(".text", {
-        scale: 3,
-        opacity: 1,
-        duration: 1,
+       
+        duration: 2.5,
         ease: "power2.out",
       })
       .addLabel("scale3")
       .to(".text", {
-        scale: 5,
-        opacity: 1,
-        duration: 1.5,
-        ease: "power2.out",
-      })
-      .addLabel("scale3")
-      .to(".text", {
-        scale: 7,
+        scale: 10,
         opacity: 0,
         duration: 1.5,
         ease: "power2.out",
@@ -188,58 +177,62 @@ const LandingHero = () => {
           </div>
 
 
-
-
           {/* Bottom Image */}
-          <div className={`absolute bottom-0 w-full ${isMobile ? 'h-[60vh] z-20' : 'h-[100vh]'}`}>
+          <div className={`bottom-image absolute bottom-0 w-full ${isMobile ? 'h-[39vh] z-20' : 'h-[100vh]'}`}>
             {isMobile && (
-              <div className="w-full h-full flex items-end justify-center">
-                <video
-                  ref={videoRef}
-                  src="/adinn2222.webm[01].webm"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  style={{
-                    objectFit: "contain",
-                    objectPosition: "center bottom",
-                    width: "100%",
-                    height: "auto",
-                    maxHeight: "60vh",
-                    display: "block",
-                    visibility: "visible"
-                  }}
-                  className="w-full opacity-100"
-                />
-              </div>
+                <div className="relative w-[100%] max-w-[1050px] mx-auto">
+                   {/* Background Image */}
+                   <Image
+                     unoptimized
+                     src="/frame.png"
+                     alt="Video Frame"
+                     width={1500}
+                     height={1500}
+                     className="w-[100%] h-full object-cover pointer-events-none select-none"
+                   />
+             
+                   {/* Video positioned in bottom half */}
+                   <div className="absolute top-27 left-1/2 w-[74%] h-30 transform -translate-x-1/2 overflow-hidden">
+                     <video
+                       ref={videoRef}
+                       src="/ad_c2.mp4"
+                       muted
+                       loop
+                       autoPlay
+                       playsInline
+                       className="w-full h-full object-cover"
+                     />
+                   </div>
+                 </div>
             )}
 
             {!isMobile && (
-              <video
-                ref={videoRef}
-                src="/adinn2222.webm[01].webm"
-                muted
-                loop
-                playsInline
-                style={{
-                  objectFit: "contain",
-                  objectPosition: "center bottom",
-                  maxWidth: "100%",
-                  width: "100%",
-                  height: "auto",
-                  maxHeight: "100vh",
-                  margin: "0 auto",
-                  position: "absolute",
-                  bottom: 0,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  display: "block",
-                  visibility: "visible"
-                }}
-                className="bottom-image w-full"
-              />
+                <div className="relative w-[80%] max-w-[1050px] mx-auto">
+                   {/* Background Image */}
+                   <Image
+                     unoptimized
+                     src="/frame.png"
+                     alt="Video Frame"
+                     width={1500}
+                     height={1500}
+                     className="w-[100%] h-full object-cover pointer-events-none select-none"
+                   />
+             
+                   {/* Video positioned in bottom half */}
+                   <div className="absolute top-68 left-1/2 w-[74%] h-77 transform -translate-x-1/2 overflow-hidden">
+                     <video
+                       ref={videoRef}
+                       src="/ad_c2.mp4"
+                       muted
+                       loop
+                       autoPlay
+                       playsInline
+                       className="w-full h-full object-cover"
+                     />
+                   </div>
+                 </div>
             )}
+            {/* <VideoImage /> */}
           </div>
         </div>
       </div>

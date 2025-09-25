@@ -37,7 +37,7 @@ const CoreValues = () => {
     ]
     
     return (
-        <div className="px-4 sm:px-6 md:px-8 py-12 mt-30 md:mt-50">
+        <div className="px-4 sm:px-6 md:px-8 py-12 mt-30">
             <div className="flex flex-col items-center p-2 mg-5 md:mb-12">
             <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 mb-8">
   {/* This container needs centering in sm/md */}
@@ -49,10 +49,7 @@ const CoreValues = () => {
       Values
     </div>
   </div>
-  <div className="hidden sm:block md:block lg:block text-[14px] sm:text-[15px] md:text-[17px] max-w-[400px]">
-    Explore the exclusive advantages of partnering <br />
-    with Adorn for all your creative needs.
-  </div>
+ 
 </div>
             </div>
 
