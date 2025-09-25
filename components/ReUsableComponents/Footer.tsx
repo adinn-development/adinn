@@ -273,7 +273,7 @@ const Footer = () => {
       </div>
 
       <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-8 sm:mt-10 md:mt-12">
-        © designed & developed by TIC GLOBAL.
+        © Designed & Developed by TIC GLOBAL.
       </div>
     </div>
   );
