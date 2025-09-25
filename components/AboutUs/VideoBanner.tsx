@@ -56,7 +56,7 @@ const VideoBanner = () => {
             loop
             muted
           >
-            <source src="/teamExp.mp4" type="video/mp4" />
+            <source src="https://ik.imagekit.io/4o0qshqnhn/Adinn/teamex.MP4?updatedAt=1758805740474" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </motion.div>
