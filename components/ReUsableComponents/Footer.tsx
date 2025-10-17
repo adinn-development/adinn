@@ -80,7 +80,7 @@ const Footer = () => {
     }
 
     // Use the same Google Apps Script URL - you'll need to update your script to handle both formats
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbztK-CqK8K0XLt35s4HntDppsc_y6M17bGK7Jb7mn_bs_Oiu-HUWmPoxCya4GqZNbTz/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzqR-8EkQ2IiLWuRd6FHCfhwaQmLHfGMtBXaLMTfnzpRdsbNBBnwXUrTo1T0H-yqmOLSQ/exec';
 
     try {
       const formDataToSend = {
