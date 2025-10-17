@@ -51,7 +51,7 @@ const ContactFooter = () => {
 
     {/* Middle Content */}
     <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-8 md:left-16 flex flex-col gap-2 text-white/80 text-[14px] sm:text-[16px]">
-      <div>Email: Adin123@gmail.com</div>
+      <div>Email:  webadmin@adinn.co.in</div>
       <div>Phone No.: 144 - 23940193</div>
       <div>Address: 123 Innovation Drive, Tech City, TC 12345</div>
     </div>
@@ -59,8 +59,17 @@ const ContactFooter = () => {
     {/* Bottom Text */}
     <div className="absolute bottom-8 sm:bottom-12 md:bottom-18 left-4 sm:left-8 md:left-16">
       <div className="text-[12px] sm:text-[14px] md:text-[15px] text-white">
-        © designed & developed by TIC GLOBAL
-      </div>
+  © designed & developed by{" "}
+  <a 
+    href="https://www.theinternetcompany.one/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="text-[#00BFFF] hover:underline"
+  >
+    TIC GLOBAL
+  </a>
+</div>
+
     </div>
   </div>
 </div>
@@ -93,7 +102,15 @@ const ContactFooter = () => {
         </div>
       </div>
       <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-8 sm:mt-10 md:mt-12">
-        © designed & developed by TIC GLOBAL.
+        © designed & developed by {" "}
+  <a 
+    href="https://www.theinternetcompany.one/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="text-[#00BFFF] hover:underline"
+  >
+    TIC GLOBAL
+  </a>
       </div>
     </div>
   );

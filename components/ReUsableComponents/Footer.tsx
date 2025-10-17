@@ -167,7 +167,7 @@ const Footer = () => {
                 Let&apos;s Work Together
               </div>
               <span className="text-sm sm:text-base md:text-[21px] text-white/80">
-                hello@gmail.com
+                webadmin@adinn.co.in
               </span>
             </div>
           </div>
@@ -273,7 +273,15 @@ const Footer = () => {
       </div>
 
       <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-8 sm:mt-10 md:mt-12">
-        © Designed & Developed by TIC GLOBAL.
+        © Designed & Developed by {" "}
+  <a 
+    href="https://www.theinternetcompany.one/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="text-[#00BFFF] hover:underline"
+  >
+    TIC GLOBAL
+  </a>
       </div>
     </div>
   );

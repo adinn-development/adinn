@@ -249,7 +249,7 @@ const LandingService = () => {
       </div>
 
       {/* Services Container */}
-      <div className="relative w-full mt-8 lg:mt-20">
+      <div className="relative w-full mt-8 lg:mt-10">
         {/* Mobile/Tablet: Static Grid Layout */}
         <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6">
           {contents.map((item, index) => (
