@@ -200,7 +200,7 @@ const LandingClients2: React.FC = () => {
 
   // Memoized values
   const circleSizeFactor = useMemo(() => 
-    windowSize.width < 768 ? 1.75 : 1.1, 
+    windowSize.width < 768 ? 1.75 : windowSize.width < 1024 ? 1.5 : 1.1, 
     [windowSize.width]
   );
 

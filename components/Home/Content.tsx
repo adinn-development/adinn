@@ -48,12 +48,12 @@ const buttonVariants = {
 
 const LandingContent = React.memo(() => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <motion.div
       ref={ref}
-      className="flex flex-col items-center justify-center md:min-h-screen text-black text-center px-6 md:mt-0 mt-20 md:mb-0 mb-[-50px] "
+      className="flex flex-col items-center justify-center xl:min-h-screen lg:min-h-screen min-h-screen text-black text-center px-6 md:mt-0 mt-20 md:mb-0 mb-[-50px] "
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={mainContainerVariants}
