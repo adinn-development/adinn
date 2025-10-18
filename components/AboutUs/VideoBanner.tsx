@@ -36,14 +36,14 @@ const VideoBanner = () => {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="flex items-center justify-center mt-20 md:min-h-screen sm:min-h-screen text-white"
+      className="flex items-center justify-center mt-20 lg:min-h-screen xl:min-h-screen text-white"
     >
       {/* Wrapper with relative positioning */}
       <div className="relative w-full h-full flex items-center justify-center">
         {/* Text overlay */}
         <motion.div
           variants={textVariants}
-          className="absolute top-8 md:top-16 left-1/2 -translate-x-1/2 text-[16px] md:text-[44px] font-medium text-center z-10"
+          className="absolute top-8 xl:top-16 lg:top-15 md:top-5 left-1/2 -translate-x-1/2 text-[16px] md:text-[44px] font-medium text-center z-10"
         >
           Team Expertise
         </motion.div>

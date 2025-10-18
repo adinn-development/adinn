@@ -1,13 +1,13 @@
 
-import LandingContent from "@/components/Home/LandingContent";
-import LandingService from "@/components/Home/LandingService";
-import LandingMobile from "@/components/Home/LandingMobile";
-import LandingProjects from "@/components/Home/LandingProjects";
-import LandingDreamProject from "@/components/Home/LandingDreamProject";
-import LandingQueries from "@/components/Home/LandingQueries";
+import LandingContent from "@/components/Home/Content";
+import LandingService from "@/components/Home/Services";
+import LandingMobile from "@/components/Home/Mobile";
+import LandingProjects from "@/components/Home/Projects";
+import LandingDreamProject from "@/components/Home/DreamProject";
+import LandingQueries from "@/components/Home/Queries";
 import Footer from "@/components/ReUsableComponents/Footer";
-import LandingHero from "@/components/Home/LandingHero";
-import LandingClients from "@/components/Home/LandingClients";
+import Hero from "@/components/Home/Hero";
+import LandingClients from "@/components/Home/Clients";
 
 
 
@@ -17,13 +17,13 @@ import LandingClients from "@/components/Home/LandingClients";
 export default function Home() {
   return (
     <div className="overflow-x-hidden">
-      <LandingHero />
+      <Hero />
       <LandingContent />
       <LandingClients />
       <LandingService />
       <LandingMobile />
       <LandingProjects />
-      <div className="md:mt-50 md:mb-50">
+      <div className="lg:mt-50 lg:mb-50">
         <LandingDreamProject />
       </div>
       <LandingQueries />

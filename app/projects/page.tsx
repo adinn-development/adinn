@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Hero from "@/components/Projects/Hero";
 import Solutions from "@/components/Projects/Solutions";
 import Footer from "@/components/ReUsableComponents/Footer";
-import LandingDreamProject from "@/components/Home/LandingDreamProject";
+import LandingDreamProject from "@/components/Home/DreamProject";
 
 const page = () => {
   return (
@@ -13,7 +13,7 @@ const page = () => {
       <Suspense>
         <Solutions />
       </Suspense>
-      <div className="md:mt-50 md:mb-50 mt-10 mb-20">
+      <div className="lg:mt-50 lg:mb-50 mt-20 mb-20">
         <LandingDreamProject />
       </div>
       <Footer />

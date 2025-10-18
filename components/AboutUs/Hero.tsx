@@ -9,9 +9,7 @@ const Hero = () => {
       className="relative w-full md:h-screen h-[400px] bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${AboutHero.src})` }}
     >
-      <div className="relative z-10">
-        <TopNav />
-      </div>
+      
 
       <div className="absolute inset-0 flex items-center justify-center -mt-10">
         <div className="flex flex-col items-center text-center max-w-[600px] px-4">

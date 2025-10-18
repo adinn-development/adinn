@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import TopNav from "@/components/ReUsableComponents/TopNav";
 
 // Load Plus Jakarta Sans Font
 const jakarta = localFont({
@@ -50,6 +51,11 @@ export default function RootLayout({
       <body
         className={`${jakarta.variable} ${instrumentSerif.variable} antialiased`}
       >
+         <div className="absolute top-0 left-0 w-full z-50">
+            <TopNav />
+          </div>
+
+        
         {children}
       </body>
     </html>

@@ -15,7 +15,7 @@ import Gallery5 from "@/public/Frame 192.png";
 const Gallery = () => {
   return (
     <div className="flex flex-col items-center mt-30">
-      <div className="flex flex-row md:flex-row items-center justify-center gap-4 md:gap-3 py-8 md:py-12">
+      <div className="flex flex-row lg:flex-row items-center justify-center gap-4 md:gap-3 py-8 md:py-12 xl:px-0 lg:px-0 md:px-5">
         <div className="text-[24.5px] sm:text-[60px] md:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold text-[#C6C6CB]">
           Projects
         </div>
@@ -32,7 +32,7 @@ const Gallery = () => {
       </div>
 
       <div className="grid grid-cols-1 w-full max-w-full mx-auto px-5">
-        <div className="flex flex-col gap-4 md:gap-14 justify-center items-center w-full max-w-full mx-auto px-5 space-y-1">
+        <div className="flex flex-col gap-4 xl:gap-14 lg:gap-14 md:gap-18 justify-center items-center w-full max-w-full mx-auto px-5 space-y-1">
           {/* First Row */}
           <div className="flex flex-row gap-4 w-full">
             <div className="text-center w-[70%] max-w-full h-[20vh] lg:h-[40vh]">

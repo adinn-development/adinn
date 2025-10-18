@@ -9,9 +9,6 @@ const Hero = () => {
       className="relative w-full md:h-screen h-[400px] bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${ServiceHero.src})` }}
     >
-      <div className="absolute top-0 left-0 right-0 z-50">
-        <TopNav />
-      </div>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex flex-col items-center text-center">
           <div className="text-white">

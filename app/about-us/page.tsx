@@ -13,7 +13,6 @@ const page = () => {
      <Hero />
      <Content />
      <Achievements />
-
      <VideoBanner />
      <CoreValues />
      <ShowCase />

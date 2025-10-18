@@ -117,11 +117,11 @@ const Form = () => {
 
   return (
     <div>
-      <TopNav />
+  
       <ToastContainer position="top-right" autoClose={3000} />
       
       {/* Contact Section */}
-      <div className="flex flex-col items-center justify-center text-center w-full max-w-[600px] mx-auto mt-10 md:mt-10">
+      <div className="flex flex-col items-center justify-center text-center w-full max-w-[600px] mx-auto mt-30 lg:mt-60">
         <div className="flex flex-row items-center justify-center ml-10">
           <div className="text-14px md:text-[20px] text-[#6A6B6D]">Contact Us</div>
           <div>

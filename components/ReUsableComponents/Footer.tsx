@@ -153,9 +153,9 @@ const Footer = () => {
     <div className="bg-[#0C0C0C] w-full min-h-auto p-8 md:p-12">
       <ToastContainer position="top-right" autoClose={3000} />
       
-      <div className="flex flex-col md:flex-row items-center md:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
+    <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
         {/* Left Section */}
-        <div className="flex flex-col items-center md:items-start gap-6 sm:gap-7 md:gap-8 w-full md:w-1/2">
+        <div className="flex flex-col items-center lg:items-start gap-6 sm:gap-7 md:gap-8 w-full lg:w-[55%]">
           <div className="relative w-full">
             <Image
               src={Card}
@@ -163,7 +163,7 @@ const Footer = () => {
               className="w-full h-auto rounded-[20px] sm:rounded-[28px]"
             />
             <div className="absolute bottom-3 sm:bottom-6 md:bottom-8 left-3 sm:left-6 md:left-8 flex flex-col gap-1.5 sm:gap-2">
-              <div className="text-white text-lg sm:text-2xl md:text-[34px] font-semibold leading-tight">
+              <div className="text-white text-lg sm:text-2xl xl:text-[34px] font-semibold leading-tight">
                 Let&apos;s Work Together
               </div>
               <span className="text-sm sm:text-base md:text-[21px] text-white/80">
@@ -182,7 +182,7 @@ const Footer = () => {
         </div>
 
         {/* Right Section - Form */}
-        <div className="bg-[#121212] rounded-[20px] sm:rounded-[28px] p-5 sm:p-7.5 md:p-7.5 w-full md:w-1/2 flex flex-col gap-6 sm:gap-6 md:gap-7">
+        <div className="bg-[#121212] rounded-[20px] sm:rounded-[28px] p-5 sm:p-7.5 md:p-7.5 w-full lg:w-[45%] flex flex-col gap-6 sm:gap-6 md:gap-7">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-6 md:gap-7">
             {/* Name Fields */}
             <div className="flex flex-col md:flex-row gap-6 sm:gap-6 md:gap-6">
@@ -278,7 +278,7 @@ const Footer = () => {
     href="https://www.theinternetcompany.one/" 
     target="_blank" 
     rel="noopener noreferrer"
-    className="text-[#00BFFF] hover:underline"
+    className="text-white hover:underline"
   >
     TIC GLOBAL
   </a>

@@ -8,9 +8,7 @@ const Hero = () => {
       className="relative w-full md:h-screen h-[400px] bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${ProjectHero.src})` }}
     >
-      <div className="relative z-10">
-        <TopNav />
-      </div>
+     
       {/* <div className="absolute bottom-0 left-0 p-6 sm:p-8 text-white max-w-lg">
         <h1 className="text-[54px] font-bold leading-tight drop-shadow-[0_0_10px_rgba(207,30,0,0.5)]">
           Projects

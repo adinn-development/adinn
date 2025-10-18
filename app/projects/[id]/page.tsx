@@ -9,7 +9,7 @@ import {
 } from "@/components/ReUsableComponents/Icons/Icons";
 import Gallery from "@/components/service/Gallery";
 import Footer from "@/components/ReUsableComponents/Footer";
-import LandingDreamProject from "@/components/Home/LandingDreamProject";
+import LandingDreamProject from "@/components/Home/DreamProject";
 import TopNav from "@/components/ReUsableComponents/TopNav";
 import { contents } from "@/data/projects";
 
@@ -157,7 +157,7 @@ const ProjectDetailPage = () => {
 
       {/* Project Details Cards */}
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-10 mt-20 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {project.contents.map((item, index) => (
             <div
               key={index}
@@ -186,7 +186,7 @@ const ProjectDetailPage = () => {
         </div>
 
         {/* Image Section */}
-        <div className="flex justify-center lg:justify-start w-full lg:w-auto">
+        <div className="flex justify-center md:justify-start w-full lg:w-auto">
           <Image
             src={ProjectOverview}
             alt="Project Overview"
