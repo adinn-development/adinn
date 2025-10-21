@@ -78,6 +78,7 @@ const ServiceOffered = () => {
         {/* Image wrapper */}
         <div className="w-full h-40 md:h-48 lg:h-62 overflow-hidden rounded-t-2xl">
           <Image
+          unoptimized
             src={content.icons}
             alt={content.title}
             width={500}
