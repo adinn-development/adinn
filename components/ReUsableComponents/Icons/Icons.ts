@@ -174,3 +174,19 @@ export {default as Fixtures1havels} from '@/assets/projects/Fixtures/havels.jpg'
 export {default as Fixtures2LLcdm} from '@/assets/projects/Fixtures/llyodcdm.jpg'
 export {default as Fixtures3LLdindugal} from '@/assets/projects/Fixtures/llyodindugal.jpg'
 export {default as Fixtures4Nippon} from '@/assets/projects/Fixtures/nipon.jpg'
+
+
+
+
+
+//service
+
+export {default as OOHIcon} from '@/assets/service/ServiceIcon/ooh.png'
+export {default as RoadshowIcon} from '@/assets/service/ServiceIcon/road.png'
+export {default as SignIcon} from '@/assets/service/ServiceIcon/sign.png'
+export {default as EventIcon} from '@/assets/service/ServiceIcon/events.png'
+export {default as FixIcon} from '@/assets/service/ServiceIcon/fixtures.png'
+export {default as PopIcon} from '@/assets/service/ServiceIcon/pop.png'
+export {default as WallIcon} from '@/assets/service/ServiceIcon/wall.png'
+export {default as DigitalIcon} from '@/assets/service/ServiceIcon/digital.png'
+

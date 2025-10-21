@@ -1,59 +1,60 @@
 import React from "react";
 import Image from "next/image";
+import { DigitalIcon, EventIcon, FixIcon, OOHIcon, PopIcon, RoadshowIcon, SignIcon, WallIcon } from "../ReUsableComponents/Icons/Icons";
 
 const ServiceOffered = () => {
   const contents = [
     {
       title: "OOH Media",
       description: "Our daily photo monitoring ensures maximum transparency.",
-      icons:'assets/service/ServiceIcon/ooh.png'
+      icons: OOHIcon
     },
     {
       title: "Roadshow",
       description:
         "Our 250+ custom-built vehicles allow brands to reach audiences directly, covering both urban & rural markets",
-      icons:'assets/service/ServiceIcon/road.png'
+      icons: RoadshowIcon
 
     },
     {
       title: "Signage",
       description:
         "We bring brands to life online, ensuring their digital presence drives real results.",
-      icons:'assets/service/ServiceIcon/sign.png'
+      icons:SignIcon
 
     },
     {
       title: "Events & Activation",
       description:
         "From store branding to signage solutions, we create engaging retail experiences.",
-      icons:'assets/service/ServiceIcon/events.png'
+      icons: EventIcon
 
     },
     {
       title: "Fixtures",
       description: "Our event team provides end-to-end execution.",
-      icons:'assets/service/ServiceIcon/fixtures.png'
+      icons: FixIcon
 
     },
     {
       title: "POPs & Offets",
       description:
         "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
-      icons:'assets/service/ServiceIcon/pop.png'
+      icons:PopIcon
 
     },
     {
       title: "Wall Painting",
       description:
         "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
-      icons:'assets/service/ServiceIcon/wall.png'
+      icons: WallIcon
 
     },
     {
       title: "Digital Marketing",
       description:
         "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
-      icons:'assets/service/ServiceIcon/digital.png'
+      icons:DigitalIcon
 
     },
   ];
