@@ -6,54 +6,54 @@ const ServiceOffered = () => {
     {
       title: "OOH Media",
       description: "Our daily photo monitoring ensures maximum transparency.",
-      icons:'/service/ServiceIcon/ooh.png'
+      icons:'assets/service/ServiceIcon/ooh.png'
     },
     {
       title: "Roadshow",
       description:
         "Our 250+ custom-built vehicles allow brands to reach audiences directly, covering both urban & rural markets",
-      icons:'/service/ServiceIcon/road.png'
+      icons:'assets/service/ServiceIcon/road.png'
 
     },
     {
       title: "Signage",
       description:
         "We bring brands to life online, ensuring their digital presence drives real results.",
-      icons:'/service/ServiceIcon/sign.png'
+      icons:'assets/service/ServiceIcon/sign.png'
 
     },
     {
       title: "Events & Activation",
       description:
         "From store branding to signage solutions, we create engaging retail experiences.",
-      icons:'/service/ServiceIcon/events.png'
+      icons:'assets/service/ServiceIcon/events.png'
 
     },
     {
       title: "Fixtures",
       description: "Our event team provides end-to-end execution.",
-      icons:'/service/ServiceIcon/fixtures.png'
+      icons:'assets/service/ServiceIcon/fixtures.png'
 
     },
     {
       title: "POPs & Offets",
       description:
         "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
-      icons:'/service/ServiceIcon/pop.png'
+      icons:'assets/service/ServiceIcon/pop.png'
 
     },
     {
       title: "Wall Painting",
       description:
         "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
-      icons:'/service/ServiceIcon/wall.png'
+      icons:'assets/service/ServiceIcon/wall.png'
 
     },
     {
       title: "Digital Marketing",
       description:
         "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
-      icons:'/service/ServiceIcon/digital.png'
+      icons:'assets/service/ServiceIcon/digital.png'
 
     },
   ];
