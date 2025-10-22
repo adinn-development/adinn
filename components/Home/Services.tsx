@@ -226,7 +226,7 @@ const LandingService = () => {
       data-component-id={componentIdRef.current}
     >
       {/* Header Section - Static for mobile/tablet, animated for lg+ */}
-      <div className="w-full flex flex-col lg:flex-row items-start lg:items-start mb-8 lg:mb-12 gap-4 lg:gap-8">
+      <div className="w-full flex flex-col lg:flex-row items-start lg:items-start mb-8 xl:mb-12 lg:mb-0 gap-4 lg:gap-8">
         <div className="flex flex-row items-start text-start justify-start space-x-2 md:space-x-5 ">
           
           <motion.div 
@@ -249,13 +249,13 @@ const LandingService = () => {
       </div>
 
       {/* Services Container */}
-      <div className="relative w-full mt-8 lg:mt-10">
+      <div className="relative w-full mt-8 ">
         {/* Mobile/Tablet: Static Grid Layout */}
         <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6">
           {contents.map((item, index) => (
             <div
               key={`static-${index}`}
-              className="relative h-[300px] w-full overflow-hidden"
+              className="relative w-full h-[250px] lg:h-[100px] xl:h-[280px] overflow-hidden"
             >
               <div className="w-full h-full relative">
                 <Image
