@@ -212,11 +212,11 @@
                     alt="Video Frame"
                     width={1500}
                     height={1500}
-                    className="w-[100%] xl:h-full lg:h-[650px]  h-full object-cover pointer-events-none select-none"
+                    className="w-[100%] 2xl:h-full xl:h-[750px] lg:h-[650px]  h-full object-cover pointer-events-none select-none"
                   />
 
                   {/* Video in Frame */}
-                  <div className="absolute xl:top-68 lg:top-47 top-53  left-1/2 w-[74%] xl:h-77 lg:h-62 h-60 transform -translate-x-1/2 overflow-hidden">
+                  <div className="absolute 2xl:top-68 xl:top-53 lg:top-47 top-23  left-1/2 w-[74%] xl:h-77 lg:h-62 h-60 transform -translate-x-1/2 overflow-hidden">
                     <video
                       ref={videoRef}
                       src="/ad_c2.mp4"

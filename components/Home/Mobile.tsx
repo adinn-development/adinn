@@ -57,8 +57,8 @@ const LandingMobile = () => {
       {/* Desktop Version - Original */}
       <div className='hidden lg:flex relative md:h-[670px] lg:h-screen w-full overflow-hidden flex-col justify-between p-4 md:p-6'>
         {/* WHAT text */}
-        <div className='absolute top-[20%] md:top-[20%] md:left-[5%] lg:top-[20%] lg:left-[15%]'>
-          <div className='md:text-[72px] lg:text-[80px] xl:text-[120px] font-bold tracking-tighter'>
+        <div className='absolute top-[20%] md:top-[20%] md:left-[5%] lg:top-[20%] lg:left-[15%] xl:top-[20%] xl:left-[10%] 2xl:top-[20%] 2xl:left-[15%] '>
+          <div className='md:text-[72px] lg:text-[75px] xl:text-[120px] font-bold tracking-tighter'>
             WHAT
           </div>
         </div>
@@ -75,7 +75,7 @@ const LandingMobile = () => {
         </div>
 
         {/* Desktop version section */}
-        <div className='absolute bottom-[35%] right-[5%] md:bottom-[95%] md:right-[8%] lg:bottom-[25%] lg:right-[1%] xl:bottom-[25%] xl:right-[12%] text-left items-start justify-start max-w-[45%] lg:max-w-[40%]'>
+        <div className='absolute bottom-[35%] right-[5%] md:bottom-[95%] md:right-[8%] lg:bottom-[25%] lg:right-[1%] xl:bottom-[25%] xl:right-[5%] 2xl:bottom-[25%] 2xl:right-[12%] text-left items-start justify-start max-w-[45%] lg:max-w-[40%]'>
           <div className='md:text-[50px] lg:text-[92px] font-bold md:leading-none mb-3 md:mb-4 lg:mb-1 xl:mb-6'>
             WE DO
           </div>
