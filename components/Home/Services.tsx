@@ -284,7 +284,7 @@ const LandingService = () => {
         </div>
 
         {/* Desktop (lg+): Horizontal Scroll Layout - Animated */}
-        <div className="hidden lg:block w-full h-[400px] lg:h-[450px] xl:h-[500px] overflow-hidden">
+        <div className="hidden lg:block w-full h-[400px] lg:h-[450px] xl:h-[400px] 2xl:h-[500px] overflow-hidden">
           <motion.div 
             ref={scrollContainerRef}
             className="flex h-full gap-4 lg:gap-6"
