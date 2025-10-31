@@ -26,6 +26,16 @@ html {
 .mySwiper .swiper-pagination {
   bottom: 0 !important;
   position: relative !important;
-  margin-top: 10px; /* gives breathing space under content */
+  margin-top: 10px; 
   text-align: center;
+}
+/* Make pagination dots black */
+.mySwiper .swiper-pagination-bullet {
+  background-color: #c8253b !important; /* default dot color */
+  opacity: 0.4 !important;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #c8253b !important; /* active dot color */
+  opacity: 1 !important;
 }

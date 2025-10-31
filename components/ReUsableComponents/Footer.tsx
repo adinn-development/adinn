@@ -280,7 +280,7 @@ const Footer = () => {
     rel="noopener noreferrer"
     className="text-white hover:underline"
   >
-    TIC GLOBAL
+    Adinn
   </a>
       </div>
     </div>
