@@ -22,3 +22,10 @@ html {
 .custom-video-filter {
   filter: grayscale(100%) sepia(50%) hue-rotate(50deg) saturate(150%);
 }
+
+.mySwiper .swiper-pagination {
+  bottom: 0 !important;
+  position: relative !important;
+  margin-top: 10px; /* gives breathing space under content */
+  text-align: center;
+}

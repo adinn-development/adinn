@@ -190,3 +190,6 @@ export {default as PopIcon} from '@/assets/service/ServiceIcon/pop.png'
 export {default as WallIcon} from '@/assets/service/ServiceIcon/wall.png'
 export {default as DigitalIcon} from '@/assets/service/ServiceIcon/digital.png'
 
+//solutions mobile carosuel icon
+export { default as ChevronLeftIcon } from '@/assets/icons/chevron-left-icon.svg';
+export { default as ChevronRightIcon } from '@/assets/icons/chevron-right-icon.svg';
