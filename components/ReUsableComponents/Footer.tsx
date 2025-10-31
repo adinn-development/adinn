@@ -275,7 +275,7 @@ const Footer = () => {
       <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-8 sm:mt-10 md:mt-12">
         © Designed & Developed by {" "}
   <a 
-    href="https://www.theinternetcompany.one/" 
+    href="https://adinn-three.vercel.app/" 
     target="_blank" 
     rel="noopener noreferrer"
     className="text-white hover:underline"
