@@ -16,6 +16,52 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 
+const MobileCategorySwiper = ({
+  contents,
+  activeIndex,
+  handleCategoryClick,
+}: any) => {
+  const swiperRef = React.useRef<any>(null);
+
+  useEffect(() => {
+    // When activeIndex changes, slide to the clicked button
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(activeIndex, 400);
+    }
+  }, [activeIndex]);
+
+  return (
+    <Swiper
+      spaceBetween={10}
+      slidesPerView={"auto"}
+      pagination={{ clickable: true }}
+      modules={[Pagination]}
+      onSwiper={(swiper) => {
+        swiperRef.current = swiper;
+      }}
+      className="mySwiper px-4 pb-6"
+    >
+      {contents.map((content: any, index: number) => (
+        <SwiperSlide key={index} style={{ width: "auto" }}>
+          <button
+            onClick={() => handleCategoryClick(index)}
+            className={`cursor-pointer ${
+              index === activeIndex
+                ? "bg-gradient-to-r from-[#EC2B45] to-[#861927] text-white"
+                : "bg-[#F5F5F5]/[.26] text-[#333] hover:bg-gradient-to-r hover:from-[#EC2B45] hover:to-[#861927] hover:text-white"
+            } py-2.5 rounded-full transform hover:-translate-y-1 transition-all duration-300 ease-in-out
+            text-[16px] md:text-[16px] whitespace-nowrap px-4
+            shadow-sm hover:shadow-md min-w-[150px] text-center`}
+          >
+            {content.name} {content.lastWord}
+          </button>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+};
+
+
 const Solutions = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
@@ -73,22 +119,15 @@ const Solutions = () => {
           {contents.map((content, index) => CategoryButton(content, index))}
         </div>
 
-        {/* Mobile Carousel */}
-        <div className="sm:hidden w-full mb-6"> {/* added margin-bottom for spacing */}
-  <Swiper
-    spaceBetween={10}
-    slidesPerView={"auto"}
-    pagination={{ clickable: true }}
-    modules={[Pagination]}
-    className="mySwiper px-4 pb-6" // added padding-bottom for pagination space
-  >
-    {contents.map((content, index) => (
-      <SwiperSlide key={index} style={{ width: "auto" }}>
-        {CategoryButton(content, index)}
-      </SwiperSlide>
-    ))}
-  </Swiper>
+       {/* Mobile Carousel (fixed scroll position) */}
+<div className="sm:hidden w-full mb-6">
+  <MobileCategorySwiper
+    contents={contents}
+    activeIndex={activeIndex}
+    handleCategoryClick={handleCategoryClick}
+  />
 </div>
+
       </div>
 
       {/* --- Category Title & Cards Section --- */}
