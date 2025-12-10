@@ -28,7 +28,15 @@ const LandingService = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const scrollTriggerInstanceRef = useRef<ScrollTrigger | null>(null);
   const isInitializedRef = useRef(false);
-  const componentIdRef = useRef(`landing-service-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`);
+  // const componentIdRef = useRef(`landing-service-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`);
+const componentIdRef = useRef<string>("");
+
+useEffect(() => {
+  if (!componentIdRef.current) {
+    componentIdRef.current =
+      `landing-service-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  }
+}, []);
 
   // Memoize contents to prevent recreation on every render
   const contents = useMemo(() => [
@@ -88,6 +96,8 @@ const LandingService = () => {
       console.warn('GSAP cleanup error:', error);
     }
   }, []);
+
+  
 
   // GSAP ScrollTrigger setup - ONLY for lg screens and above
   useEffect(() => {
