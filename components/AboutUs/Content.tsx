@@ -55,45 +55,56 @@ const Content = () => {
       </motion.div> 
 
       <motion.p
-        className="w-full text-[16px] md:text-[48px] sm:text-[48px] md:leading-[60.4px] sm:mb-10 md:mb-10 mb-1"
-        variants={containerVariants}
-      >
+  className="w-full text-[16px] md:text-[28px] sm:text-[28px] md:leading-[50.4px] sm:mb-10 md:mb-10 mb-1"
+  variants={containerVariants}
+>
 
-        <motion.span variants={textVariants} className='text-[#C1C1C1]'>We specialize in leading full-service</motion.span>
-        <motion.span variants={textVariants}>
-        {' '}  advertising agency{' '}
-        </motion.span>
-        {/* <motion.span variants={textVariants}>
-          <span className="text-[#C1C1C1]">with
-          over</span>
-        </motion.span> */}
-        <motion.span variants={textVariants}>
-          {/* <br className="hidden sm:block md:block" /> */}
-          {' '}activation, outreach programs, outdoor advertising, digital
-          marketing, and retail branding,{' '}
-        </motion.span>
-        <motion.span className="text-[#C1C1C1]" variants={textVariants}>
-        delivering{' '}
-        </motion.span>
-        <motion.span variants={textVariants}>
-          {/* <br className="hidden sm:block md:block" /> */}
-          {' '}  ROI-driven solutions {' '}
-        </motion.span>
-        <motion.span variants={textVariants}>
-          <span className="text-[#C1C1C1]">with an</span>
-        </motion.span>
-        <motion.span variants={textVariants}>
-          {/* <br className="hidden sm:block md:block" /> */}
-          {' '} integrated
-          infrastructure {' '}
-        </motion.span>
-        <motion.span variants={textVariants}>
-          <span className="text-[#C1C1C1]">that ensures seamless execution. </span>
-        </motion.span>
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    Adinn Advertising is a leading advertising agency in South India.
+  </motion.span>
 
-        {/* <motion.span variants={textVariants}>clients across South India.</motion.span> */}
+  <motion.span variants={textVariants}>
+    {' '}We are a comprehensive solution provider for your brand.{' '}
+  </motion.span>
 
-      </motion.p>
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    Our strength comes from our dedication to quality
+  </motion.span>
+
+  <motion.span variants={textVariants}>
+    {' '}and focus on real results.{' '}
+  </motion.span>
+
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    We serve clients across Tamil Nadu and beyond
+  </motion.span>
+
+  <motion.span variants={textVariants}>
+    {' '}with complete advertising services.{' '}
+  </motion.span>
+
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    From Traditional media to Digital platforms,
+  </motion.span>
+
+  <motion.span variants={textVariants}>
+    {' '}we work to turn ideas into clear and effective campaigns{' '}
+  </motion.span>
+
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    that help your brand grow.
+  </motion.span>
+
+  <motion.span variants={textVariants}>
+    {' '}Our network allows us to reach a wide audience{' '}
+  </motion.span>
+
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    and offer support whenever it is needed.
+  </motion.span>
+
+</motion.p>
+
 
 
       </motion.div>

@@ -59,32 +59,67 @@ const LandingContent = React.memo(() => {
       variants={mainContainerVariants}
     >
       {/* Text Content */}
-      <motion.p
-        className="w-full text-[16px] md:text-[48px] sm:text-[48px] md:leading-[60.4px] sm:mb-10 md:mb-10 mb-1"
-        variants={containerVariants}
-      >
-        {/* Animated Words */}
-        <motion.span variants={textVariants}>Adinn</motion.span>{" "}
-        <motion.span className="text-[#C1C1C1]" variants={textVariants}>
-          is a hub of
-        </motion.span>{" "}
-        <motion.span variants={textVariants}>
-          creativity and innovation.
-          <span className="text-[#C1C1C1]"> We&apos;re</span>
-        </motion.span>{" "}
-        <motion.span className="text-[#C1C1C1]" variants={textVariants}>
-          <br /> dedicated to
-        </motion.span>{" "}
-        <motion.span variants={textVariants}>
-          bringing your brand to life through unique,
-        </motion.span>{" "}
-        <motion.span variants={textVariants}>
-          <br /> impactful design solutions.
-        </motion.span>{" "}
-        <motion.span className="text-[#C1C1C1]" variants={textVariants}>
-          Dive into our world and
-        </motion.span>
-      </motion.p>
+    <h4 className="adinn-heading text-black font-bold text-[34px] md:text-[34px] mb-4">
+  Welcome to Adinn Advertising, where your vision becomes our mission.
+</h4>
+{/* <motion.p
+  className="w-full text-[16px] md:text-[24px] sm:text-[24px] md:leading-[60.4px] sm:mb-10 md:mb-10 mb-1"
+  variants={containerVariants}
+>
+  <motion.span variants={textVariants}>With 24+ years of experience,</motion.span>{" "}
+  <motion.span variants={textVariants}>
+    we help brands grow with creative
+  </motion.span>{" "}
+  <motion.span className="text-[#C1C1C1]" variants={textVariants}>
+    and meaningful advertising.
+  </motion.span>{" "}
+  <motion.span className="text-[#C1C1C1]" variants={textVariants}>
+    <br /> We don’t just make ads,
+  </motion.span>{" "}
+  <motion.span variants={textVariants}>
+    we create experiences that lift your brand
+  </motion.span>{" "}
+  <motion.span variants={textVariants}>
+    and connect with your audience.
+  </motion.span>{" "}
+  <motion.span className="text-[#C1C1C1]" variants={textVariants}>
+    <br /> We understand your vision
+  </motion.span>{" "}
+  <motion.span variants={textVariants}>
+    and turn it into something real.
+  </motion.span>
+</motion.p> */}
+<motion.p
+  className="w-full text-[16px] md:text-[28px] sm:text-[28px] md:leading-[50.4px] sm:mb-10 md:mb-10 mb-1"
+  variants={containerVariants}
+>
+
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    With 24+ years of experience,
+  </motion.span>
+
+  <motion.span variants={textVariants}>
+    {' '}we help brands grow with creative and meaningful advertising.{' '}
+  </motion.span>
+
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    We don’t just make ads,
+  </motion.span>
+
+  <motion.span variants={textVariants}>
+    {' '}we create experiences that lift your brand and connect with your audience.{' '}
+  </motion.span>
+
+  <motion.span variants={textVariants} className="text-[#C1C1C1]">
+    We understand your vision
+  </motion.span>
+
+  <motion.span variants={textVariants}>
+    {' '}and turn it into something real.{' '}
+  </motion.span>
+
+</motion.p>
+
 
       {/* Animated Button */}
       <Link href="/about-us">  

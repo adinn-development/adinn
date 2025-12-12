@@ -6,29 +6,34 @@ import { motion, AnimatePresence } from 'framer-motion';
 const LandingQueries = () => {
   const Queries = [
     {
-      question: "How long does it take to complete a project?",
+      question: "Why should I choose Adinn over other agencies?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s"
+        "With 24+ years of experience, 5000+ campaigns and a skilled in house team, we deliver creativity, reliability and measurable results."
     },
     {
-      question: "What is your design process like?",
+      question: "Can I track the progress of my project?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s"
+        "Yes, we provide timely updates, reports and geo tagged visuals for full transparency throughout the campaign."
     },
     {
-      question: "Can I request revisions to the design?",
+      question: "Do you offer creative ideas or just execution?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s"
+        "Yes, We provide end to end support from brainstorming innovative concepts to flawless execution."
     },
     {
-      question: "Do you provide support after project completion?",
+      question: "Can you work with my existing brand guidelines?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s"
+        "Absolutely, we strictly follow your brand rules to maintain consistency across all campaigns."
     },
     {
-      question: "Can I see examples of your previous work?",
+      question: "Can you create completely custom campaigns?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s"
+        "Yes, we design unique activations and events tailored to your brand goals."
+    },
+    {
+      question: "Can your team fix on ground issues instantly?",
+      answer:
+        "Absolutely, our operation teams handle corrections in real time to ensure smooth execution."
     },
   ];
 

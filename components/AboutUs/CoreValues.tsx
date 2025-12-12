@@ -6,32 +6,32 @@ const CoreValues = () => {
     const contents = [
         {
             title: 'Reliability',
-            description: 'We are committed to delivering on our promises and being a dependable partner for our clients.',
+            description: 'We deliver on our promises and ensure our clients can depend on us to drive results.',
             image: Reliability
         },
         {
             title: 'Respect',
-            description: 'We treat our clients, colleagues, and work with the utmost respect, valuing diverse perspectives and fostering  inclusive collaboration.',
+            description: 'We value every client, partner and team member, fostering collaboration and inclusive ideas',
             image: Respect
         },
         {   
             title: 'Excellence',
-            description: 'We strive for excellence in everything we do, setting high standards for creativity, innovation, and results.',
+            description: ' We set high standards in strategy, creativity and execution to achieve measurable success.',
             image: Excellence
         },
         {
             title: 'Integrity',
-            description: 'We conduct ourselves with honesty and transparency, earning trust through ethical practices and accountability.',
+            description: ' We operate transparently and ethically, building trust through accountability and honesty.',
             image: Integrity
         },
         {
             title: 'Innovation',
-            description: 'We embrace creativity and forward-thinking, constantly seeking new and impactful ways to engage audiences  and drive results.',
+            description: ' We leverage creativity and forward thinking solutions to stay ahead in a competitive market.',
             image: Innovation
         },
         {
             title: 'Teamwork',
-            description: 'We believe in the power of collaboration, working together seamlessly to achieve success for our clients and  agency.',
+            description: 'We combine strengths across our team and with clients to achieve optimal business outcomes.',
             image: Teamwork
         }
     ]

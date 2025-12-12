@@ -39,3 +39,20 @@ html {
   background-color: #c8253b !important; /* active dot color */
   opacity: 1 !important;
 }
+
+@media (max-width: 767px) {
+  .adinn-heading {
+    font-size: 20px; 
+    line-height: 28px;
+    text-align: left; /* or center */
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 400px) {
+  .adinn-heading {
+    font-size: 18px; 
+    line-height: 20px;
+    text-align: left; /* or center */
+    margin-bottom: 10px;
+  }
+}

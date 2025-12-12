@@ -1,7 +1,7 @@
 
 import LandingContent from "@/components/Home/Content";
 import LandingService from "@/components/Home/Services";
-import LandingMobile from "@/components/Home/Mobile";
+// import LandingMobile from "@/components/Home/Mobile";
 import LandingProjects from "@/components/Home/Projects";
 import LandingDreamProject from "@/components/Home/DreamProject";
 import LandingQueries from "@/components/Home/Queries";
@@ -21,7 +21,7 @@ export default function Home() {
       <LandingContent />
       <LandingClients />
       <LandingService />
-      <LandingMobile />
+      {/* <LandingMobile /> */}
       <LandingProjects />
       <div className="lg:mt-50 lg:mb-50">
         <LandingDreamProject />

@@ -18,9 +18,7 @@ const Hero = () => {
               About Us
             </h1>
             <p className="md:text-[20px] text-[10px] md:mt-0 mt-2 min-w-min text-white">
-            Adinn Advertising Services Limited is a leading full-service advertising agency with
-over 23 years of industry expertise, headquartered in Madurai with a branch office in
-Chennai, catering to clients across South India
+            Adinn Advertising leads the industry with complete advertising services backed by experience, innovation and consistent quality. Our goal is to understand each brand, plan the right solutions and deliver advertising that truly makes an impact.
             </p>
           </div>
 
