@@ -16,8 +16,7 @@ const Hero = () => {
               Services
             </h1>
             <p className="md:text-[20px] text-[10px] md:w-[580px] md:px-0 px-5 text-white">
-            To be the beacon of creativity and innovation in the advertising industry, where every
-            brand finds a voice that is not just heard but remembered.
+           At Adiin Advertising, We provide a wide range of services from Traditional to Digital and we elevating your brand everywhere.
             </p>
           </div>
 

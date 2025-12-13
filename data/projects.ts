@@ -56,17 +56,29 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Suzhal Season 2 needed to stand out in busy Chennai and grab attention before its OTT premiere. The main challenge was enduring visibility.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: `Partnered with GroupM OOH to take Suzhal to the streets.
+
+Launched outdoor campaigns at high-traffic spots:
+Aranganathan Subway, Gemini Flyover, Kodambakkam Bridge, Pallavan Road Flyover, Velachery-Tambaram Main Road.
+
+Each location chosen for maximum visibility.
+
+Creative design ensured visual dominance, a mysterious tone and attention day and night.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: [
+  "Creative execution that turned heads and sparked conversation.",
+  "Strategic citywide coverage that ensures unmissable visibility.",
+  "Build high engagement across Chennai's busiest routes.",
+  "Spanning 80km across Chennai, our innovation moves with people and makes them feel something worth noticing."
+],
           },
         ],
          contents: [
@@ -97,17 +109,17 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Ibaco needed stronger brand visibility and recall during the competitive summer season, and strategic outdoor advertising is required to achieve it",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Selected premium hoarding locations  with high-impact large-format hoarding campaign across key urban cities to maximise visibility and capture more eyeballs every single day.Placed eye-catching creatives at high-traffic junctions in Madurai, Coimbatore, Hosur and Dharmapuri.Aligned the campaign with seasonal relevance to strengthen recall and drive stronger consumer attention.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "More people noticed the brand daily. Improved brand recall and visibility.",
           },
         ],
          contents: [
@@ -135,17 +147,28 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Bhima Gold struggled to stay top-of-mind among consumers in Madurai due to intense competition",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+              desc: `Identified high-traffic intersections, commercial hubs and popular landmarks in Madurai.
+
+Placed hoardings and police booth ads at strategic, prime locations.
+
+Ensured maximum visibility to make Bhima Gold stand out prominently.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+              desc: `The Outdoor Campaign kept Bhima Gold constantly visible to the audience.
+
+Even in the off season, the brand presence stayed on people’s minds.
+
+The campaign not only boosted the brand position but also created a long-lasting impression.
+
+Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewellery brand in Madurai.`
+,
           },
         ],
          contents: [
@@ -179,17 +202,27 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Dealers struggled to reach audiences across states and generate high quality leads from enthusiasts, so we organize targeted roadshow.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+             desc: `Launched an on-ground roadshow campaign across South India.
+
+Activated in Tamil Nadu, Kerala, Karnataka, Telangana and Andhra Pradesh.
+
+Engaged riders, college students, NCC cadets, and military personnel through experiential setups.
+
+Delivered live product experiences to build strong connect and drive lead generation.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+             desc: `Generated around 50 leads per day from each state.
+
+Covered 5 key South Indian states.
+
+Built strong engagement with passionate riders.`,
           },
         ],
          contents: [
@@ -218,17 +251,27 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Bajaj wanted to generate quality leads. The challenge was to connect with potential buyers in a personalized way.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+             desc: `Conducted a roadshow campaign in collaboration with Bajaj dealers.
+
+Organized on-ground events across major cities and towns to showcase the latest Bajaj models.
+
+Used attractive displays and promotional branding to grab attention.
+
+Direct interaction with dealers ensured smooth coordination and consistent brand presence across all locations.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+desc: `The campaign covered all districts in Tamil Nadu to turn heads.
+
+Created a strong brand build and focused the target audience to gain traction.
+
+Generated high-quality leads for dealers.`,
           },
         ],
          contents: [
@@ -257,17 +300,17 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Everyone likes quality products more than quantity because it is worth the price they provide. Getting a quality product without spending high money is the real challenge .",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "James & co taking a celebration to the streets with the 6th Anniversary roadshow campaign . We make it easy to reach the people in the right way to announce the quality of its and the value they provide for us through moving visuals. By announcing the discounts create excitement and memorability.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Marking the Anniversary by offering discounts to make people memorable.Create an interactive experience only through the roadshow to make the people buy",
           },
         ],
          contents: [
@@ -286,44 +329,44 @@ export const contents = [
         ]
       },
 
-      {
-        id: 7,
-        image: BayerRoadshow,
-        alt: "Bayer",
-        name: "Bayer",
-        description: "van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 7,
+      //   image: BayerRoadshow,
+      //   alt: "Bayer",
+      //   name: "Bayer",
+      //   description: "van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
       {
         id: 8,
@@ -335,17 +378,17 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "To improve awareness and footfall for new store launches, KFC required impactful outdoor visibility and has come to us for a solution.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Executed a multi-format OOH campaign featuring hoardings, unipoles, signal posts, pole kiosks and bus wraps near new store locations.Ensured consistent creative visibility and quick installation across multiple cities.Designed the mix to reach customers at multiple touchpoints - ensuring the brand is seen by almost everyone for maximum impact and recall.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Statewide coverage, Increased local buzz and footfall, High-impact visibility for every launch",
           },
         ],
          contents: [
@@ -364,122 +407,122 @@ export const contents = [
         ]
       },
 
-      {
-        id: 9,
-        image: MuthootRoadshow,
-        alt: "Muthoot Fincorp",
-        name: "Muthoot Fincorp",
-        description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 9,
+      //   image: MuthootRoadshow,
+      //   alt: "Muthoot Fincorp",
+      //   name: "Muthoot Fincorp",
+      //   description: "Van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 10,
-        image: DiloRoadshow,
-        alt: "Dilo",
-        name: "Dilo",
-        description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 10,
+      //   image: DiloRoadshow,
+      //   alt: "Dilo",
+      //   name: "Dilo",
+      //   description: "Van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 11,
-        image: TracktersRoadshow,
-        alt: "Ishare Trackters",
-        name: "Ishare Trackters",
-        description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 11,
+      //   image: TracktersRoadshow,
+      //   alt: "Ishare Trackters",
+      //   name: "Ishare Trackters",
+      //   description: "Van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
       {
         id: 12,
@@ -491,17 +534,25 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Kenstar’s wide range of home appliances wasn’t reaching potential customers effectively, making it hard for them to experience the products firsthand.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: `Designed a custom roadshow vehicle to display multiple Kenstar appliances.
+
+Made people experience the products firsthand.
+
+Ensured the vehicle design reflected Kenstar’s brand aesthetics while being fully functional for on-road promotions.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: `Enhanced brand awareness through direct consumer engagement.
+
+Created a mobile showroom experience that attracted strong footfall.
+
+Effectively communicated product quality and innovation to a wide audience.`,
           },
         ],
          contents: [
@@ -520,161 +571,161 @@ export const contents = [
         ]
       },
 
-      {
-        id: 13,
-        image: KubotaRoadshow,
-        alt: "Kubota",
-        name: "Kubota",
-        description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 13,
+      //   image: KubotaRoadshow,
+      //   alt: "Kubota",
+      //   name: "Kubota",
+      //   description: "Van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 14,
-        image: TitanRoadshow,
-        alt: "Titan Eye +",
-        name: "Titan Eye +",
-        description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 14,
+      //   image: TitanRoadshow,
+      //   alt: "Titan Eye +",
+      //   name: "Titan Eye +",
+      //   description: "Van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 15,
-        image: NativoRoadshow,
-        alt: "Nativo",
-        name: "Nativo",
-        description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 15,
+      //   image: NativoRoadshow,
+      //   alt: "Nativo",
+      //   name: "Nativo",
+      //   description: "Van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 16,
-        image: PoorvikaRoadshow,
-        alt: "Poorvika",
-        name: "Poorvika",
-        description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 16,
+      //   image: PoorvikaRoadshow,
+      //   alt: "Poorvika",
+      //   name: "Poorvika",
+      //   description: "Van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
     ],
   },
   {
@@ -691,17 +742,17 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "The brand struggled to build a deeper emotional connection with dealers and their families, limiting engagement and long-term loyalty.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Conceptualized and executed a grand Pongal-themed celebration to reflect tradition, cultural pride, and brand warmth.Managed end-to-end event setup including festive stage design, thematic décor, and hospitality arrangements.Curated Pongal-themed games, cultural performances and family engagement zones to encourage interactive participation.Delivered a vibrant festive experience that strengthened community connect and enhanced brand affinity",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "300+ attendees including dealers and their families.High engagement through traditional & fun-filled activities.Enhanced brand affinity and strengthened community relationships",
           },
         ],
          contents: [
@@ -720,122 +771,122 @@ export const contents = [
         ]
       },
 
-      {
-        id: 18,
-        image: Ambuja,
-        alt: "Ambuja Cement",
-        name: "Ambuja Cement",
-        description: "Banner",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 18,
+      //   image: Ambuja,
+      //   alt: "Ambuja Cement",
+      //   name: "Ambuja Cement",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 19,
-        image: Dekalb,
-        alt: "Deklab",
-        name: "Deklab",
-        description: "Banner",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 19,
+      //   image: Dekalb,
+      //   alt: "Deklab",
+      //   name: "Deklab",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 20,
-        image: Esaf,
-        alt: "Esaf Small Finance Bank",
-        name: "Esaf Small Finance Bank",
-        description: "Banner",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 20,
+      //   image: Esaf,
+      //   alt: "Esaf Small Finance Bank",
+      //   name: "Esaf Small Finance Bank",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
       {
         id: 21,
@@ -925,17 +976,26 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Nippon Paints showrooms in Hosur, Pondicherry and Chennai had lacked effective display solutions, which reduced the impact of the in-store experience for customers",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: `Developed customized modular fixture systems with branded shelves, lighting, and color panels tailored to each market.
+
+Installed durable setups in Hosur, interactive shade walls in Pondicherry, and digital displays in Chennai.
+
+Ensured consistent brand experience with modern, adaptable, and locally optimized designs.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: `Enhanced store presentation and customer experience.
+
+Created vibrant, stylish and tech-driven displays.
+
+Helped dealers sell better and customers choose confidently.`
+,
           },
         ],
          contents: [
@@ -1125,17 +1185,27 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Havells had struggled to ensure premium, modern and consistent product displays across stores, limited brand visibility and impact.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+             desc: `Designed adaptable, modular fixtures to improve product visibility and shopper engagement.
+
+Integrated motion-based fan displays and illuminated glass shelving for dynamic brand presentation.
+
+Created customized SDA racks to enhance in-store experience and drive purchase intent.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc:  `Unified and premium brand look across all spaces.
+
+Durable, high-quality materials for long life.
+
+Smart, flexible designs adaptable to any setup.
+
+Displays that attract, engage and inspire customers.`,
           },
         ],
          contents: [
@@ -1231,6 +1301,45 @@ export const contents = [
           }
         ]
       },
+
+       {
+        id: 17,
+        image: Acc,
+        alt: "Acc",
+        name: "Acc",
+        description: "Banner",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "The brand struggled to build a deeper emotional connection with dealers and their families, limiting engagement and long-term loyalty.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Conceptualized and executed a grand Pongal-themed celebration to reflect tradition, cultural pride, and brand warmth.Managed end-to-end event setup including festive stage design, thematic décor, and hospitality arrangements.Curated Pongal-themed games, cultural performances and family engagement zones to encourage interactive participation.Delivered a vibrant festive experience that strengthened community connect and enhanced brand affinity",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "300+ attendees including dealers and their families.High engagement through traditional & fun-filled activities.Enhanced brand affinity and strengthened community relationships",
+          },
+        ],
+         contents: [
+          {
+            name:'Service',
+            desc:'3D & Cut Out'
+          },
+            {
+            name:'Location',
+            desc:'Tamil Nadu'
+          },
+            {
+            name:'Year',
+            desc:'2023'
+          }
+        ]
+      },
     ],
   },
   {
@@ -1247,17 +1356,17 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Vehicle sales in Madurai, Sivakasi and Ramanathapuram are limited by generic communication strategies that do not address diverse buyer mindsets",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Developed a focused Tamil content strategy emphasizing comfort, reliability, and trust through localized storytelling.Designed customized campaigns tailored to each model and audience segment.Built strong emotional connections and enhanced brand credibility across target markets",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Generated 3–5 vehicle bookings per month through consistent content.Built strong local trust and brand loyalty.Connected effectively with regional audiences.",
           },
         ],
          contents: [
@@ -1520,17 +1629,21 @@ export const contents = [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Lloyd showrooms in Chidambaram and Rajapalayam did not provide a consistent premium experience, which affected how customers perceive their brand.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc:  `Designed and delivered custom fixtures and modular displays reflecting Lloyd’s premium brand identity.
+
+Developed sleek facades, modular stalls, and category-based galleries for a unified retail experience.
+
+Executed local fabrication ensuring easy installation, consistent quality, and faster rollout.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "·Created a cohesive and engaging retail experience.Strengthened brand presence across locations.",
           },
         ],
          contents: [

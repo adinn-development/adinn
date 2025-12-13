@@ -6,7 +6,7 @@ const ServiceOffered = () => {
   const contents = [
     {
       title: "OOH Media",
-      description: "Our daily photo monitoring ensures maximum transparency.",
+      description: "As the largest outdoor media owners in Tamil Nadu, we plan and execute outdoor  advertising across hoardings, street furniture and transit media.",
       icons: OOHIcon
     },
     {
