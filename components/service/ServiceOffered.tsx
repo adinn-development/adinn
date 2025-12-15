@@ -6,54 +6,54 @@ const ServiceOffered = () => {
   const contents = [
     {
       title: "OOH Media",
-      description: "As the largest outdoor media owners in Tamil Nadu, we plan and execute outdoor  advertising across hoardings, street furniture and transit media.",
+      description: "Our Outdoor advertising across hoardings, street furniture and transit media delivering visibility across Tamil Nadu.",
       icons: OOHIcon
     },
     {
       title: "Roadshow",
       description:
-        "Our 250+ custom-built vehicles allow brands to reach audiences directly, covering both urban & rural markets",
+        "With the largest fleet, we run GPS enabled, RTO-approved roadshows across South India with timely deployment and reliable execution",
       icons: RoadshowIcon
 
     },
     {
       title: "Signage",
       description:
-        "We bring brands to life online, ensuring their digital presence drives real results.",
+        "We deliver end to end retail branding, from design and production to installation of in-store displays and outdoor signage solutions",
       icons:SignIcon
 
     },
     {
       title: "Events & Activation",
       description:
-        "From store branding to signage solutions, we create engaging retail experiences.",
+        "We plan and execute events and on-ground activations across South India with in-house creative, fabrication and trained teams",
       icons: EventIcon
 
     },
     {
       title: "Fixtures",
-      description: "Our event team provides end-to-end execution.",
+      description: "We design and manufacture precision retail fixtures and modular shop-in-shop solutions using advanced machinery for consistent branding everywhere.",
       icons: FixIcon
 
     },
     {
       title: "POPs & Offets",
       description:
-        "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
+        "We print leaflets, posters, brochures  and marketing collaterals with end-to-end handling for quality, accuracy and on time delivery assured.",
       icons:PopIcon
 
     },
     {
       title: "Wall Painting",
       description:
-        "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
+        "Our team delivers indoor and outdoor wall painting using geo tagging and clear workflows for consistent quality across locations",
       icons: WallIcon
 
     },
     {
       title: "Digital Marketing",
       description:
-        "We execute high-ROI media strategies across Print, TV, FM & Cinema Ads.",
+        "Our Digital Marketing expertise spans SEO, performance marketing, content and website development.",
       icons:DigitalIcon
 
     },
