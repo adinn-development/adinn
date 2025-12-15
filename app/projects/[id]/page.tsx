@@ -42,7 +42,10 @@ type Project = {
 
 const ProjectDetailPage = () => {
   const params = useParams();
-  const [project, setProject] = useState<Project | null>(null);
+  // const [project, setProject] = useState<Project | null>(null);
+  const [project, setProject] =
+  useState<(typeof allProjects)[number] | null>(null);
+
   const [projectCategory, setProjectCategory] = useState<string>("");
 
   // Static content for project details
@@ -218,9 +221,21 @@ const ProjectDetailPage = () => {
                       <p className="text-[18px] md:text-[20px] font-bold text-gray-800">
                         {item.name}
                       </p>
-                      <p className="text-[14px] md:text-[16px] text-gray-600 leading-relaxed">
+                      {/* <p className="text-[14px] md:text-[16px] text-gray-600 leading-relaxed">
                         {item.desc}
-                      </p>
+                      </p> */}
+                      {Array.isArray(item.desc) ? (
+  <ul className="list-disc pl-5 space-y-1 text-[14px] md:text-[16px] text-gray-600 leading-relaxed">
+    {item.desc.map((d, i) => (
+      <li key={i}>{d}</li>
+    ))}
+  </ul>
+) : (
+  <p className="text-[14px] md:text-[16px] text-gray-600 leading-relaxed">
+    {item.desc}
+  </p>
+)}
+
                     </div>
                   </div>
                 </div>
