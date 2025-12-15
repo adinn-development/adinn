@@ -95,8 +95,46 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
             desc:'2023'
           }
         ]
-
         
+      },
+
+        {
+        id: 8,
+        image: KFCRoadshow,
+        alt: "KFC",
+        name: "KFC",
+        description: "Van",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "To improve awareness and footfall for new store launches, KFC required impactful outdoor visibility and has come to us for a solution.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Executed a multi-format OOH campaign featuring hoardings, unipoles, signal posts, pole kiosks and bus wraps near new store locations.Ensured consistent creative visibility and quick installation across multiple cities.Designed the mix to reach customers at multiple touchpoints - ensuring the brand is seen by almost everyone for maximum impact and recall.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "Statewide coverage, Increased local buzz and footfall, High-impact visibility for every launch",
+          },
+        ],
+         contents: [
+          {
+            name:'Service',
+            desc:'3D & Cut Out'
+          },
+            {
+            name:'Location',
+            desc:'Tamil Nadu'
+          },
+            {
+            name:'Year',
+            desc:'2023'
+          }
+        ]
       },
 
       {
@@ -134,6 +172,92 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
             {
             name:'Year',
             desc:'2024'
+          }
+        ]
+      },
+       {
+        id: 50,
+        image: Beema,
+        alt: "BURGER KING",
+        name: "BURGER KING",
+        description: "Outdoor Banner",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Due to low awareness and limited footfall in key cities, Burger King came to us seeking targeted outdoor advertising support.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+              desc: `Executed a targeted OOH campaign using unipoles, hoardings and bus shelters near key store locations.Deployed high-impact media placements in strategic zones to maximize visibility and reach.Ensured creative consistency, timely execution and strong brand recall across all sites.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+              desc: `Boosted local awareness and store visits.Innovative bus shelter campaign in Chennai.Strengthened brand visibility across multiple cities`
+,
+          },
+        ],
+         contents: [
+          {
+            name:'Service',
+            desc:'3D & Cut Out'
+          },
+            {
+            name:'Location',
+            desc:'Tamil Nadu'
+          },
+            {
+            name:'Year',
+            desc:'2023'
+          }
+        ]
+      },
+       {
+        id: 23,
+        image: Nip,
+        alt: "Nippon Paint",
+        name: "Nippon Paint",
+        description: "Banner",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Nippon Paints showrooms in Hosur, Pondicherry and Chennai had lacked effective display solutions, which reduced the impact of the in-store experience for customers",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Developed customized modular fixture systems with branded shelves, lighting, and color panels tailored to each market.
+
+Installed durable setups in Hosur, interactive shade walls in Pondicherry, and digital displays in Chennai.
+
+Ensured consistent brand experience with modern, adaptable, and locally optimized designs.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `Enhanced store presentation and customer experience.
+
+Created vibrant, stylish and tech-driven displays.
+
+Helped dealers sell better and customers choose confidently.`
+,
+          },
+        ],
+         contents: [
+          {
+            name:'Service',
+            desc:'3D & Cut Out'
+          },
+            {
+            name:'Location',
+            desc:'Tamil Nadu'
+          },
+            {
+            name:'Year',
+            desc:'2023'
           }
         ]
       },
@@ -192,6 +316,132 @@ Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewel
     name: "Roadshow",
     lastWord: "Events",
     images: [
+      {
+        id: 55,
+        image:  Havel,
+        alt: "Havells",
+        name: "HAVELLS INDIA",
+        description: "Van",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Havells products had low visibility in rural areas due to limited showrooms, making it hard to reach and engage audiences.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+             desc: `Developed a fully customized innovation vehicle with live demo units tailored for Havells’ product range.
+
+Executed a state-wide rural activation using parai teams, script-based dramas, street plays, LED visuals, and live demos to engage families and women decision-makers.
+
+ Drove high-impact recall and spot bookings by turning complex product features into simple, culturally rooted, memorable experiences.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc:  `High engagement and strong product recall.Improved dealer participation and visibility.Positioned Havells as a trusted and tech-driven rural brand.`,
+          },
+        ],
+         contents: [
+          {
+            name:'Service',
+            desc:'3D & Cut Out'
+          },
+            {
+            name:'Location',
+            desc:'Tamil Nadu'
+          },
+            {
+            name:'Year',
+            desc:'2023'
+          }
+        ]
+      },
+      {
+        id: 56,
+        image:  Havel,
+        alt: "KFC Thirunagar",
+        name: "New Outlet Launch Campaign - KFC Thirunagar",
+        description: "Van",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "KFC’s new outlet in Thirunagar needed strong local awareness and high footfall, but reaching and engaging the local audience effectively is a challenge",
+          },
+          {
+            number: "02",
+            name: "Solution",
+             desc: `Executed a lively roadshow campaign across Thirunagar and nearby neighborhoods to build launch buzz.
+
+Carried out energetic on-ground activations with live shoutouts, attractive opening offers, and audience engagement.
+
+ Drove high-Delivered strong hyperlocal visibility to spark conversations and drive outlet walk-ins.Encouraged trial and visits through on-spot interaction and awareness-driven communication.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc:  `Achieved impressive reach and sales beyond expectations.Created strong local buzz and excitement around the new outlet.Built early trust and customer connection for KFC.`,
+          },
+        ],
+         contents: [
+          {
+            name:'Service',
+            desc:'3D & Cut Out'
+          },
+            {
+            name:'Location',
+            desc:'Tamil Nadu'
+          },
+            {
+            name:'Year',
+            desc:'2023'
+          }
+        ]
+      },
+        {
+        id: 57,
+        image:  Havel,
+        alt: "HAPIMA",
+        name: "HAPIMA",
+        description: "Van",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Hapima’s new Crispy Fried Mix needed consumer awareness and trial, but reaching key city audiences and encouraging direct engagement was a challenge.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+             desc: ` Designed and deployed a branded food truck that served freshly made fried chicken using Hapima’s mix.
+
+Conducted sampling drives across major cities like Chennai, Coimbatore and Madurai from September 2024 till date.
+
+ The truck doubled as both a sampling vehicle and a point of sale, creating high engagement and immediate conversions.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc:  `Reached thousands of potential consumers through live sampling.Increased brand visibility and product recall in key markets.Successfully converted trial experiences into sales on the spot`,
+          },
+        ],
+         contents: [
+          {
+            name:'Service',
+            desc:'3D & Cut Out'
+          },
+            {
+            name:'Location',
+            desc:'Tamil Nadu'
+          },
+            {
+            name:'Year',
+            desc:'2023'
+          }
+        ]
+      },
       {
         id: 4,
         image: Royal,
@@ -368,44 +618,44 @@ Generated high-quality leads for dealers.`,
       //   ]
       // },
 
-      {
-        id: 8,
-        image: KFCRoadshow,
-        alt: "KFC",
-        name: "KFC",
-        description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "To improve awareness and footfall for new store launches, KFC required impactful outdoor visibility and has come to us for a solution.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Executed a multi-format OOH campaign featuring hoardings, unipoles, signal posts, pole kiosks and bus wraps near new store locations.Ensured consistent creative visibility and quick installation across multiple cities.Designed the mix to reach customers at multiple touchpoints - ensuring the brand is seen by almost everyone for maximum impact and recall.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Statewide coverage, Increased local buzz and footfall, High-impact visibility for every launch",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 8,
+      //   image: KFCRoadshow,
+      //   alt: "KFC",
+      //   name: "KFC",
+      //   description: "Van",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "To improve awareness and footfall for new store launches, KFC required impactful outdoor visibility and has come to us for a solution.",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Executed a multi-format OOH campaign featuring hoardings, unipoles, signal posts, pole kiosks and bus wraps near new store locations.Ensured consistent creative visibility and quick installation across multiple cities.Designed the mix to reach customers at multiple touchpoints - ensuring the brand is seen by almost everyone for maximum impact and recall.",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Statewide coverage, Increased local buzz and footfall, High-impact visibility for every launch",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
       // {
       //   id: 9,
@@ -732,44 +982,44 @@ Effectively communicated product quality and innovation to a wide audience.`,
     name: "Retail Branding & Signage",
     lastWord: "Solutions",
     images: [
-      {
-        id: 17,
-        image: Acc,
-        alt: "Acc",
-        name: "Acc",
-        description: "Banner",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "The brand struggled to build a deeper emotional connection with dealers and their families, limiting engagement and long-term loyalty.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Conceptualized and executed a grand Pongal-themed celebration to reflect tradition, cultural pride, and brand warmth.Managed end-to-end event setup including festive stage design, thematic décor, and hospitality arrangements.Curated Pongal-themed games, cultural performances and family engagement zones to encourage interactive participation.Delivered a vibrant festive experience that strengthened community connect and enhanced brand affinity",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "300+ attendees including dealers and their families.High engagement through traditional & fun-filled activities.Enhanced brand affinity and strengthened community relationships",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 17,
+      //   image: Acc,
+      //   alt: "Acc",
+      //   name: "Acc",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "The brand struggled to build a deeper emotional connection with dealers and their families, limiting engagement and long-term loyalty.",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Conceptualized and executed a grand Pongal-themed celebration to reflect tradition, cultural pride, and brand warmth.Managed end-to-end event setup including festive stage design, thematic décor, and hospitality arrangements.Curated Pongal-themed games, cultural performances and family engagement zones to encourage interactive participation.Delivered a vibrant festive experience that strengthened community connect and enhanced brand affinity",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "300+ attendees including dealers and their families.High engagement through traditional & fun-filled activities.Enhanced brand affinity and strengthened community relationships",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
       // {
       //   id: 18,
@@ -887,28 +1137,28 @@ Effectively communicated product quality and innovation to a wide audience.`,
       //     }
       //   ]
       // },
-
-      {
-        id: 21,
-        image: Llyod,
-        alt: "Llyod Gallery",
-        name: "Llyod Gallery",
-        description: "banner",
+      
+       {
+        id: 6,
+        image: JamesRoadshow,
+        alt: "James & Co",
+        name: "James & Co",
+        description: "Van",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Everyone likes quality products more than quantity because it is worth the price they provide. Getting a quality product without spending high money is the real challenge .",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "James & co taking a celebration to the streets with the 6th Anniversary roadshow campaign . We make it easy to reach the people in the right way to announce the quality of its and the value they provide for us through moving visuals. By announcing the discounts create excitement and memorability.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Marking the Anniversary by offering discounts to make people memorable.Create an interactive experience only through the roadshow to make the people buy",
           },
         ],
          contents: [
@@ -926,28 +1176,27 @@ Effectively communicated product quality and innovation to a wide audience.`,
           }
         ]
       },
-
-      {
-        id: 22,
-        image: milMist,
-        alt: "Milky Mist",
-        name: "Milky Mist",
-        description: "Banner",
+          {
+        id: 47,
+        image: JamesRoadshow,
+        alt: "LIC ",
+        name: "LIC ",
+        description: "LIC ",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "The LIC branch building had lacked a prominent, easily recognizable external identity, which limited public awareness and visibility.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Designed and installed a large, high-visibility signboard showcasing the LIC brand prominently.Strategically positioned the signage to ensure it stood out from surrounding visual clutter.Used durable materials and bright illumination for long-term visibility",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Significantly increased awareness of the LIC building location.Created a strong visual identity that commanded public attention.Ensured that no passerby missed the building’s presence.",
           },
         ],
          contents: [
@@ -965,6 +1214,83 @@ Effectively communicated product quality and innovation to a wide audience.`,
           }
         ]
       },
+      // {
+      //   id: 21,
+      //   image: Llyod,
+      //   alt: "Llyod Gallery",
+      //   name: "Llyod Gallery",
+      //   description: "banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
+
+      // {
+      //   id: 22,
+      //   image: milMist,
+      //   alt: "Milky Mist",
+      //   name: "Milky Mist",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
       {
         id: 23,
@@ -1013,28 +1339,27 @@ Helped dealers sell better and customers choose confidently.`
           }
         ]
       },
-
-      {
-        id: 24,
-        image: Pupa,
-        alt: "Pupa Bathware",
-        name: "Pupa Bathware",
-        description: "Banner",
+          {
+        id: 48,
+        image: JamesRoadshow,
+        alt: "KHADIM",
+        name: "KHADIM",
+        description: "KHADIM",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Khadim’s stores had lacked impactful external signage, which limited visibility and clear brand identification to attract customers from a distance.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Designed and installed bold, illuminated external signboards matching Khadim’s brand colors and logo style.Ensured uniform design and quality across outlets for a cohesive brand identity.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: " Enhanced store recognition and footfall. Created strong visual recall for passing customers. Improved overall street-level brand presence.",
           },
         ],
          contents: [
@@ -1052,123 +1377,161 @@ Helped dealers sell better and customers choose confidently.`
           }
         ]
       },
+      // {
+      //   id: 24,
+      //   image: Pupa,
+      //   alt: "Pupa Bathware",
+      //   name: "Pupa Bathware",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 25,
-        image: Ram,
-        alt: "Ramco Cements",
-        name: "Ramco Cements",
-        description: "Banner",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 25,
+      //   image: Ram,
+      //   alt: "Ramco Cements",
+      //   name: "Ramco Cements",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 26,
-        image: sankar,
-        alt: "Sankar Super Power",
-        name: "Sankar Super Power",
-        description: "Banner",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 26,
+      //   image: sankar,
+      //   alt: "Sankar Super Power",
+      //   name: "Sankar Super Power",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
-      {
-        id: 27,
-        image: kirloskar,
-        alt: "kirloskar brothers limited",
-        name: "kirloskar brothers limited",
-        description: "Banner",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 27,
+      //   image: kirloskar,
+      //   alt: "kirloskar brothers limited",
+      //   name: "kirloskar brothers limited",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
     ],
   },
   {
@@ -1176,8 +1539,8 @@ Helped dealers sell better and customers choose confidently.`
     lastWord: "Solutions",
     images: [
       {
-        id: 28,
-        image: Havel,
+        id: 37,
+        image:  Havel,
         alt: "Havells",
         name: "Havells",
         description: "Events",
@@ -1185,27 +1548,23 @@ Helped dealers sell better and customers choose confidently.`
           {
             number: "01",
             name: "Problem",
-            desc: "Havells had struggled to ensure premium, modern and consistent product displays across stores, limited brand visibility and impact.",
+            desc: "Havells struggled to maintain consistent engagement and loyalty among dealers, retailers and electricians through existing channels.",
           },
           {
             number: "02",
             name: "Solution",
-             desc: `Designed adaptable, modular fixtures to improve product visibility and shopper engagement.
+             desc: `Conducted 100+ meets across Tamil Nadu for dealers, retailers and electricians.
 
-Integrated motion-based fan displays and illuminated glass shelving for dynamic brand presentation.
+Organized networking sessions, product demos, and recognition ceremonies.
 
-Created customized SDA racks to enhance in-store experience and drive purchase intent.`,
+ Managed complete event execution  stage, branding, AVs and hospitality.Ensured smooth event flow with impactful brand visibility and meaningful retailer`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc:  `Unified and premium brand look across all spaces.
+            desc:  `150+ retailers attended from key market regions.
 
-Durable, high-quality materials for long life.
-
-Smart, flexible designs adaptable to any setup.
-
-Displays that attract, engage and inspire customers.`,
+Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthened retailer relationships and reinforced Havells’ premium brand image.`,
           },
         ],
          contents: [
@@ -1223,6 +1582,44 @@ Displays that attract, engage and inspire customers.`,
           }
         ]
       },
+      //  {
+      //   id: 37,
+      //   image: Fixtures1havels,
+      //   alt: "Havells",
+      //   name: "Havells",
+      //   description: "Indoor",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
       {
         id: 29,
@@ -1263,44 +1660,44 @@ Displays that attract, engage and inspire customers.`,
         ]
       },
 
-      {
-        id: 30,
-        image: bandhan,
-        alt: "Bandhan",
-        name: "Bandhan",
-        description: "Bandhan",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
+      // {
+      //   id: 30,
+      //   image: bandhan,
+      //   alt: "Bandhan",
+      //   name: "Bandhan",
+      //   description: "Bandhan",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+      //     },
+      //   ],
+      //    contents: [
+      //     {
+      //       name:'Service',
+      //       desc:'3D & Cut Out'
+      //     },
+      //       {
+      //       name:'Location',
+      //       desc:'Tamil Nadu'
+      //     },
+      //       {
+      //       name:'Year',
+      //       desc:'2023'
+      //     }
+      //   ]
+      // },
 
        {
         id: 17,
@@ -1580,9 +1977,9 @@ Displays that attract, engage and inspire customers.`,
     name: "Fixtures",
     lastWord: "",
     images: [
-      {
-        id: 37,
-        image: Fixtures1havels,
+       {
+        id: 28,
+        image: Havel,
         alt: "Havells",
         name: "Havells",
         description: "Indoor",
@@ -1590,17 +1987,27 @@ Displays that attract, engage and inspire customers.`,
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Havells had struggled to ensure premium, modern and consistent product displays across stores, limited brand visibility and impact.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+             desc: `Designed adaptable, modular fixtures to improve product visibility and shopper engagement.
+
+Integrated motion-based fan displays and illuminated glass shelving for dynamic brand presentation.
+
+Created customized SDA racks to enhance in-store experience and drive purchase intent.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc:  `Unified and premium brand look across all spaces.
+
+Durable, high-quality materials for long life.
+
+Smart, flexible designs adaptable to any setup.
+
+Displays that attract, engage and inspire customers.`,
           },
         ],
          contents: [
@@ -1618,6 +2025,7 @@ Displays that attract, engage and inspire customers.`,
           }
         ]
       },
+
 
       {
         id: 38,
