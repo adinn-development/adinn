@@ -211,22 +211,22 @@ const LandingProjects: React.FC = () => {
     {
       video: '/projects/spr.mp4',
       name: "SPR",
-      thumbnail: 'assets/home/dalmiavd.webp',
+      thumbnail: '/projects/sprvd.webp',
     },
     {
       video: '/projects/dalmia.mp4',
       name: "Dalmia cement",
-      thumbnail: 'assets/home/dalmiavd.webp',
+      thumbnail: '/projects/dalmiavd.webp',
     },
     {
       video: '/projects/hatsun.mp4',
       name: "Hatsun",
-      thumbnail: 'assets/home/dalmiavd.webp',
+      thumbnail: '/projects/hatsunvd.webp',
     },
     {
       video: '/projects/havells.mp4',
       name: "Havells",
-      thumbnail: 'assets/home/dalmiavd.webp',
+      thumbnail: '/projects/havellsvd.webp',
     }
   ];
 
