@@ -17,10 +17,9 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 
 const getDescription = (item: any): string => {
-  return "description" in item && typeof getDescription(item) === "string"
-    ? getDescription(item)
-    : "";
+  return typeof item?.description === "string" ? item.description : "";
 };
+
 
 
 const MobileCategorySwiper = ({
