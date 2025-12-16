@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 import {
   IdHero,
   ProjectOverview,
@@ -25,7 +26,8 @@ const allProjects = projectsData.flatMap((category) => category.projects);
 // Define the Project type
 type Project = {
   id: number;
-  image: any;
+  image: StaticImageData | string;
+  // image: any;
   alt: string;
   name: string;
   description: string;
