@@ -32,40 +32,36 @@ type Project = {
 };
 
 // Transform contents data into projectsData
-// const projectsData = contents.map((category) => ({
-//   category: category.name + (category.lastWord ? ` ${category.lastWord}` : ""),
-//   projects: category.images.map((p) => ({
-//     ...p,
-//     // Ensure image is either StaticImageData or string
-//     image: p.image,
-//     description: p.description || "No description provided",
-//     overview: p.overview.map((o: any) => ({
-//       ...o,
-//       desc: Array.isArray(o.desc) ? o.desc : o.desc.toString(),
-//     })),
-//     contents: p.contents.map((c: any) => ({
-//       ...c,
-//       desc: Array.isArray(c.desc) ? c.desc : c.desc.toString(),
-//     })),
-//   })),
-// }));
-
 const projectsData = contents.map((category) => ({
   category: category.name + (category.lastWord ? ` ${category.lastWord}` : ""),
   projects: category.images.map((p) => ({
     ...p,
     image: p.image,
-    description: p.description ?? "No description provided", // use optional chaining + nullish coalescing
-    overview: p.overview?.map((o: any) => ({
-      ...o,
-      desc: Array.isArray(o.desc) ? o.desc : o.desc?.toString() ?? "",
-    })) ?? [],
-    contents: p.contents?.map((c: any) => ({
-      ...c,
-      desc: Array.isArray(c.desc) ? c.desc : c.desc?.toString() ?? "",
-    })) ?? [],
+
+    // ✅ TYPE-SAFE narrowing
+    description:
+      "description" in p && typeof p.description === "string"
+        ? p.description
+        : "No description provided",
+
+    overview:
+      "overview" in p
+        ? p.overview.map((o: any) => ({
+            ...o,
+            desc: Array.isArray(o.desc) ? o.desc : String(o.desc ?? ""),
+          }))
+        : [],
+
+    contents:
+      "contents" in p
+        ? p.contents.map((c: any) => ({
+            ...c,
+            desc: Array.isArray(c.desc) ? c.desc : String(c.desc ?? ""),
+          }))
+        : [],
   })),
 }));
+
 
 
 // Flatten all projects into a single array
