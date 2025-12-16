@@ -32,23 +32,41 @@ type Project = {
 };
 
 // Transform contents data into projectsData
+// const projectsData = contents.map((category) => ({
+//   category: category.name + (category.lastWord ? ` ${category.lastWord}` : ""),
+//   projects: category.images.map((p) => ({
+//     ...p,
+//     // Ensure image is either StaticImageData or string
+//     image: p.image,
+//     description: p.description || "No description provided",
+//     overview: p.overview.map((o: any) => ({
+//       ...o,
+//       desc: Array.isArray(o.desc) ? o.desc : o.desc.toString(),
+//     })),
+//     contents: p.contents.map((c: any) => ({
+//       ...c,
+//       desc: Array.isArray(c.desc) ? c.desc : c.desc.toString(),
+//     })),
+//   })),
+// }));
+
 const projectsData = contents.map((category) => ({
   category: category.name + (category.lastWord ? ` ${category.lastWord}` : ""),
   projects: category.images.map((p) => ({
     ...p,
-    // Ensure image is either StaticImageData or string
     image: p.image,
-    description: p.description || "No description provided",
-    overview: p.overview.map((o: any) => ({
+    description: p.description ?? "No description provided", // use optional chaining + nullish coalescing
+    overview: p.overview?.map((o: any) => ({
       ...o,
-      desc: Array.isArray(o.desc) ? o.desc : o.desc.toString(),
-    })),
-    contents: p.contents.map((c: any) => ({
+      desc: Array.isArray(o.desc) ? o.desc : o.desc?.toString() ?? "",
+    })) ?? [],
+    contents: p.contents?.map((c: any) => ({
       ...c,
-      desc: Array.isArray(c.desc) ? c.desc : c.desc.toString(),
-    })),
+      desc: Array.isArray(c.desc) ? c.desc : c.desc?.toString() ?? "",
+    })) ?? [],
   })),
 }));
+
 
 // Flatten all projects into a single array
 const allProjects: Project[] = projectsData.flatMap((category) => category.projects);
