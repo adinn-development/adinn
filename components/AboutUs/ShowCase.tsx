@@ -7,7 +7,7 @@ import {
   Image3,
   Image4,
   Image5,
-  Image6,
+  // Image6,
   Image7,
   Image8,
   ImageCenter,
@@ -19,7 +19,7 @@ const ShowCase = () => {
     <div className="flex flex-col items-center justify-start p-8 md:p-12 lg:p-16  md:mt-10">
       <div className="flex flex-row items-center justify-center gap-2 md:gap-3 mb-5 md:mb-12 w-full whitespace-nowrap">
         <div className="text-[24px] sm:text-[72px] md:text-[72px] tracking-[-2px] md:tracking-[-4px] font-bold">
-          Showcase
+          Showcase 
         </div>
         <div className="text-[24px] sm:text-[72px] md:text-[72px] instrument-font text-[#CF1E00] font-serif italic">
           Our Work
@@ -106,7 +106,7 @@ const ShowCase = () => {
             height={214}
           />
         </div>
-
+{/* 
         <div className="col-span-1 row-span-1">
           <Image 
             src={Image6} 
@@ -115,7 +115,7 @@ const ShowCase = () => {
             width={276}
             height={214}
           />
-        </div>
+        </div> */}
       </div>
 
       <Link href="/projects">

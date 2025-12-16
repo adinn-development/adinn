@@ -97,15 +97,15 @@ export {default as Innovation} from '@/assets/about/core/innovation.svg';
 export {default as Teamwork} from '@/assets/about/core/teamwork.svg';
 
 //work
-export {default as Image1} from '@/assets/about/work/image1.png';
-export {default as Image2} from '@/assets/about/work/image2.png';
-export {default as Image3} from '@/assets/about/work/image3.png';
-export {default as Image4} from '@/assets/about/work/image4.png';
-export {default as Image5} from '@/assets/about/work/image5.png';
-export {default as Image6} from '@/assets/about/work/image6.png';
-export {default as Image7} from '@/assets/about/work/image7.png';
-export {default as Image8} from '@/assets/about/work/image8.png';
-export {default as ImageCenter} from '@/assets/about/work/centerImage.png';
+export {default as Image1} from '@/assets/projects/about-us-grid/image1.webp';
+export {default as Image2} from '@/assets/projects/about-us-grid/image2.webp';
+export {default as Image3} from '@/assets/projects/about-us-grid/image3.webp';
+export {default as Image4} from '@/assets/projects/about-us-grid/image4.webp';
+export {default as Image5} from '@/assets/projects/about-us-grid/image5.webp';
+// export {default as Image6} from '@/assets/projects/about-us-grid/image6.webp';
+export {default as Image7} from '@/assets/projects/about-us-grid/image7.webp';
+export {default as Image8} from '@/assets/projects/about-us-grid/image8.webp';
+export {default as ImageCenter} from '@/assets/projects/about-us-grid/centerImage.webp';
 
 //services
 export {default as HandImage} from'@/assets/service/Hand.png';
