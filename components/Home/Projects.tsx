@@ -162,7 +162,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, name, thumbnail, index, pr
               onError={handleError}
               onPlay={handlePlay}
               onPause={handlePause}
-              poster=""
+              
             >
               Your browser does not support the video tag.
             </video>
