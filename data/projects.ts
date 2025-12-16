@@ -1,4 +1,15 @@
 import {
+  nipponPaintOOH,
+  bKingOOH,
+  kfcOOH,
+  havelsFixtures,
+  bajajEvents,
+  jswEvent,
+  ajaxEvents,
+  hevelsRoadShowEvent,
+  havelsEvents,
+  caseGrandsEvents,
+  tvsEvents,
   Amazon,
   Ibaco,
   Beema,
@@ -29,6 +40,7 @@ import {
   ProjectImage1,
   ProjectImage2,
   Havel,
+  kfcRoadshow,
   EventLlyod,
   bandhan,
   Fixtures1havels,
@@ -51,7 +63,7 @@ export const contents = [
         image: Amazon,
         alt: "Amazon Prime",
         name: "Amazon Prime",
-        description: "Outdoor Banner",
+        // description: "Outdoor Banner",
         overview: [
           {
             number: "01",
@@ -99,10 +111,10 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
 
       {
         id: 8,
-        image: KFCRoadshow,
+        image: kfcOOH,
         alt: "KFC",
         name: "KFC",
-        description: "Van",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -141,7 +153,7 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
         image: Ibaco,
         alt: "Ibaco",
         name: "Ibaco",
-        description: "Outdoor Banner",
+        // description: "Outdoor Banner",
         overview: [
           {
             number: "01",
@@ -176,10 +188,10 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
       },
       {
         id: 50,
-        image: Beema,
+        image: bKingOOH,
         alt: "BURGER KING",
         name: "BURGER KING",
-        description: "Outdoor Banner",
+        // description: "Outdoor Banner",
         overview: [
           {
             number: "01",
@@ -214,10 +226,10 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
       },
       {
         id: 23,
-        image: Nip,
+        image: nipponPaintOOH ,
         alt: "Nippon Paint",
         name: "Nippon Paint",
-        description: "Banner",
+        // description: "Banner",
         overview: [
           {
             number: "01",
@@ -255,7 +267,7 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
         image: Beema,
         alt: "Bhima",
         name: "Bhima",
-        description: "Outdoor Banner",
+        // description: "Outdoor Banner",
         overview: [
           {
             number: "01",
@@ -306,10 +318,10 @@ Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewel
     images: [
       {
         id: 55,
-        image: Havel,
+        image: hevelsRoadShowEvent,
         alt: "Havells",
         name: "HAVELLS INDIA",
-        description: "Van",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -348,10 +360,10 @@ Executed a state-wide rural activation using parai teams, script-based dramas, s
       },
       {
         id: 56,
-        image: Havel,
+        image: kfcRoadshow,
         alt: "KFC Thirunagar",
-        name: "New Outlet Launch Campaign - KFC Thirunagar",
-        description: "Van",
+        name: "KFC Thirunagar",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -393,7 +405,7 @@ Carried out energetic on-ground activations with live shoutouts, attractive open
         image: Havel,
         alt: "HAPIMA",
         name: "HAPIMA",
-        description: "Van",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -435,7 +447,7 @@ Conducted sampling drives across major cities like Chennai, Coimbatore and Madur
         image: Royal,
         alt: "Royal Enfield",
         name: "Royal Enfield",
-        description: "Van",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -484,7 +496,7 @@ Built strong engagement with passionate riders.`,
         image: BajajRoadshow,
         alt: "Bajaj",
         name: "Bajaj",
-        description: "Van",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -533,7 +545,7 @@ Generated high-quality leads for dealers.`,
         image: JamesRoadshow,
         alt: "James & Co",
         name: "James & Co",
-        description: "Van",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -767,7 +779,7 @@ Generated high-quality leads for dealers.`,
         image: kenstarRoadshow,
         alt: "Kenstar",
         name: "Kenstar",
-        description: "Van",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -1527,10 +1539,10 @@ Helped dealers sell better and customers choose confidently.`,
     images: [
       {
         id: 37,
-        image: Havel,
+        image: havelsEvents,
         alt: "Havells",
         name: "Havells",
-        description: "Events",
+        // description: "Events",
         overview: [
           {
             number: "01",
@@ -1571,7 +1583,7 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
       },
       {
         id: 101,
-        image: "",
+        image: tvsEvents,
         alt: "TVS",
         name: "TVS",
         // description: "Events",
@@ -1607,48 +1619,48 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
           },
         ],
       },
-      {
-        id: 102,
-        image: "",
-        alt: "HATSUN MARATHON",
-        name: "HATSUN MARATHON",
-        // description: "Events",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "The brand struggled to engage families and youth effectively while increasing visibility in a crowded market.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: `Organized a large-scale marathon to engage the local community and enhance brand presence.Executed complete event setup including stage, start/finish arch, enquiry counters, branding, and registration zones.Delivered smooth participant experience with kit distribution, hospitality support, entertainment activities, and efficient on-ground logistics.Built strong local connect and reinforced brand credibility through community-driven participation.
-`,
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: `5,000+ participants across age groups,Strong media coverage and social visibility,Enhanced community engagement and brand recall.`,
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+//       {
+//         id: 102,
+//         image: "",
+//         alt: "HATSUN MARATHON",
+//         name: "HATSUN MARATHON",
+//         // description: "Events",
+//         overview: [
+//           {
+//             number: "01",
+//             name: "Problem",
+//             desc: "The brand struggled to engage families and youth effectively while increasing visibility in a crowded market.",
+//           },
+//           {
+//             number: "02",
+//             name: "Solution",
+//             desc: `Organized a large-scale marathon to engage the local community and enhance brand presence.Executed complete event setup including stage, start/finish arch, enquiry counters, branding, and registration zones.Delivered smooth participant experience with kit distribution, hospitality support, entertainment activities, and efficient on-ground logistics.Built strong local connect and reinforced brand credibility through community-driven participation.
+// `,
+//           },
+//           {
+//             number: "03",
+//             name: "Highlights",
+//             desc: `5,000+ participants across age groups,Strong media coverage and social visibility,Enhanced community engagement and brand recall.`,
+//           },
+//         ],
+//         contents: [
+//           {
+//             name: "Service",
+//             desc: "3D & Cut Out",
+//           },
+//           {
+//             name: "Location",
+//             desc: "Tamil Nadu",
+//           },
+//           {
+//             name: "Year",
+//             desc: "2023",
+//           },
+//         ],
+//       },
       {
         id: 103,
-        image: "",
+        image: caseGrandsEvents,
         alt: "CASAGRAND",
         name: "CASAGRAND",
         // description: "Events",
@@ -1687,9 +1699,9 @@ Activated canter van promotions and outdoor branding across key residential and 
       },
       {
         id: 104,
-        image: "",
-        alt: "JWS",
-        name: "JWS",
+        image: jswEvent,
+        alt: "JSW",
+        name: "JSW",
         // description: "Events",
         overview: [
           {
@@ -1726,7 +1738,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
       },
       {
         id: 105,
-        image: "",
+        image: ajaxEvents,
         alt: "AJAX",
         name: "AJAX",
         // description: "Events",
@@ -1765,7 +1777,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
       },
       {
         id: 106,
-        image: "",
+        image: bajajEvents,
         alt: "BAJAJ",
         name: "BAJAJ",
         // description: "Events",
@@ -1801,88 +1813,88 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
       },
-      {
-        id: 107,
-        image: "",
-        alt: "ROYAL ENFIELD",
-        name: "ROYAL ENFIELD",
-        // description: "Events",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Royal Enfield faced a challenge in deepening community engagement and showcasing its heritage and rider culture effectively to build its  brand presence.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: `Executed theme-based on-ground activations including the Kargil Divas Tribute Ride and MEG CSD Display to engage riders, defence personnel, and biking enthusiasts.Designed impactful thematic décor, stage setups, and branding elements that reflected the event spirit and Royal Enfield’s legacy.
-Organized interactive rider activities, cultural performances, and test-ride experiences with strong on-ground participation.Managed brand showcases, product displays, and engagement zones to strengthen customer connect and reinforce brand loyalty.`,
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: `High footfall and active participation from defence and rider communities.Strengthened Royal Enfield’s brand connect through meaningful, impactful experiences.
-              Enhanced visibility and enquiries through on-ground and digital buzz.`,
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
-      {
-        id: 108,
-        image: "",
-        alt: "MARUTI SUZUKI",
-        name: "MARUTI SUZUKI",
-        // description: "Events",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "The brand had struggled  to generate high-quality leads and achieve strong visibility across multiple audience segments through traditional channels.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: `Executed 60+ on-ground activations across urban, semi-urban, and rural markets to spark interest and drive trials.Executed high-impact formats — car launches, Nexa & Ducati displays, CSD promotions, rural drives and corporate park activations.
-Delivered full-scale setups including immersive branding, demo zones, interaction areas and experience-led engagement.
-Conducted major events like CSD drives, Gramya Mahotsav, mega carnivals, small-car promos, MTV tie-ins, IT-park demos, Nexa displays, and flea-market outreach for high visibility and participation.
-`,
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: `Created strong consumer connect and brand consideration across touchpoints.Achieved a 360° engagement strategy delivering launch excitement, rural reach and premium lifestyle positioning for the brand.
-`,
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+//       {
+//         id: 107,
+//         image: "",
+//         alt: "ROYAL ENFIELD",
+//         name: "ROYAL ENFIELD",
+//         // description: "Events",
+//         overview: [
+//           {
+//             number: "01",
+//             name: "Problem",
+//             desc: "Royal Enfield faced a challenge in deepening community engagement and showcasing its heritage and rider culture effectively to build its  brand presence.",
+//           },
+//           {
+//             number: "02",
+//             name: "Solution",
+//             desc: `Executed theme-based on-ground activations including the Kargil Divas Tribute Ride and MEG CSD Display to engage riders, defence personnel, and biking enthusiasts.Designed impactful thematic décor, stage setups, and branding elements that reflected the event spirit and Royal Enfield’s legacy.
+// Organized interactive rider activities, cultural performances, and test-ride experiences with strong on-ground participation.Managed brand showcases, product displays, and engagement zones to strengthen customer connect and reinforce brand loyalty.`,
+//           },
+//           {
+//             number: "03",
+//             name: "Highlights",
+//             desc: `High footfall and active participation from defence and rider communities.Strengthened Royal Enfield’s brand connect through meaningful, impactful experiences.
+//               Enhanced visibility and enquiries through on-ground and digital buzz.`,
+//           },
+//         ],
+//         contents: [
+//           {
+//             name: "Service",
+//             desc: "3D & Cut Out",
+//           },
+//           {
+//             name: "Location",
+//             desc: "Tamil Nadu",
+//           },
+//           {
+//             name: "Year",
+//             desc: "2023",
+//           },
+//         ],
+//       },
+//       {
+//         id: 108,
+//         image: "",
+//         alt: "MARUTI SUZUKI",
+//         name: "MARUTI SUZUKI",
+//         // description: "Events",
+//         overview: [
+//           {
+//             number: "01",
+//             name: "Problem",
+//             desc: "The brand had struggled  to generate high-quality leads and achieve strong visibility across multiple audience segments through traditional channels.",
+//           },
+//           {
+//             number: "02",
+//             name: "Solution",
+//             desc: `Executed 60+ on-ground activations across urban, semi-urban, and rural markets to spark interest and drive trials.Executed high-impact formats — car launches, Nexa & Ducati displays, CSD promotions, rural drives and corporate park activations.
+// Delivered full-scale setups including immersive branding, demo zones, interaction areas and experience-led engagement.
+// Conducted major events like CSD drives, Gramya Mahotsav, mega carnivals, small-car promos, MTV tie-ins, IT-park demos, Nexa displays, and flea-market outreach for high visibility and participation.
+// `,
+//           },
+//           {
+//             number: "03",
+//             name: "Highlights",
+//             desc: `Created strong consumer connect and brand consideration across touchpoints.Achieved a 360° engagement strategy delivering launch excitement, rural reach and premium lifestyle positioning for the brand.
+// `,
+//           },
+//         ],
+//         contents: [
+//           {
+//             name: "Service",
+//             desc: "3D & Cut Out",
+//           },
+//           {
+//             name: "Location",
+//             desc: "Tamil Nadu",
+//           },
+//           {
+//             name: "Year",
+//             desc: "2023",
+//           },
+//         ],
+//       },
       //  {
       //   id: 37,
       //   image: Fixtures1havels,
@@ -2000,44 +2012,44 @@ Conducted major events like CSD drives, Gramya Mahotsav, mega carnivals, small-c
       //   ]
       // },
 
-      {
-        id: 17,
-        image: Acc,
-        alt: "Acc",
-        name: "Acc",
-        description: "Banner",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "The brand struggled to build a deeper emotional connection with dealers and their families, limiting engagement and long-term loyalty.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Conceptualized and executed a grand Pongal-themed celebration to reflect tradition, cultural pride, and brand warmth.Managed end-to-end event setup including festive stage design, thematic décor, and hospitality arrangements.Curated Pongal-themed games, cultural performances and family engagement zones to encourage interactive participation.Delivered a vibrant festive experience that strengthened community connect and enhanced brand affinity.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "300+ attendees including dealers and their families.High engagement through traditional & fun-filled activities.Enhanced brand affinity and strengthened community relationships.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+      // {
+      //   id: 17,
+      //   image: Acc,
+      //   alt: "Acc",
+      //   name: "Acc",
+      //   description: "Banner",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "The brand struggled to build a deeper emotional connection with dealers and their families, limiting engagement and long-term loyalty.",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Conceptualized and executed a grand Pongal-themed celebration to reflect tradition, cultural pride, and brand warmth.Managed end-to-end event setup including festive stage design, thematic décor, and hospitality arrangements.Curated Pongal-themed games, cultural performances and family engagement zones to encourage interactive participation.Delivered a vibrant festive experience that strengthened community connect and enhanced brand affinity.",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "300+ attendees including dealers and their families.High engagement through traditional & fun-filled activities.Enhanced brand affinity and strengthened community relationships.",
+      //     },
+      //   ],
+      //   contents: [
+      //     {
+      //       name: "Service",
+      //       desc: "3D & Cut Out",
+      //     },
+      //     {
+      //       name: "Location",
+      //       desc: "Tamil Nadu",
+      //     },
+      //     {
+      //       name: "Year",
+      //       desc: "2023",
+      //     },
+      //   ],
+      // },
     ],
   },
 
@@ -2395,7 +2407,7 @@ Conducted major events like CSD drives, Gramya Mahotsav, mega carnivals, small-c
     images: [
       {
         id: 28,
-        image: Havel,
+        image: havelsFixtures,
         alt: "Havells",
         name: "Havells",
         description: "Indoor",

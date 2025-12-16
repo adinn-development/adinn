@@ -170,13 +170,25 @@ export {default as Beema} from '@/assets/projects/Outdoor/beema.jpg'
 
 //Projects Events
 export {default as Havel} from '@/assets/projects/Events/Havells.jpeg'
+export {default as kfcRoadshow} from '@/assets/projects/Events/kfc-roadshow.webp'
+export {default as havelsEvents} from '@/assets/projects/Events/havels-events.webp'
+export {default as hevelsRoadShowEvent} from '@/assets/projects/roadshow/havels-roadshows.webp'
+export {default as jswEvent} from '@/assets/projects/Events/jsw-events.webp'
+export {default as caseGrandsEvents} from '@/assets/projects/Events/casagrand-events.webp'
+export {default as ajaxEvents} from '@/assets/projects/Events/ajax-events.webp'
+export {default as bajajEvents} from '@/assets/projects/Events/bajaj-events.webp'
+export {default as tvsEvents} from '@/assets/projects/Events/tvs-events.webp'
 export {default as EventLlyod} from '@/assets/projects/Events/Llyod.jpeg'
 export {default as bandhan} from '@/assets/projects/Events/bandhan.jpeg'
 
 //Projects - Fixutre 
 export {default as Fixtures1havels} from '@/assets/projects/Fixtures/havels.jpg'
+export {default as havelsFixtures} from '@/assets/projects/Fixtures/havels-fixtures.webp'
 export {default as Fixtures2LLcdm} from '@/assets/projects/Fixtures/llyodcdm.jpg'
 export {default as Fixtures3LLdindugal} from '@/assets/projects/Fixtures/llyodindugal.jpg'
+export {default as kfcOOH} from '@/assets/projects/OOH/kfc-ooh.webp'
+export {default as bKingOOH} from '@/assets/projects/OOH/b-king-ooh.webp'
+export {default as nipponPaintOOH} from '@/assets/projects/OOH/nippon-paint-ooh.webp'
 export {default as Fixtures4Nippon} from '@/assets/projects/Fixtures/nipon.jpg'
 
 
@@ -184,7 +196,6 @@ export {default as Fixtures4Nippon} from '@/assets/projects/Fixtures/nipon.jpg'
 
 
 //service
-
 export {default as OOHIcon} from '@/assets/service/ServiceIcon/ooh.png'
 export {default as RoadshowIcon} from '@/assets/service/ServiceIcon/road.png'
 export {default as SignIcon} from '@/assets/service/ServiceIcon/sign.png'
