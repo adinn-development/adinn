@@ -74,31 +74,30 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
             number: "03",
             name: "Highlights",
             desc: [
-  "Creative execution that turned heads and sparked conversation.",
-  "Strategic citywide coverage that ensures unmissable visibility.",
-  "Build high engagement across Chennai's busiest routes.",
-  "Spanning 80km across Chennai, our innovation moves with people and makes them feel something worth noticing."
-],
+              "Creative execution that turned heads and sparked conversation.",
+              "Strategic citywide coverage that ensures unmissable visibility.",
+              "Build high engagement across Chennai's busiest routes.",
+              "Spanning 80km across Chennai, our innovation moves with people and makes them feel something worth noticing.",
+            ],
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-        
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
 
-        {
+      {
         id: 8,
         image: KFCRoadshow,
         alt: "KFC",
@@ -121,20 +120,20 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
             desc: "Statewide coverage, Increased local buzz and footfall, High-impact visibility for every launch",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
 
       {
@@ -160,22 +159,22 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
             desc: "More people noticed the brand daily. Improved brand recall and visibility.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2024'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2024",
+          },
+        ],
       },
-       {
+      {
         id: 50,
         image: Beema,
         alt: "BURGER KING",
@@ -190,31 +189,30 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
           {
             number: "02",
             name: "Solution",
-              desc: `Executed a targeted OOH campaign using unipoles, hoardings and bus shelters near key store locations.Deployed high-impact media placements in strategic zones to maximize visibility and reach.Ensured creative consistency, timely execution and strong brand recall across all sites.`,
+            desc: `Executed a targeted OOH campaign using unipoles, hoardings and bus shelters near key store locations.Deployed high-impact media placements in strategic zones to maximize visibility and reach.Ensured creative consistency, timely execution and strong brand recall across all sites.`,
           },
           {
             number: "03",
             name: "Highlights",
-              desc: `Boosted local awareness and store visits.Innovative bus shelter campaign in Chennai.Strengthened brand visibility across multiple cities`
-,
+            desc: `Boosted local awareness and store visits.Innovative bus shelter campaign in Chennai.Strengthened brand visibility across multiple cities`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
-       {
+      {
         id: 23,
         image: Nip,
         alt: "Nippon Paint",
@@ -224,42 +222,33 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
           {
             number: "01",
             name: "Problem",
-            desc: "Nippon Paints showrooms in Hosur, Pondicherry and Chennai had lacked effective display solutions, which reduced the impact of the in-store experience for customers",
+            desc: "Nippon Paint needed to strengthen dealer relationships and build a sense of pride by recognizing them as key contributors to the brand’s success.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: `Developed customized modular fixture systems with branded shelves, lighting, and color panels tailored to each market.
-
-Installed durable setups in Hosur, interactive shade walls in Pondicherry, and digital displays in Chennai.
-
-Ensured consistent brand experience with modern, adaptable, and locally optimized designs.`,
+            desc: `Designed and produced customized standees featuring each dealer’s image alongside celebrity.Installed them across multiple retail outlets to create a personalized brand connect.Ensured premium-quality printing and consistent branding across all locations.`,
           },
           {
             number: "03",
             name: "Highlights",
-            desc: `Enhanced store presentation and customer experience.
-
-Created vibrant, stylish and tech-driven displays.
-
-Helped dealers sell better and customers choose confidently.`
-,
+            desc: `Improved dealer morale and brand loyalty.Strengthened the emotional connection between dealers and the Nippon brand.Enhanced store aesthetics and visibility with a unique approach.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 3,
@@ -276,7 +265,7 @@ Helped dealers sell better and customers choose confidently.`
           {
             number: "02",
             name: "Solution",
-              desc: `Identified high-traffic intersections, commercial hubs and popular landmarks in Madurai.
+            desc: `Identified high-traffic intersections, commercial hubs and popular landmarks in Madurai.
 
 Placed hoardings and police booth ads at strategic, prime locations.
 
@@ -285,30 +274,29 @@ Ensured maximum visibility to make Bhima Gold stand out prominently.`,
           {
             number: "03",
             name: "Highlights",
-              desc: `The Outdoor Campaign kept Bhima Gold constantly visible to the audience.
+            desc: `The Outdoor Campaign kept Bhima Gold constantly visible to the audience.
 
 Even in the off season, the brand presence stayed on people’s minds.
 
 The campaign not only boosted the brand position but also created a long-lasting impression.
 
-Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewellery brand in Madurai.`
-,
+Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewellery brand in Madurai.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
     ],
   },
@@ -318,7 +306,7 @@ Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewel
     images: [
       {
         id: 55,
-        image:  Havel,
+        image: Havel,
         alt: "Havells",
         name: "HAVELLS INDIA",
         description: "Van",
@@ -331,7 +319,7 @@ Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewel
           {
             number: "02",
             name: "Solution",
-             desc: `Developed a fully customized innovation vehicle with live demo units tailored for Havells’ product range.
+            desc: `Developed a fully customized innovation vehicle with live demo units tailored for Havells’ product range.
 
 Executed a state-wide rural activation using parai teams, script-based dramas, street plays, LED visuals, and live demos to engage families and women decision-makers.
 
@@ -340,27 +328,27 @@ Executed a state-wide rural activation using parai teams, script-based dramas, s
           {
             number: "03",
             name: "Highlights",
-            desc:  `High engagement and strong product recall.Improved dealer participation and visibility.Positioned Havells as a trusted and tech-driven rural brand.`,
+            desc: `High engagement and strong product recall.Improved dealer participation and visibility.Positioned Havells as a trusted and tech-driven rural brand.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 56,
-        image:  Havel,
+        image: Havel,
         alt: "KFC Thirunagar",
         name: "New Outlet Launch Campaign - KFC Thirunagar",
         description: "Van",
@@ -373,7 +361,7 @@ Executed a state-wide rural activation using parai teams, script-based dramas, s
           {
             number: "02",
             name: "Solution",
-             desc: `Executed a lively roadshow campaign across Thirunagar and nearby neighborhoods to build launch buzz.
+            desc: `Executed a lively roadshow campaign across Thirunagar and nearby neighborhoods to build launch buzz.
 
 Carried out energetic on-ground activations with live shoutouts, attractive opening offers, and audience engagement.
 
@@ -382,27 +370,27 @@ Carried out energetic on-ground activations with live shoutouts, attractive open
           {
             number: "03",
             name: "Highlights",
-            desc:  `Achieved impressive reach and sales beyond expectations.Created strong local buzz and excitement around the new outlet.Built early trust and customer connection for KFC.`,
+            desc: `Achieved impressive reach and sales beyond expectations.Created strong local buzz and excitement around the new outlet.Built early trust and customer connection for KFC.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
-        {
+      {
         id: 57,
-        image:  Havel,
+        image: Havel,
         alt: "HAPIMA",
         name: "HAPIMA",
         description: "Van",
@@ -415,7 +403,7 @@ Carried out energetic on-ground activations with live shoutouts, attractive open
           {
             number: "02",
             name: "Solution",
-             desc: ` Designed and deployed a branded food truck that served freshly made fried chicken using Hapima’s mix.
+            desc: ` Designed and deployed a branded food truck that served freshly made fried chicken using Hapima’s mix.
 
 Conducted sampling drives across major cities like Chennai, Coimbatore and Madurai from September 2024 till date.
 
@@ -424,23 +412,23 @@ Conducted sampling drives across major cities like Chennai, Coimbatore and Madur
           {
             number: "03",
             name: "Highlights",
-            desc:  `Reached thousands of potential consumers through live sampling.Increased brand visibility and product recall in key markets.Successfully converted trial experiences into sales on the spot`,
+            desc: `Reached thousands of potential consumers through live sampling.Increased brand visibility and product recall in key markets.Successfully converted trial experiences into sales on the spot`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 4,
@@ -457,7 +445,7 @@ Conducted sampling drives across major cities like Chennai, Coimbatore and Madur
           {
             number: "02",
             name: "Solution",
-             desc: `Launched an on-ground roadshow campaign across South India.
+            desc: `Launched an on-ground roadshow campaign across South India.
 
 Activated in Tamil Nadu, Kerala, Karnataka, Telangana and Andhra Pradesh.
 
@@ -468,27 +456,27 @@ Delivered live product experiences to build strong connect and drive lead genera
           {
             number: "03",
             name: "Highlights",
-             desc: `Generated around 50 leads per day from each state.
+            desc: `Generated around 50 leads per day from each state.
 
 Covered 5 key South Indian states.
 
 Built strong engagement with passionate riders.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
 
       {
@@ -506,7 +494,7 @@ Built strong engagement with passionate riders.`,
           {
             number: "02",
             name: "Solution",
-             desc: `Conducted a roadshow campaign in collaboration with Bajaj dealers.
+            desc: `Conducted a roadshow campaign in collaboration with Bajaj dealers.
 
 Organized on-ground events across major cities and towns to showcase the latest Bajaj models.
 
@@ -517,27 +505,27 @@ Direct interaction with dealers ensured smooth coordination and consistent brand
           {
             number: "03",
             name: "Highlights",
-desc: `The campaign covered all districts in Tamil Nadu to turn heads.
+            desc: `The campaign covered all districts in Tamil Nadu to turn heads.
 
 Created a strong brand build and focused the target audience to gain traction.
 
 Generated high-quality leads for dealers.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
 
       {
@@ -550,33 +538,33 @@ Generated high-quality leads for dealers.`,
           {
             number: "01",
             name: "Problem",
-            desc: "Everyone likes quality products more than quantity because it is worth the price they provide. Getting a quality product without spending high money is the real challenge .",
+            desc: "James & Co needed to communicate their exclusive AC offers and improve store visibility in a highly competitive retail area.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "James & co taking a celebration to the streets with the 6th Anniversary roadshow campaign . We make it easy to reach the people in the right way to announce the quality of its and the value they provide for us through moving visuals. By announcing the discounts create excitement and memorability.",
+            desc: "Designed and installed premium lit boards that highlighted their AC offers clearly and attractively.Used bright illumination and sleek design to enhance the store’s night-time visibility.Created a strong visual appeal that aligned with the brand’s identity and elevated the store’s overall look.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Marking the Anniversary by offering discounts to make people memorable.Create an interactive experience only through the roadshow to make the people buy",
+            desc: "Increased footfall and walk-in conversions during the offer period.Improved brand perception and customer engagement.Made James & Co’s store a visual landmark in the area.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
 
       // {
@@ -805,20 +793,20 @@ Created a mobile showroom experience that attracted strong footfall.
 Effectively communicated product quality and innovation to a wide audience.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
 
       // {
@@ -1137,8 +1125,8 @@ Effectively communicated product quality and innovation to a wide audience.`,
       //     }
       //   ]
       // },
-      
-       {
+
+      {
         id: 6,
         image: JamesRoadshow,
         alt: "James & Co",
@@ -1161,22 +1149,22 @@ Effectively communicated product quality and innovation to a wide audience.`,
             desc: "Marking the Anniversary by offering discounts to make people memorable.Create an interactive experience only through the roadshow to make the people buy",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
-          {
+      {
         id: 47,
         image: JamesRoadshow,
         alt: "LIC ",
@@ -1199,20 +1187,20 @@ Effectively communicated product quality and innovation to a wide audience.`,
             desc: "Significantly increased awareness of the LIC building location.Created a strong visual identity that commanded public attention.Ensured that no passerby missed the building’s presence.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       // {
       //   id: 21,
@@ -1320,26 +1308,25 @@ Ensured consistent brand experience with modern, adaptable, and locally optimize
 
 Created vibrant, stylish and tech-driven displays.
 
-Helped dealers sell better and customers choose confidently.`
-,
+Helped dealers sell better and customers choose confidently.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
-          {
+      {
         id: 48,
         image: JamesRoadshow,
         alt: "KHADIM",
@@ -1362,20 +1349,20 @@ Helped dealers sell better and customers choose confidently.`
             desc: " Enhanced store recognition and footfall. Created strong visual recall for passing customers. Improved overall street-level brand presence.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       // {
       //   id: 24,
@@ -1540,7 +1527,7 @@ Helped dealers sell better and customers choose confidently.`
     images: [
       {
         id: 37,
-        image:  Havel,
+        image: Havel,
         alt: "Havells",
         name: "Havells",
         description: "Events",
@@ -1553,7 +1540,7 @@ Helped dealers sell better and customers choose confidently.`
           {
             number: "02",
             name: "Solution",
-             desc: `Conducted 100+ meets across Tamil Nadu for dealers, retailers and electricians.
+            desc: `Conducted 100+ meets across Tamil Nadu for dealers, retailers and electricians.
 
 Organized networking sessions, product demos, and recognition ceremonies.
 
@@ -1562,25 +1549,339 @@ Organized networking sessions, product demos, and recognition ceremonies.
           {
             number: "03",
             name: "Highlights",
-            desc:  `150+ retailers attended from key market regions.
+            desc: `150+ retailers attended from key market regions.
 
 Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthened retailer relationships and reinforced Havells’ premium brand image.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 101,
+        image: "",
+        alt: "TVS",
+        name: "TVS",
+        // description: "Events",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Havells struggled to maintain consistent engagement and loyalty among dealers, retailers and electricians through existing channels.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Executed on-ground test-drive events at high-footfall locations to generate qualified leads.Integrated digital lead capture and CRM for seamless data tracking and follow-ups.Identified strategic hotspots, managed vehicle display setup and trained promoters for effective engagement.Offered event-exclusive deals to boost customer interest and conversion opportunities.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `25+ dealers (started  with 5), 300 activity days , 8,967 test drives done,Strong leads Generated  & confirmed bookings.`,
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 102,
+        image: "",
+        alt: "HATSUN MARATHON",
+        name: "HATSUN MARATHON",
+        // description: "Events",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "The brand struggled to engage families and youth effectively while increasing visibility in a crowded market.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Organized a large-scale marathon to engage the local community and enhance brand presence.Executed complete event setup including stage, start/finish arch, enquiry counters, branding, and registration zones.Delivered smooth participant experience with kit distribution, hospitality support, entertainment activities, and efficient on-ground logistics.Built strong local connect and reinforced brand credibility through community-driven participation.
+`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `5,000+ participants across age groups,Strong media coverage and social visibility,Enhanced community engagement and brand recall.`,
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 103,
+        image: "",
+        alt: "CASAGRAND",
+        name: "CASAGRAND",
+        // description: "Events",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "The brand faced challenges in engaging families and youth effectively while boosting visibility in a competitive market.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Organized a multi-city property expo across Madurai, Trichy, and Vellore to engage potential homebuyers and generate qualified leads.Executed complete event setup and branding, including stall arrangements, registration management, and hospitality support.
+Activated canter van promotions and outdoor branding across key residential and commercial zones to maximize visibility and footfall.Enabled direct buyer interaction and project showcases, driving strong interest and participation across all markets.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `3-city property expo with strong footfall and quality leads.Extensive brand visibility across high-traffic zones.`,
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 104,
+        image: "",
+        alt: "JWS",
+        name: "JWS",
+        // description: "Events",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "JSW struggled to consistently engage and motivate dealers, retailers and channel partners, limiting loyalty and brand advocacy.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Conducted multiple engagement formats for JSW, including Bandhan Meets, Dealers Meets and Fabricator Meets.Organised interactive networking sessions, product demonstrations, and recognition ceremonies tailored to JSW’s channel ecosystem.Managed complete event execution — stage setup, branding, AVs, and hospitality arrangements.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `Strengthened relationships with dealers and fabricators across the network.Enhanced channel partner motivation through recognition and brand-led engagement.
+Reinforced JSW’s trust within the market ecosystem.`,
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 105,
+        image: "",
+        alt: "AJAX",
+        name: "AJAX",
+        // description: "Events",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "The brand needed to create reach for a product launch while strengthening relationships with stakeholders, but reaching and engaging them effectively was a challenge.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Organized an exclusive grand product launch with a premium stage setup, themed décor and impactful product reveal.Managed end-to-end event execution including branding, experience zones, registrations, VIP handling and curated entertainment.Delivered a seamless and engaging launch experience that highlighted the product and elevated brand perception.
+`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `Strong participation and highly positive feedback.Enhanced brand image and strengthened stakeholder loyalty.`,
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 106,
+        image: "",
+        alt: "BAJAJ",
+        name: "BAJAJ",
+        // description: "Events",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Bajaj needed to engage dealers effectively for the Cargo launch and boost influencer visibility for the Pulsar series. Reaching the right audience with impact was a challenge.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Planned and executed two premium on-ground events — Bajaj EV Cargo Launch for dealers and Pulsar Influencer Meet for digital creators — focused on immersive brand storytelling and engagement.Designed thematic setups with premium branding, stage design, décor, and experience-driven elements.Managed end-to-end event flow including AV, lighting, registrations, guest hospitality, and show flow.Conducted product unveil sessions and interactive engagements to build strong brand connect.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `Strong dealer participation & brand recall for Cargo Launch.50+ influencers amplified Pulsar’s reach organically on social media.Premium setups and seamless execution elevated Bajaj’s brand image.`,
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 107,
+        image: "",
+        alt: "ROYAL ENFIELD",
+        name: "ROYAL ENFIELD",
+        // description: "Events",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Royal Enfield faced a challenge in deepening community engagement and showcasing its heritage and rider culture effectively to build its  brand presence.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Executed theme-based on-ground activations including the Kargil Divas Tribute Ride and MEG CSD Display to engage riders, defence personnel, and biking enthusiasts.Designed impactful thematic décor, stage setups, and branding elements that reflected the event spirit and Royal Enfield’s legacy.
+Organized interactive rider activities, cultural performances, and test-ride experiences with strong on-ground participation.Managed brand showcases, product displays, and engagement zones to strengthen customer connect and reinforce brand loyalty.`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `High footfall and active participation from defence and rider communities.Strengthened Royal Enfield’s brand connect through meaningful, impactful experiences.
+              Enhanced visibility and enquiries through on-ground and digital buzz.`,
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 108,
+        image: "",
+        alt: "MARUTI SUZUKI",
+        name: "MARUTI SUZUKI",
+        // description: "Events",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "The brand had struggled  to generate high-quality leads and achieve strong visibility across multiple audience segments through traditional channels.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: `Executed 60+ on-ground activations across urban, semi-urban, and rural markets to spark interest and drive trials.Executed high-impact formats — car launches, Nexa & Ducati displays, CSD promotions, rural drives and corporate park activations.
+Delivered full-scale setups including immersive branding, demo zones, interaction areas and experience-led engagement.
+Conducted major events like CSD drives, Gramya Mahotsav, mega carnivals, small-car promos, MTV tie-ins, IT-park demos, Nexa displays, and flea-market outreach for high visibility and participation.
+`,
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: `Created strong consumer connect and brand consideration across touchpoints.Achieved a 360° engagement strategy delivering launch excitement, rural reach and premium lifestyle positioning for the brand.
+`,
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       //  {
       //   id: 37,
@@ -1631,33 +1932,33 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "LLoyd wanted to welcome its new hire just more than an orientation, they needed engaging learning experiences that helped employees understand about the brand and its value . To bring a vision to them , our agency planned , designed and executed astructured classroom training program . It helps newcomers to feel connected and confident , more than that we designed and executed the IFC Meet as a complete turn key event.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "We organized an interactive Classroom Training Meet that made onboarding engaging and personal, blending learning, teamwork, and brand values to help new hires feel part of the Lloyd family.For partners, the IFC Meet was delivered as a seamless, end to end event featuring impactful presentations, entertainment and recognition moments showcasing Lloyd’s innovation and leadership.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "High Engagement and positive feedback from participants.A Well coordinated, high energy event that brought partners together.Strengthened relationships and renewed confidence in the brand.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
 
       // {
@@ -1699,7 +2000,7 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
       //   ]
       // },
 
-       {
+      {
         id: 17,
         image: Acc,
         alt: "Acc",
@@ -1714,31 +2015,32 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
           {
             number: "02",
             name: "Solution",
-            desc: "Conceptualized and executed a grand Pongal-themed celebration to reflect tradition, cultural pride, and brand warmth.Managed end-to-end event setup including festive stage design, thematic décor, and hospitality arrangements.Curated Pongal-themed games, cultural performances and family engagement zones to encourage interactive participation.Delivered a vibrant festive experience that strengthened community connect and enhanced brand affinity",
+            desc: "Conceptualized and executed a grand Pongal-themed celebration to reflect tradition, cultural pride, and brand warmth.Managed end-to-end event setup including festive stage design, thematic décor, and hospitality arrangements.Curated Pongal-themed games, cultural performances and family engagement zones to encourage interactive participation.Delivered a vibrant festive experience that strengthened community connect and enhanced brand affinity.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "300+ attendees including dealers and their families.High engagement through traditional & fun-filled activities.Enhanced brand affinity and strengthened community relationships",
+            desc: "300+ attendees including dealers and their families.High engagement through traditional & fun-filled activities.Enhanced brand affinity and strengthened community relationships.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
     ],
   },
+
   {
     name: "Digital",
     lastWord: "Marketing",
@@ -1746,19 +2048,133 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
       {
         id: 31,
         image: ProjectImage5,
-        alt: "Social Media Campaign",
-        name: "Social Media",
-        description: "Instagram Campaign",
+        alt: "MAHINDRA",
+        name: "MAHINDRA",
+        // description: "Instagram Campaign",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Vehicle sales in Madurai, Sivakasi and Ramanathapuram are limited by generic communication strategies that do not address diverse buyer mindsets",
+            desc: "Mahindra showrooms in 10 districts were facing low bookings and weak customer engagement, which limited brand connection and sales opportunities.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Developed a focused Tamil content strategy emphasizing comfort, reliability, and trust through localized storytelling.Designed customized campaigns tailored to each model and audience segment.Built strong emotional connections and enhanced brand credibility across target markets",
+            desc: "Focused on Tamil content to build strong local connections.Used creative bus designs and targeted campaigns for key client segments.Maintained low ad cost (₹10–15) leading to 8–10 vehicle bookings monthly.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "Growth in monthly vehicle bookings reaching 8 - 10 conversions.Notable rise in follower count and regional brand influence.Creative bus promotions designs attracted high public attention.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 32,
+        image: ProjectImage6,
+        alt: "BAJAJ",
+        name: "BAJAJ",
+        // description: "Search Rankings",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Dealers in Tamil Nadu and Karnataka were experiencing low digital engagement and insufficient high-quality leads, which limited their growth and sales potential.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Managed 167 social media pages (122 in Karnataka, 45 in Tamil Nadu) with a unified, trust-focused SMM strategy.Executed 10 monthly campaigns in Karnataka and 8 in Tamil Nadu for continuous engagement.Created 15+ customized creatives and localized content to enhance dealer visibility and connection.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "·Impressions: 1.89 Cr+  Reach: 40 L+, Leads Generated: 7,822 , ·Estimated Sales: 547 (7% conversion) , Strengthened engagement, visibility and sales across regions.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 33,
+        image: ProjectImage5,
+        alt: "PPC",
+        name: "PPC",
+        // description: "Google Ads Campaign",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "The newly launched school lacks local awareness, resulting in low admission inquiries and limited enrollment opportunities.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Launched targeted PPC campaigns aimed at parents near Thiruparankundram actively searching for early education options.Developed persuasive ad copies and visuals to build trust.Optimized campaigns to maximize inquiry volume and improve conversion efficiency.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "Built strong local brand awareness.Generated 28 quality leads in the first month.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 34,
+        image: ProjectImage6,
+        alt: "EICHER",
+        name: "EICHER",
+        // description: "Engaging Content",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Vehicle sales in Madurai, Sivakasi and Ramanathapuram are limited by generic communication strategies that do not address diverse buyer mindsets.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Developed a focused Tamil content strategy emphasizing comfort, reliability, and trust through localized storytelling.Designed customized campaigns tailored to each model and audience segment.Built strong emotional connections and enhanced brand credibility across target markets.",
           },
           {
             number: "03",
@@ -1766,210 +2182,210 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
             desc: "Generated 3–5 vehicle bookings per month through consistent content.Built strong local trust and brand loyalty.Connected effectively with regional audiences.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
-      {
-        id: 32,
-        image: ProjectImage6,
-        alt: "SEO Services",
-        name: "SEO Optimization",
-        description: "Search Rankings",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            name: "Service",
+            desc: "3D & Cut Out",
           },
           {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            name: "Location",
+            desc: "Tamil Nadu",
           },
           {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            name: "Year",
+            desc: "2023",
           },
         ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
-      {
-        id: 33,
-        image: ProjectImage5,
-        alt: "PPC Campaign",
-        name: "Paid Advertising",
-        description: "Google Ads Campaign",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
-      {
-        id: 34,
-        image: ProjectImage6,
-        alt: "Content Marketing",
-        name: "Content Strategy",
-        description: "Engaging Content",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-          },
-        ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
       },
       {
         id: 35,
         image: ProjectImage5,
-        alt: "Email Marketing",
-        name: "Email Campaigns",
-        description: "Newsletter Design",
+        alt: "NIKON",
+        name: "NIKON",
+        // description: "Newsletter Design",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Nikon’s products had low awareness among creators and photographers in 5 districts, which limited reach and engagement despite dealer-level efforts.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Launched a fresh one-month Meta ad campaign from scratch.Run brand awareness followed by lead generation to capture valid leads.Used carousel ads showcasing Nikon’s product range to attract visual creators.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Launched new Meta ad campaign to boost brand visibility.Executed lead generation strategy to collect qualified customer leads.Showcased Nikon products via carousel ads to engage visual creators.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 36,
         image: ProjectImage6,
-        alt: "Analytics Dashboard",
-        name: "Analytics",
-        description: "Performance Tracking",
+        alt: "VST TILLER TRACTORS",
+        name: "VST TILLER TRACTORS",
+        // description: "Performance Tracking",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "VST’s digital reach and lead generation are limited across key global regions, including India, South America, Europe, Africa, Indonesia and Bangladesh, due to ineffective audience targeting.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "By running targeted Facebook and Instagram ads, VST connected with farmers and opportunity seekers and generated 18,845 qualified leads in India within a year.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Utilized Facebook and Instagram effectively to reach the right audience.Achieved 18,845 high-quality leads within a year.Enhanced VST’s brand visibility across diverse international markets.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 109,
+        image: ProjectImage6,
+        alt: "ANNAI BHARATH",
+        name: "ANNAI BHARATH",
+        // description: "Performance Tracking",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Annai Bharath Housing Pvt Ltd had approved projects but low online visibility, with an unoptimized website that didn’t rank for key searches like 'Best Builders in Madurai,' limiting villa sales.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Built a new, optimized website from scratch.Implemented a complete SEO strategy including keyword research, on-page and off-page SEO.Set up Google My Business and supported social media efforts.Targeted 10+ relevant keywords to grow organic presence within the client’s timeline.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "In a short time, Annai Bharath ranked 1 on Google for key searches.online traffic and villa inquiries grew fast.With a clean website and strong SEO, they earned the title of “Best Builder in Madurai.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 110,
+        image: ProjectImage6,
+        alt: "SAPPHIRE FURNITURE",
+        name: "SAPPHIRE FURNITURE",
+        // description: "Performance Tracking",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Sapphire Furniture’s website had strong products but a poor user experience, with an outdated design, slow speed and poor mobile responsiveness, limiting customer satisfaction.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Redesigned the interface with a clean, modern look using simple layouts, refined typography, and ample white space.Created a new brand style guide for consistent colors, fonts, and imagery.Rebuilt the user flow (Home → Category → Product → Checkout) for a smooth, intuitive experience.Added clear CTAs like “Shop Now” and “Add to Cart” to guide users.Improved website load speed and mobile responsiveness.Introduced subtle interactions for a smoother, engaging user experience.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "The result is a modern, cohesive and customer friendly experience that captures the essence of Sapphire Furniture’s brand.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 111,
+        image: ProjectImage6,
+        alt: "KFC",
+        name: "KFC",
+        // description: "Performance Tracking",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "KFC struggled to build awareness in Karaikudi and Karaikal due to lack of professional visuals and video content for local audiences.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Created a 30-second promotional video using an engaging FM-style voice-over.Brought the energy and excitement of radio into a video format.Added local flavor to make the message personal and relatable.Used audio storytelling and smart editing to make the content stand out online, even without high-end visuals.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "The video successfully built curiosity and awareness among the local audience.The creative use of voice and editing proved that powerful communication doesn’t always need expensive visuals.A simple idea executed with clarity can make a big impact.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
     ],
   },
@@ -1977,7 +2393,7 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
     name: "Fixtures",
     lastWord: "",
     images: [
-       {
+      {
         id: 28,
         image: Havel,
         alt: "Havells",
@@ -1992,7 +2408,7 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
           {
             number: "02",
             name: "Solution",
-             desc: `Designed adaptable, modular fixtures to improve product visibility and shopper engagement.
+            desc: `Designed adaptable, modular fixtures to improve product visibility and shopper engagement.
 
 Integrated motion-based fan displays and illuminated glass shelving for dynamic brand presentation.
 
@@ -2001,7 +2417,7 @@ Created customized SDA racks to enhance in-store experience and drive purchase i
           {
             number: "03",
             name: "Highlights",
-            desc:  `Unified and premium brand look across all spaces.
+            desc: `Unified and premium brand look across all spaces.
 
 Durable, high-quality materials for long life.
 
@@ -2010,22 +2426,21 @@ Smart, flexible designs adaptable to any setup.
 Displays that attract, engage and inspire customers.`,
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
-
 
       {
         id: 38,
@@ -2042,7 +2457,7 @@ Displays that attract, engage and inspire customers.`,
           {
             number: "02",
             name: "Solution",
-            desc:  `Designed and delivered custom fixtures and modular displays reflecting Lloyd’s premium brand identity.
+            desc: `Designed and delivered custom fixtures and modular displays reflecting Lloyd’s premium brand identity.
 
 Developed sleek facades, modular stalls, and category-based galleries for a unified retail experience.
 
@@ -2054,59 +2469,20 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
             desc: "·Created a cohesive and engaging retail experience.Strengthened brand presence across locations.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
-      },
-
-      {
-        id: 39,
-        image: Fixtures3LLdindugal,
-        alt: "Llyod",
-        name: "Llyod",
-        description: "Dindugal",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            name: "Service",
+            desc: "3D & Cut Out",
           },
           {
-            number: "02",
-            name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            name: "Location",
+            desc: "Tamil Nadu",
           },
           {
-            number: "03",
-            name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            name: "Year",
+            desc: "2023",
           },
         ],
-         contents: [
-          {
-            name:'Service',
-            desc:'3D & Cut Out'
-          },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
-          },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
       },
 
       {
@@ -2119,33 +2495,33 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Nippon Paints showrooms in Hosur, Pondicherry and Chennai had lacked effective display solutions, which reduced the impact of the in-store experience for customers.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Developed customized modular fixture systems with branded shelves, lighting, and color panels tailored to each market.Installed durable setups in Hosur, interactive shade walls in Pondicherry, and digital displays in Chennai.Ensured consistent brand experience with modern, adaptable, and locally optimized designs.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Enhanced store presentation and customer experience.Created vibrant, stylish and tech-driven displays.Helped dealers sell better and customers choose confidently.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
     ],
   },
@@ -2156,230 +2532,344 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
       {
         id: 41,
         image: ProjectImage3,
-        alt: "Village Campaign",
-        name: "Village Outreach",
-        description: "Rural Marketing",
+        alt: "FINOLEX PIPES",
+        name: "FINOLEX PIPES",
+        // description: "Rural Marketing",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "FINOLEX PIPESFinolex faced low brand recall and limited consumer awareness about pipe types and applications in rural Tamil Nadu.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Finolex faced low brand recall and limited consumer awareness about pipe types and applications in rural Tamil Nadu.Finolex faced low brand recall and limited consumer awareness about pipe types and applications in rural Tamil Nadu.Finolex faced low brand recall and limited consumer awareness about pipe types and applications in rural Tamil Nadu.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Finolex faced low brand recall and limited consumer awareness about pipe types and applications in rural Tamil Nadu.Finolex faced low brand recall and limited consumer awareness about pipe types and applications in rural Tamil Nadu.Finolex faced low brand recall and limited consumer awareness about pipe types and applications in rural Tamil Nadu.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 42,
         image: ProjectImage4,
-        alt: "Local Events",
-        name: "Community Events",
-        description: "Local Engagement",
+        alt: "KUBOTA TRACTORS",
+        name: "KUBOTA TRACTORS",
+        // description: "Local Engagement",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: " Kubota needed to directly engage farmers and demonstrate tractor benefits in key agricultural regions through interactive experiences.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Organized farmer engagement roadshows across multiple districts using customized branded vehicles.Set up demo zones for live tractor showcases and field-level performance sessions.Used local influencer interactions and AV displays to build credibility.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Created high farmer participation and leads.Enhanced product trust through real-time demos.Strengthened Kubota’s rural brand presence.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 43,
         image: ProjectImage3,
-        alt: "Wall Paintings",
-        name: "Wall Art",
-        description: "Traditional Media",
+        alt: "IMPLEX APPLIANCES",
+        name: "IMPLEX APPLIANCES",
+        // description: "Traditional Media",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Impex needed to reach more people in rural areas, raise awareness about its products and grow its dealer network in new districts through local events and roadshows.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Conducted widespread rural roadshows across Tamil Nadu using custom fabricated vehicles.Facilitated dealer onboarding and consumer engagement through live demos.Promoted brand credibility using regional-language campaigns and offers.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Expanded rural dealer base significantly.Generated new leads and enquiries.Generated new leads and enquiries.Improved brand awareness and recall.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 44,
         image: ProjectImage4,
-        alt: "Folk Media",
-        name: "Cultural Programs",
-        description: "Folk Performances",
+        alt: "SUMITOMO CHEMICAL",
+        name: "SUMITOMO CHEMICAL",
+        // description: "Folk Performances",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Many were not aware of Sumitomo Chemical products and their benefits.  As a result, we ran a Roadshow campaign for their brand marketing in rural areas, in order to focus on farmers.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Launched a village outreach program to build brand awareness among farmers.Conducted roadshows in villages to educate farmers on modern farming methods.Demonstrated how Sumitomo products protect crops and improve yields.Taught safe and smart farming practices to help farmers grow better crops.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Interactive roadshows across rural areas, farmers learn how Sumitomo’s innovative crop protection products.Bringing brand awareness about Sumitomo Chemical closer to rural farming communities.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 45,
         image: ProjectImage3,
-        alt: "Panchayat Meetings",
-        name: "Community Meets",
-        description: "Local Gatherings",
+        alt: "TATA RALLIS ",
+        name: "TATA RALLIS ",
+        // description: "Local Gatherings",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Farmers in Tamil Nadu and Karnataka faced pest attacks, low yields and limited awareness of modern farming methods, relying mostly on traditional techniques.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Launched a Local Events Lead Campaign as part of village outreach.Conducted interactive roadshows and village meetings with agricultural experts.Provided live product demonstrations and expert talks.Offered training on modern and sustainable farming practices.Educated farmers on effective use of Tata Rallis products for soil care, pest control and crop improvement.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Local events and roadshows across Tamil Nadu and Karnataka.Direct interaction with agricultural experts.Training on modern farming and crop protection.Improved productivity and better income opportunities.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
       {
         id: 46,
         image: ProjectImage4,
-        alt: "Regional Campaign",
-        name: "Regional Push",
-        description: "Vernacular Content",
+        alt: "WALL ART",
+        name: "WALL ART",
+        // description: "Vernacular Content",
         overview: [
           {
             number: "01",
             name: "Problem",
-            desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Nippon needed to boost brand visibility in key Tamil Nadu cities using large, high-traffic wall spaces.",
           },
           {
             number: "02",
             name: "Solution",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "Identified high-visibility wall locations in key areas.Used vibrant, hand-painted designs with Nippon paints to transform plain walls.Ensured each wall reflected Nippon’s quality and creativity.Created eye-catching brand spaces to connect directly with the local audience.",
           },
           {
             number: "03",
             name: "Highlights",
-            desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
+            desc: "10,000 sq.ft at each location,Hand painted walls using Nippon products,Continuous visibility in key city areas,Stronger local brand connection through real world impact.",
           },
         ],
-         contents: [
+        contents: [
           {
-            name:'Service',
-            desc:'3D & Cut Out'
+            name: "Service",
+            desc: "3D & Cut Out",
           },
-            {
-            name:'Location',
-            desc:'Tamil Nadu'
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
           },
-            {
-            name:'Year',
-            desc:'2023'
-          }
-        ]
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 112,
+        image: ProjectImage4,
+        alt: "NIPPON PAINT",
+        name: "NIPPON PAINT",
+        // description: "Vernacular Content",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Despite being well-known, Nippon Paint had low awareness of its products in rural and cultural areas, which made it hard to stand out during events like Madurai Chithirai Thiruvila.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Organized a roadshow during Madurai Chithirai Thiruvila.Used colorful displays to engage visitors.Connected the brand with people in a festive setting.Strengthened Nippon Paint’s presence among the local audience.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "The Nippon Paint roadshow at Madurai Chithirai Thiruvila showed our commitment to creating brand visibility even in crowded and festive environments.It proved that we can deliver a strong marketing impact for both new and established brands by reaching people directly and making the experience memorable.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 113,
+        image: ProjectImage4,
+        alt: "COMMUNITY MEETS",
+        name: "COMMUNITY MEETS",
+        // description: "Vernacular Content",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Many voters in Tamil Nadu were unaware of the party’s vision and plans, requiring direct engagement to build connections ahead of the 2025 election.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Launched the campaign ‘Pannattu Kazhagathin Thamizhaga Payanam’ to reach people statewide.Spread the party’s message and listened to public needs.Encouraged voter participation in the upcoming election.Created awareness and strengthened unity among supporters.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "Creates direct connection with people in different regions.Spreads key messages effectively to a wide audience through live interaction.Strengthens trust and awareness among the public.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
+      },
+      {
+        id: 114,
+        image: ProjectImage4,
+        alt: "HERO MOTOCARP",
+        name: "HERO MOTOCARP",
+        // description: "Vernacular Content",
+        overview: [
+          {
+            number: "01",
+            name: "Problem",
+            desc: "Hero MotoCorp needed to engage local audiences in regional markets by connecting with them in their language and culture.",
+          },
+          {
+            number: "02",
+            name: "Solution",
+            desc: "Organized a regional roadshow across Tamil Nadu, Kerala, and Karnataka.Used vernacular content to connect with local audiences.Designed the campaign to attract attention and build engagement.Built trust and stronger connections with local customers.",
+          },
+          {
+            number: "03",
+            name: "Highlights",
+            desc: "The roadshow showcased our commitment and effort in executing large scale regional campaigns.It helped Hero MotoCorp strengthen its presence and reach audiences across South India in a more personal and impactful way.",
+          },
+        ],
+        contents: [
+          {
+            name: "Service",
+            desc: "3D & Cut Out",
+          },
+          {
+            name: "Location",
+            desc: "Tamil Nadu",
+          },
+          {
+            name: "Year",
+            desc: "2023",
+          },
+        ],
       },
     ],
   },
