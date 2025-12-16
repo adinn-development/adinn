@@ -30,15 +30,15 @@ type Project = {
   // image: any;
   alt: string;
   name: string;
-  description: string;
+  description?: string;
   overview: Array<{
     number: string;
     name: string;
-    desc: string;
+    desc: string | string[];
   }>;
   contents: Array<{
     name: string;
-    desc: string;
+    desc: string | string[];
   }>;
 };
 
