@@ -75,29 +75,38 @@ const Solutions = () => {
   const searchParams = useSearchParams();
 
   // Load the active category from URL on mount
-  useEffect(() => {
-    const categoryParam = searchParams.get("category");
-    if (categoryParam) {
-      const categoryIndex = contents.findIndex(
-        (content) =>
-          content.name.toLowerCase().replace(/\s+/g, "-") === categoryParam
-      );
-      if (categoryIndex !== -1) {
-        setActiveIndex(categoryIndex);
-      }
-    }
-  }, [searchParams]);
+useEffect(() => {
+  const categoryParam = searchParams.get("category");
+  if (!categoryParam) return;
+
+  const categoryIndex = contents.findIndex(
+    (content) =>
+      content.name.toLowerCase().replace(/\s+/g, "-") === categoryParam
+  );
+
+  // ✅ prevent infinite loop
+  if (categoryIndex !== -1 && categoryIndex !== activeIndex) {
+    setActiveIndex(categoryIndex);
+  }
+}, [searchParams, activeIndex]);
+
 
   // Category click handler
-  const handleCategoryClick = (index: number) => {
-    setActiveIndex(index);
-    const categoryName = contents[index].name
-      .toLowerCase()
-      .replace(/\s+/g, "-");
-    const url = new URL(window.location.href);
-    url.searchParams.set("category", categoryName);
-    router.replace(url.pathname + url.search, { scroll: false });
-  };
+const handleCategoryClick = (index: number) => {
+  if (index === activeIndex) return; // ✅ guard
+
+  setActiveIndex(index);
+
+  const categoryName = contents[index].name
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+
+  const params = new URLSearchParams(searchParams.toString());
+  params.set("category", categoryName);
+
+  router.replace(`?${params.toString()}`, { scroll: false });
+};
+
 
   // Reusable category button
   const CategoryButton = (content: any, index: number) => (
