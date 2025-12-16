@@ -56,10 +56,14 @@ export {default as MahindraLogo} from '@/assets/client/Mahindra Lifespaces.png'
 export {default as RoyalLogo} from '@/assets/client/Royal Enfield.png'
 //services photos
 
-export { default as Service1 } from '@/assets/service/service1.svg';
-export { default as Service2 } from '@/assets/service/service2.svg';
-export { default as Service3 } from '@/assets/service/service3.svg';
-export { default as Service4 } from '@/assets/service/service4.svg';
+export { default as Service1 } from '@/assets/service/service1.webp';
+export { default as Service2 } from '@/assets/service/service2.webp';
+// export { default as Service3 } from '@/assets/service/service3.webp';
+export { default as Service4 } from '@/assets/service/service4.webp';
+export { default as Service5 } from '@/assets/service/service5.webp';
+export { default as Service6 } from '@/assets/service/service6.webp';
+export { default as Service7 } from '@/assets/service/service7.webp';
+export { default as Service8 } from '@/assets/service/service8.webp';
 export { default as ServiceLogo } from '@/assets/service/serviceIcon.svg';
 
 //Mobile Landing Page

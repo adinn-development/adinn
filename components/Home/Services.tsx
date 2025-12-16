@@ -4,8 +4,12 @@ import Image from "next/image";
 import {
   Service1,
   Service2,
-  Service3,
+  // Service3,
   Service4,
+  Service5,
+  Service6,
+  Service7,
+  Service8,
 } from "../ReUsableComponents/Icons/Icons";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -50,7 +54,7 @@ useEffect(() => {
     },
     {
       title: "Signage",
-      image: Service3,
+      image: Service2,
     },
     {
       title: "Events & Activations",
@@ -58,19 +62,19 @@ useEffect(() => {
     },
     {
       title: "Fixtures",
-      image: Service1,
+      image: Service5,
     },
     {
       title: "POPs & Offsets",
-      image: Service2,
+      image: Service6,
     },
     {
       title: "Wall Painting",
-      image: Service2,
+      image: Service7,
     },
     {
       title: "Digital Marketing",
-      image: Service2,
+      image: Service8,
     },
   ], []);
 
