@@ -4,8 +4,8 @@ import Image from "next/image";
 import {
   Service1,
   Service2,
-  // Service3,
-    Service4,
+  Service3,
+  Service4,
   Service5,
   Service6,
   Service7,
@@ -54,7 +54,7 @@ useEffect(() => {
     },
     {
       title: "Signage",
-      image: Service2,
+      image: Service3,
     },
     {
       title: "Events & Activations",

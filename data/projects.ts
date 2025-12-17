@@ -1,5 +1,7 @@
 import {
   kfcOOH,
+  khadminSignage,
+  jamesandcoSignage,
   bKingOOH,
   nipponPaintOOH,
   KFCRoadshows,
@@ -46,6 +48,9 @@ import {
   Fixtures2LLcdm,
   Fixtures3LLdindugal,
   Fixtures4Nippon,
+  impexProject,
+  
+  wallArt
 } from "@/components/reusable-components/Icons/Icons";
 const ProjectImage3 = ProjectImage1;
 const ProjectImage4 = ProjectImage2;
@@ -319,7 +324,7 @@ Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewel
         id: 55,
         image: hevelsRoadShowEvent,
         alt: "Havells",
-        name: "HAVELLS INDIA",
+        name: "HAVELLS",
         // description: "Van",
         overview: [
           {
@@ -360,8 +365,8 @@ Executed a state-wide rural activation using parai teams, script-based dramas, s
       {
         id: 56,
         image: KFCRoadshows,
-        alt: "KFC Thirunagar",
-        name: "KFC Thirunagar",
+        alt: "KFC",
+        name: "KFC",
         // description: "Van",
         overview: [
           {
@@ -1139,7 +1144,7 @@ Effectively communicated product quality and innovation to a wide audience.`,
 
       {
         id: 6,
-        image: JamesRoadshow,
+        image: jamesandcoSignage,
         alt: "James & Co",
         name: "James & Co",
         description: "Van",
@@ -1213,83 +1218,7 @@ Effectively communicated product quality and innovation to a wide audience.`,
           },
         ],
       },
-      // {
-      //   id: 21,
-      //   image: Llyod,
-      //   alt: "Llyod Gallery",
-      //   name: "Llyod Gallery",
-      //   description: "banner",
-      //   overview: [
-      //     {
-      //       number: "01",
-      //       name: "Problem",
-      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //     {
-      //       number: "02",
-      //       name: "Solution",
-      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //     {
-      //       number: "03",
-      //       name: "Highlights",
-      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //   ],
-      //    contents: [
-      //     {
-      //       name:'Service',
-      //       desc:'3D & Cut Out'
-      //     },
-      //       {
-      //       name:'Location',
-      //       desc:'Tamil Nadu'
-      //     },
-      //       {
-      //       name:'Year',
-      //       desc:'2023'
-      //     }
-      //   ]
-      // },
 
-      // {
-      //   id: 22,
-      //   image: milMist,
-      //   alt: "Milky Mist",
-      //   name: "Milky Mist",
-      //   description: "Banner",
-      //   overview: [
-      //     {
-      //       number: "01",
-      //       name: "Problem",
-      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //     {
-      //       number: "02",
-      //       name: "Solution",
-      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //     {
-      //       number: "03",
-      //       name: "Highlights",
-      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //   ],
-      //    contents: [
-      //     {
-      //       name:'Service',
-      //       desc:'3D & Cut Out'
-      //     },
-      //       {
-      //       name:'Location',
-      //       desc:'Tamil Nadu'
-      //     },
-      //       {
-      //       name:'Year',
-      //       desc:'2023'
-      //     }
-      //   ]
-      // },
 
       {
         id: 23,
@@ -1339,7 +1268,7 @@ Helped dealers sell better and customers choose confidently.`,
       },
       {
         id: 48,
-        image: JamesRoadshow,
+        image: khadminSignage,
         alt: "KHADIM",
         name: "KHADIM",
         description: "KHADIM",
@@ -1618,45 +1547,7 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
           },
         ],
       },
-//       {
-//         id: 102,
-//         image: "",
-//         alt: "HATSUN MARATHON",
-//         name: "HATSUN MARATHON",
-//         // description: "Events",
-//         overview: [
-//           {
-//             number: "01",
-//             name: "Problem",
-//             desc: "The brand struggled to engage families and youth effectively while increasing visibility in a crowded market.",
-//           },
-//           {
-//             number: "02",
-//             name: "Solution",
-//             desc: `Organized a large-scale marathon to engage the local community and enhance brand presence.Executed complete event setup including stage, start/finish arch, enquiry counters, branding, and registration zones.Delivered smooth participant experience with kit distribution, hospitality support, entertainment activities, and efficient on-ground logistics.Built strong local connect and reinforced brand credibility through community-driven participation.
-// `,
-//           },
-//           {
-//             number: "03",
-//             name: "Highlights",
-//             desc: `5,000+ participants across age groups,Strong media coverage and social visibility,Enhanced community engagement and brand recall.`,
-//           },
-//         ],
-//         contents: [
-//           {
-//             name: "Service",
-//             desc: "3D & Cut Out",
-//           },
-//           {
-//             name: "Location",
-//             desc: "Tamil Nadu",
-//           },
-//           {
-//             name: "Year",
-//             desc: "2023",
-//           },
-//         ],
-//       },
+      
       {
         id: 103,
         image: caseGrandsEvents,
@@ -1774,164 +1665,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
       },
-      {
-        id: 106,
-        image: bajajEvents,
-        alt: "BAJAJ",
-        name: "BAJAJ",
-        // description: "Events",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Bajaj needed to engage dealers effectively for the Cargo launch and boost influencer visibility for the Pulsar series. Reaching the right audience with impact was a challenge.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: `Planned and executed two premium on-ground events — Bajaj EV Cargo Launch for dealers and Pulsar Influencer Meet for digital creators — focused on immersive brand storytelling and engagement.Designed thematic setups with premium branding, stage design, décor, and experience-driven elements.Managed end-to-end event flow including AV, lighting, registrations, guest hospitality, and show flow.Conducted product unveil sessions and interactive engagements to build strong brand connect.`,
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: `Strong dealer participation & brand recall for Cargo Launch.50+ influencers amplified Pulsar’s reach organically on social media.Premium setups and seamless execution elevated Bajaj’s brand image.`,
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
-//       {
-//         id: 107,
-//         image: "",
-//         alt: "ROYAL ENFIELD",
-//         name: "ROYAL ENFIELD",
-//         // description: "Events",
-//         overview: [
-//           {
-//             number: "01",
-//             name: "Problem",
-//             desc: "Royal Enfield faced a challenge in deepening community engagement and showcasing its heritage and rider culture effectively to build its  brand presence.",
-//           },
-//           {
-//             number: "02",
-//             name: "Solution",
-//             desc: `Executed theme-based on-ground activations including the Kargil Divas Tribute Ride and MEG CSD Display to engage riders, defence personnel, and biking enthusiasts.Designed impactful thematic décor, stage setups, and branding elements that reflected the event spirit and Royal Enfield’s legacy.
-// Organized interactive rider activities, cultural performances, and test-ride experiences with strong on-ground participation.Managed brand showcases, product displays, and engagement zones to strengthen customer connect and reinforce brand loyalty.`,
-//           },
-//           {
-//             number: "03",
-//             name: "Highlights",
-//             desc: `High footfall and active participation from defence and rider communities.Strengthened Royal Enfield’s brand connect through meaningful, impactful experiences.
-//               Enhanced visibility and enquiries through on-ground and digital buzz.`,
-//           },
-//         ],
-//         contents: [
-//           {
-//             name: "Service",
-//             desc: "3D & Cut Out",
-//           },
-//           {
-//             name: "Location",
-//             desc: "Tamil Nadu",
-//           },
-//           {
-//             name: "Year",
-//             desc: "2023",
-//           },
-//         ],
-//       },
-//       {
-//         id: 108,
-//         image: "",
-//         alt: "MARUTI SUZUKI",
-//         name: "MARUTI SUZUKI",
-//         // description: "Events",
-//         overview: [
-//           {
-//             number: "01",
-//             name: "Problem",
-//             desc: "The brand had struggled  to generate high-quality leads and achieve strong visibility across multiple audience segments through traditional channels.",
-//           },
-//           {
-//             number: "02",
-//             name: "Solution",
-//             desc: `Executed 60+ on-ground activations across urban, semi-urban, and rural markets to spark interest and drive trials.Executed high-impact formats — car launches, Nexa & Ducati displays, CSD promotions, rural drives and corporate park activations.
-// Delivered full-scale setups including immersive branding, demo zones, interaction areas and experience-led engagement.
-// Conducted major events like CSD drives, Gramya Mahotsav, mega carnivals, small-car promos, MTV tie-ins, IT-park demos, Nexa displays, and flea-market outreach for high visibility and participation.
-// `,
-//           },
-//           {
-//             number: "03",
-//             name: "Highlights",
-//             desc: `Created strong consumer connect and brand consideration across touchpoints.Achieved a 360° engagement strategy delivering launch excitement, rural reach and premium lifestyle positioning for the brand.
-// `,
-//           },
-//         ],
-//         contents: [
-//           {
-//             name: "Service",
-//             desc: "3D & Cut Out",
-//           },
-//           {
-//             name: "Location",
-//             desc: "Tamil Nadu",
-//           },
-//           {
-//             name: "Year",
-//             desc: "2023",
-//           },
-//         ],
-//       },
-      //  {
-      //   id: 37,
-      //   image: Fixtures1havels,
-      //   alt: "Havells",
-      //   name: "Havells",
-      //   description: "Indoor",
-      //   overview: [
-      //     {
-      //       number: "01",
-      //       name: "Problem",
-      //       desc: "Lorem dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //     {
-      //       number: "02",
-      //       name: "Solution",
-      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //     {
-      //       number: "03",
-      //       name: "Highlights",
-      //       desc: "Lorem ipsum dolor sit amet consectetur. Sit purus diam sit gravida. Fames semper enim nisi aliquet pellentesque arcu vitae. Mi vel elit quis praesent sed lacus diam quis. In aliquam laoreet lacus elementum",
-      //     },
-      //   ],
-      //    contents: [
-      //     {
-      //       name:'Service',
-      //       desc:'3D & Cut Out'
-      //     },
-      //       {
-      //       name:'Location',
-      //       desc:'Tamil Nadu'
-      //     },
-      //       {
-      //       name:'Year',
-      //       desc:'2023'
-      //     }
-      //   ]
-      // },
+     
 
       {
         id: 29,
@@ -2132,44 +1866,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
       },
-      {
-        id: 33,
-        image: ProjectImage5,
-        alt: "PPC",
-        name: "PPC",
-        // description: "Google Ads Campaign",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "The newly launched school lacks local awareness, resulting in low admission inquiries and limited enrollment opportunities.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Launched targeted PPC campaigns aimed at parents near Thiruparankundram actively searching for early education options.Developed persuasive ad copies and visuals to build trust.Optimized campaigns to maximize inquiry volume and improve conversion efficiency.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Built strong local brand awareness.Generated 28 quality leads in the first month.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+      
       {
         id: 34,
         image: ProjectImage6,
@@ -2321,83 +2018,8 @@ Reinforced JSW’s trust within the market ecosystem.`,
             desc: "2023",
           },
         ],
-      },
-      {
-        id: 110,
-        image: ProjectImage6,
-        alt: "SAPPHIRE FURNITURE",
-        name: "SAPPHIRE FURNITURE",
-        // description: "Performance Tracking",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Sapphire Furniture’s website had strong products but a poor user experience, with an outdated design, slow speed and poor mobile responsiveness, limiting customer satisfaction.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Redesigned the interface with a clean, modern look using simple layouts, refined typography, and ample white space.Created a new brand style guide for consistent colors, fonts, and imagery.Rebuilt the user flow (Home → Category → Product → Checkout) for a smooth, intuitive experience.Added clear CTAs like “Shop Now” and “Add to Cart” to guide users.Improved website load speed and mobile responsiveness.Introduced subtle interactions for a smoother, engaging user experience.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "The result is a modern, cohesive and customer friendly experience that captures the essence of Sapphire Furniture’s brand.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
-      {
-        id: 111,
-        image: ProjectImage6,
-        alt: "KFC",
-        name: "KFC",
-        // description: "Performance Tracking",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "KFC struggled to build awareness in Karaikudi and Karaikal due to lack of professional visuals and video content for local audiences.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Created a 30-second promotional video using an engaging FM-style voice-over.Brought the energy and excitement of radio into a video format.Added local flavor to make the message personal and relatable.Used audio storytelling and smart editing to make the content stand out online, even without high-end visuals.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "The video successfully built curiosity and awareness among the local audience.The creative use of voice and editing proved that powerful communication doesn’t always need expensive visuals.A simple idea executed with clarity can make a big impact.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+      }
+      
     ],
   },
   {
@@ -2618,9 +2240,9 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
       },
       {
         id: 43,
-        image: ProjectImage3,
-        alt: "IMPLEX APPLIANCES",
-        name: "IMPLEX APPLIANCES",
+        image: impexProject,
+        alt: "IMPEX APPLIANCES",
+        name: "IMPEX APPLIANCES",
         // description: "Traditional Media",
         overview: [
           {
@@ -2654,85 +2276,10 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           },
         ],
       },
-      {
-        id: 44,
-        image: ProjectImage4,
-        alt: "SUMITOMO CHEMICAL",
-        name: "SUMITOMO CHEMICAL",
-        // description: "Folk Performances",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Many were not aware of Sumitomo Chemical products and their benefits.  As a result, we ran a Roadshow campaign for their brand marketing in rural areas, in order to focus on farmers.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Launched a village outreach program to build brand awareness among farmers.Conducted roadshows in villages to educate farmers on modern farming methods.Demonstrated how Sumitomo products protect crops and improve yields.Taught safe and smart farming practices to help farmers grow better crops.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Interactive roadshows across rural areas, farmers learn how Sumitomo’s innovative crop protection products.Bringing brand awareness about Sumitomo Chemical closer to rural farming communities.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
-      {
-        id: 45,
-        image: ProjectImage3,
-        alt: "TATA RALLIS ",
-        name: "TATA RALLIS ",
-        // description: "Local Gatherings",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Farmers in Tamil Nadu and Karnataka faced pest attacks, low yields and limited awareness of modern farming methods, relying mostly on traditional techniques.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Launched a Local Events Lead Campaign as part of village outreach.Conducted interactive roadshows and village meetings with agricultural experts.Provided live product demonstrations and expert talks.Offered training on modern and sustainable farming practices.Educated farmers on effective use of Tata Rallis products for soil care, pest control and crop improvement.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Local events and roadshows across Tamil Nadu and Karnataka.Direct interaction with agricultural experts.Training on modern farming and crop protection.Improved productivity and better income opportunities.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+ 
       {
         id: 46,
-        image: ProjectImage4,
+        image: wallArt,
         alt: "WALL ART",
         name: "WALL ART",
         // description: "Vernacular Content",
@@ -2768,120 +2315,7 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           },
         ],
       },
-      {
-        id: 112,
-        image: ProjectImage4,
-        alt: "NIPPON PAINT",
-        name: "NIPPON PAINT",
-        // description: "Vernacular Content",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Despite being well-known, Nippon Paint had low awareness of its products in rural and cultural areas, which made it hard to stand out during events like Madurai Chithirai Thiruvila.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Organized a roadshow during Madurai Chithirai Thiruvila.Used colorful displays to engage visitors.Connected the brand with people in a festive setting.Strengthened Nippon Paint’s presence among the local audience.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "The Nippon Paint roadshow at Madurai Chithirai Thiruvila showed our commitment to creating brand visibility even in crowded and festive environments.It proved that we can deliver a strong marketing impact for both new and established brands by reaching people directly and making the experience memorable.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
-      {
-        id: 113,
-        image: ProjectImage4,
-        alt: "COMMUNITY MEETS",
-        name: "COMMUNITY MEETS",
-        // description: "Vernacular Content",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Many voters in Tamil Nadu were unaware of the party’s vision and plans, requiring direct engagement to build connections ahead of the 2025 election.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Launched the campaign ‘Pannattu Kazhagathin Thamizhaga Payanam’ to reach people statewide.Spread the party’s message and listened to public needs.Encouraged voter participation in the upcoming election.Created awareness and strengthened unity among supporters.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "Creates direct connection with people in different regions.Spreads key messages effectively to a wide audience through live interaction.Strengthens trust and awareness among the public.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
-      {
-        id: 114,
-        image: ProjectImage4,
-        alt: "HERO MOTOCARP",
-        name: "HERO MOTOCARP",
-        // description: "Vernacular Content",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Hero MotoCorp needed to engage local audiences in regional markets by connecting with them in their language and culture.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Organized a regional roadshow across Tamil Nadu, Kerala, and Karnataka.Used vernacular content to connect with local audiences.Designed the campaign to attract attention and build engagement.Built trust and stronger connections with local customers.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "The roadshow showcased our commitment and effort in executing large scale regional campaigns.It helped Hero MotoCorp strengthen its presence and reach audiences across South India in a more personal and impactful way.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+      
     ],
   },
 ];

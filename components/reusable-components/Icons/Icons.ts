@@ -58,7 +58,7 @@ export {default as RoyalLogo} from '@/assets/client/Royal Enfield.png'
 
 export { default as Service1 } from '@/assets/service/service1.webp';
 export { default as Service2 } from '@/assets/service/service2.webp';
-// export { default as Service3 } from '@/assets/service/service3.webp';
+export { default as Service3 } from '@/assets/service/service3.webp';
 export { default as Service4 } from '@/assets/service/service4.webp';
 export { default as Service5 } from '@/assets/service/service5.webp';
 export { default as Service6 } from '@/assets/service/service6.webp';
@@ -116,8 +116,11 @@ export {default as Gallery4} from '@/assets/service/gallery/gallery4.png';
     
 //projects
 export {default as ProjectImage1} from '@/assets/projects/ProjectImage1.png';
-export {default as ProjectImage2} from '@/assets/projects/ProjectImage2.png';
+export {default as ProjectImage2} from '@/assets/projects/ProjectImage2.webp';
+export {default as impexProject} from '@/assets/projects/impex.webp';
+
 export {default as ProjectHero} from '@/assets/projects/ProjectHero.svg';
+export {default as wallArt} from '@/assets/projects/wallArt.webp';
 // export {default as ProjectHero} from '@/assets/projects/ProjectHero2.webp';
 
 
@@ -138,6 +141,8 @@ export {default as BGBanner} from '@/assets/projects/Banner/banner.png';
 export {default as Royal} from '@/assets/projects/roadshow/royal.jpeg'
 export {default as BajajRoadshow} from '@/assets/projects/roadshow/bajaj.jpeg'
 export {default as JamesRoadshow} from '@/assets/projects/roadshow/james.jpeg'
+export {default as khadminSignage} from '@/assets/projects/roadshow/khadim.webp'
+export {default as jamesandcoSignage} from '@/assets/projects/roadshow/james-and-co.webp'
 export {default as BayerRoadshow} from '@/assets/projects/roadshow/bayer.jpeg'
 
 export { default as MuthootRoadshow } from "@/assets/projects/roadshow/muthoot.jpeg";

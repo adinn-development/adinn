@@ -2,6 +2,10 @@ import React from 'react'
 
 const Achievements = () => {
     const contents = [
+         {
+            title: 'Hoardings Around South India',
+            description: '550+'
+        },
         {
             title: 'Mobile Vans',
             description: '250+'
@@ -10,10 +14,7 @@ const Achievements = () => {
             title: 'LED Display Vehicles',
             description: '150+'
         },
-        {
-            title: 'Hoardings Around South India',
-            description: '1000+'
-        },
+       
     ]
     
     return (
