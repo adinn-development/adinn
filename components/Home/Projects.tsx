@@ -7,18 +7,16 @@ import { IPLLogo, HaierLogo, MalabarLogo, TVSLogo } from "@/components/ReUsableC
 interface VideoData {
   video: string;
   name: string;
-  thumbnail: string;
 }
 
 interface VideoCardProps {
   video: string;
   name: string;
-  thumbnail: string;
   index: number;
   priority?: boolean;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ video, name, thumbnail, index, priority = false }) => {
+const VideoCard: React.FC<VideoCardProps> = ({ video, name, index, priority = false }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -150,7 +148,6 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, name, thumbnail, index, pr
             <video
               ref={videoRef}
               src={video}
-              poster={thumbnail}
               className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
               muted
               loop
@@ -162,7 +159,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, name, thumbnail, index, pr
               onError={handleError}
               onPlay={handlePlay}
               onPause={handlePause}
-              
+              poster=""
             >
               Your browser does not support the video tag.
             </video>
@@ -211,22 +208,18 @@ const LandingProjects: React.FC = () => {
     {
       video: '/projects/spr.mp4',
       name: "SPR",
-      thumbnail: '/projects/sprvd.webp',
     },
     {
       video: '/projects/dalmia.mp4',
       name: "Dalmia cement",
-      thumbnail: '/projects/dalmiavd.webp',
     },
     {
       video: '/projects/hatsun.mp4',
       name: "Hatsun",
-      thumbnail: '/projects/hatsunvd.webp',
     },
     {
       video: '/projects/havells.mp4',
       name: "Havells",
-      thumbnail: '/projects/havellsvd.webp',
     }
   ];
 
@@ -251,7 +244,6 @@ const LandingProjects: React.FC = () => {
             key={`${item.name}-${index}`}
             video={item.video}
             name={item.name}
-            thumbnail={item.thumbnail}
             index={index}
             priority={index < 2} 
           />

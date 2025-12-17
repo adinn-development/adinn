@@ -97,15 +97,15 @@ export {default as Innovation} from '@/assets/about/core/innovation.svg';
 export {default as Teamwork} from '@/assets/about/core/teamwork.svg';
 
 //work
-export {default as Image1} from '@/assets/projects/about-us-grid/image1.webp';
-export {default as Image2} from '@/assets/projects/about-us-grid/image2.webp';
-export {default as Image3} from '@/assets/projects/about-us-grid/image3.webp';
-export {default as Image4} from '@/assets/projects/about-us-grid/image4.webp';
-export {default as Image5} from '@/assets/projects/about-us-grid/image5.webp';
-// export {default as Image6} from '@/assets/projects/about-us-grid/image6.webp';
-export {default as Image7} from '@/assets/projects/about-us-grid/image7.webp';
-export {default as Image8} from '@/assets/projects/about-us-grid/image8.webp';
-export {default as ImageCenter} from '@/assets/projects/about-us-grid/centerImage.webp';
+export {default as Image1} from '@/assets/about/work/image1.webp';
+export {default as Image2} from '@/assets/about/work/image2.webp';
+export {default as Image3} from '@/assets/about/work/image3.webp';
+export {default as Image4} from '@/assets/about/work/image4.webp';
+export {default as Image5} from '@/assets/about/work/image5.webp';
+export {default as Image6} from '@/assets/about/work/image6.webp';
+export {default as Image7} from '@/assets/about/work/image7.webp';
+export {default as Image8} from '@/assets/about/work/image8.webp';
+export {default as ImageCenter} from '@/assets/about/work/centerImage.webp';
 
 //services
 export {default as HandImage} from'@/assets/service/Hand.png';
@@ -117,15 +117,15 @@ export {default as Gallery4} from '@/assets/service/gallery/gallery4.png';
 //projects
 export {default as ProjectImage1} from '@/assets/projects/ProjectImage1.png';
 export {default as ProjectImage2} from '@/assets/projects/ProjectImage2.png';
-export {default as ProjectHero} from '@/assets/projects/Projects-banner.webp';
+export {default as ProjectHero} from '@/assets/projects/ProjectHero.svg';
 
 
 //service
-export {default as ServiceHero} from '@/assets/service/Services.webp';
+export {default as ServiceHero} from '@/assets/service/ServiceHero.svg';
 
 
 //about
-export {default as AboutHero} from '@/assets/about/About-Us.webp';
+export {default as AboutHero} from '@/assets/about/AboutHero.svg';
 
 //projects
 export {default as IdHero} from '@/assets/projects/IdHero.svg';
@@ -138,7 +138,7 @@ export {default as Royal} from '@/assets/projects/roadshow/royal.jpeg'
 export {default as BajajRoadshow} from '@/assets/projects/roadshow/bajaj.jpeg'
 export {default as JamesRoadshow} from '@/assets/projects/roadshow/james.jpeg'
 export {default as BayerRoadshow} from '@/assets/projects/roadshow/bayer.jpeg'
-export { default as KFCRoadshow } from "@/assets/projects/roadshow/kfc.jpeg";
+
 export { default as MuthootRoadshow } from "@/assets/projects/roadshow/muthoot.jpeg";
 export { default as DiloRoadshow} from "@/assets/projects/roadshow/dilo.jpeg";
 export { default as TracktersRoadshow} from "@/assets/projects/roadshow/isharetractors.jpeg";
@@ -170,32 +170,35 @@ export {default as Beema} from '@/assets/projects/Outdoor/beema.jpg'
 
 //Projects Events
 export {default as Havel} from '@/assets/projects/Events/Havells.jpeg'
-export {default as kfcRoadshow} from '@/assets/projects/Events/kfc-roadshow.webp'
-export {default as havelsEvents} from '@/assets/projects/Events/havels-events.webp'
-export {default as hevelsRoadShowEvent} from '@/assets/projects/roadshow/havels-roadshows.webp'
-export {default as jswEvent} from '@/assets/projects/Events/jsw-events.webp'
-export {default as caseGrandsEvents} from '@/assets/projects/Events/casagrand-events.webp'
-export {default as ajaxEvents} from '@/assets/projects/Events/ajax-events.webp'
-export {default as bajajEvents} from '@/assets/projects/Events/bajaj-events.webp'
-export {default as tvsEvents} from '@/assets/projects/Events/tvs-events.webp'
 export {default as EventLlyod} from '@/assets/projects/Events/Llyod.jpeg'
 export {default as bandhan} from '@/assets/projects/Events/bandhan.jpeg'
 
 //Projects - Fixutre 
 export {default as Fixtures1havels} from '@/assets/projects/Fixtures/havels.jpg'
-export {default as havelsFixtures} from '@/assets/projects/Fixtures/havels-fixtures.webp'
 export {default as Fixtures2LLcdm} from '@/assets/projects/Fixtures/llyodcdm.jpg'
 export {default as Fixtures3LLdindugal} from '@/assets/projects/Fixtures/llyodindugal.jpg'
+export {default as Fixtures4Nippon} from '@/assets/projects/Fixtures/nipon.jpg'
+
 export {default as kfcOOH} from '@/assets/projects/OOH/kfc-ooh.webp'
 export {default as bKingOOH} from '@/assets/projects/OOH/b-king-ooh.webp'
 export {default as nipponPaintOOH} from '@/assets/projects/OOH/nippon-paint-ooh.webp'
-export {default as Fixtures4Nippon} from '@/assets/projects/Fixtures/nipon.jpg'
+export {default as hevelsRoadShowEvent} from '@/assets/projects/roadshow/havels-roadshows.webp'
+export { default as KFCRoadshow } from "@/assets/projects/roadshow/kfc.webp";
+export { default as KFCRoadshows } from "@/assets/projects/roadshow/kfc.webp";
+export {default as havelsEvents} from '@/assets/projects/Events/havels-events.webp'
+export {default as tvsEvents} from '@/assets/projects/Events/tvs-events.webp'
+export {default as caseGrandsEvents} from '@/assets/projects/Events/casagrand-events.webp'
+export {default as jswEvent} from '@/assets/projects/Events/jsw-events.webp'
+export {default as ajaxEvents} from '@/assets/projects/Events/ajax-events.webp'
+export {default as bajajEvents} from '@/assets/projects/Events/bajaj-events.webp'
+export {default as havelsFixtures} from '@/assets/projects/Fixtures/havels-fixtures.webp'
 
 
 
 
 
 //service
+
 export {default as OOHIcon} from '@/assets/service/ServiceIcon/ooh.png'
 export {default as RoadshowIcon} from '@/assets/service/ServiceIcon/road.png'
 export {default as SignIcon} from '@/assets/service/ServiceIcon/sign.png'

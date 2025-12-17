@@ -16,12 +16,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 
-const getDescription = (item: any): string => {
-  return typeof item?.description === "string" ? item.description : "";
-};
-
-
-
 const MobileCategorySwiper = ({
   contents,
   activeIndex,
@@ -74,38 +68,29 @@ const Solutions = () => {
   const searchParams = useSearchParams();
 
   // Load the active category from URL on mount
-useEffect(() => {
-  const categoryParam = searchParams.get("category");
-  if (!categoryParam) return;
-
-  const categoryIndex = contents.findIndex(
-    (content) =>
-      content.name.toLowerCase().replace(/\s+/g, "-") === categoryParam
-  );
-
-  // ✅ prevent infinite loop
-  if (categoryIndex !== -1 && categoryIndex !== activeIndex) {
-    setActiveIndex(categoryIndex);
-  }
-}, [searchParams, activeIndex]);
-
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam) {
+      const categoryIndex = contents.findIndex(
+        (content) =>
+          content.name.toLowerCase().replace(/\s+/g, "-") === categoryParam
+      );
+      if (categoryIndex !== -1) {
+        setActiveIndex(categoryIndex);
+      }
+    }
+  }, [searchParams]);
 
   // Category click handler
-const handleCategoryClick = (index: number) => {
-  if (index === activeIndex) return; // ✅ guard
-
-  setActiveIndex(index);
-
-  const categoryName = contents[index].name
-    .toLowerCase()
-    .replace(/\s+/g, "-");
-
-  const params = new URLSearchParams(searchParams.toString());
-  params.set("category", categoryName);
-
-  router.replace(`?${params.toString()}`, { scroll: false });
-};
-
+  const handleCategoryClick = (index: number) => {
+    setActiveIndex(index);
+    const categoryName = contents[index].name
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+    const url = new URL(window.location.href);
+    url.searchParams.set("category", categoryName);
+    router.replace(url.pathname + url.search, { scroll: false });
+  };
 
   // Reusable category button
   const CategoryButton = (content: any, index: number) => (
@@ -182,7 +167,7 @@ const handleCategoryClick = (index: number) => {
                   <div className="text-white">
                     <h3 className="text-[24px] font-bold">{item.name}</h3>
                     <p className="text-[14px] text-[#AFB0B6]">
-                      {getDescription(item)}
+                      {item.description}
                     </p>
                   </div>
                   <FiArrowRight className="w-5 h-5 text-white group-hover:text-[#CF1E00] transition-colors duration-300" />
@@ -272,7 +257,7 @@ nextBtn.style.display = "flex";
             <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-between items-center">
               <div className="text-white">
                 <h3 className="text-[20px] font-bold">{item.name}</h3>
-                <p className="text-[14px] text-[#AFB0B6]">{getDescription(item)}</p>
+                <p className="text-[14px] text-[#AFB0B6]">{item.description}</p>
               </div>
 
               {/* default right arrow icon in design */}
