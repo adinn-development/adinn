@@ -1,6 +1,6 @@
 import React from "react";
-import { ProjectHero } from "../ReUsableComponents/Icons/Icons";
-import TopNav from "../ReUsableComponents/TopNav";
+import { ProjectHero } from "../reusable-components/Icons/Icons";
+import TopNav from "../reusable-components/TopNav";
 
 const Hero = () => {
   return (

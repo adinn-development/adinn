@@ -2,7 +2,7 @@ import { Suspense } from "react";
 
 import Hero from "@/components/Projects/Hero";
 import Solutions from "@/components/Projects/Solutions";
-import Footer from "@/components/ReUsableComponents/Footer";
+import Footer from "@/components/reusable-components/Footer";
 import LandingDreamProject from "@/components/Home/DreamProject";
 
 const page = () => {

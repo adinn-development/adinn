@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { contents } from "@/data/projects";
 // import "bootstrap-icons/font/bootstrap-icons.css";
-import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ReUsableComponents/Icons/Icons";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/reusable-components/Icons/Icons";
 
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";

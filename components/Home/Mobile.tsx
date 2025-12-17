@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { MobileLogo } from '../ReUsableComponents/Icons/Icons';
+import { MobileLogo } from '../reusable-components/Icons/Icons';
 import Image from 'next/image';
 import Link from 'next/link';
 

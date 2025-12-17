@@ -6,7 +6,7 @@ import {
   Gallery3,
   Gallery4,
   HandImage,
-} from "@/components/ReUsableComponents/Icons/Icons";
+} from "@/components/reusable-components/Icons/Icons";
 import Link from "next/link";
 import Gallery5 from "@/public/Frame 192.png";
 

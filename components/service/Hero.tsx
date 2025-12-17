@@ -1,7 +1,7 @@
 import React from 'react';
-import { ServiceHero } from '../ReUsableComponents/Icons/Icons';
+import { ServiceHero } from '../reusable-components/Icons/Icons';
 import Link from 'next/link';
-import TopNav from '../ReUsableComponents/TopNav';
+import TopNav from '../reusable-components/TopNav';
 
 const Hero = () => {
   return (

@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { GoArrowUpRight } from "react-icons/go";
-import { IPLLogo, HaierLogo, MalabarLogo, TVSLogo } from "@/components/ReUsableComponents/Icons/Icons";
+import { IPLLogo, HaierLogo, MalabarLogo, TVSLogo } from "@/components/reusable-components/Icons/Icons";
 
 interface VideoData {
   video: string;

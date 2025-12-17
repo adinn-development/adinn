@@ -46,7 +46,7 @@ import {
   Fixtures2LLcdm,
   Fixtures3LLdindugal,
   Fixtures4Nippon,
-} from "@/components/ReUsableComponents/Icons/Icons";
+} from "@/components/reusable-components/Icons/Icons";
 const ProjectImage3 = ProjectImage1;
 const ProjectImage4 = ProjectImage2;
 const ProjectImage5 = ProjectImage1;

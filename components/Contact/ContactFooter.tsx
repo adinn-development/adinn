@@ -6,7 +6,7 @@ import {
   TwitterLogo,
   YoutubeLogo,
   AdinnLogoFooter,
-} from "../ReUsableComponents/Icons/Icons";
+} from "../reusable-components/Icons/Icons";
 import Image from "next/image";
 import ContactFooterImage from "@/public/ContactFooterImage.svg";
 

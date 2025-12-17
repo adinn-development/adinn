@@ -2,7 +2,7 @@ import Hero from '@/components/service/Hero'
 import Content from '@/components/service/Content'
 import ServiceOffered from '@/components/service/ServiceOffered'
 import Gallery from '@/components/service/Gallery'
-import Footer from '@/components/ReUsableComponents/Footer'
+import Footer from '@/components/reusable-components/Footer'
 import LandingDreamProject from '@/components/Home/DreamProject'
 
 

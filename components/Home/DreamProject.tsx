@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Innovation } from "@/components/ReUsableComponents/Icons/Icons";
+import { Innovation } from "@/components/reusable-components/Icons/Icons";
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable"; // Import Draggable
 import Link from "next/link";

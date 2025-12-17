@@ -5,7 +5,7 @@ import LandingService from "@/components/Home/Services";
 import LandingProjects from "@/components/Home/Projects";
 import LandingDreamProject from "@/components/Home/DreamProject";
 import LandingQueries from "@/components/Home/Queries";
-import Footer from "@/components/ReUsableComponents/Footer";
+import Footer from "@/components/reusable-components/Footer";
 import Hero from "@/components/Home/Hero";
 import LandingClients from "@/components/Home/Clients";
 

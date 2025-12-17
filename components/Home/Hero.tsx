@@ -1,14 +1,14 @@
   "use client";
 
   import React, { useEffect, useRef, useState } from "react";
-  import TopNav from "../ReUsableComponents/TopNav";
+  import TopNav from "../reusable-components/TopNav";
   import Image from "next/image";
-  import { BackgroundImage } from "../ReUsableComponents/Icons/Icons";
+  import { BackgroundImage } from "../reusable-components/Icons/Icons";
   import Subtract from "@/public/Subtract.svg";
 
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-  import VideoImage from "../ReUsableComponents/VideoImage";
+  import VideoImage from "../reusable-components/VideoImage";
 
   gsap.registerPlugin(ScrollTrigger);
 

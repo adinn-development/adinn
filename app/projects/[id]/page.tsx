@@ -6,11 +6,11 @@ import Image from "next/image";
 import {
   IdHero,
   ProjectOverview,
-} from "@/components/ReUsableComponents/Icons/Icons";
+} from "@/components/reusable-components/Icons/Icons";
 import Gallery from "@/components/service/Gallery";
-import Footer from "@/components/ReUsableComponents/Footer";
+import Footer from "@/components/reusable-components/Footer";
 import LandingDreamProject from "@/components/Home/DreamProject";
-import TopNav from "@/components/ReUsableComponents/TopNav";
+import TopNav from "@/components/reusable-components/TopNav";
 import { contents } from "@/data/projects";
 
 // Transform the new contents data structure to match the original projectsData format

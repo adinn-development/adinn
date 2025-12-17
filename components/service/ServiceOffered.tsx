@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { DigitalIcon, EventIcon, FixIcon, OOHIcon, PopIcon, RoadshowIcon, SignIcon, WallIcon } from "../ReUsableComponents/Icons/Icons";
+import { DigitalIcon, EventIcon, FixIcon, OOHIcon, PopIcon, RoadshowIcon, SignIcon, WallIcon } from "../reusable-components/Icons/Icons";
 
 const ServiceOffered = () => {
   const contents = [

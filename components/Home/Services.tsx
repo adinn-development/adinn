@@ -10,7 +10,7 @@ import {
   Service6,
   Service7,
   Service8,
-} from "../ReUsableComponents/Icons/Icons";
+} from "../reusable-components/Icons/Icons";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import gsap from "gsap";

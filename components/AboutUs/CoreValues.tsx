@@ -1,5 +1,5 @@
 import React from 'react'
-import { Reliability, Respect, Excellence, Integrity, Innovation, Teamwork } from '@/components/ReUsableComponents/Icons/Icons'
+import { Reliability, Respect, Excellence, Integrity, Innovation, Teamwork } from '@/components/reusable-components/Icons/Icons'
 import Image from 'next/image'
 
 const CoreValues = () => {

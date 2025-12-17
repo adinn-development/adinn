@@ -11,7 +11,7 @@ import {
   Image7,
   Image8,
   ImageCenter,
-} from "@/components/ReUsableComponents/Icons/Icons";
+} from "@/components/reusable-components/Icons/Icons";
 
 const ShowCase = () => {
 

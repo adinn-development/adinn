@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import TopNav from "@/components/ReUsableComponents/TopNav";
+import TopNav from "@/components/reusable-components/TopNav";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 // Load Plus Jakarta Sans Font

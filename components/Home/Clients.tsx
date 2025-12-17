@@ -48,7 +48,7 @@ import {
   ImpexLogo,
   MahindraLogo,
   RoyalLogo,
-} from "@/components/ReUsableComponents/Icons/Icons";
+} from "@/components/reusable-components/Icons/Icons";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 

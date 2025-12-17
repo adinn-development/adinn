@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { AboutHero } from '../ReUsableComponents/Icons/Icons';
-import TopNav from '../ReUsableComponents/TopNav';
+import { AboutHero } from '../reusable-components/Icons/Icons';
+import TopNav from '../reusable-components/TopNav';
 
 const Hero = () => {
   return (

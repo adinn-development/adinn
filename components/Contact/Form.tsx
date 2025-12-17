@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import TopNav from "../ReUsableComponents/TopNav";
-import { Excellence, HandImage } from "../ReUsableComponents/Icons/Icons";
+import TopNav from "../reusable-components/TopNav";
+import { Excellence, HandImage } from "../reusable-components/Icons/Icons";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
