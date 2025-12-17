@@ -16,6 +16,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 
+const getDescription = (item: any): string => {
+  return typeof item?.description === "string" ? item.description : "";
+};
+
 const MobileCategorySwiper = ({
   contents,
   activeIndex,
@@ -167,7 +171,7 @@ const Solutions = () => {
                   <div className="text-white">
                     <h3 className="text-[24px] font-bold">{item.name}</h3>
                     <p className="text-[14px] text-[#AFB0B6]">
-                      {item.description}
+                       {getDescription(item)}
                     </p>
                   </div>
                   <FiArrowRight className="w-5 h-5 text-white group-hover:text-[#CF1E00] transition-colors duration-300" />
@@ -257,7 +261,7 @@ nextBtn.style.display = "flex";
             <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-between items-center">
               <div className="text-white">
                 <h3 className="text-[20px] font-bold">{item.name}</h3>
-                <p className="text-[14px] text-[#AFB0B6]">{item.description}</p>
+                <p className="text-[14px] text-[#AFB0B6]"> {getDescription(item)}</p>
               </div>
 
               {/* default right arrow icon in design */}
