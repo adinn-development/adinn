@@ -18,7 +18,7 @@ const Hero = () => {
               About Us
             </h1>
             <p className="md:text-[20px] text-[10px] md:mt-0 mt-2 min-w-min text-white">
-            Adinn Advertising leads the industry with complete advertising services backed by experience, innovation and consistent quality. Our goal is to understand each brand, plan the right solutions and deliver advertising that truly makes an impact.
+            Adinn Advertising is your solution provider, turning ideas into impactful campaigns. We understand your brand, craft the right strategy and deliver results that truly connect.
             </p>
           </div>
 

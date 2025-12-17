@@ -117,15 +117,15 @@ export {default as Gallery4} from '@/assets/service/gallery/gallery4.png';
 //projects
 export {default as ProjectImage1} from '@/assets/projects/ProjectImage1.png';
 export {default as ProjectImage2} from '@/assets/projects/ProjectImage2.png';
-export {default as ProjectHero} from '@/assets/projects/ProjectHero.svg';
+export {default as ProjectHero} from '@/assets/projects/Projects-banner.webp';
 
 
 //service
-export {default as ServiceHero} from '@/assets/service/ServiceHero.svg';
+export {default as ServiceHero} from '@/assets/service/Services.webp';
 
 
 //about
-export {default as AboutHero} from '@/assets/about/AboutHero.svg';
+export {default as AboutHero} from '@/assets/about/About-Us.webp';
 
 //projects
 export {default as IdHero} from '@/assets/projects/IdHero.svg';
