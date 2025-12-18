@@ -1,11 +1,23 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 
 const VideoBanner = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const sectionRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const isInView = useInView(sectionRef, { amount: 0.3 });
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    if (isInView) {
+      videoRef.current.play().catch(() => {});
+    } else {
+      videoRef.current.pause();
+    }
+  }, [isInView]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -32,14 +44,14 @@ const VideoBanner = () => {
 
   return (
     <motion.div
-      ref={ref}
+      ref={sectionRef}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
       className="flex items-center justify-center mt-20 lg:min-h-screen xl:min-h-screen text-white"
     >
-      {/* Wrapper with relative positioning */}
       <div className="relative w-full h-full flex items-center justify-center">
+        
         {/* Text overlay */}
         <motion.div
           variants={textVariants}
@@ -51,12 +63,18 @@ const VideoBanner = () => {
         {/* Video */}
         <motion.div variants={videoVariants} className="w-full">
           <video
+            ref={videoRef}
             className="w-full h-full rounded-lg"
-            autoPlay
             loop
             muted
+            playsInline
+            preload="none"
           >
-            <source src="https://ik.imagekit.io/4o0qshqnhn/Adinn/teamex.MP4?updatedAt=1758805740474" type="video/mp4" />
+            {/* <source
+              src="https://ik.imagekit.io/4o0qshqnhn/Adinn/teamex.MP4"
+              type="video/mp4"
+            /> */}
+            <source src="/videos/team-work.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </motion.div>
