@@ -27,56 +27,60 @@ const LandingService = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const scrollTriggerInstanceRef = useRef<ScrollTrigger | null>(null);
   const isInitializedRef = useRef(false);
   // const componentIdRef = useRef(`landing-service-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`);
-const componentIdRef = useRef<string>("");
+  const componentIdRef = useRef<string>("");
 
-useEffect(() => {
-  if (!componentIdRef.current) {
-    componentIdRef.current =
-      `landing-service-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-  }
-}, []);
+  useEffect(() => {
+    if (!componentIdRef.current) {
+      componentIdRef.current = `landing-service-${Date.now()}-${Math.random()
+        .toString(36)
+        .substr(2, 9)}`;
+    }
+  }, []);
 
   // Memoize contents to prevent recreation on every render
-  const contents = useMemo(() => [
-    {
-      title: "Roadshow",
-      image: Service1,
-    },
-    {
-      title: "OOH Media",
-      image: Service2,
-    },
-    {
-      title: "Signage",
-      image: Service3,
-    },
-    {
-      title: "Events & Activations",
-      image: Service4,
-    },
-    {
-      title: "Fixtures",
-      image: Service5,
-    },
-    {
-      title: "POPs & Offsets",
-      image: Service6,
-    },
-    {
-      title: "Wall Painting",
-      image: Service7,
-    },
-    {
-      title: "Digital Marketing",
-      image: Service8,
-    },
-  ], []);
+  const contents = useMemo(
+    () => [
+      {
+        title: "Roadshow",
+        image: Service1,
+      },
+      {
+        title: "OOH Media",
+        image: Service2,
+      },
+      {
+        title: "Signage",
+        image: Service3,
+      },
+      {
+        title: "Events & Activations",
+        image: Service4,
+      },
+      {
+        title: "Fixtures",
+        image: Service5,
+      },
+      {
+        title: "POPs & Offsets",
+        image: Service6,
+      },
+      {
+        title: "Wall Painting",
+        image: Service7,
+      },
+      {
+        title: "Digital Marketing",
+        image: Service8,
+      },
+    ],
+    []
+  );
 
   // Simplified cleanup function
   const cleanupGSAP = useCallback(() => {
@@ -89,19 +93,17 @@ useEffect(() => {
 
       // Reset container position
       if (scrollContainerRef.current) {
-        gsap.set(scrollContainerRef.current, { 
-          x: 0, 
-          clearProps: "transform" 
+        gsap.set(scrollContainerRef.current, {
+          x: 0,
+          clearProps: "transform",
         });
       }
 
       isInitializedRef.current = false;
     } catch (error) {
-      console.warn('GSAP cleanup error:', error);
+      console.warn("GSAP cleanup error:", error);
     }
   }, []);
-
-  
 
   // GSAP ScrollTrigger setup - ONLY for lg screens and above
   useEffect(() => {
@@ -142,7 +144,7 @@ useEffect(() => {
           invalidateOnRefresh: true,
           id: componentIdRef.current, // Unique ID to avoid conflicts
           refreshPriority: -1, // Lower priority to avoid conflicts with other sections
-          
+
           // Simple horizontal scroll animation only
           animation: gsap.to(container, {
             x: -scrollDistance,
@@ -153,11 +155,11 @@ useEffect(() => {
           // Handle refresh without complex rebuilding
           onRefresh: (self) => {
             if (!container) return;
-            
+
             const newScrollWidth = container.scrollWidth;
             const newContainerWidth = container.clientWidth;
             const newScrollDistance = newScrollWidth - newContainerWidth;
-            
+
             if (newScrollDistance > 0) {
               // Kill the old instance and create a new one
               self.kill();
@@ -177,21 +179,20 @@ useEffect(() => {
                   x: -newScrollDistance,
                   ease: "none",
                   duration: 1,
-                })
+                }),
               });
             }
-          }
+          },
         });
-
       } catch (error) {
-        console.warn('GSAP setup error:', error);
+        console.warn("GSAP setup error:", error);
         cleanupGSAP();
       }
     };
 
     // Delayed setup for better stability
     const timeoutId = setTimeout(setupAnimation, 100);
-    
+
     return () => {
       clearTimeout(timeoutId);
       cleanupGSAP();
@@ -201,15 +202,15 @@ useEffect(() => {
   // Resize handler - only for lg and above
   useEffect(() => {
     let resizeTimer: NodeJS.Timeout | null = null;
-    
+
     const handleResize = () => {
       if (resizeTimer) {
         clearTimeout(resizeTimer);
       }
-      
+
       resizeTimer = setTimeout(() => {
         const isDesktop = window.innerWidth >= 1024; // lg breakpoint
-        
+
         if (isDesktop && scrollTriggerInstanceRef.current) {
           scrollTriggerInstanceRef.current.refresh();
         } else if (!isDesktop) {
@@ -218,10 +219,10 @@ useEffect(() => {
       }, 150);
     };
 
-    window.addEventListener('resize', handleResize, { passive: true });
-    
+    window.addEventListener("resize", handleResize, { passive: true });
+
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (resizeTimer) {
         clearTimeout(resizeTimer);
       }
@@ -234,7 +235,7 @@ useEffect(() => {
   }, [cleanupGSAP]);
 
   return (
-    <div 
+    <div
       ref={sectionRef}
       className="flex flex-col items-center justify-start p-4 lg:min-h-screen lg:p-8 lg:overflow-hidden lg:mt-[300px]"
       data-component-id={componentIdRef.current}
@@ -242,17 +243,16 @@ useEffect(() => {
       {/* Header Section - Static for mobile/tablet, animated for lg+ */}
       <div className="w-full flex flex-col lg:flex-row items-start lg:items-start mb-8 xl:mb-12 lg:mb-0 gap-4 lg:gap-8">
         <div className="flex flex-row items-start text-start justify-start space-x-2 md:space-x-5 ">
-          
-          <motion.div 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[96px] tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px] font-bold text-gray-900 "
+          <motion.div
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[70px] tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px] font-bold text-gray-900 "
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             OUR
           </motion.div>
-          <motion.div 
-            className="  text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[96px] instrument-font text-[#CF1E00] font-serif italic tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px]"
+          <motion.div
+            className="  text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[75px] instrument-font text-[#CF1E00] font-serif italic tracking-[-1px] sm:tracking-[-2px] md:tracking-[-3px] lg:tracking-[-4px]"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -280,17 +280,23 @@ useEffect(() => {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority={index < 4}
                 />
-                
+
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg" />
-                
+
                 {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <div className="flex flex-col gap-3">
-                    <h3 className="text-xl font-bold leading-tight">
-                      {item.title}
-                    </h3>
-                  </div>
+                <div className="absolute inset-0 flex items-end justify-end p-4">
+                  <h3
+                    className="
+                        text-white
+                        text-lg md:text-xl
+                        font-bold
+                        drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]
+                        whitespace-nowrap
+                      "
+                  >
+                    {item.title}
+                  </h3>
                 </div>
               </div>
             </div>
@@ -299,7 +305,7 @@ useEffect(() => {
 
         {/* Desktop (lg+): Horizontal Scroll Layout - Animated */}
         <div className="hidden lg:block w-full h-[400px] lg:h-[450px] xl:h-[400px] 2xl:h-[500px] overflow-hidden">
-          <motion.div 
+          <motion.div
             ref={scrollContainerRef}
             className="flex h-full gap-4 lg:gap-6"
             initial={{ opacity: 0 }}
@@ -320,17 +326,23 @@ useEffect(() => {
                     sizes="(max-width: 1024px) 400px, (max-width: 1280px) 500px, 600px"
                     priority={index < 3}
                   />
-                  
+
                   {/* Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg group-hover:from-black/90 transition-all duration-300" />
-                  
+
                   {/* Content Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <div className="flex flex-row justify-between items-end gap-4">
-                      <h3 className="text-2xl font-bold leading-tight max-w-[250px] transform translate-y-0 group-hover:-translate-y-1 transition-transform duration-300">
-                        {item.title}
-                      </h3>
-                    </div>
+                  <div className="absolute inset-0 flex items-end justify-end p-4">
+                    <h3
+                      className="
+                          text-white
+                          text-lg md:text-xl
+                          font-bold
+                          drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]
+                          whitespace-nowrap
+                        "
+                    >
+                      {item.title}
+                    </h3>
                   </div>
                 </div>
               </div>
