@@ -1,4 +1,5 @@
 import {
+  licShow,
   kfcOOH,
   khadminSignage,
   jamesandcoSignage,
@@ -1182,7 +1183,7 @@ Effectively communicated product quality and innovation to a wide audience.`,
       },
       {
         id: 47,
-        image: JamesRoadshow,
+        image: licShow,
         alt: "LIC ",
         name: "LIC ",
         description: "LIC ",

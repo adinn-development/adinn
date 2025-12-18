@@ -109,7 +109,10 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, name, index, priority = fa
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <div 
-        className="bg-white shadow-lg w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[690px] rounded-2xl md:rounded-3xl overflow-hidden relative group cursor-pointer transition-transform duration-300 hover:shadow-xl"
+        // className="bg-white shadow-lg w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[690px] rounded-2xl md:rounded-3xl overflow-hidden relative group cursor-pointer transition-transform duration-300 hover:shadow-xl"
+       className="bg-white shadow-lg w-full aspect-video rounded-2xl md:rounded-3xl 
+             overflow-hidden relative group cursor-pointer 
+             transition-transform duration-300 hover:shadow-xl"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -228,10 +231,10 @@ const LandingProjects: React.FC = () => {
       {/* Header Section */}
       <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-8 md:mb-12 gap-4 md:gap-0 max-w-[1600px]">
         <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] tracking-[-2px] md:tracking-[-4px] font-bold text-gray-900">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[65px] tracking-[-2px] md:tracking-[-4px] font-bold text-gray-900">
             OUR
           </h1>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[96px] instrument-font text-[#CF1E00] font-serif italic">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[65px] instrument-font text-[#CF1E00] font-serif italic">
             Projects
           </h1>
         </div>

@@ -141,6 +141,7 @@ export {default as BGBanner} from '@/assets/projects/Banner/banner.png';
 export {default as Royal} from '@/assets/projects/roadshow/royal.jpeg'
 export {default as BajajRoadshow} from '@/assets/projects/roadshow/bajaj.jpeg'
 export {default as JamesRoadshow} from '@/assets/projects/roadshow/james.jpeg'
+export {default as licShow} from '@/assets/projects/roadshow/lic.webp'
 export {default as khadminSignage} from '@/assets/projects/roadshow/khadim.webp'
 export {default as jamesandcoSignage} from '@/assets/projects/roadshow/james-and-co.webp'
 export {default as BayerRoadshow} from '@/assets/projects/roadshow/bayer.jpeg'
