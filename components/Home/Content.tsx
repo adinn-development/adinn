@@ -60,7 +60,7 @@ const LandingContent = React.memo(() => {
     >
       {/* Text Content */}
     <h4 className="adinn-heading text-black font-bold text-[34px] md:text-[34px] mb-4">
-  Welcome to Adinn Advertising, where your vision becomes our mission.
+  Welcome to Adinn Advertising,, where your vision becomes our mission.
 </h4>
 {/* <motion.p
   className="w-full text-[16px] md:text-[24px] sm:text-[24px] md:leading-[60.4px] sm:mb-10 md:mb-10 mb-1"
