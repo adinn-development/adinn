@@ -9,10 +9,13 @@ import {
 } from "@/components/reusable-components/Icons/Icons";
 import Link from "next/link";
 import Gallery5 from "@/public/Frame 192.png";
+const SHOW_GALLERY = false;
+
 
 
 
 const Gallery = () => {
+   if (!SHOW_GALLERY) return null;
   return (
     <div className="flex flex-col items-center mt-30">
       <div className="flex flex-row lg:flex-row items-center justify-center gap-4 md:gap-3 py-8 md:py-12 xl:px-0 lg:px-0 md:px-5">

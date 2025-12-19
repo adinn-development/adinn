@@ -142,7 +142,7 @@ const LandingDreamProject = () => {
             Get in touch with Adinn Advertising
 Services today!
               <br />
-              Email: info@adinn.com
+              Email: info@adinn.co.in
             </p>
             <div className="flex justify-end mt-4">
               <Link href='/contact' className="bg-white px-10 py-3 text-[12px] md:text-[16px] text-black rounded-full hover:bg-gray-200 transition-all cursor-pointer hover:scale-105">

@@ -134,7 +134,7 @@ export {default as AboutHero} from '@/assets/about/AboutHero.webp';
 
 //projects
 export {default as IdHero} from '@/assets/projects/IdHero.svg';
-export  {default as ProjectOverview} from '@/assets/projects/ProjectOverview.png';
+export  {default as ProjectOverview} from '@/assets/projects/ProjectOverview.webp';
 export {default as BGBanner} from '@/assets/projects/Banner/banner.png';
 
 

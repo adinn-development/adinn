@@ -214,7 +214,7 @@ const Footer = () => {
                 Let&apos;s Work Together
               </div>
               <span className="text-sm sm:text-base md:text-[21px] text-white/80">
-                webadmin@adinn.co.in
+                info@adinn.co.in
               </span>
             </div>
           </div>
@@ -322,7 +322,7 @@ const Footer = () => {
       <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-8 sm:mt-10 md:mt-12">
         © Designed & Developed by {" "}
   <a 
-    href="https://adinn-three.vercel.app/" 
+    href="https://adinn.com" 
     target="_blank" 
     rel="noopener noreferrer"
     className="text-white hover:underline"
