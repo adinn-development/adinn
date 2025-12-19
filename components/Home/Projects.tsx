@@ -7,16 +7,18 @@ import { IPLLogo, HaierLogo, MalabarLogo, TVSLogo } from "@/components/reusable-
 interface VideoData {
   video: string;
   name: string;
+  thumbnail: string;
 }
 
 interface VideoCardProps {
   video: string;
   name: string;
+  thumbnail: string;
   index: number;
   priority?: boolean;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ video, name, index, priority = false }) => {
+const VideoCard: React.FC<VideoCardProps> = ({ video, name, thumbnail, index, priority = false }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -151,6 +153,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, name, index, priority = fa
             <video
               ref={videoRef}
               src={video}
+              poster={thumbnail}
               className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
               muted
               loop
@@ -162,7 +165,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, name, index, priority = fa
               onError={handleError}
               onPlay={handlePlay}
               onPause={handlePause}
-              poster=""
+              poster={thumbnail}
             >
               Your browser does not support the video tag.
             </video>
@@ -210,18 +213,22 @@ const LandingProjects: React.FC = () => {
   const videos: VideoData[] = [
     {
       video: '/projects/spr.mp4',
+      thumbnail: '/projects/sprvd.webp',
       name: "SPR",
     },
     {
       video: '/projects/dalmia.mp4',
+      thumbnail: '/projects/dalmiavd.webp',
       name: "Dalmia cement",
     },
     {
       video: '/projects/hatsun.mp4',
+      thumbnail: '/projects/hatsunvd.webp',
       name: "Hatsun",
     },
     {
       video: '/projects/havells.mp4',
+      thumbnail: '/projects/havellsvd.webp',
       name: "Havells",
     }
   ];
@@ -246,6 +253,7 @@ const LandingProjects: React.FC = () => {
           <VideoCard
             key={`${item.name}-${index}`}
             video={item.video}
+             thumbnail={item.thumbnail}
             name={item.name}
             index={index}
             priority={index < 2} 

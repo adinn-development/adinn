@@ -67,61 +67,108 @@ const Footer = () => {
   };
 
   // Handle form submission with Google Apps Script
+  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   // Validate form
+  //   const errors = validateForm();
+  //   if (errors.length > 0) {
+  //     errors.forEach(error => toast.error(error));
+  //     setLoading(false);
+  //     return;
+  //   }
+
+  //   // Use the same Google Apps Script URL - you'll need to update your script to handle both formats
+  //   const APPS_SCRIPT_URL = 'http://localhost:3001/sendMailAdinnContactUs';
+
+  //   try {
+  //     const formDataToSend = {
+  //       firstName: formData.firstName.trim(),
+  //       lastName: formData.lastName.trim(),
+  //       email: formData.email.trim().toLowerCase(),
+  //       message: formData.message.trim(),
+  //       timestamp: new Date().toISOString(),
+  //       source: 'footer' // To identify which form was submitted
+  //     };
+      
+  //     console.log('Sending data:', formDataToSend);
+
+  //     const response = await fetch(APPS_SCRIPT_URL, {
+  //       method: 'POST',
+  //       mode: 'no-cors',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(formDataToSend)
+  //     });
+
+  //     // Since we're using no-cors mode, we can't read the response
+  //     // but if no error is thrown, we assume success
+  //     toast.success("Your message has been sent successfully!");
+
+  //     // Reset form after successful submission
+  //     setFormData({
+  //       firstName: '',
+  //       lastName: '',
+  //       email: '',
+  //       message: ''
+  //     });
+
+  //   } catch (error) {
+  //     console.error('Form submission error:', error);
+  //     toast.error('Network error. Please check your connection and try again.');
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
 
-    // Validate form
-    const errors = validateForm();
-    if (errors.length > 0) {
-      errors.forEach(error => toast.error(error));
-      setLoading(false);
-      return;
+  const APPS_SCRIPT_URL = "https://backend-bq11.onrender.com/sendMailAdinnContactUs";
+
+  try {
+    const payload = {
+      firstName: formData.firstName.trim(),
+      lastName: formData.lastName.trim(),
+      email: formData.email.trim().toLowerCase(),
+      message: formData.message.trim(),
+      timestamp: new Date().toISOString(),
+      source: "footer",
+    };
+
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || "Failed to send message");
     }
 
-    // Use the same Google Apps Script URL - you'll need to update your script to handle both formats
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzqR-8EkQ2IiLWuRd6FHCfhwaQmLHfGMtBXaLMTfnzpRdsbNBBnwXUrTo1T0H-yqmOLSQ/exec';
+    toast.success("Your message has been sent successfully!");
 
-    try {
-      const formDataToSend = {
-        firstName: formData.firstName.trim(),
-        lastName: formData.lastName.trim(),
-        email: formData.email.trim().toLowerCase(),
-        message: formData.message.trim(),
-        timestamp: new Date().toISOString(),
-        source: 'footer' // To identify which form was submitted
-      };
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: "",
+    });
+  } catch (error) {
+    console.error(error);
+    toast.error("Failed to send message. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
-      console.log('Sending data:', formDataToSend);
-
-      const response = await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formDataToSend)
-      });
-
-      // Since we're using no-cors mode, we can't read the response
-      // but if no error is thrown, we assume success
-      toast.success("Your message has been sent successfully!");
-
-      // Reset form after successful submission
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        message: ''
-      });
-
-    } catch (error) {
-      console.error('Form submission error:', error);
-      toast.error('Network error. Please check your connection and try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const FooterLogos = [
     {
