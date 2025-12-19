@@ -116,6 +116,7 @@ export {default as Gallery4} from '@/assets/service/gallery/gallery4.png';
     
 //projects
 export {default as ProjectImage1} from '@/assets/projects/ProjectImage1.png';
+export {default as finolexPipes} from '@/assets/projects/finolex-pipes.webp';
 export {default as ProjectImage2} from '@/assets/projects/ProjectImage2.webp';
 export {default as impexProject} from '@/assets/projects/impex.webp';
 

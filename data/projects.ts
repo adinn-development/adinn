@@ -50,7 +50,7 @@ import {
   Fixtures3LLdindugal,
   Fixtures4Nippon,
   impexProject,
-  
+  finolexPipes,
   wallArt
 } from "@/components/reusable-components/Icons/Icons";
 const ProjectImage3 = ProjectImage1;
@@ -1148,7 +1148,7 @@ Effectively communicated product quality and innovation to a wide audience.`,
         image: jamesandcoSignage,
         alt: "James & Co",
         name: "James & Co",
-        description: "Van",
+        // description: "Van",
         overview: [
           {
             number: "01",
@@ -1186,7 +1186,7 @@ Effectively communicated product quality and innovation to a wide audience.`,
         image: licShow,
         alt: "LIC ",
         name: "LIC ",
-        description: "LIC ",
+        // description: "LIC ",
         overview: [
           {
             number: "01",
@@ -1226,7 +1226,7 @@ Effectively communicated product quality and innovation to a wide audience.`,
         image: Nip,
         alt: "Nippon Paint",
         name: "Nippon Paint",
-        description: "Banner",
+        // description: "Banner",
         overview: [
           {
             number: "01",
@@ -1272,7 +1272,7 @@ Helped dealers sell better and customers choose confidently.`,
         image: khadminSignage,
         alt: "KHADIM",
         name: "KHADIM",
-        description: "KHADIM",
+        // description: "KHADIM",
         overview: [
           {
             number: "01",
@@ -2032,7 +2032,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
         image: havelsFixtures,
         alt: "Havells",
         name: "Havells",
-        description: "Indoor",
+        // description: "Indoor",
         overview: [
           {
             number: "01",
@@ -2081,7 +2081,7 @@ Displays that attract, engage and inspire customers.`,
         image: Fixtures2LLcdm,
         alt: "Llyod",
         name: "Llyod",
-        description: "Chidambaram",
+        // description: "Chidambaram",
         overview: [
           {
             number: "01",
@@ -2124,7 +2124,7 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
         image: Fixtures4Nippon,
         alt: "Nippon Paint",
         name: "Nippon Paint",
-        description: "Indoor",
+        // description: "Indoor",
         overview: [
           {
             number: "01",
@@ -2165,7 +2165,7 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
     images: [
       {
         id: 41,
-        image: ProjectImage3,
+        image: finolexPipes,
         alt: "FINOLEX PIPES",
         name: "FINOLEX PIPES",
         // description: "Rural Marketing",
