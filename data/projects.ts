@@ -51,7 +51,8 @@ import {
   Fixtures4Nippon,
   impexProject,
   finolexPipes,
-  wallArt
+  wallArt,
+  eicherDigital,annaiDigital,mahindraDigital,vstTillerDigital,nikonDigital
 } from "@/components/reusable-components/Icons/Icons";
 const ProjectImage3 = ProjectImage1;
 const ProjectImage4 = ProjectImage2;
@@ -1673,7 +1674,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
         image: EventLlyod,
         alt: "Llyod",
         name: "LLyod",
-        description: "Events",
+        // description: "Events",
         overview: [
           {
             number: "01",
@@ -1793,7 +1794,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
     images: [
       {
         id: 31,
-        image: ProjectImage5,
+        image: mahindraDigital,
         alt: "MAHINDRA",
         name: "MAHINDRA",
         // description: "Instagram Campaign",
@@ -1829,48 +1830,48 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
       },
-      {
-        id: 32,
-        image: ProjectImage6,
-        alt: "BAJAJ",
-        name: "BAJAJ",
-        // description: "Search Rankings",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Dealers in Tamil Nadu and Karnataka were experiencing low digital engagement and insufficient high-quality leads, which limited their growth and sales potential.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: "Managed 167 social media pages (122 in Karnataka, 45 in Tamil Nadu) with a unified, trust-focused SMM strategy.Executed 10 monthly campaigns in Karnataka and 8 in Tamil Nadu for continuous engagement.Created 15+ customized creatives and localized content to enhance dealer visibility and connection.",
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: "·Impressions: 1.89 Cr+  Reach: 40 L+, Leads Generated: 7,822 , ·Estimated Sales: 547 (7% conversion) , Strengthened engagement, visibility and sales across regions.",
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+      // {
+      //   id: 32,
+      //   image: ProjectImage6,
+      //   alt: "BAJAJ",
+      //   name: "BAJAJ",
+      //   // description: "Search Rankings",
+      //   overview: [
+      //     {
+      //       number: "01",
+      //       name: "Problem",
+      //       desc: "Dealers in Tamil Nadu and Karnataka were experiencing low digital engagement and insufficient high-quality leads, which limited their growth and sales potential.",
+      //     },
+      //     {
+      //       number: "02",
+      //       name: "Solution",
+      //       desc: "Managed 167 social media pages (122 in Karnataka, 45 in Tamil Nadu) with a unified, trust-focused SMM strategy.Executed 10 monthly campaigns in Karnataka and 8 in Tamil Nadu for continuous engagement.Created 15+ customized creatives and localized content to enhance dealer visibility and connection.",
+      //     },
+      //     {
+      //       number: "03",
+      //       name: "Highlights",
+      //       desc: "·Impressions: 1.89 Cr+  Reach: 40 L+, Leads Generated: 7,822 , ·Estimated Sales: 547 (7% conversion) , Strengthened engagement, visibility and sales across regions.",
+      //     },
+      //   ],
+      //   contents: [
+      //     {
+      //       name: "Service",
+      //       desc: "3D & Cut Out",
+      //     },
+      //     {
+      //       name: "Location",
+      //       desc: "Tamil Nadu",
+      //     },
+      //     {
+      //       name: "Year",
+      //       desc: "2023",
+      //     },
+      //   ],
+      // },
       
       {
         id: 34,
-        image: ProjectImage6,
+        image: eicherDigital,
         alt: "EICHER",
         name: "EICHER",
         // description: "Engaging Content",
@@ -1908,7 +1909,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
       },
       {
         id: 35,
-        image: ProjectImage5,
+        image: nikonDigital,
         alt: "NIKON",
         name: "NIKON",
         // description: "Newsletter Design",
@@ -1946,7 +1947,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
       },
       {
         id: 36,
-        image: ProjectImage6,
+        image: vstTillerDigital,
         alt: "VST TILLER TRACTORS",
         name: "VST TILLER TRACTORS",
         // description: "Performance Tracking",
@@ -1984,7 +1985,7 @@ Reinforced JSW’s trust within the market ecosystem.`,
       },
       {
         id: 109,
-        image: ProjectImage6,
+        image: annaiDigital,
         alt: "ANNAI BHARATH",
         name: "ANNAI BHARATH",
         // description: "Performance Tracking",

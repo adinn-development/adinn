@@ -124,6 +124,13 @@ export {default as ProjectHero} from '@/assets/projects/ProjectHero.svg';
 export {default as wallArt} from '@/assets/projects/wallArt.webp';
 // export {default as ProjectHero} from '@/assets/projects/ProjectHero2.webp';
 
+//digital
+export {default as eicherDigital} from '@/assets/projects/digital/eicher.webp';
+export {default as annaiDigital} from '@/assets/projects/digital/annai_bharath.webp';
+export {default as mahindraDigital} from '@/assets/projects/digital/mahindra.webp';
+export {default as vstTillerDigital} from '@/assets/projects/digital/vst_tiller.webp';
+export {default as nikonDigital} from '@/assets/projects/digital/nikon.webp';
+
 
 //service
 export {default as ServiceHero} from '@/assets/service/ServiceHero.webp';
