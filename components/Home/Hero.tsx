@@ -192,7 +192,7 @@
                   <div className="absolute top-28 left-1/2 w-[74%] h-31 transform -translate-x-1/2 overflow-hidden">
                     <video
                       ref={videoRef}
-                      src="/ad_c2.mp4"
+                      src="/ad_c2.webm"
                       muted
                       loop
                       autoPlay
@@ -219,7 +219,7 @@
                   <div className="absolute 2xl:top-68 xl:top-40 lg:top-47 top-23  left-1/2 w-[74%] xl:h-77 lg:h-62 h-60 transform -translate-x-1/2 overflow-hidden">
                     <video
                       ref={videoRef}
-                      src="/ad_c2.mp4"
+                      src="/ad_c2.webm"
                       muted
                       loop
                       autoPlay

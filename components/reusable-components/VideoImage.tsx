@@ -22,7 +22,7 @@ export default function VideoImage() {
       <div className="absolute top-68 left-1/2 w-[74%] h-77 transform -translate-x-1/2 overflow-hidden">
         <video
           ref={videoRef}
-          src="/ad_c2.mp4"
+          src="/ad_c2.webm"
           muted
           loop
           autoPlay

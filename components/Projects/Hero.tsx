@@ -24,7 +24,7 @@ const Hero = () => {
               Projects
             </h1>
             <h3 className="text-[28px] pb-[10px] min-w-min text-white">Where Creativity Meets Execution</h3>
-            <p className="md:text-[16px] text-[10px] min-w-min text-white">
+            <p className="md:text-[16px] text-[10px] min-w-min text-white drop-shadow-md">
               Our projects showcase the perfect blend of design, strategy and results.
             </p>
           </div>

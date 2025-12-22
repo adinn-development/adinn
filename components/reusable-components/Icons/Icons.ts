@@ -120,7 +120,8 @@ export {default as finolexPipes} from '@/assets/projects/finolex-pipes.webp';
 export {default as ProjectImage2} from '@/assets/projects/ProjectImage2.webp';
 export {default as impexProject} from '@/assets/projects/impex.webp';
 
-export {default as ProjectHero} from '@/assets/projects/ProjectHero.svg';
+// export {default as ProjectHero} from '@/assets/projects/ProjectHero.svg';
+export {default as ProjectHero} from '@/assets/projects/project-banner.webp';
 export {default as wallArt} from '@/assets/projects/wallArt.webp';
 // export {default as ProjectHero} from '@/assets/projects/ProjectHero2.webp';
 
