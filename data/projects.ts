@@ -67,8 +67,8 @@ export const contents = [
       {
         id: 1,
         image: Amazon,
-        alt: "Amazon Prime",
-        name: "Amazon Prime",
+        alt: "AMAZON PRIME",
+        name: "AMAZON PRIME",
         // description: "Outdoor Banner",
         overview: [
           {
@@ -100,18 +100,18 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
@@ -139,26 +139,26 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
       {
         id: 2,
         image: Ibaco,
-        alt: "Ibaco",
-        name: "Ibaco",
+        alt: "IBACO",
+        name: "IBACO",
         // description: "Outdoor Banner",
         overview: [
           {
@@ -178,18 +178,18 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2024",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2024",
+          // },
         ],
       },
       {
@@ -216,25 +216,25 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
         id: 23,
         image: nipponPaintOOH ,
-        alt: "Nippon Paint",
-        name: "Nippon Paint",
+        alt: "NIPPON PAINT",
+        name: "NIPPON PAINT",
         // description: "Banner",
         overview: [
           {
@@ -254,25 +254,25 @@ Creative design ensured visual dominance, a mysterious tone and attention day an
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
         id: 3,
         image: Beema,
-        alt: "Bhima",
-        name: "Bhima",
+        alt: "BHIMA",
+        name: "BHIMA",
         // description: "Outdoor Banner",
         overview: [
           {
@@ -302,18 +302,18 @@ Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewel
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
     ],
@@ -350,18 +350,18 @@ Executed a state-wide rural activation using parai teams, script-based dramas, s
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -392,67 +392,67 @@ Carried out energetic on-ground activations with live shoutouts, attractive open
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
-      {
-        id: 57,
-        image: Havel,
-        alt: "HAPIMA",
-        name: "HAPIMA",
-        // description: "Van",
-        overview: [
-          {
-            number: "01",
-            name: "Problem",
-            desc: "Hapima’s new Crispy Fried Mix needed consumer awareness and trial, but reaching key city audiences and encouraging direct engagement was a challenge.",
-          },
-          {
-            number: "02",
-            name: "Solution",
-            desc: ` Designed and deployed a branded food truck that served freshly made fried chicken using Hapima’s mix.
+//       {
+//         id: 57,
+//         image: Havel,
+//         alt: "HAPIMA",
+//         name: "HAPIMA",
+//         // description: "Van",
+//         overview: [
+//           {
+//             number: "01",
+//             name: "Problem",
+//             desc: "Hapima’s new Crispy Fried Mix needed consumer awareness and trial, but reaching key city audiences and encouraging direct engagement was a challenge.",
+//           },
+//           {
+//             number: "02",
+//             name: "Solution",
+//             desc: ` Designed and deployed a branded food truck that served freshly made fried chicken using Hapima’s mix.
 
-Conducted sampling drives across major cities like Chennai, Coimbatore and Madurai from September 2024 till date.
+// Conducted sampling drives across major cities like Chennai, Coimbatore and Madurai from September 2024 till date.
 
- The truck doubled as both a sampling vehicle and a point of sale, creating high engagement and immediate conversions.`,
-          },
-          {
-            number: "03",
-            name: "Highlights",
-            desc: `Reached thousands of potential consumers through live sampling.Increased brand visibility and product recall in key markets.Successfully converted trial experiences into sales on the spot`,
-          },
-        ],
-        contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
-        ],
-      },
+//  The truck doubled as both a sampling vehicle and a point of sale, creating high engagement and immediate conversions.`,
+//           },
+//           {
+//             number: "03",
+//             name: "Highlights",
+//             desc: `Reached thousands of potential consumers through live sampling.Increased brand visibility and product recall in key markets.Successfully converted trial experiences into sales on the spot`,
+//           },
+//         ],
+//         contents: [
+//           {
+//             name: "Service",
+//             desc: "3D & Cut Out",
+//           },
+//           {
+//             name: "Location",
+//             desc: "Tamil Nadu",
+//           },
+//           {
+//             name: "Year",
+//             desc: "2023",
+//           },
+//         ],
+//       },
       {
         id: 4,
         image: Royal,
-        alt: "Royal Enfield",
-        name: "Royal Enfield",
+        alt: "ROYAL ENFIELD",
+        name: "ROYAL ENFIELD",
         // description: "Van",
         overview: [
           {
@@ -482,26 +482,26 @@ Built strong engagement with passionate riders.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
       {
         id: 5,
         image: BajajRoadshow,
-        alt: "Bajaj",
-        name: "Bajaj",
+        alt: "BAJAJ",
+        name: "BAJAJ",
         // description: "Van",
         overview: [
           {
@@ -531,26 +531,26 @@ Generated high-quality leads for dealers.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
       {
         id: 6,
         image: JamesRoadshow,
-        alt: "James & Co",
-        name: "James & Co",
+        alt: "JAMES & CO",
+        name: "JAMES & CO",
         // description: "Van",
         overview: [
           {
@@ -570,18 +570,18 @@ Generated high-quality leads for dealers.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
@@ -783,8 +783,8 @@ Generated high-quality leads for dealers.`,
       {
         id: 12,
         image: kenstarRoadshow,
-        alt: "Kenstar",
-        name: "Kenstar",
+        alt: "KENSTAR",
+        name: "KENSTAR",
         // description: "Van",
         overview: [
           {
@@ -812,18 +812,18 @@ Effectively communicated product quality and innovation to a wide audience.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
@@ -1147,8 +1147,8 @@ Effectively communicated product quality and innovation to a wide audience.`,
       {
         id: 6,
         image: jamesandcoSignage,
-        alt: "James & Co",
-        name: "James & Co",
+        alt: "JAMES & CO",
+        name: "JAMES & CO",
         // description: "Van",
         overview: [
           {
@@ -1168,18 +1168,18 @@ Effectively communicated product quality and innovation to a wide audience.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -1206,18 +1206,18 @@ Effectively communicated product quality and innovation to a wide audience.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
@@ -1225,8 +1225,8 @@ Effectively communicated product quality and innovation to a wide audience.`,
       {
         id: 23,
         image: Nip,
-        alt: "Nippon Paint",
-        name: "Nippon Paint",
+        alt: "NIPPON PAINT",
+        name: "NIPPON PAINT",
         // description: "Banner",
         overview: [
           {
@@ -1254,18 +1254,18 @@ Helped dealers sell better and customers choose confidently.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -1292,18 +1292,18 @@ Helped dealers sell better and customers choose confidently.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       // {
@@ -1470,8 +1470,8 @@ Helped dealers sell better and customers choose confidently.`,
       {
         id: 37,
         image: havelsEvents,
-        alt: "Havells",
-        name: "Havells",
+        alt: "HAVELLS",
+        name: "HAVELLS",
         // description: "Events",
         overview: [
           {
@@ -1497,18 +1497,18 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -1535,18 +1535,18 @@ Recognized and rewarded top achievers, boosting motivation and loyalty.Strengthe
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       
@@ -1575,18 +1575,18 @@ Activated canter van promotions and outdoor branding across key residential and 
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -1614,18 +1614,18 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -1653,18 +1653,18 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
      
@@ -1672,8 +1672,8 @@ Reinforced JSW’s trust within the market ecosystem.`,
       {
         id: 29,
         image: EventLlyod,
-        alt: "Llyod",
-        name: "LLyod",
+        alt: "LLYOD",
+        name: "LLYOD",
         // description: "Events",
         overview: [
           {
@@ -1693,18 +1693,18 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
@@ -1816,18 +1816,18 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       // {
@@ -1893,18 +1893,18 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -1931,18 +1931,18 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -1969,18 +1969,18 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -2007,18 +2007,18 @@ Reinforced JSW’s trust within the market ecosystem.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       }
       
@@ -2031,8 +2031,8 @@ Reinforced JSW’s trust within the market ecosystem.`,
       {
         id: 28,
         image: havelsFixtures,
-        alt: "Havells",
-        name: "Havells",
+        alt: "HAVELLS",
+        name: "HAVELLS",
         // description: "Indoor",
         overview: [
           {
@@ -2062,26 +2062,26 @@ Displays that attract, engage and inspire customers.`,
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
       {
         id: 38,
         image: Fixtures2LLcdm,
-        alt: "Llyod",
-        name: "Llyod",
+        alt: "LLYOD",
+        name: "LLYOD",
         // description: "Chidambaram",
         overview: [
           {
@@ -2105,26 +2105,26 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
 
       {
         id: 40,
         image: Fixtures4Nippon,
-        alt: "Nippon Paint",
-        name: "Nippon Paint",
+        alt: "NIPPON PAINT",
+        name: "NIPPON PAINT",
         // description: "Indoor",
         overview: [
           {
@@ -2144,18 +2144,18 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
     ],
@@ -2188,18 +2188,18 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -2226,18 +2226,18 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       {
@@ -2264,18 +2264,18 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
  
@@ -2303,18 +2303,18 @@ Executed local fabrication ensuring easy installation, consistent quality, and f
           },
         ],
         contents: [
-          {
-            name: "Service",
-            desc: "3D & Cut Out",
-          },
-          {
-            name: "Location",
-            desc: "Tamil Nadu",
-          },
-          {
-            name: "Year",
-            desc: "2023",
-          },
+          // {
+          //   name: "Service",
+          //   desc: "3D & Cut Out",
+          // },
+          // {
+          //   name: "Location",
+          //   desc: "Tamil Nadu",
+          // },
+          // {
+          //   name: "Year",
+          //   desc: "2023",
+          // },
         ],
       },
       

@@ -214,12 +214,12 @@ const LandingProjects: React.FC = () => {
     {
       video: '/projects/spr.mp4',
       thumbnail: '/projects/sprvd.webp',
-      name: "SPR",
+      name: "SPR India",
     },
     {
       video: '/projects/dalmia.mp4',
       thumbnail: '/projects/dalmiavd.webp',
-      name: "Dalmia cement",
+      name: "Dalmia Cement",
     },
     {
       video: '/projects/hatsun.mp4',

@@ -82,6 +82,7 @@ export {default as TVSLogo} from '@/assets/projects/TVS.png';
 export {default as FacebookLogo} from '@/assets/footer/facebook.svg';
 export {default as InstagramLogo} from '@/assets/footer/instagram.svg';
 export {default as TwitterLogo} from '@/assets/footer/twitter.svg';
+export {default as LinkedInLogo} from '@/assets/footer/linkedin.svg';
 export{ default as YoutubeLogo} from '@/assets/footer/youtube.svg';
 export {default as Card} from '@/assets/footer/card.svg';
 export {default as AdinnLogoFooter} from '@/assets/footer/FooterLogo.svg';
@@ -128,7 +129,7 @@ export {default as wallArt} from '@/assets/projects/wallArt.webp';
 //digital
 export {default as eicherDigital} from '@/assets/projects/digital/eicher.webp';
 export {default as annaiDigital} from '@/assets/projects/digital/annai_bharath.webp';
-export {default as mahindraDigital} from '@/assets/projects/digital/mahindra.webp';
+export {default as mahindraDigital} from '@/assets/projects/digital/mahindra_digital.webp';
 export {default as vstTillerDigital} from '@/assets/projects/digital/vst_tiller.webp';
 export {default as nikonDigital} from '@/assets/projects/digital/nikon.webp';
 
@@ -215,14 +216,23 @@ export {default as havelsFixtures} from '@/assets/projects/Fixtures/havels-fixtu
 
 //service
 
-export {default as OOHIcon} from '@/assets/service/ServiceIcon/ooh.png'
-export {default as RoadshowIcon} from '@/assets/service/ServiceIcon/road.png'
-export {default as SignIcon} from '@/assets/service/ServiceIcon/sign.png'
-export {default as EventIcon} from '@/assets/service/ServiceIcon/events.png'
-export {default as FixIcon} from '@/assets/service/ServiceIcon/fixtures.png'
-export {default as PopIcon} from '@/assets/service/ServiceIcon/pop.png'
-export {default as WallIcon} from '@/assets/service/ServiceIcon/wall.png'
-export {default as DigitalIcon} from '@/assets/service/ServiceIcon/digital.png'
+// export {default as OOHIcon} from '@/assets/service/ServiceIcon/ooh.png'
+// export {default as RoadshowIcon} from '@/assets/service/ServiceIcon/road.png'
+// export {default as SignIcon} from '@/assets/service/ServiceIcon/sign.png'
+// export {default as EventIcon} from '@/assets/service/ServiceIcon/events.png'
+// export {default as FixIcon} from '@/assets/service/ServiceIcon/fixtures.png'
+// export {default as PopIcon} from '@/assets/service/ServiceIcon/pop.png'
+// export {default as WallIcon} from '@/assets/service/ServiceIcon/wall.png'
+// export {default as DigitalIcon} from '@/assets/service/ServiceIcon/digital.png'
+
+export {default as OOHIcon} from '@/assets/service/ServiceIcon/ooh.webp'
+export {default as RoadshowIcon} from '@/assets/service/ServiceIcon/road.webp'
+export {default as SignIcon} from '@/assets/service/ServiceIcon/sign.webp'
+export {default as EventIcon} from '@/assets/service/ServiceIcon/events.webp'
+export {default as FixIcon} from '@/assets/service/ServiceIcon/fixtures.webp'
+export {default as PopIcon} from '@/assets/service/ServiceIcon/pop.webp'
+export {default as WallIcon} from '@/assets/service/ServiceIcon/wall.webp'
+export {default as DigitalIcon} from '@/assets/service/ServiceIcon/digital.webp'
 
 //solutions mobile carosuel icon
 export { default as ChevronLeftIcon } from '@/assets/icons/chevron-left-icon.svg';

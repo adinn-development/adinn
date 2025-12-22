@@ -5,6 +5,7 @@ import {
   FacebookLogo,
   InstagramLogo,
   TwitterLogo,
+  LinkedInLogo,
   YoutubeLogo,
   Card,
   AdinnLogoFooter,
@@ -174,24 +175,24 @@ const Footer = () => {
     {
       src: FacebookLogo,
       alt: "Facebook",
-      link:'#'
+      link:'https://www.facebook.com/AdinnAdvertisingServicesLtd'
     },
     {
       src: InstagramLogo,
       alt: "Instagram",
-      link:'#'
+      link:'https://www.instagram.com/adinnadvertising/'
 
     },
     {
-      src: TwitterLogo,
-      alt: "Twitter",
-      link:'#'
+      src: LinkedInLogo,
+      alt: "Linkedin",
+      link:'https://www.linkedin.com/company/adinn-advertising-service-pvt-ltd-/'
 
     },
     {
       src: YoutubeLogo,
       alt: "Youtube",
-      link:'#'
+      link:'https://www.youtube.com/channel/UCAnRMAjYwSv_g90SYa5vdXw'
 
     },
   ];
