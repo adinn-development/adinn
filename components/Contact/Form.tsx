@@ -59,7 +59,7 @@ const Form = () => {
     return errors;
   };
 
-  // Handle form submission with Google Apps Script
+  // Handle form submission with Google Apps Scripts
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
