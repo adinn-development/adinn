@@ -57,7 +57,7 @@ const ContactFooter = () => {
                 rel="noopener noreferrer"
                 className="text-white hover:underline"
               >
-                TIC GLOBAL
+                Adinn
               </a>
             </div>
           </div>
@@ -94,14 +94,14 @@ const ContactFooter = () => {
 
       {/* Bottom Text */}
       <div className="text-white text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-center mt-8 sm:mt-10 md:mt-12">
-        © designed & developed by{" "}
+        © Designed & Developed by{" "}
         <a
           href="https://www.theinternetcompany.one/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:underline"
         >
-          TIC GLOBAL
+          Adinn
         </a>
       </div>
     </div>
