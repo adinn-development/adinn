@@ -175,7 +175,8 @@ const Message = () => {
             alt={content.name}
             width={80}
             height={100}
-            className="w-16 md:w-20"
+            // className="w-16 md:w-20"
+            className="w-20 h-20 rounded-full object-cover"
           />
           <div className="flex flex-col items-start justify-center ml-4">
             <span className="text-base md:text-2xl text-[#0B0B0B]">
