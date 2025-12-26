@@ -97,6 +97,13 @@ const ContactFooter = () => {
                   {" "}
                   +919626987861{" "}
                 </a>
+                 <a
+                  href="tel:9626987861"
+                  style={{  textDecoration: "none" }}
+                >
+                  {" "}
+                  +918015806062{" "}
+                </a>
               </div>
             </div>
 
