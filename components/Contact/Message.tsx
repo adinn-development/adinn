@@ -120,7 +120,7 @@
 
 import React, { useEffect, useRef } from "react"
 import Image from "next/image"
-import CeoImage from "@/public/CeoImage.svg"
+import CeoImage from "@/public/ceoImage.webp"
 import { gsap } from "gsap"
 
 const Message = () => {
