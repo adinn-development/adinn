@@ -14,26 +14,26 @@ import Link from "next/link";
 
 const ContactFooter = () => {
   const FooterLogos = [
-   {
-         src: FacebookLogo,
-         alt: "Facebook",
-         href: "https://www.facebook.com/AdinnAdvertisingServicesLtd",
-       },
-       {
-         src: InstagramLogo,
-         alt: "Instagram",
-         href: "https://www.instagram.com/adinnadvertising/",
-       },
-       {
-         src: LinkedInLogo,
-         alt: "Linkedin",
-         href: "https://www.linkedin.com/company/adinn-advertising-service-pvt-ltd-/",
-       },
-       {
-         src: YoutubeLogo,
-         alt: "Youtube",
-         href: "https://www.youtube.com/channel/UCAnRMAjYwSv_g90SYa5vdXw",
-       },
+    {
+      src: FacebookLogo,
+      alt: "Facebook",
+      href: "https://www.facebook.com/AdinnAdvertisingServicesLtd",
+    },
+    {
+      src: InstagramLogo,
+      alt: "Instagram",
+      href: "https://www.instagram.com/adinnadvertising/",
+    },
+    {
+      src: LinkedInLogo,
+      alt: "Linkedin",
+      href: "https://www.linkedin.com/company/adinn-advertising-service-pvt-ltd-/",
+    },
+    {
+      src: YoutubeLogo,
+      alt: "Youtube",
+      href: "https://www.youtube.com/channel/UCAnRMAjYwSv_g90SYa5vdXw",
+    },
   ];
 
   return (
@@ -70,21 +70,53 @@ const ContactFooter = () => {
           </div> */}
 
           <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-6 md:left-10 lg:left-16 text-white/80 text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] space-y-1 sm:space-y-2 md:space-y-3 max-w-[85%] sm:max-w-[75%]">
-  <div className="flex flex-col  sm:gap-1">
-    <div><span className="font-semibold">Email:</span> info@adinn.co.in</div>
-    <div><span className="font-semibold">Phone:</span> +917373785057 | +919626987861</div>
-  </div>
+            <div className="flex flex-col  sm:gap-1">
+              <div>
+                <span className="font-semibold">Email: </span>
+                <a
+                  href="mailto:info@adinn.co.in"
+                  style={{ textDecoration: "none" }}
+                >
+                  info@adinn.co.in
+                </a>
+              </div>
+              <div>
+                <span className="font-semibold">Phone: </span>
+                <a
+                  href="tel:7373785057"
+                  style={{textDecoration: "none" }}
+                >
+                  {" "}
+                  +917373785057{" "}
+                </a>{" "}
+                |
+                <a
+                  href="tel:9626987861"
+                  style={{  textDecoration: "none" }}
+                >
+                  {" "}
+                  +919626987861{" "}
+                </a>
+              </div>
+            </div>
 
-  <div className="flex flex-col  sm:gap-2 mt-2">
-    <div><span className="font-semibold">Address:</span></div>
-    <div>29, 1st Cross Street, Vanamamalai Nagar,<b>Madurai-625010</b></div>
-    <div>Door No.3, Vijayalakshmi Street,Nungambakkam, <b>Chennai – 600034</b></div>
-    <div>Old No.76, New No.976,Rajarajeswari Nagar,<b>Bangalore – 560038</b></div>
-  </div>
-
-
-</div>
-
+            <div className="flex flex-col  sm:gap-2 mt-2">
+              <div>
+                <span className="font-semibold">Address:</span>
+              </div>
+              <div>
+                29, 1st Cross Street, Vanamamalai Nagar, <br></br><b>Madurai-625010</b>
+              </div>
+              <div>
+                Door No.3, Vijayalakshmi Street, Nungambakkam,{" "}
+                <br></br><b>Chennai – 600034</b>
+              </div>
+              <div>
+                Old No.76, New No.976,Rajarajeswari Nagar,
+                <br></br><b>Bangalore – 560038</b>
+              </div>
+            </div>
+          </div>
 
           {/* Bottom Text */}
           <div className="absolute bottom-5 sm:bottom-8 md:bottom-10 lg:bottom-12 left-4 sm:left-6 md:left-10 lg:left-16">
