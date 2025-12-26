@@ -34,7 +34,9 @@ const Footer = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   // Handle input change
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -92,7 +94,7 @@ const Footer = () => {
   //       timestamp: new Date().toISOString(),
   //       source: 'footer' // To identify which form was submitted
   //     };
-      
+
   //     console.log('Sending data:', formDataToSend);
 
   //     const response = await fetch(APPS_SCRIPT_URL, {
@@ -125,83 +127,80 @@ const Footer = () => {
   // };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setLoading(true);
+    e.preventDefault();
+    setLoading(true);
 
-  const APPS_SCRIPT_URL = "https://backend-bq11.onrender.com/sendMailAdinnContactUs";
+    const APPS_SCRIPT_URL =
+      "https://backend-bq11.onrender.com/sendMailAdinnContactUs";
 
-  try {
-    const payload = {
-      firstName: formData.firstName.trim(),
-      lastName: formData.lastName.trim(),
-      email: formData.email.trim().toLowerCase(),
-      message: formData.message.trim(),
-      timestamp: new Date().toISOString(),
-      source: "footer",
-    };
+    try {
+      const payload = {
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
+        email: formData.email.trim().toLowerCase(),
+        message: formData.message.trim(),
+        timestamp: new Date().toISOString(),
+        source: "footer",
+      };
 
-    const response = await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (!response.ok) {
-      throw new Error(result.message || "Failed to send message");
+      if (!response.ok) {
+        throw new Error(result.message || "Failed to send message");
+      }
+
+      toast.success("Your message has been sent successfully!");
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    toast.success("Your message has been sent successfully!");
-
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      message: "",
-    });
-  } catch (error) {
-    console.error(error);
-    toast.error("Failed to send message. Please try again.");
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
 
   const FooterLogos = [
     {
       src: FacebookLogo,
       alt: "Facebook",
-      link:'https://www.facebook.com/AdinnAdvertisingServicesLtd'
+      link: "https://www.facebook.com/AdinnAdvertisingServicesLtd",
     },
     {
       src: InstagramLogo,
       alt: "Instagram",
-      link:'https://www.instagram.com/adinnadvertising/'
-
+      link: "https://www.instagram.com/adinnadvertising/",
     },
     {
       src: LinkedInLogo,
       alt: "Linkedin",
-      link:'https://www.linkedin.com/company/adinn-advertising-service-pvt-ltd-/'
-
+      link: "https://www.linkedin.com/company/adinn-advertising-service-pvt-ltd-/",
     },
     {
       src: YoutubeLogo,
       alt: "Youtube",
-      link:'https://www.youtube.com/channel/UCAnRMAjYwSv_g90SYa5vdXw'
-
+      link: "https://www.youtube.com/channel/UCAnRMAjYwSv_g90SYa5vdXw",
     },
   ];
 
   return (
     <div className="bg-[#0C0C0C] w-full min-h-auto p-8 md:p-12">
       <ToastContainer position="top-right" autoClose={3000} />
-      
-    <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
+
+      <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
         {/* Left Section */}
         <div className="flex flex-col items-center lg:items-start gap-6 sm:gap-7 md:gap-8 w-full lg:w-[55%]">
           <div className="relative w-full">
@@ -231,14 +230,17 @@ const Footer = () => {
 
         {/* Right Section - Form */}
         <div className="bg-[#121212] rounded-[20px] sm:rounded-[28px] p-5 sm:p-7.5 md:p-7.5 w-full lg:w-[45%] flex flex-col gap-6 sm:gap-6 md:gap-7">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-6 md:gap-7">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-6 sm:gap-6 md:gap-7"
+          >
             {/* Name Fields */}
             <div className="flex flex-col md:flex-row gap-6 sm:gap-6 md:gap-6">
               <div className="flex flex-col space-y-3 sm:space-y-4 flex-1">
                 <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
                   FIRST NAME
                 </label>
-                <input 
+                <input
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
@@ -251,7 +253,7 @@ const Footer = () => {
                 <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
                   LAST NAME
                 </label>
-                <input 
+                <input
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
@@ -260,12 +262,12 @@ const Footer = () => {
                 />
               </div>
             </div>
-            
+
             <div className="flex flex-col space-y-3 sm:space-y-4">
               <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
                 EMAIL
               </label>
-              <input 
+              <input
                 name="email"
                 type="email"
                 value={formData.email}
@@ -303,33 +305,33 @@ const Footer = () => {
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-4">
           {FooterLogos.map((logo, index) => (
-             <Link
-    key={index}
-    href={logo.link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-full h-[50px] sm:h-[70px] md:h-[80px] bg-[#121212] rounded-[12.9px] md:rounded-[28px] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
-  >
-    <Image
-      src={logo.src}
-      alt={logo.alt}
-      className="w-4 h-4 sm:w-6 sm:h-6 object-contain"
-    />
-  </Link>
+            <Link
+              key={index}
+              href={logo.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full h-[50px] sm:h-[70px] md:h-[80px] bg-[#121212] rounded-[12.9px] md:rounded-[28px] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                className="w-4 h-4 sm:w-6 sm:h-6 object-contain"
+              />
+            </Link>
           ))}
         </div>
       </div>
 
       <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-8 sm:mt-10 md:mt-12">
-        © Designed & Developed by {" "}
-  <a 
-    href="https://adinn.com" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="text-white hover:underline"
-  >
-    Adinn
-  </a>
+        © Designed & Developed by{" "}
+        <a
+          href="https://adinn.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:underline"
+        >
+          Adinn
+        </a>
       </div>
     </div>
   );

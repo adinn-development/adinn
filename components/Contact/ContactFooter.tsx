@@ -5,25 +5,41 @@ import {
   InstagramLogo,
   TwitterLogo,
   YoutubeLogo,
+  LinkedInLogo,
   AdinnLogoFooter,
 } from "../reusable-components/Icons/Icons";
 import Image from "next/image";
 import ContactFooterImage from "@/public/ContactFooterImage.svg";
+import Link from "next/link";
 
 const ContactFooter = () => {
   const FooterLogos = [
-    { src: FacebookLogo, alt: "Facebook" },
-    { src: InstagramLogo, alt: "Instagram" },
-    { src: TwitterLogo, alt: "Twitter" },
-    { src: YoutubeLogo, alt: "Youtube" },
+   {
+         src: FacebookLogo,
+         alt: "Facebook",
+         href: "https://www.facebook.com/AdinnAdvertisingServicesLtd",
+       },
+       {
+         src: InstagramLogo,
+         alt: "Instagram",
+         href: "https://www.instagram.com/adinnadvertising/",
+       },
+       {
+         src: LinkedInLogo,
+         alt: "Linkedin",
+         href: "https://www.linkedin.com/company/adinn-advertising-service-pvt-ltd-/",
+       },
+       {
+         src: YoutubeLogo,
+         alt: "Youtube",
+         href: "https://www.youtube.com/channel/UCAnRMAjYwSv_g90SYa5vdXw",
+       },
   ];
 
   return (
     <div className="bg-[#0C0C0C] w-full lg:h-[630px] h-auto px-4 sm:px-6 md:px-10 lg:px-16 py-6 sm:py-8 md:py-10 lg:py-12 mt-10">
-      
       {/* Top Section (Image + Logo) */}
       <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10">
-        
         {/* Left Image Block */}
         <div className="w-full md:w-1/2 relative md:h-[400px] lg:h-auto">
           <Image
@@ -78,16 +94,21 @@ const ContactFooter = () => {
       <div className="flex flex-col items-center gap-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6 w-full max-w-[700px] mx-auto">
           {FooterLogos.map((logo, index) => (
-            <div
+            <Link
               key={index}
+              href={logo.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full h-[48px] sm:h-[60px] md:h-[70px] lg:h-[80px] bg-[#121212] rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 object-contain"
+                width={28}
+                height={28}
+                className="object-contain"
               />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

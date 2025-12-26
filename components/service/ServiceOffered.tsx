@@ -37,7 +37,7 @@ const ServiceOffered = () => {
 
     },
     {
-      title: "POPs & Offets",
+      title: "POPs & Offsets",
       description:
         "We print leaflets, posters, brochures  and marketing collaterals with end-to-end handling for quality, accuracy and on time delivery assured.",
       icons:PopIcon
