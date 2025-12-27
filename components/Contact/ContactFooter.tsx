@@ -130,8 +130,7 @@ const ContactFooter = () => {
             <div className="md:hidden text-[10px] sm:text-[12px] md:text-[14px] lg:text-[15px] text-white">
               © designed & developed by{" "}
               <a
-                href="https://www.theinternetcompany.one/"
-                target="_blank"
+                href="#"
                 rel="noopener noreferrer"
                 className="text-white hover:underline"
               >
@@ -179,7 +178,7 @@ const ContactFooter = () => {
       <div className="text-white text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-center mt-8 sm:mt-10 md:mt-12">
         © Designed & Developed by{" "}
         <a
-          href="https://www.theinternetcompany.one/"
+          href="#"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:underline"

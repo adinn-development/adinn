@@ -140,6 +140,7 @@ export {default as ServiceHero} from '@/assets/service/ServiceHero.webp';
 
 //about
 export {default as AboutHero} from '@/assets/about/AboutHero.webp';
+// export {default as AboutHero} from '@/assets/projects/roadshow/aboutUsBannerVideo.mp4';
 
 //projects
 export {default as IdHero} from '@/assets/projects/IdHero.svg';
