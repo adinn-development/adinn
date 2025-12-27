@@ -17,7 +17,7 @@ const Hero = () => {
   />
 
   {/* Optional dark overlay */}
-  <div className="absolute inset-0 bg-black/10"></div>
+  <div className="absolute inset-0 bg-black/20"></div>
 
   {/* Content */}
   <div className="absolute inset-0 flex items-center justify-center -mt-10">
