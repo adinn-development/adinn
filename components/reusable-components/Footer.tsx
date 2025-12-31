@@ -21,6 +21,173 @@ interface FooterFormData {
   email: string;
   message: string;
 }
+const PrivacyPolicyContent = () => (
+  <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
+    <p className="text-xs text-gray-400">
+      <span className="block">Effective Date: 04-11-2014</span>
+      <span className="block">Last Updated: 18-06-2025</span>
+    </p>
+
+    <p>
+      At <span className="text-white font-medium">Adinn</span>, we value your
+      privacy and are committed to protecting the personal and business
+      information shared with us. This Privacy Policy explains how we collect,
+      use, store, and safeguard client data while delivering our advertising and
+      marketing services.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">
+      Information We Collect
+    </h3>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Name, company name, and designation</li>
+      <li>Phone number, WhatsApp number, and email address</li>
+      <li>Business address and location details</li>
+      <li>Campaign-related data shared for service execution</li>
+      <li>Information submitted through website forms, WhatsApp, email, or calls</li>
+    </ul>
+
+    <p>
+      We do not collect sensitive personal data unless required and consented.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">
+      How We Use Your Information
+    </h3>
+    <p>We use the collected data strictly for legitimate business purposes such as:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Executing advertising and marketing campaigns</li>
+      <li>Managing OOH Media, Roadshows, Signage, Events & Activation</li>
+      <li>Providing digital marketing and WhatsApp campaign services</li>
+      <li>Client communication, support, and billing</li>
+      <li>Improving service quality and customer experience</li>
+    </ul>
+
+    <h3 className="text-white font-semibold text-base">Data Sharing</h3>
+    
+    <p>We do not sell, rent, or misuse client data.<br></br>
+      Information may be shared only with:
+    </p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Authorized service partners (Meta, WhatsApp API providers)</li>
+      <li>Internal teams for campaign execution</li>
+      <li>Legal authorities if required by law</li>
+    </ul>
+
+    <h3 className="text-white font-semibold text-base">Data Security</h3>
+    <p>We take reasonable measures to protect client data, including:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Controlled access to information</li>
+      <li>Secure digital storage</li>
+      <li>Confidential handling of all client records</li>
+    </ul>
+
+    <h3 className="text-white font-semibold text-base">Data Retention</h3>
+    <p>
+      Client information is retained only for as long as required for service
+      delivery, legal, or accounting purposes and is securely deleted afterward.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">Your Rights</h3>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Access your data</li>
+      <li>Correct or delete your data</li>
+      <li>Withdraw consent for communication</li>
+    </ul>
+
+    <p>
+      Requests can be sent to{" "}
+      <a
+        href="mailto:info@adinn.co.in"
+        className="text-[#EC2B45] hover:underline"
+      >
+        info@adinn.co.in
+      </a>
+    </p>
+
+    <h3 className="text-white font-semibold text-base">Contact Us</h3>
+    <p>
+      Email:{" "}
+      <a
+        href="mailto:info@adinn.co.in"
+        className="text-[#EC2B45] hover:underline"
+      >
+        info@adinn.co.in
+      </a>
+      <br />
+      Phone: +919790257861 | +918015806062
+    </p>
+  </div>
+);
+
+const TermsContent = () => (
+  <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
+    <p>
+      <strong>Effective Date:</strong> 04-11-2014
+    </p>
+    <p>
+      By accessing our website or using our services, you agree to the following Terms & Conditions.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">Services</h3>
+    <p>We provide advertising and marketing services including:</p>
+    <ul className="list-disc list-inside">
+      <li>OOH Media</li>
+      <li>Roadshows</li>
+      <li>Signage</li>
+      <li>Events & Activation</li>
+      <li>Fixtures</li>
+      <li>POPs & Offsets</li>
+      <li>Wall Painting</li>
+      <li>Digital Marketing & WhatsApp Campaigns</li>
+    </ul>
+    <p>
+      Service scope, timelines, and costs are defined before project execution.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">Client Responsibilities</h3>
+    <p>Clients agree to:</p>
+    <ul className="list-disc list-inside">
+      <li>Provide accurate and lawful campaign information</li>
+      <li>Ensure content and contact data comply with applicable laws</li>
+      <li>Obtain prior consent from customers for WhatsApp or digital promotions</li>
+    </ul>
+    <p>
+      We are not responsible for issues arising from incorrect or unauthorized data provided by clients.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">Intellectual Property</h3>
+    <p>
+      All creatives, designs, and materials developed by us remain our intellectual property unless otherwise agreed in writing.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">Limitation of Liability</h3>
+    <p>We are not liable for:</p>
+    <ul className="list-disc list-inside">
+      <li>Platform downtime (Meta, WhatsApp, Google, etc.)</li>
+      <li>Third-party delays or failures</li>
+      <li>Marketing performance beyond agreed deliverables</li>
+    </ul>
+
+    <h3 className="text-white font-semibold text-base">Confidentiality</h3>
+    <p>
+      All client data and campaign details are treated as confidential and used only for service execution.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">Governing Law</h3>
+    <p>
+      These Terms are governed by the laws of India. Any disputes shall be subject to local jurisdiction.
+    </p>
+
+    <h3 className="text-white font-semibold text-base">Updates</h3>
+    <p>
+      We reserve the right to modify these Terms at any time. Continued use of our services indicates acceptance of updated terms.
+    </p>
+  </div>
+);
+
+
+
 
 const Footer = () => {
   // State to manage form data
@@ -32,6 +199,11 @@ const Footer = () => {
   });
 
   const [loading, setLoading] = useState<boolean>(false);
+
+
+    const [policyModal, setPolicyModal] = useState<"terms" | "privacy" | null>(
+    null
+  );
 
   // Handle input change
   const handleChange = (
@@ -69,62 +241,7 @@ const Footer = () => {
     return errors;
   };
 
-  // Handle form submission with Google Apps Script
-  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setLoading(true);
 
-  //   // Validate form
-  //   const errors = validateForm();
-  //   if (errors.length > 0) {
-  //     errors.forEach(error => toast.error(error));
-  //     setLoading(false);
-  //     return;
-  //   }
-
-  //   // Use the same Google Apps Script URL - you'll need to update your script to handle both formats
-  //   const APPS_SCRIPT_URL = 'http://localhost:3001/sendMailAdinnContactUs';
-
-  //   try {
-  //     const formDataToSend = {
-  //       firstName: formData.firstName.trim(),
-  //       lastName: formData.lastName.trim(),
-  //       email: formData.email.trim().toLowerCase(),
-  //       message: formData.message.trim(),
-  //       timestamp: new Date().toISOString(),
-  //       source: 'footer' // To identify which form was submitted
-  //     };
-
-  //     console.log('Sending data:', formDataToSend);
-
-  //     const response = await fetch(APPS_SCRIPT_URL, {
-  //       method: 'POST',
-  //       mode: 'no-cors',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify(formDataToSend)
-  //     });
-
-  //     // Since we're using no-cors mode, we can't read the response
-  //     // but if no error is thrown, we assume success
-  //     toast.success("Your message has been sent successfully!");
-
-  //     // Reset form after successful submission
-  //     setFormData({
-  //       firstName: '',
-  //       lastName: '',
-  //       email: '',
-  //       message: ''
-  //     });
-
-  //   } catch (error) {
-  //     console.error('Form submission error:', error);
-  //     toast.error('Network error. Please check your connection and try again.');
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -322,17 +439,70 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-white text-[12px] sm:text-sm md:text-[14.53px] text-center mt-8 sm:mt-10 md:mt-12">
-        © Designed & Developed by{" "}
-        <a
-          href="https://adinn.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:underline"
-        >
-          Adinn
-        </a>
+
+            {/* Bottom bar */}
+      <div className="relative mt-12 flex flex-col items-center gap-4">
+        {/* Left bottom links */}
+        <div className="flex gap-4 text-[12px] text-white/70">
+          <button
+            onClick={() => setPolicyModal("terms")}
+            className="hover:underline"
+          >
+            Terms & Conditions
+          </button>
+          <button
+            onClick={() => setPolicyModal("privacy")}
+            className="hover:underline"
+          >
+            Privacy Policy
+          </button>
+        </div>
+
+        {/* Center copyright */}
+        <div className="text-white text-[12px] sm:text-sm text-center">
+          © Designed & Developed by{" "}
+          <a
+            href="https://adinn.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Adinn
+          </a>
+        </div>
       </div>
+
+
+
+   
+            {/* Modal */}
+      {policyModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+          <div className="bg-[#111] text-white max-w-lg w-full mx-4 rounded-2xl p-6 relative">
+            <button
+              onClick={() => setPolicyModal(null)}
+              className="absolute top-3 right-4 text-xl"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-xl font-semibold mb-4">
+              {policyModal === "terms"
+                ? "Terms & Conditions"
+                : "Privacy Policy"}
+            </h2>
+
+            <div className="text-sm text-gray-300 space-y-3 max-h-[450px] overflow-y-auto hide-scrollbar">
+
+
+               {policyModal === "privacy" && <PrivacyPolicyContent />}
+              {policyModal === "terms" && <TermsContent />}
+             
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
