@@ -122,6 +122,7 @@ import React, { useEffect, useRef } from "react"
 import Image from "next/image"
 import CeoImage from "@/public/ceoImage.webp"
 import { gsap } from "gsap"
+import FooterMain from '../reusable-components/Footer';
 
 const Message = () => {
   // ✅ Static single content (first one only)
@@ -188,6 +189,11 @@ const Message = () => {
           </div>
         </div>
       </div>
+
+<div>
+  <FooterMain/>
+</div>
+      
     </div>
   )
 }

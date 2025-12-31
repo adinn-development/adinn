@@ -8,7 +8,7 @@ const page = () => {
     <div>
       <Form />
       <Message />
-    <ContactFooter />
+    {/* <ContactFooter />  */}
     </div>
   )
 }

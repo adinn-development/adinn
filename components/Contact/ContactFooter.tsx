@@ -56,19 +56,6 @@ const ContactFooter = () => {
             </div>
           </div>
 
-          {/* Middle Text */}
-          {/* <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-6 md:left-10 lg:left-16 flex flex-col gap-1 sm:gap-2 md:gap-3 text-white/80 text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] max-w-[85%] sm:max-w-[75%]">
-            <div>Email: info@adinn.co.in</div>
-            <div>Phone No.: +917373785057 | +919626987861</div>
-            <div>Address :  </div>
-            <div>29, 1st Cross Street, Vanamamalai Nagar,
-            Madurai-625010</div>
-             <div>Door No.3, Vijayalakshmi Street,
-            Nungambakkam,Chennai – 600034</div>
-             <div>Old No.76, New No.976,
-              Rajarajeswari Nagar,Bangalore – 560038</div>
-          </div> */}
-
           <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-6 md:left-10 lg:left-16 text-white/80 text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] space-y-1 sm:space-y-2 md:space-y-3 max-w-[85%] sm:max-w-[75%]">
             <div className="flex flex-col  sm:gap-1">
               <div>
