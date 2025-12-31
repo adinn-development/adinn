@@ -44,7 +44,9 @@ const PrivacyPolicyContent = () => (
       <li>Phone number, WhatsApp number, and email address</li>
       <li>Business address and location details</li>
       <li>Campaign-related data shared for service execution</li>
-      <li>Information submitted through website forms, WhatsApp, email, or calls</li>
+      <li>
+        Information submitted through website forms, WhatsApp, email, or calls
+      </li>
     </ul>
 
     <p>
@@ -54,7 +56,10 @@ const PrivacyPolicyContent = () => (
     <h3 className="text-white font-semibold text-base">
       How We Use Your Information
     </h3>
-    <p>We use the collected data strictly for legitimate business purposes such as:</p>
+    <p>
+      We use the collected data strictly for legitimate business purposes such
+      as:
+    </p>
     <ul className="list-disc pl-5 space-y-1">
       <li>Executing advertising and marketing campaigns</li>
       <li>Managing OOH Media, Roadshows, Signage, Events & Activation</li>
@@ -64,8 +69,9 @@ const PrivacyPolicyContent = () => (
     </ul>
 
     <h3 className="text-white font-semibold text-base">Data Sharing</h3>
-    
-    <p>We do not sell, rent, or misuse client data.<br></br>
+
+    <p>
+      We do not sell, rent, or misuse client data.<br></br>
       Information may be shared only with:
     </p>
     <ul className="list-disc pl-5 space-y-1">
@@ -126,7 +132,8 @@ const TermsContent = () => (
       <strong>Effective Date:</strong> 04-11-2014
     </p>
     <p>
-      By accessing our website or using our services, you agree to the following Terms & Conditions.
+      By accessing our website or using our services, you agree to the following
+      Terms & Conditions.
     </p>
 
     <h3 className="text-white font-semibold text-base">Services</h3>
@@ -145,23 +152,33 @@ const TermsContent = () => (
       Service scope, timelines, and costs are defined before project execution.
     </p>
 
-    <h3 className="text-white font-semibold text-base">Client Responsibilities</h3>
+    <h3 className="text-white font-semibold text-base">
+      Client Responsibilities
+    </h3>
     <p>Clients agree to:</p>
     <ul className="list-disc list-inside">
       <li>Provide accurate and lawful campaign information</li>
       <li>Ensure content and contact data comply with applicable laws</li>
-      <li>Obtain prior consent from customers for WhatsApp or digital promotions</li>
+      <li>
+        Obtain prior consent from customers for WhatsApp or digital promotions
+      </li>
     </ul>
     <p>
-      We are not responsible for issues arising from incorrect or unauthorized data provided by clients.
+      We are not responsible for issues arising from incorrect or unauthorized
+      data provided by clients.
     </p>
 
-    <h3 className="text-white font-semibold text-base">Intellectual Property</h3>
+    <h3 className="text-white font-semibold text-base">
+      Intellectual Property
+    </h3>
     <p>
-      All creatives, designs, and materials developed by us remain our intellectual property unless otherwise agreed in writing.
+      All creatives, designs, and materials developed by us remain our
+      intellectual property unless otherwise agreed in writing.
     </p>
 
-    <h3 className="text-white font-semibold text-base">Limitation of Liability</h3>
+    <h3 className="text-white font-semibold text-base">
+      Limitation of Liability
+    </h3>
     <p>We are not liable for:</p>
     <ul className="list-disc list-inside">
       <li>Platform downtime (Meta, WhatsApp, Google, etc.)</li>
@@ -171,23 +188,23 @@ const TermsContent = () => (
 
     <h3 className="text-white font-semibold text-base">Confidentiality</h3>
     <p>
-      All client data and campaign details are treated as confidential and used only for service execution.
+      All client data and campaign details are treated as confidential and used
+      only for service execution.
     </p>
 
     <h3 className="text-white font-semibold text-base">Governing Law</h3>
     <p>
-      These Terms are governed by the laws of India. Any disputes shall be subject to local jurisdiction.
+      These Terms are governed by the laws of India. Any disputes shall be
+      subject to local jurisdiction.
     </p>
 
     <h3 className="text-white font-semibold text-base">Updates</h3>
     <p>
-      We reserve the right to modify these Terms at any time. Continued use of our services indicates acceptance of updated terms.
+      We reserve the right to modify these Terms at any time. Continued use of
+      our services indicates acceptance of updated terms.
     </p>
   </div>
 );
-
-
-
 
 const Footer = () => {
   // State to manage form data
@@ -200,8 +217,7 @@ const Footer = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
 
-
-    const [policyModal, setPolicyModal] = useState<"terms" | "privacy" | null>(
+  const [policyModal, setPolicyModal] = useState<"terms" | "privacy" | null>(
     null
   );
 
@@ -240,8 +256,6 @@ const Footer = () => {
 
     return errors;
   };
-
-
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -320,29 +334,77 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
         {/* Left Section */}
         <div className="flex flex-col items-center lg:items-start gap-6 sm:gap-7 md:gap-8 w-full lg:w-[55%]">
-          <div className="relative w-full">
+          <div className="relative w-full min-h-[600px] sm:min-h-[480px] md:min-h-[520px]">
             <Image
               src={Card}
               alt="card"
-              className="w-full h-auto rounded-[20px] sm:rounded-[28px]"
+              fill
+              className="object-cover rounded-[20px] sm:rounded-[28px]"
+              priority
             />
-            <div className="absolute bottom-3 sm:bottom-6 md:bottom-8 left-3 sm:left-6 md:left-8 flex flex-col gap-1.5 sm:gap-2">
-              <div className="text-white text-lg sm:text-2xl xl:text-[34px] font-semibold leading-tight">
+            <div className="absolute  top-6 sm:top-8 md:top-10 left-3 sm:left-6 md:left-8 flex flex-col gap-2 sm:gap-3 max-w-[90%]">
+              {/* Heading */}
+              <div className="text-white m-3 mx-9 text-lg sm:text-2xl xl:text-[34px] font-semibold leading-tight">
                 Let&apos;s Work Together
               </div>
-              <span className="text-sm sm:text-base md:text-[21px] text-white/80">
-                info@adinn.co.in
-              </span>
+
+              {/* Phone Numbers */}
+              <div className="flex flex-col top-9 m-8 sm:gap-1 text-white">
+                <div>
+                  <span className="font-semibold">Email: </span>
+                  <a
+                    href="mailto:info@adinn.co.in"
+                    style={{ textDecoration: "none" }}
+                  >
+                    info@adinn.co.in
+                  </a>
+                </div>
+                <div>
+                  <span className="font-semibold">Phone: </span>
+                  <a href="tel:9790257861" style={{ textDecoration: "none" }}>
+                    {" "}
+                    +919790257861{" "}
+                  </a> |
+                  <a href="tel:9626987861" style={{ textDecoration: "none" }}>
+                    {" "}
+                    +919626987861{" "}
+                  </a> |
+                  <a href="tel:9626987861" style={{ textDecoration: "none" }}>
+                    {" "}
+                    +918015806062{" "}
+                  </a>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="flex flex-col m-8  sm:gap-2 mt-2 text-white">
+                <div>
+                  <span className="font-semibold">Address:</span>
+                </div>
+                <div>
+                  29, 1st Cross Street, Vanamamalai Nagar, <br></br>
+                  <b>Madurai-625010</b>
+                </div>
+                <div>
+                  Door No.3, Vijayalakshmi Street, Nungambakkam, <br></br>
+                  <b>Chennai – 600034</b>
+                </div>
+                <div>
+                  Old No.76, New No.976,Rajarajeswari Nagar,
+                  <br></br>
+                  <b>Bangalore – 560038</b>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="w-full">
+          {/* <div className="w-full">
             <Image
               src={AdinnLogoFooter}
               className="rounded-[20px] sm:rounded-[28px] w-full h-auto"
               alt="card"
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Right Section - Form */}
@@ -439,8 +501,7 @@ const Footer = () => {
         </div>
       </div>
 
-
-            {/* Bottom bar */}
+      {/* Bottom bar */}
       <div className="relative mt-12 flex flex-col items-center gap-4">
         {/* Left bottom links */}
         <div className="flex gap-4 text-[12px] text-white/70">
@@ -472,10 +533,7 @@ const Footer = () => {
         </div>
       </div>
 
-
-
-   
-            {/* Modal */}
+      {/* Modal */}
       {policyModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
           <div className="bg-[#111] text-white max-w-lg w-full mx-4 rounded-2xl p-6 relative">
@@ -493,16 +551,12 @@ const Footer = () => {
             </h2>
 
             <div className="text-sm text-gray-300 space-y-3 max-h-[450px] overflow-y-auto hide-scrollbar">
-
-
-               {policyModal === "privacy" && <PrivacyPolicyContent />}
+              {policyModal === "privacy" && <PrivacyPolicyContent />}
               {policyModal === "terms" && <TermsContent />}
-             
             </div>
           </div>
         </div>
       )}
-
     </div>
   );
 };
