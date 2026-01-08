@@ -319,8 +319,8 @@ Through well-planned advertising campaigns, Bhima Gold stands as a reputed jewel
     ],
   },
   {
-    name: "Roadshow",
-    lastWord: "Events",
+    name: "Roadshows",
+    // lastWord: "Events",
     images: [
       {
         id: 55,
@@ -1464,7 +1464,7 @@ Helped dealers sell better and customers choose confidently.`,
     ],
   },
   {
-    name: "Events & Activate",
+    name: "Events & Activations",
     lastWord: "Solutions",
     images: [
       {
