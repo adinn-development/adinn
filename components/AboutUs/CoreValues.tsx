@@ -6,7 +6,7 @@ const CoreValues = () => {
     const contents = [
         {
             title: 'Reliability',
-            description: 'We deliver on our promises and ensure our clients can depend on us to drive results.',
+            description: 'We delivers on our promises and ensure our clients can depend on us to drive results.',
             image: Reliability
         },
         {
