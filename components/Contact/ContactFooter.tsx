@@ -59,19 +59,16 @@ const ContactFooter = () => {
           <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-6 md:left-10 lg:left-16 text-white/80 text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] space-y-1 sm:space-y-2 md:space-y-3 max-w-[85%] sm:max-w-[75%]">
             <div className="flex flex-col  sm:gap-1">
               <div>
-                <span className="font-semibold">Email: </span>
-                <a
-                  href="mailto:info@adinn.co.in"
-                  style={{ textDecoration: "none" }}
-                >
-                  info@adinn.co.in
-                </a>,<a
-                  href="mailto:Marketing@adinn.com"
-                  style={{ textDecoration: "none" }}
-                >
-                  Marketing@adinn.com
-                </a>
-              </div>
+  <span className="font-semibold">Email: </span>
+  <a href="mailto:info@adinn.co.in" style={{ textDecoration: "none" }}>
+    info@adinn.co.in
+  </a>
+  {" | "}
+  <a href="mailto:Marketing@adinn.com" style={{ textDecoration: "none" }}>
+    Marketing@adinn.com
+  </a>
+</div>
+
               <div>
                 <span className="font-semibold">Phone: </span>
                 <a

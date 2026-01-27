@@ -358,6 +358,10 @@ const Footer = () => {
                   >
                     info@adinn.co.in
                   </a>
+                   {" | "}
+  <a href="mailto:Marketing@adinn.com" style={{ textDecoration: "none" }}>
+    Marketing@adinn.com
+  </a>
                 </div>
                 <div>
                   <span className="font-semibold">Phone: </span>
