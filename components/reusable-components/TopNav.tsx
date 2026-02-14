@@ -194,7 +194,7 @@ const TopNav = () => {
                 {showScrollTop && (
                     <motion.button
                         onClick={scrollToTop}
-                        className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#CF1E00] text-white 
+                        className="fixed bottom-20 right-4 z-50 w-12 h-12 rounded-full bg-[#CF1E00] text-white 
                             flex items-center justify-center shadow-lg hover:bg-[#a51800] 
                             hover:scale-110 transition-all duration-300 cursor-pointer"
                         initial={{ opacity: 0, scale: 0.5 }}

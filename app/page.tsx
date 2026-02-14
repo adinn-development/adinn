@@ -8,7 +8,7 @@ import LandingQueries from "@/components/Home/Queries";
 import Footer from "@/components/reusable-components/Footer";
 import Hero from "@/components/Home/Hero";
 import LandingClients from "@/components/Home/Clients";
-
+import SalesIQTracker  from './utils/SalesIQTracker';
 
 
 
@@ -17,6 +17,8 @@ import LandingClients from "@/components/Home/Clients";
 export default function Home() {
   return (
     <div className="overflow-x-hidden">
+      <SalesIQTracker />
+
       <Hero />
       <LandingContent />
       <LandingClients />
