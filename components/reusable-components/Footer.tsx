@@ -359,8 +359,8 @@ const Footer = () => {
                     info@adinn.co.in
                   </a>
                    {" | "}
-  <a href="mailto:Marketing@adinn.com" style={{ textDecoration: "none" }}>
-    Marketing@adinn.com
+  <a href="mailto:marketing@adinn.com" style={{ textDecoration: "none" }}>
+    marketing@adinn.com
   </a>
                 </div>
                 <div>
@@ -373,7 +373,7 @@ const Footer = () => {
                     {" "}
                     +919626987861{" "}
                   </a> |
-                  <a href="tel:9626987861" style={{ textDecoration: "none" }}>
+                  <a href="tel:8015806062" style={{ textDecoration: "none" }}>
                     {" "}
                     +918015806062{" "}
                   </a>
