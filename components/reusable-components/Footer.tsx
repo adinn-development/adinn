@@ -380,7 +380,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Address */}
+              {/* Addresss */}
               <div className="flex flex-col m-8  sm:gap-2 mt-2 text-white">
                 <div>
                   <span className="font-semibold">Address:</span>
