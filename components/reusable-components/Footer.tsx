@@ -334,7 +334,7 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
         {/* Left Section */}
         <div className="flex flex-col items-center lg:items-start gap-6 sm:gap-7 md:gap-8 w-full lg:w-[55%]">
-          <div className="relative w-full min-h-[600px] sm:min-h-[480px] md:min-h-[520px]">
+          <div className="relative w-full min-h-[600px] sm:min-h-[480px] md:min-h-[590px]">
             <Image
               src={Card}
               alt="card"
@@ -358,10 +358,10 @@ const Footer = () => {
                   >
                     info@adinn.co.in
                   </a>
-                   {" | "}
-  <a href="mailto:marketing@adinn.com" style={{ textDecoration: "none" }}>
-    marketing@adinn.com
-  </a>
+                  {" | "}
+                  <a href="mailto:marketing@adinn.com" style={{ textDecoration: "none" }}>
+                    marketing@adinn.com
+                  </a>
                 </div>
                 <div>
                   <span className="font-semibold">Phone: </span>
@@ -376,6 +376,14 @@ const Footer = () => {
                   <a href="tel:8015806062" style={{ textDecoration: "none" }}>
                     {" "}
                     +918015806062{" "}
+                  </a>
+                  |
+                  <a
+                    href="tel:9677039769"
+                    style={{ textDecoration: "none" }}
+                  >
+                    {" "}
+                    +919677039769{" "}
                   </a>
                 </div>
               </div>
@@ -397,6 +405,10 @@ const Footer = () => {
                   Old No.76, New No.976,Rajarajeswari Nagar,
                   <br></br>
                   <b>Bangalore – 560038</b>
+                </div>
+                <div>
+                  No. 13 Sivasakthi Colony, (Near coimbatore roller flour mill), Ganapathy,
+                  <br></br><b>Coimbatore - 641006</b>
                 </div>
               </div>
             </div>
