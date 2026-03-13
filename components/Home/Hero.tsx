@@ -1,5 +1,3 @@
-//model load in cache
-//model load in cache
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -15,7 +13,7 @@ export default function Hero() {
   useEffect(() => {
     if (!mountRef.current) return;
     let renderer: THREE.WebGLRenderer | null = null;
-
+    let mouseMovedAfterIntro = false;
     /* SCENE */
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xa0d8f0);
@@ -198,7 +196,7 @@ export default function Hero() {
 
     let introProgress = 0;
     const introDuration = 6;
-
+    let introFinished = false;
     function easeInOutCubic(t: number) {
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
@@ -227,7 +225,12 @@ export default function Hero() {
 
         controls.target.lerp(target, 0.08);
 
-        if (t >= 1) controls.enabled = true;
+        if (t >= 1) {
+          controls.enabled = true;
+          introFinished = true;
+           mouse.set(999, 999);
+            hoveredBuilding = null;
+        }
       }
 
       if (mixer) mixer.update(delta);
@@ -235,63 +238,64 @@ export default function Hero() {
       controls.update();
 
       /* ---------- HOVER DETECTION ---------- */
+      if (introFinished && mouseMovedAfterIntro) {
+        const groups = Object.values(buildingGroups);
 
-      const groups = Object.values(buildingGroups);
+        if (groups.length > 0) {
+          raycaster.setFromCamera(mouse, camera);
 
-      if (groups.length > 0) {
-        raycaster.setFromCamera(mouse, camera);
+          const buildingIntersects = raycaster.intersectObjects(groups, true);
+          const groundIntersects = raycaster.intersectObject(groundPlane);
 
-        const buildingIntersects = raycaster.intersectObjects(groups, true);
-        const groundIntersects = raycaster.intersectObject(groundPlane);
+          if (buildingIntersects.length > 0) {
+            if (roadTimer) {
+              clearTimeout(roadTimer);
+              roadTimer = null;
+            }
+            document.body.style.cursor = "pointer";
 
-        if (buildingIntersects.length > 0) {
-          if (roadTimer) {
-            clearTimeout(roadTimer);
-            roadTimer = null;
-          }
-          document.body.style.cursor = "pointer";
+            let building: THREE.Object3D | null = buildingIntersects[0].object;
 
-          let building: THREE.Object3D | null = buildingIntersects[0].object;
-
-          while (building && !building.name.endsWith("_grp")) {
-            building = building.parent;
-          }
-
-          if (!building) {
-            renderer.render(scene, camera);
-            return;
-          }
-
-          if (nonClickable.includes(building.name)) {
-            if (currentModelName !== "all_services") {
-              switchModel("all_services");
+            while (building && !building.name.endsWith("_grp")) {
+              building = building.parent;
             }
 
-            hoveredBuilding = null;
+            if (!building) {
+              renderer.render(scene, camera);
+              return;
+            }
 
-            return;
-          }
-          if (building !== hoveredBuilding) {
-            hoveredBuilding = building;
+            if (nonClickable.includes(building.name)) {
+              if (currentModelName !== "all_services") {
+                switchModel("all_services");
+              }
 
-            const modelName = building.name;
-
-            switchModel(modelName);
-          }
-        } else {
-          document.body.style.cursor = "default";
-
-          if (groundIntersects.length > 0) {
-            if (hoveredBuilding !== null) {
               hoveredBuilding = null;
 
-              if (roadTimer) clearTimeout(roadTimer);
+              return;
+            }
+            if (building !== hoveredBuilding) {
+              hoveredBuilding = building;
 
-              roadTimer = setTimeout(() => {
-                if (currentModelName !== "all_services") {
-                  switchModel("all_services");
-                }
-              }, ROAD_DELAY);
+              const modelName = building.name;
+
+              switchModel(modelName);
+            }
+          } else {
+            document.body.style.cursor = "default";
+
+            if (groundIntersects.length > 0) {
+              if (hoveredBuilding !== null) {
+                hoveredBuilding = null;
+
+                if (roadTimer) clearTimeout(roadTimer);
+
+                roadTimer = setTimeout(() => {
+                  if (currentModelName !== "all_services") {
+                    switchModel("all_services");
+                  }
+                }, ROAD_DELAY);
+              }
             }
           }
         }
@@ -402,6 +406,10 @@ export default function Hero() {
     window.addEventListener("mousemove", (event) => {
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      if (introFinished) {
+        mouseMovedAfterIntro = true;
+      }
     });
 
     window.addEventListener("click", () => {
@@ -438,5 +446,3 @@ export default function Hero() {
     />
   );
 }
-
-
