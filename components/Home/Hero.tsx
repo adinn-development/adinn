@@ -88,10 +88,10 @@ export default function Hero() {
     controls.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
     controls.mouseButtons.LEFT = THREE.MOUSE.PAN;
 
-    controls.minAzimuthAngle = Math.PI / 0.7;
-    controls.maxAzimuthAngle = Math.PI / 2;
+    controls.minAzimuthAngle = -0.82271; // left limit
+    controls.maxAzimuthAngle = -0.30;  // right limit
 
-    controls.minPolarAngle = Math.PI / 4;
+    controls.minPolarAngle = Math.PI / 2.5;
     controls.maxPolarAngle = Math.PI / 2.4;
 
     /* HDRI */
@@ -311,6 +311,8 @@ export default function Hero() {
       renderer.render(scene, camera);
     }
 
+    
+
     function switchModel(name: string) {
       if (name === currentModelName) return;
 
@@ -341,11 +343,11 @@ export default function Hero() {
               const mesh = obj as THREE.Mesh;
               if (Array.isArray(mesh.material)) {
                 mesh.material.forEach((mat: any) => {
-                  if (mat.color) mat.color.set("#F1F0F0");
+                  if (mat.color) mat.color.set("#b9b9b9");
                 });
               } else {
                 const material = mesh.material as THREE.MeshStandardMaterial;
-                material.color.set("#F1F0F0");
+                material.color.set("#b9b9b9");
               }
             } /* change Ground1 color */
 
@@ -419,7 +421,15 @@ export default function Hero() {
 
       // alert("Clicked Building : " + hoveredBuilding.name);
     });
+controls.addEventListener("change", () => {
+  console.clear();
 
+  const azimuth = controls.getAzimuthalAngle();
+  const polar = controls.getPolarAngle();
+
+  console.log("Left / Right Rotation (Azimuth):", azimuth);
+  console.log("Up / Down Rotation (Polar):", polar);
+});
     return () => {
       window.removeEventListener("resize", handleResize);
 
