@@ -17,7 +17,8 @@ export default function Hero() {
     /* SCENE */
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xa0d8f0);
-
+    
+let isUserControllingCamera = false;
     /* CAMERA */
 
     const camera = new THREE.PerspectiveCamera(
@@ -238,7 +239,7 @@ export default function Hero() {
       controls.update();
 
       /* ---------- HOVER DETECTION ---------- */
-      if (introFinished && mouseMovedAfterIntro) {
+      if (introFinished && mouseMovedAfterIntro && !isUserControllingCamera) {
         const groups = Object.values(buildingGroups);
 
         if (groups.length > 0) {
@@ -429,6 +430,16 @@ controls.addEventListener("change", () => {
 
   console.log("Left / Right Rotation (Azimuth):", azimuth);
   console.log("Up / Down Rotation (Polar):", polar);
+});
+
+controls.addEventListener("start", () => {
+  isUserControllingCamera = true;
+});
+
+controls.addEventListener("end", () => {
+  setTimeout(() => {
+    isUserControllingCamera = false;
+  }, 100); // small delay prevents accidental hover switch
 });
     return () => {
       window.removeEventListener("resize", handleResize);
