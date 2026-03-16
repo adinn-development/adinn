@@ -18,9 +18,9 @@ export default function Hero() {
     let mouseMovedAfterIntro = false;
     let targetAzimuth = 0;
     let targetPolar = 0;
-
+    let isDisposed = false;
     let isMouseMoving = false;
-let mouseStopTimer: NodeJS.Timeout | null = null;
+    let mouseStopTimer: NodeJS.Timeout | null = null;
 
     const mouseRotationStrength = 0.35; // sensitivity
     const rotationSmooth = 0.05;
@@ -113,8 +113,8 @@ let mouseStopTimer: NodeJS.Timeout | null = null;
     controls.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
     controls.mouseButtons.LEFT = THREE.MOUSE.PAN;
 
-controls.minAzimuthAngle = -0.65; // left
-controls.maxAzimuthAngle = -0.55; // right
+    controls.minAzimuthAngle = -0.65; // left
+    controls.maxAzimuthAngle = -0.55; // right
 
     controls.minPolarAngle = Math.PI / 2.45; // up
     controls.maxPolarAngle = Math.PI / 2.42; // down
@@ -250,13 +250,14 @@ controls.maxAzimuthAngle = -0.55; // right
     const cameraSpeed = 1.25;
     let animationId: number;
     function animate() {
+      if (isDisposed) return;
       animationId = requestAnimationFrame(animate);
 
       const delta = clock.getDelta();
 
       /* CAMERA INTRO ANIMATION */
 
-      if (introProgress < 1) {
+      if (introProgress < 1 && modelsReady) {
         introProgress += (delta * cameraSpeed) / introDuration;
 
         const t = Math.min(introProgress, 1);
@@ -284,7 +285,12 @@ controls.maxAzimuthAngle = -0.55; // right
       if (mixer) mixer.update(delta);
 
       limitPan();
-      if (introFinished && mouseMovedAfterIntro && !isUserControllingCamera) {
+      if (
+        modelsReady &&
+        introFinished &&
+        mouseMovedAfterIntro &&
+        !isUserControllingCamera
+      ) {
         const rotationSpeedX = 0.35;
         const rotationSpeedY = 1.2;
 
@@ -387,6 +393,12 @@ controls.maxAzimuthAngle = -0.55; // right
       currentModelName = name;
       currentModel = newModel;
     }
+
+    let modelsLoaded = 0;
+    const totalModels = buildingModels.length;
+    let modelsReady = false;
+    preloadModels();
+    animate();
     function preloadModels() {
       buildingModels.forEach((name) => {
         const path = `/models/${name}.glb`;
@@ -447,11 +459,16 @@ controls.maxAzimuthAngle = -0.55; // right
               obj.receiveShadow = false;
             }
           });
+
+          modelsLoaded++;
+
+          if (modelsLoaded === totalModels) {
+            modelsReady = true;
+            console.log("All models loaded. Starting intro animation.");
+          }
         });
       });
     }
-    preloadModels();
-    animate();
 
     /* RESIZE */
 
@@ -464,39 +481,39 @@ controls.maxAzimuthAngle = -0.55; // right
 
     window.addEventListener("resize", handleResize);
 
-  window.addEventListener("mousemove", (event) => {
-  const newMouseX = (event.clientX / window.innerWidth) * 2 - 1;
-  const newMouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    const handleMouseMove = (event: MouseEvent) => {
+      const newMouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      const newMouseY = -(event.clientY / window.innerHeight) * 2 + 1;
 
-  mouse.x = newMouseX;
-  mouse.y = newMouseY;
+      mouse.x = newMouseX;
+      mouse.y = newMouseY;
 
-  mouseDeltaX = THREE.MathUtils.clamp(newMouseX - prevMouseX, -0.05, 0.05);
-  mouseDeltaY = THREE.MathUtils.clamp(newMouseY - prevMouseY, -0.05, 0.05);
+      mouseDeltaX = THREE.MathUtils.clamp(newMouseX - prevMouseX, -0.05, 0.05);
+      mouseDeltaY = THREE.MathUtils.clamp(newMouseY - prevMouseY, -0.05, 0.05);
 
-  prevMouseX = newMouseX;
-  prevMouseY = newMouseY;
+      prevMouseX = newMouseX;
+      prevMouseY = newMouseY;
 
-  if (introFinished) mouseMovedAfterIntro = true;
+      if (introFinished) mouseMovedAfterIntro = true;
 
-  // Detect movement
-  isMouseMoving = true;
+      // Detect movement
+      isMouseMoving = true;
 
-  if (mouseStopTimer) clearTimeout(mouseStopTimer);
+      if (mouseStopTimer) clearTimeout(mouseStopTimer);
 
-  mouseStopTimer = setTimeout(() => {
-    isMouseMoving = false;
-  }, 150); // hover activates after mouse stops
-});
-
-    window.addEventListener("click", () => {
+      mouseStopTimer = setTimeout(() => {
+        isMouseMoving = false;
+      }, 150); // hover activates after mouse stops
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    const handleClick = () => {
       if (!hoveredBuilding) return;
 
       if (nonClickable.includes(hoveredBuilding.name)) return;
 
       // alert("Clicked Building : " + hoveredBuilding.name);
-    });
-
+    };
+    window.addEventListener("click", handleClick);
     controls.addEventListener("start", () => {
       isUserControllingCamera = true;
     });
@@ -516,15 +533,39 @@ controls.maxAzimuthAngle = -0.55; // right
       console.log("Z (Forward / Back):", controls.target.z);
     });
     return () => {
+      isDisposed = true;
+
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("click", handleClick);
 
       cancelAnimationFrame(animationId);
 
       controls.dispose();
       dracoLoader.dispose();
+
+      video.pause();
+      video.src = "";
+
+      scene.traverse((obj) => {
+        if ((obj as THREE.Mesh).geometry) {
+          (obj as THREE.Mesh).geometry.dispose();
+        }
+
+        if ((obj as THREE.Mesh).material) {
+          const material = (obj as THREE.Mesh).material;
+
+          if (Array.isArray(material)) {
+            material.forEach((m) => m.dispose());
+          } else {
+            material.dispose();
+          }
+        }
+      });
+
       if (renderer) renderer.dispose();
 
-      if (mountRef.current && renderer.domElement) {
+      if (mountRef.current && renderer?.domElement) {
         mountRef.current.removeChild(renderer.domElement);
       }
     };
