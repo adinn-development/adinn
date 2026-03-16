@@ -1,3 +1,5 @@
+// need to control right and left rotation values
+//without auto rotation
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -14,11 +16,33 @@ export default function Hero() {
     if (!mountRef.current) return;
     let renderer: THREE.WebGLRenderer | null = null;
     let mouseMovedAfterIntro = false;
+    let targetAzimuth = 0;
+    let targetPolar = 0;
+
+    let isMouseMoving = false;
+let mouseStopTimer: NodeJS.Timeout | null = null;
+
+    const mouseRotationStrength = 0.35; // sensitivity
+    const rotationSmooth = 0.05;
+
+    // PARALLAX CAMERA
+    const parallaxStrengthX = 2.5;
+    const parallaxStrengthY = 1.2;
+
+    const parallaxTarget = new THREE.Vector3();
+    const parallaxCurrent = new THREE.Vector3();
+
+    const parallaxSmooth = 0.05;
+
+    let prevMouseX = 0;
+    let prevMouseY = 0;
+    let mouseDeltaX = 0;
+    let mouseDeltaY = 0;
     /* SCENE */
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xa0d8f0);
-    
-let isUserControllingCamera = false;
+
+    let isUserControllingCamera = false;
     /* CAMERA */
 
     const camera = new THREE.PerspectiveCamera(
@@ -89,11 +113,11 @@ let isUserControllingCamera = false;
     controls.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
     controls.mouseButtons.LEFT = THREE.MOUSE.PAN;
 
-    controls.minAzimuthAngle = -0.82271; // left limit
-    controls.maxAzimuthAngle = -0.30;  // right limit
+controls.minAzimuthAngle = -0.65; // left
+controls.maxAzimuthAngle = -0.55; // right
 
-    controls.minPolarAngle = Math.PI / 2.5;
-    controls.maxPolarAngle = Math.PI / 2.4;
+    controls.minPolarAngle = Math.PI / 2.45; // up
+    controls.maxPolarAngle = Math.PI / 2.42; // down
 
     /* HDRI */
 
@@ -180,19 +204,39 @@ let isUserControllingCamera = false;
     // controls pan limit
 
     function limitPan() {
-      const minX = -10;
-      const maxX = 10;
-      const minZ = -1;
-      const maxZ = 5;
+      const minX = -2.3;
+      const maxX = 12.6;
 
-      const minY = -5;
-      const maxY = 10;
+      const minY = -6.4;
+      const maxY = 7.4;
 
-      controls.target.x = Math.max(minX, Math.min(maxX, controls.target.x));
-      controls.target.y = Math.max(minY, Math.min(maxY, controls.target.y));
-      controls.target.z = Math.max(minZ, Math.min(maxZ, controls.target.z));
+      const minZ = -14.7;
+      const maxZ = -0.3;
+
+      const target = controls.target;
+
+      const clampedX = THREE.MathUtils.clamp(target.x, minX, maxX);
+      const clampedY = THREE.MathUtils.clamp(target.y, minY, maxY);
+      const clampedZ = THREE.MathUtils.clamp(target.z, minZ, maxZ);
+
+      // Only update if actually outside bounds
+      if (
+        clampedX !== target.x ||
+        clampedY !== target.y ||
+        clampedZ !== target.z
+      ) {
+        const delta = new THREE.Vector3(
+          clampedX - target.x,
+          clampedY - target.y,
+          clampedZ - target.z,
+        );
+
+        target.set(clampedX, clampedY, clampedZ);
+
+        // Move camera with target so zoom doesn't change
+        camera.position.add(delta);
+      }
     }
-
     /* CAMERA INTRO */
 
     let introProgress = 0;
@@ -225,83 +269,99 @@ let isUserControllingCamera = false;
         target.lerpVectors(startTarget, endTarget, easedT);
 
         controls.target.lerp(target, 0.08);
-
         if (t >= 1) {
           controls.enabled = true;
           introFinished = true;
-           mouse.set(999, 999);
-            hoveredBuilding = null;
+          mouse.set(999, 999);
+          // mouse.set(0, 0);
+          hoveredBuilding = null;
+
+          targetAzimuth = controls.getAzimuthalAngle();
+          targetPolar = controls.getPolarAngle();
         }
       }
 
       if (mixer) mixer.update(delta);
 
+      limitPan();
+      if (introFinished && mouseMovedAfterIntro && !isUserControllingCamera) {
+        const rotationSpeedX = 0.35;
+        const rotationSpeedY = 1.2;
+
+        // update target rotation
+        targetAzimuth -= mouseDeltaX * rotationSpeedX;
+        targetPolar -= mouseDeltaY * rotationSpeedY;
+
+        // clamp limits
+        targetAzimuth = THREE.MathUtils.clamp(
+          targetAzimuth,
+          controls.minAzimuthAngle,
+          controls.maxAzimuthAngle,
+        );
+
+        targetPolar = THREE.MathUtils.clamp(
+          targetPolar,
+          controls.minPolarAngle,
+          controls.maxPolarAngle,
+        );
+
+        // current camera angles
+        const currentAzimuth = controls.getAzimuthalAngle();
+        const currentPolar = controls.getPolarAngle();
+
+        // smooth interpolation
+        const smooth = 0.08;
+
+        const newAzimuth = THREE.MathUtils.lerp(
+          currentAzimuth,
+          targetAzimuth,
+          smooth,
+        );
+        const newPolar = THREE.MathUtils.lerp(
+          currentPolar,
+          targetPolar,
+          smooth,
+        );
+
+        controls.rotateLeft(currentAzimuth - newAzimuth);
+        controls.rotateUp(currentPolar - newPolar);
+
+        mouseDeltaX = 0;
+        mouseDeltaY = 0;
+      }
       controls.update();
 
       /* ---------- HOVER DETECTION ---------- */
-      if (introFinished && mouseMovedAfterIntro && !isUserControllingCamera) {
-        const groups = Object.values(buildingGroups);
 
-        if (groups.length > 0) {
-          raycaster.setFromCamera(mouse, camera);
+      if (introFinished && !isUserControllingCamera && !isMouseMoving) {
+        raycaster.setFromCamera(mouse, camera);
 
-          const buildingIntersects = raycaster.intersectObjects(groups, true);
-          const groundIntersects = raycaster.intersectObject(groundPlane);
+        const intersects = raycaster.intersectObjects(
+          Object.values(buildingGroups),
+          true,
+        );
 
-          if (buildingIntersects.length > 0) {
-            if (roadTimer) {
-              clearTimeout(roadTimer);
-              roadTimer = null;
-            }
-            document.body.style.cursor = "pointer";
+        if (intersects.length > 0) {
+          let obj: THREE.Object3D | null = intersects[0].object;
 
-            let building: THREE.Object3D | null = buildingIntersects[0].object;
+          while (obj && !obj.name.endsWith("_grp")) {
+            obj = obj.parent;
+          }
 
-            while (building && !building.name.endsWith("_grp")) {
-              building = building.parent;
-            }
+          if (obj && obj !== hoveredBuilding) {
+            hoveredBuilding = obj;
 
-            if (!building) {
-              renderer.render(scene, camera);
-              return;
-            }
+            const modelName = obj.name;
 
-            if (nonClickable.includes(building.name)) {
-              if (currentModelName !== "all_services") {
-                switchModel("all_services");
-              }
-
-              hoveredBuilding = null;
-
-              return;
-            }
-            if (building !== hoveredBuilding) {
-              hoveredBuilding = building;
-
-              const modelName = building.name;
-
-              switchModel(modelName);
-            }
-          } else {
-            document.body.style.cursor = "default";
-
-            if (groundIntersects.length > 0) {
-              if (hoveredBuilding !== null) {
-                hoveredBuilding = null;
-
-                if (roadTimer) clearTimeout(roadTimer);
-
-                roadTimer = setTimeout(() => {
-                  if (currentModelName !== "all_services") {
-                    switchModel("all_services");
-                  }
-                }, ROAD_DELAY);
-              }
+            if (!nonClickable.includes(modelName)) {
+              // switchModel(modelName);
             }
           }
+        } else {
+          hoveredBuilding = null;
+          switchModel("all_services");
         }
       }
-
       /* ---------- FLOATING CAMERA ---------- */
 
       if (introProgress >= 1) {
@@ -311,8 +371,6 @@ let isUserControllingCamera = false;
 
       renderer.render(scene, camera);
     }
-
-    
 
     function switchModel(name: string) {
       if (name === currentModelName) return;
@@ -406,14 +464,30 @@ let isUserControllingCamera = false;
 
     window.addEventListener("resize", handleResize);
 
-    window.addEventListener("mousemove", (event) => {
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  window.addEventListener("mousemove", (event) => {
+  const newMouseX = (event.clientX / window.innerWidth) * 2 - 1;
+  const newMouseY = -(event.clientY / window.innerHeight) * 2 + 1;
 
-      if (introFinished) {
-        mouseMovedAfterIntro = true;
-      }
-    });
+  mouse.x = newMouseX;
+  mouse.y = newMouseY;
+
+  mouseDeltaX = THREE.MathUtils.clamp(newMouseX - prevMouseX, -0.05, 0.05);
+  mouseDeltaY = THREE.MathUtils.clamp(newMouseY - prevMouseY, -0.05, 0.05);
+
+  prevMouseX = newMouseX;
+  prevMouseY = newMouseY;
+
+  if (introFinished) mouseMovedAfterIntro = true;
+
+  // Detect movement
+  isMouseMoving = true;
+
+  if (mouseStopTimer) clearTimeout(mouseStopTimer);
+
+  mouseStopTimer = setTimeout(() => {
+    isMouseMoving = false;
+  }, 150); // hover activates after mouse stops
+});
 
     window.addEventListener("click", () => {
       if (!hoveredBuilding) return;
@@ -422,25 +496,25 @@ let isUserControllingCamera = false;
 
       // alert("Clicked Building : " + hoveredBuilding.name);
     });
-controls.addEventListener("change", () => {
-  console.clear();
 
-  const azimuth = controls.getAzimuthalAngle();
-  const polar = controls.getPolarAngle();
+    controls.addEventListener("start", () => {
+      isUserControllingCamera = true;
+    });
 
-  console.log("Left / Right Rotation (Azimuth):", azimuth);
-  console.log("Up / Down Rotation (Polar):", polar);
-});
+    controls.addEventListener("end", () => {
+      setTimeout(() => {
+        isUserControllingCamera = false;
+      }, 100); // small delay prevents accidental hover switch
+    });
 
-controls.addEventListener("start", () => {
-  isUserControllingCamera = true;
-});
+    controls.addEventListener("change", () => {
+      console.clear();
 
-controls.addEventListener("end", () => {
-  setTimeout(() => {
-    isUserControllingCamera = false;
-  }, 100); // small delay prevents accidental hover switch
-});
+      console.log("PAN TARGET POSITION");
+      console.log("X (Left / Right):", controls.target.x);
+      console.log("Y (Up / Down):", controls.target.y);
+      console.log("Z (Forward / Back):", controls.target.z);
+    });
     return () => {
       window.removeEventListener("resize", handleResize);
 
