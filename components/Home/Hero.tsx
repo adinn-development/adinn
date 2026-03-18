@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EXRLoader } from "three/examples/jsm/loaders/EXRLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
@@ -23,8 +23,8 @@ export default function Hero() {
     const camera = new THREE.PerspectiveCamera(
       15,
       window.innerWidth / window.innerHeight,
-      1,
-      1000,
+      0.1, // ✅ FIX
+      2000 // ✅ FIX
     );
     camera.position.set(-28, 21, 33);
 
@@ -74,6 +74,8 @@ export default function Hero() {
     let cleanupSubModel: (() => void) | null = null;
 
     function loadSubModel(name: string) {
+      if (!mainModel) return;
+
       // cleanup previous
       if (cleanupSubModel) {
         cleanupSubModel();
@@ -88,24 +90,20 @@ export default function Hero() {
       mainModel.visible = false;
 
       if (name === "road_show_building_grp") {
-        cleanupSubModel = setupRoadshow(scene, camera, controls, (model) => {
-          currentSubModel = model;
-        });
-      }
-    }
-    /* ---------------- BACK TO MAIN ---------------- */
-    function backToMain() {
-      if (cleanupSubModel) {
-        cleanupSubModel();
-        cleanupSubModel = null;
-      }
+        cleanupSubModel = setupRoadshow(
+          scene,
+          camera,
+          controls,
+          (model) => {
+            currentSubModel = model;
 
-      if (currentSubModel) {
-        scene.remove(currentSubModel);
-        currentSubModel = null;
+            /* 🔥 IMPORTANT CAMERA RESET */
+            camera.position.set(60, 20, 60);
+            controls.target.set(0, 0, 0);
+            controls.update();
+          }
+        );
       }
-
-      mainModel.visible = true;
     }
 
     /* ---------------- CLICK ---------------- */
@@ -113,6 +111,8 @@ export default function Hero() {
     const mouse = new THREE.Vector2();
 
     window.addEventListener("click", (event) => {
+      if (!mainModel || !mainModel.visible) return;
+
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -120,7 +120,7 @@ export default function Hero() {
 
       const intersects = raycaster.intersectObjects(
         Object.values(buildingGroups),
-        true,
+        true
       );
 
       if (intersects.length > 0) {
