@@ -365,25 +365,40 @@ const Footer = () => {
                 </div>
                 <div>
                   <span className="font-semibold">Phone: </span>
-                  <a href="tel:9790257861" style={{ textDecoration: "none" }}>
-                    {" "}
-                    +919790257861{" "}
-                  </a> |
-                  <a href="tel:9626987861" style={{ textDecoration: "none" }}>
-                    {" "}
-                    +919626987861{" "}
-                  </a> |
+                  {/* YOGESH  - ADMIN */}
                   <a href="tel:8015806062" style={{ textDecoration: "none" }}>
                     {" "}
                     +918015806062{" "}
+                  </a> |
+                  {/* VIJAY - DIGITAL  */}
+                  <a href="tel:9626987861" style={{ textDecoration: "none" }}>
+                    {" "}
+                    +919626987861{" "}
+                  </a>|
+                  {/* OUTDOOR -  VINOTH  */}
+                  {/* <a href="tel:9790257861" style={{ textDecoration: "none" }}>
+                    {" "}
+                    +919790257861{" "}
+                  </a> */}
+                  <a href="tel:7373785048" style={{ textDecoration: "none" }}>
+                    {" "}
+                    +917373785048{" "}
                   </a>
                   |
-                  <a
+                  {/* <a
                     href="tel:9677039769"
                     style={{ textDecoration: "none" }}
                   >
                     {" "}
                     +919677039769{" "}
+                  </a> */}
+                  {/* ESWARI -  ROADSHOWS  */}
+                  <a
+                    href="tel:7339509090"
+                    style={{ textDecoration: "none" }}
+                  >
+                    {" "}
+                    +917339509090{" "}
                   </a>
                 </div>
               </div>
@@ -394,21 +409,24 @@ const Footer = () => {
                   <span className="font-semibold">Address:</span>
                 </div>
                 <div>
-                  29, 1st Cross Street, Vanamamalai Nagar, <br></br>
-                  <b>Madurai-625010</b>
+                  29, 1st Cross Street, Vanamamalai Nagar, Bypass road, <br></br>
+                  <b>Madurai - 625010.</b>
                 </div>
                 <div>
-                  Door No.3, Vijayalakshmi Street, Nungambakkam, <br></br>
-                  <b>Chennai – 600034</b>
-                </div>
-                <div>
-                  Old No.76, New No.976,Rajarajeswari Nagar,
+                  No. 3, Vijayalakshmi Street, Mahalingapuram,
+                  Nungambakkam,
                   <br></br>
-                  <b>Bangalore – 560038</b>
+                  <b>Chennai - 600034.</b>
                 </div>
                 <div>
-                  No. 13 Sivasakthi Colony, (Near coimbatore roller flour mill), Ganapathy,
-                  <br></br><b>Coimbatore - 641006</b>
+                  No. 407/8, 4th Cross, Jayanagar 7th Block,
+                  Opp- Saraswat Cooperative Bank,
+                  <br></br>
+                  <b>Bangalore - 560070.</b>
+                </div>
+                <div>
+                  No. 13,  Sivasakthi Colony, (Near coimbatore roller flour mill), Ganapathy,
+                  <br></br><b>Coimbatore - 641006.</b>
                 </div>
               </div>
             </div>
