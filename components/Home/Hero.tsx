@@ -8,7 +8,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EXRLoader } from "three/examples/jsm/loaders/EXRLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { createThreeBase } from "./lib/threeSetup";
-import { roadshowModule } from "./lib/roadshowModule";
+
 export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLVideoElement>(null);
@@ -25,18 +25,6 @@ export default function Hero() {
     let isDisposed = false;
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
-
-    const mouseRotationStrength = 0.35; // sensitivity
-    const rotationSmooth = 0.05;
-
-    // PARALLAX CAMERA
-    const parallaxStrengthX = 2.5;
-    const parallaxStrengthY = 1.2;
-
-    const parallaxTarget = new THREE.Vector3();
-    const parallaxCurrent = new THREE.Vector3();
-
-    const parallaxSmooth = 0.05;
 
     let prevMouseX = 0;
     let prevMouseY = 0;
@@ -112,16 +100,6 @@ export default function Hero() {
 
     controls.minPolarAngle = Math.PI / 2.45; // up
     controls.maxPolarAngle = Math.PI / 2.42; // down
-
-    // /* HDRI */
-
-    // const exrLoader = new EXRLoader();
-
-    // exrLoader.load("/light-settings.exr", (texture: THREE.DataTexture) => {
-    //   texture.mapping = THREE.EquirectangularReflectionMapping;
-    //   scene.environment = texture;
-    // });
-
     /* VIDEO TEXTURE */
 
     const video = document.createElement("video");
@@ -174,8 +152,7 @@ export default function Hero() {
     scene.add(groundPlane);
 
     let hoveredBuilding: THREE.Object3D | null = null;
-    let roadTimer: NodeJS.Timeout | null = null;
-    const ROAD_DELAY = 600; // 1.2 seconds
+
 
     const nonClickable = ["hq_back_dummy_building_grp"];
 
@@ -191,9 +168,6 @@ export default function Hero() {
       "wall_painting_building_grp",
       "ooh_building_grp",
     ];
-
-    let mouseX = 0;
-    let mouseY = 0;
 
     // controls pan limit
 
@@ -586,10 +560,6 @@ export default function Hero() {
     controls.addEventListener("change", () => {
       console.clear();
 
-      console.log("PAN TARGET POSITION");
-      console.log("X (Left / Right):", controls.target.x);
-      console.log("Y (Up / Down):", controls.target.y);
-      console.log("Z (Forward / Back):", controls.target.z);
     });
     return () => {
       isDisposed = true;
