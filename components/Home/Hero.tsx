@@ -8,16 +8,17 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EXRLoader } from "three/examples/jsm/loaders/EXRLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { createThreeBase } from "./lib/threeSetup";
-import {roadshowModule} from "./lib/roadshowModule"
+import { roadshowModule } from "./lib/roadshowModule";
 export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     let currentScreen: "main" | "roadshow" = "main";
     if (!mountRef.current) return;
-    const { scene, camera, renderer, controls } =
-  createThreeBase(mountRef.current);
-    
+    const { scene, camera, renderer, controls } = createThreeBase(
+      mountRef.current,
+    );
+
     let mouseMovedAfterIntro = false;
     let targetAzimuth = 0;
     let targetPolar = 0;
@@ -42,13 +43,11 @@ export default function Hero() {
     let mouseDeltaX = 0;
     let mouseDeltaY = 0;
     /* SCENE */
-    
+
     scene.background = new THREE.Color(0xa0d8f0);
 
     let isUserControllingCamera = false;
     /* CAMERA */
-
- 
 
     const endCameraPosition = new THREE.Vector3(
       -28.13668254050927,
@@ -84,7 +83,6 @@ export default function Hero() {
 
     /* RENDERER */
 
-    
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -95,8 +93,6 @@ export default function Hero() {
     mountRef.current?.appendChild(renderer.domElement);
 
     /* CONTROLS */
-
-    
 
     camera.position.copy(startCameraPosition);
     controls.target.copy(startTarget);
@@ -255,7 +251,7 @@ export default function Hero() {
 
       /* CAMERA INTRO ANIMATION */
 
-      if (introProgress < 1 && modelsReady) {
+      if (currentScreen === "main" && introProgress < 1 && modelsReady) {
         introProgress += (delta * cameraSpeed) / introDuration;
 
         const t = Math.min(introProgress, 1);
@@ -287,6 +283,7 @@ export default function Hero() {
 
       limitPan();
       if (
+        currentScreen === "main" &&
         modelsReady &&
         introFinished &&
         mouseMovedAfterIntro &&
@@ -340,7 +337,12 @@ export default function Hero() {
 
       /* ---------- HOVER DETECTION ---------- */
 
-      if (introFinished && !isUserControllingCamera && !isMouseMoving) {
+      if (
+        currentScreen === "main" &&
+        introFinished &&
+        !isUserControllingCamera &&
+        !isMouseMoving
+      ) {
         raycaster.setFromCamera(mouse, camera);
 
         const intersects = raycaster.intersectObjects(
@@ -514,39 +516,62 @@ export default function Hero() {
       }, 150); // hover activates after mouse stops
     };
     window.addEventListener("mousemove", handleMouseMove);
-    // const handleClick = () => {
-    //   if (!hoveredBuilding) return;
-
-    //   if (nonClickable.includes(hoveredBuilding.name)) return;
-
-    //   alert("Clicked Building : " + hoveredBuilding.name);
-    // };
 
     function loadRoadshowModule() {
-  import("./lib/roadshowModule").then((mod) => {
-    mod.initRoadshow({
-      scene,
-      camera,
-      controls,
-      renderer,
-    });
-  });
-}
+      import("./lib/roadshowModule").then((mod) => {
+        mod.initRoadshow({
+          scene,
+          camera,
+          controls,
+          renderer,
+        });
+      });
+    }
+
+    function disposeModel(model: THREE.Object3D) {
+      model.traverse((obj: any) => {
+        if (obj.isMesh) {
+          if (obj.geometry) obj.geometry.dispose();
+
+          if (obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((m: any) => m.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        }
+      });
+
+      scene.remove(model);
+    }
 
     const handleClick = () => {
-  if (!hoveredBuilding) return;
+      if (!hoveredBuilding) return;
 
-  const name = hoveredBuilding.name;
+      const name = hoveredBuilding.name;
+      if (name === "road_show_building_grp") {
+        currentScreen = "roadshow";
 
-  if (name === "road_show_building_grp") {
-    currentScreen = "roadshow";
+        // ❌ STOP main screen mouse logic
+        window.removeEventListener("mousemove", handleMouseMove);
+         window.removeEventListener("click", handleClick);
 
-    // hide all models
-    Object.values(modelCache).forEach((m) => (m.visible = false));
+        // ❌ STOP hover detection completely
+        hoveredBuilding = null;
 
-    loadRoadshowModule();
-  }
-};
+        // 🧹 clear models
+        Object.values(modelCache).forEach((model) => {
+          disposeModel(model);
+        });
+
+        for (const key in modelCache) {
+          delete modelCache[key];
+        }
+
+        loadRoadshowModule();
+      }
+    };
     window.addEventListener("click", handleClick);
     controls.addEventListener("start", () => {
       isUserControllingCamera = true;

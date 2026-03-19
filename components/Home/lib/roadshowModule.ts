@@ -1,12 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-export function initRoadshow({
-  scene,
-  camera,
-  controls,
-  renderer,
-}: any) {
+export function initRoadshow({ scene, camera, controls, renderer }: any) {
   const loader = new GLTFLoader();
 
   let vehicles: THREE.Object3D[] = [];
@@ -14,6 +9,13 @@ export function initRoadshow({
   loader.load("/models/roadshow.glb", (gltf) => {
     const model = gltf.scene;
     scene.add(model);
+    model.traverse((obj: any) => {
+      if (obj.isMesh) {
+        obj.frustumCulled = true;
+        obj.castShadow = false;
+        obj.receiveShadow = false;
+      }
+    });
 
     const v1 = model.getObjectByName("vehicle_1");
     const v2 = model.getObjectByName("vehicle_2");
@@ -60,10 +62,7 @@ export function initRoadshow({
     const deltaX = event.clientX - prevMouseX;
     prevMouseX = event.clientX;
 
-    selectedObject.rotateOnWorldAxis(
-      new THREE.Vector3(0, 1, 0),
-      deltaX * 0.01
-    );
+    selectedObject.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), deltaX * 0.01);
   }
 
   function onMouseUp() {
