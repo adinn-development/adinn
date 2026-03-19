@@ -153,7 +153,6 @@ export default function Hero() {
 
     let hoveredBuilding: THREE.Object3D | null = null;
 
-
     const nonClickable = ["hq_back_dummy_building_grp"];
 
     const buildingModels = [
@@ -255,7 +254,9 @@ export default function Hero() {
 
       if (mixer) mixer.update(delta);
 
-      limitPan();
+      if (currentScreen === "main") {
+        limitPan();
+      }
       if (
         currentScreen === "main" &&
         modelsReady &&
@@ -307,7 +308,9 @@ export default function Hero() {
         mouseDeltaX = 0;
         mouseDeltaY = 0;
       }
-      controls.update();
+      if (currentScreen === "main") {
+        controls.update();
+      }
 
       /* ---------- HOVER DETECTION ---------- */
 
@@ -526,10 +529,12 @@ export default function Hero() {
       const name = hoveredBuilding.name;
       if (name === "road_show_building_grp") {
         currentScreen = "roadshow";
-
+        // STOP Hero influence completely
+        introFinished = false;
+        mouseMovedAfterIntro = false;
         // ❌ STOP main screen mouse logic
         window.removeEventListener("mousemove", handleMouseMove);
-         window.removeEventListener("click", handleClick);
+        window.removeEventListener("click", handleClick);
 
         // ❌ STOP hover detection completely
         hoveredBuilding = null;
@@ -557,10 +562,7 @@ export default function Hero() {
       }, 100); // small delay prevents accidental hover switch
     });
 
-    controls.addEventListener("change", () => {
-      console.clear();
-
-    });
+    controls.addEventListener("change", () => {});
     return () => {
       isDisposed = true;
 
