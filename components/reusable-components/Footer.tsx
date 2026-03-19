@@ -369,37 +369,26 @@ const Footer = () => {
                   <a href="tel:8015806062" style={{ textDecoration: "none" }}>
                     {" "}
                     +918015806062{" "}
-                  </a> |
-                  {/* VIJAY - DIGITAL  */}
+                  </a> 
+                  {/* |
                   <a href="tel:9626987861" style={{ textDecoration: "none" }}>
                     {" "}
                     +919626987861{" "}
                   </a>|
-                  {/* OUTDOOR -  VINOTH  */}
-                  {/* <a href="tel:9790257861" style={{ textDecoration: "none" }}>
-                    {" "}
-                    +919790257861{" "}
-                  </a> */}
+                
                   <a href="tel:7373785048" style={{ textDecoration: "none" }}>
                     {" "}
                     +917373785048{" "}
                   </a>
                   |
-                  {/* <a
-                    href="tel:9677039769"
-                    style={{ textDecoration: "none" }}
-                  >
-                    {" "}
-                    +919677039769{" "}
-                  </a> */}
-                  {/* ESWARI -  ROADSHOWS  */}
+           
                   <a
                     href="tel:7339509090"
                     style={{ textDecoration: "none" }}
                   >
                     {" "}
                     +917339509090{" "}
-                  </a>
+                  </a> */}
                 </div>
               </div>
 
