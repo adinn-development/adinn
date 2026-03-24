@@ -7,6 +7,13 @@ import * as THREE from "three";
 import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { createThreeBase } from "./lib/threeSetup";
+import { cameraTargets } from "./lib/cameraTargets";
+import {
+  createCameraRig,
+  createFlyState,
+  updateFlyAnimation,
+  startFlyToTarget,
+} from "./lib/cameraTransitions";
 
 export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -25,6 +32,7 @@ export default function Hero() {
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
 
+    
     let prevMouseX = 0;
     let prevMouseY = 0;
     let mouseDeltaX = 0;
@@ -45,17 +53,6 @@ export default function Hero() {
     const endTarget = new THREE.Vector3(0.548582, 0.0, -1.804985);
 
     // 🎯 GARAGE CAMERA TARGET
-    const garageCameraPosition = new THREE.Vector3(
-      -16.651605760184015,
-      7.686385630539117,
-      17.781851956933743,
-    );
-
-    const garageTarget = new THREE.Vector3(
-      -2.3,
-      8.527048621978942,
-      -5.618726973906727,
-    );
 
     const startCameraPosition = new THREE.Vector3(
       -6.154139265092018,
@@ -70,7 +67,7 @@ export default function Hero() {
     );
 
     /* CAMERA PATH */
-
+const cameraRig = createCameraRig(startCameraPosition, startTarget);
     const cameraCurve = new THREE.CatmullRomCurve3([
       startCameraPosition,
       new THREE.Vector3(-15, 14, 10),
@@ -93,6 +90,8 @@ export default function Hero() {
     camera.position.copy(startCameraPosition);
     controls.target.copy(startTarget);
 
+    cameraRig.position.copy(startCameraPosition);
+    cameraRig.target.copy(startTarget);
     controls.enabled = false;
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
@@ -219,13 +218,7 @@ export default function Hero() {
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
 
-    let isFlyingToGarage = false;
-    let flyProgress = 0;
-    const flyDuration = 2; // seconds
-
-    let startFlyPosition = new THREE.Vector3();
-    let startFlyTarget = new THREE.Vector3();
-
+    const flyState = createFlyState(2);
     const clock = new THREE.Clock();
     const cameraSpeed = 1.25;
     let animationId: number;
@@ -279,7 +272,7 @@ export default function Hero() {
         introFinished &&
         mouseMovedAfterIntro &&
         !isUserControllingCamera &&
-        !isFlyingToGarage
+        !flyState.isFlying
       ) {
         const rotationSpeedX = 0.35;
         const rotationSpeedY = 1.2;
@@ -325,7 +318,7 @@ export default function Hero() {
         mouseDeltaX = 0;
         mouseDeltaY = 0;
       }
-      if (currentScreen === "main" && !isFlyingToGarage) {
+      if (currentScreen === "main" && !flyState.isFlying) {
         controls.update();
       }
 
@@ -336,7 +329,7 @@ export default function Hero() {
         introFinished &&
         !isUserControllingCamera &&
         !isMouseMoving &&
-        !isFlyingToGarage
+        !flyState.isFlying
       ) {
         raycaster.setFromCamera(mouse, camera);
 
@@ -368,52 +361,44 @@ export default function Hero() {
       }
       /* ---------- FLOATING CAMERA ---------- */
 
-      if (introProgress >= 1) {
+      if (
+        introFinished &&
+        currentScreen === "main" &&
+        !flyState.isFlying &&
+        !isUserControllingCamera
+      ) {
         camera.position.x += Math.sin(clock.elapsedTime * 0.2) * 0.001;
         camera.position.y += Math.cos(clock.elapsedTime * 0.2) * 0.001;
       }
 
       /* 🚀 CAMERA FLY INTO GARAGE */
-      if (isFlyingToGarage) {
-        flyProgress += delta / flyDuration;
+      /* CAMERA FLY INTO GARAGE */
+    if (flyState.isFlying) {
+  const finished = updateFlyAnimation({
+    delta,
+    camera,
+    controls,
+    rig: cameraRig,
+    flyState,
+  });
 
-        const t = Math.min(flyProgress, 1);
-        const easedT = easeInOutCubic(t);
+  if (finished) {
+    window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("click", handleClick);
 
-        // move camera
-        camera.position.lerpVectors(
-          startFlyPosition,
-          garageCameraPosition,
-          easedT,
-        );
+    hoveredBuilding = null;
 
-        // move target
-        const currentTarget = new THREE.Vector3();
-        currentTarget.lerpVectors(startFlyTarget, garageTarget, easedT);
+    Object.values(modelCache).forEach((model) => {
+      disposeModel(model);
+    });
 
-        controls.target.copy(currentTarget);
+    for (const key in modelCache) {
+      delete modelCache[key];
+    }
 
-        if (t >= 1) {
-          isFlyingToGarage = false;
-
-          // 🔥 CLEANUP HERO
-          window.removeEventListener("mousemove", handleMouseMove);
-          window.removeEventListener("click", handleClick);
-
-          hoveredBuilding = null;
-
-          Object.values(modelCache).forEach((model) => {
-            disposeModel(model);
-          });
-
-          for (const key in modelCache) {
-            delete modelCache[key];
-          }
-
-          // 🎬 LOAD NEXT SCREEN
-          loadRoadshowModule();
-        }
-      }
+    loadRoadshowModule();
+  }
+}
 
       renderer.render(scene, camera);
     }
@@ -583,9 +568,7 @@ export default function Hero() {
       scene.remove(model);
     }
     const handleClick = (event: MouseEvent) => {
-      //stop click
       // return;
-      // convert mouse to normalized coords
       const clickMouse = new THREE.Vector2(
         (event.clientX / window.innerWidth) * 2 - 1,
         -(event.clientY / window.innerHeight) * 2 + 1,
@@ -602,7 +585,6 @@ export default function Hero() {
 
       let obj: THREE.Object3D | null = intersects[0].object;
 
-      // go up to group
       while (obj && !obj.name.endsWith("_grp")) {
         obj = obj.parent;
       }
@@ -611,16 +593,24 @@ export default function Hero() {
 
       if (obj.name === "road_show_building_grp") {
         console.log("✅ CLICK DETECTED");
+        currentScreen = "roadshow";
 
-        // 🚀 START FLY
-        isFlyingToGarage = true;
-        flyProgress = 0;
+        mouseMovedAfterIntro = false;
+        hoveredBuilding = null;
+        isMouseMoving = false;
+        isUserControllingCamera = true;
 
-        startFlyPosition.copy(camera.position);
-        startFlyTarget.copy(controls.target);
+        startFlyToTarget({
+          camera,
+          controls,
+          rig: cameraRig,
+          flyState,
+          destinationPosition: cameraTargets.roadshow.position,
+          destinationTarget: cameraTargets.roadshow.target,
+        });
 
         controls.enabled = false;
-        isUserControllingCamera = true;
+        controls.enableDamping = false;
       }
     };
     window.addEventListener("click", handleClick);
