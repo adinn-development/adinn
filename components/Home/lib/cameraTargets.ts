@@ -15,13 +15,5 @@ export const cameraTargets: Record<string, CameraTargetConfig> = {
     target: new THREE.Vector3(-2.3, 1.0, -3),
   },
 
-  // future services
-  // hq: {
-  //   position: new THREE.Vector3(...),
-  //   target: new THREE.Vector3(...),
-  // },
-  // mediaAds: {
-  //   position: new THREE.Vector3(...),
-  //   target: new THREE.Vector3(...),
-  // },
+
 };

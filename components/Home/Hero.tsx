@@ -1,5 +1,3 @@
-//half working
-//All completed
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -14,6 +12,11 @@ import {
   updateFlyAnimation,
   startFlyToTarget,
 } from "./lib/cameraTransitions";
+import {
+  createIntroState,
+  createIntroRig,
+  updateIntroAnimation,
+} from "./lib/introCamera";
 
 export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -31,8 +34,7 @@ export default function Hero() {
     let isDisposed = false;
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
-
-    
+    let introCanStart = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
     let mouseDeltaX = 0;
@@ -43,7 +45,6 @@ export default function Hero() {
 
     let isUserControllingCamera = false;
     /* CAMERA */
-
     const endCameraPosition = new THREE.Vector3(
       -28.349296,
       14.187888,
@@ -52,28 +53,47 @@ export default function Hero() {
 
     const endTarget = new THREE.Vector3(0.548582, 0.0, -1.804985);
 
-    // 🎯 GARAGE CAMERA TARGET
+const startCameraPosition = new THREE.Vector3(
+  -6.154139265092018,
+  11.340652744420645,
+  6.6360819245299645,
+);
 
-    const startCameraPosition = new THREE.Vector3(
-      -6.154139265092018,
-      11.340652744420645,
-      6.6360819245299645,
-    );
+const startTarget = new THREE.Vector3(
+  8.42669997773453,
+  0,
+  -11.184943816702475,
+);
 
-    const startTarget = new THREE.Vector3(
-      8.42669997773453,
-      0,
-      -11.184943816702475,
-    );
+// visible intro should start from a later point
+const introVisibleStartCameraPosition = new THREE.Vector3(
+  -12.5,
+  12.6,
+  14.5,
+);
 
-    /* CAMERA PATH */
-const cameraRig = createCameraRig(startCameraPosition, startTarget);
-    const cameraCurve = new THREE.CatmullRomCurve3([
-      startCameraPosition,
-      new THREE.Vector3(-15, 14, 10),
-      endCameraPosition,
-    ]);
+const introVisibleStartTarget = new THREE.Vector3(
+  5.8,
+  0,
+  -8.8,
+);
 
+    const cameraRig = createCameraRig(
+  introVisibleStartCameraPosition,
+  introVisibleStartTarget,
+);
+
+ const introState = createIntroState({
+  startCameraPosition: introVisibleStartCameraPosition,
+  endCameraPosition,
+  startTarget: introVisibleStartTarget,
+  endTarget,
+  duration: 6,
+});
+    const introRig = createIntroRig(
+  introVisibleStartCameraPosition,
+  introVisibleStartTarget,
+);
     /* RENDERER */
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -87,11 +107,19 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
 
     /* CONTROLS */
 
-    camera.position.copy(startCameraPosition);
-    controls.target.copy(startTarget);
+  camera.position.copy(introVisibleStartCameraPosition);
+controls.target.copy(introVisibleStartTarget);
 
-    cameraRig.position.copy(startCameraPosition);
-    cameraRig.target.copy(startTarget);
+cameraRig.position.copy(introVisibleStartCameraPosition);
+cameraRig.target.copy(introVisibleStartTarget);
+
+introRig.position.copy(introVisibleStartCameraPosition);
+introRig.target.copy(introVisibleStartTarget);
+
+    camera.position.copy(introRig.position);
+    controls.target.copy(introRig.target);
+    camera.lookAt(introRig.target);
+
     controls.enabled = false;
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
@@ -211,13 +239,6 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
     }
     /* CAMERA INTRO */
 
-    let introProgress = 0;
-    const introDuration = 6;
-    let introFinished = false;
-    function easeInOutCubic(t: number) {
-      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
     const flyState = createFlyState(2);
     const clock = new THREE.Clock();
     const cameraSpeed = 1.25;
@@ -230,30 +251,34 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
 
       /* CAMERA INTRO ANIMATION */
 
-      if (currentScreen === "main" && introProgress < 1 && modelsReady) {
-        introProgress += (delta * cameraSpeed) / introDuration;
+      if (
+        currentScreen === "main" &&
+        introCanStart &&
+        !introState.finished &&
+        modelsReady
+      ) {
+        const introDone = updateIntroAnimation({
+          delta,
+          cameraSpeed,
+          camera,
+          controls,
+          introState,
+          introRig,
+        });
+        if (introDone) {
+          camera.position.copy(introRig.position);
+          controls.target.copy(introRig.target);
+          camera.lookAt(introRig.target);
 
-        const t = Math.min(introProgress, 1);
-        const easedT = easeInOutCubic(t);
-
-        const curvePoint = cameraCurve.getPoint(easedT);
-        camera.position.copy(curvePoint);
-
-        const target = new THREE.Vector3();
-        target.lerpVectors(startTarget, endTarget, easedT);
-
-        controls.target.lerp(target, 0.08);
-        if (t >= 1) {
           controls.enabled = true;
-          introFinished = true;
-          // LOCK ZOOM AFTER INTRO
+
           controls.minDistance = 1;
           controls.maxDistance = 50;
 
-          controls.minAzimuthAngle = -0.65; // left
-          controls.maxAzimuthAngle = -0.55; // right
+          controls.minAzimuthAngle = -0.65;
+          controls.maxAzimuthAngle = -0.55;
+
           mouse.set(999, 999);
-          // mouse.set(0, 0);
           hoveredBuilding = null;
 
           targetAzimuth = controls.getAzimuthalAngle();
@@ -263,13 +288,10 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
 
       if (mixer) mixer.update(delta);
 
-      if (currentScreen === "main") {
-        limitPan();
-      }
       if (
         currentScreen === "main" &&
         modelsReady &&
-        introFinished &&
+        introState.finished &&
         mouseMovedAfterIntro &&
         !isUserControllingCamera &&
         !flyState.isFlying
@@ -318,7 +340,11 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
         mouseDeltaX = 0;
         mouseDeltaY = 0;
       }
-      if (currentScreen === "main" && !flyState.isFlying) {
+      if (
+        currentScreen === "main" &&
+        introState.finished &&
+        !flyState.isFlying
+      ) {
         controls.update();
       }
 
@@ -326,7 +352,7 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
 
       if (
         currentScreen === "main" &&
-        introFinished &&
+        introState.finished &&
         !isUserControllingCamera &&
         !isMouseMoving &&
         !flyState.isFlying
@@ -362,7 +388,7 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
       /* ---------- FLOATING CAMERA ---------- */
 
       if (
-        introFinished &&
+        introState.finished &&
         currentScreen === "main" &&
         !flyState.isFlying &&
         !isUserControllingCamera
@@ -373,32 +399,32 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
 
       /* 🚀 CAMERA FLY INTO GARAGE */
       /* CAMERA FLY INTO GARAGE */
-    if (flyState.isFlying) {
-  const finished = updateFlyAnimation({
-    delta,
-    camera,
-    controls,
-    rig: cameraRig,
-    flyState,
-  });
+      if (flyState.isFlying) {
+        const finished = updateFlyAnimation({
+          delta,
+          camera,
+          controls,
+          rig: cameraRig,
+          flyState,
+        });
 
-  if (finished) {
-    window.removeEventListener("mousemove", handleMouseMove);
-    window.removeEventListener("click", handleClick);
+        if (finished) {
+          window.removeEventListener("mousemove", handleMouseMove);
+          window.removeEventListener("click", handleClick);
 
-    hoveredBuilding = null;
+          hoveredBuilding = null;
 
-    Object.values(modelCache).forEach((model) => {
-      disposeModel(model);
-    });
+          Object.values(modelCache).forEach((model) => {
+            disposeModel(model);
+          });
 
-    for (const key in modelCache) {
-      delete modelCache[key];
-    }
+          for (const key in modelCache) {
+            delete modelCache[key];
+          }
 
-    loadRoadshowModule();
-  }
-}
+          loadRoadshowModule();
+        }
+      }
 
       renderer.render(scene, camera);
     }
@@ -454,9 +480,6 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
             if (obj.isMesh && obj.name === "animation_led") {
               obj.material = new THREE.MeshBasicMaterial({
                 map: videoTexture,
-                emissive: new THREE.Color(0xffffff),
-                emissiveMap: videoTexture,
-                emissiveIntensity: 0.5,
                 toneMapped: false,
               });
             }
@@ -489,13 +512,31 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
 
           if (modelsLoaded === totalModels) {
             modelsReady = true;
-            console.log("All models loaded. Starting intro animation.");
+            console.log("All models loaded. Waiting for loader to hide.");
 
             if (loaderRef.current) {
               loaderRef.current.style.opacity = "0";
+
               setTimeout(() => {
-                loaderRef.current!.style.display = "none";
+                if (!loaderRef.current) return;
+
+                loaderRef.current.style.display = "none";
+
+                // reset intro exactly at start point
+                introState.progress = 0;
+                introState.finished = false;
+
+          introRig.position.copy(introVisibleStartCameraPosition);
+introRig.target.copy(introVisibleStartTarget);
+
+camera.position.copy(introVisibleStartCameraPosition);
+controls.target.copy(introVisibleStartTarget);
+camera.lookAt(introVisibleStartTarget);
+
+                introCanStart = true;
               }, 500);
+            } else {
+              introCanStart = true;
             }
           }
         });
@@ -526,7 +567,7 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
       prevMouseX = newMouseX;
       prevMouseY = newMouseY;
 
-      if (introFinished) mouseMovedAfterIntro = true;
+      if (introState.finished) mouseMovedAfterIntro = true;
 
       // Detect movement
       isMouseMoving = true;
@@ -624,19 +665,6 @@ const cameraRig = createCameraRig(startCameraPosition, startTarget);
       }, 100); // small delay prevents accidental hover switch
     });
 
-    controls.addEventListener("change", () => {
-      console.log(`
-garageCameraPosition:
-${camera.position.x},
-${camera.position.y},
-${camera.position.z}
-
-garageTarget:
-${controls.target.x},
-${controls.target.y},
-${controls.target.z}
-  `);
-    });
     return () => {
       isDisposed = true;
 
