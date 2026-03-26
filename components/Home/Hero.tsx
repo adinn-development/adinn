@@ -23,6 +23,7 @@ export default function Hero() {
   const loaderRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     let currentScreen: "main" | "roadshow" = "main";
+    
     if (!mountRef.current) return;
     const { scene, camera, renderer, controls } = createThreeBase(
       mountRef.current,
@@ -35,6 +36,7 @@ export default function Hero() {
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
     let introCanStart = false;
+    let skipNextControlsUpdate = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
     let mouseDeltaX = 0;
@@ -44,6 +46,7 @@ export default function Hero() {
     scene.background = new THREE.Color(0xa0d8f0);
 
     let isUserControllingCamera = false;
+    let activeDestination: "roadshow" | "wallPainting" | null = null;
     /* CAMERA */
     const endCameraPosition = new THREE.Vector3(
       -28.349296,
@@ -53,47 +56,43 @@ export default function Hero() {
 
     const endTarget = new THREE.Vector3(0.548582, 0.0, -1.804985);
 
-const startCameraPosition = new THREE.Vector3(
-  -6.154139265092018,
-  11.340652744420645,
-  6.6360819245299645,
-);
+    const startCameraPosition = new THREE.Vector3(
+      -6.154139265092018,
+      11.340652744420645,
+      6.6360819245299645,
+    );
 
-const startTarget = new THREE.Vector3(
-  8.42669997773453,
-  0,
-  -11.184943816702475,
-);
+    const startTarget = new THREE.Vector3(
+      8.42669997773453,
+      0,
+      -11.184943816702475,
+    );
 
-// visible intro should start from a later point
-const introVisibleStartCameraPosition = new THREE.Vector3(
-  -12.5,
-  12.6,
-  14.5,
-);
+    // visible intro should start from a later point
+    const introVisibleStartCameraPosition = new THREE.Vector3(
+      -12.5,
+      12.6,
+      14.5,
+    );
 
-const introVisibleStartTarget = new THREE.Vector3(
-  5.8,
-  0,
-  -8.8,
-);
+    const introVisibleStartTarget = new THREE.Vector3(5.8, 0, -8.8);
 
     const cameraRig = createCameraRig(
-  introVisibleStartCameraPosition,
-  introVisibleStartTarget,
-);
+      introVisibleStartCameraPosition,
+      introVisibleStartTarget,
+    );
 
- const introState = createIntroState({
-  startCameraPosition: introVisibleStartCameraPosition,
-  endCameraPosition,
-  startTarget: introVisibleStartTarget,
-  endTarget,
-  duration: 6,
-});
+    const introState = createIntroState({
+      startCameraPosition: introVisibleStartCameraPosition,
+      endCameraPosition,
+      startTarget: introVisibleStartTarget,
+      endTarget,
+      duration: 6,
+    });
     const introRig = createIntroRig(
-  introVisibleStartCameraPosition,
-  introVisibleStartTarget,
-);
+      introVisibleStartCameraPosition,
+      introVisibleStartTarget,
+    );
     /* RENDERER */
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -107,14 +106,14 @@ const introVisibleStartTarget = new THREE.Vector3(
 
     /* CONTROLS */
 
-  camera.position.copy(introVisibleStartCameraPosition);
-controls.target.copy(introVisibleStartTarget);
+    camera.position.copy(introVisibleStartCameraPosition);
+    controls.target.copy(introVisibleStartTarget);
 
-cameraRig.position.copy(introVisibleStartCameraPosition);
-cameraRig.target.copy(introVisibleStartTarget);
+    cameraRig.position.copy(introVisibleStartCameraPosition);
+    cameraRig.target.copy(introVisibleStartTarget);
 
-introRig.position.copy(introVisibleStartCameraPosition);
-introRig.target.copy(introVisibleStartTarget);
+    introRig.position.copy(introVisibleStartCameraPosition);
+    introRig.target.copy(introVisibleStartTarget);
 
     camera.position.copy(introRig.position);
     controls.target.copy(introRig.target);
@@ -294,7 +293,8 @@ introRig.target.copy(introVisibleStartTarget);
         introState.finished &&
         mouseMovedAfterIntro &&
         !isUserControllingCamera &&
-        !flyState.isFlying
+        !flyState.isFlying &&
+        activeDestination !== "wallPainting"
       ) {
         const rotationSpeedX = 0.35;
         const rotationSpeedY = 1.2;
@@ -340,13 +340,18 @@ introRig.target.copy(introVisibleStartTarget);
         mouseDeltaX = 0;
         mouseDeltaY = 0;
       }
-      if (
-        currentScreen === "main" &&
-        introState.finished &&
-        !flyState.isFlying
-      ) {
-        controls.update();
-      }
+if (
+  currentScreen === "main" &&
+  introState.finished &&
+  !flyState.isFlying &&
+  (activeDestination !== "wallPainting" || controls.enabled)
+) {
+  if (skipNextControlsUpdate) {
+    skipNextControlsUpdate = false;
+  } else {
+    controls.update();
+  }
+}
 
       /* ---------- HOVER DETECTION ---------- */
 
@@ -391,7 +396,8 @@ introRig.target.copy(introVisibleStartTarget);
         introState.finished &&
         currentScreen === "main" &&
         !flyState.isFlying &&
-        !isUserControllingCamera
+        !isUserControllingCamera &&
+        activeDestination !== "wallPainting"
       ) {
         camera.position.x += Math.sin(clock.elapsedTime * 0.2) * 0.001;
         camera.position.y += Math.cos(clock.elapsedTime * 0.2) * 0.001;
@@ -409,20 +415,40 @@ introRig.target.copy(introVisibleStartTarget);
         });
 
         if (finished) {
-          window.removeEventListener("mousemove", handleMouseMove);
-          window.removeEventListener("click", handleClick);
-
           hoveredBuilding = null;
 
-          Object.values(modelCache).forEach((model) => {
-            disposeModel(model);
-          });
+          if (activeDestination === "roadshow") {
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("click", handleClick);
 
-          for (const key in modelCache) {
-            delete modelCache[key];
+            Object.values(modelCache).forEach((model) => {
+              disposeModel(model);
+            });
+
+            for (const key in modelCache) {
+              delete modelCache[key];
+            }
+
+            loadRoadshowModule();
+          } else {
+            // force exact landed state
+            camera.position.copy(cameraRig.position);
+            controls.target.copy(cameraRig.target);
+            camera.lookAt(cameraRig.target);
+
+            // sync OrbitControls internal spherical state to landed camera
+            controls.enableDamping = false;
+            controls.enabled = true;
+            controls.update();
+
+            targetAzimuth = controls.getAzimuthalAngle();
+            targetPolar = controls.getPolarAngle();
+
+            mouseMovedAfterIntro = false;
+            isMouseMoving = false;
+            isUserControllingCamera = false;
+            skipNextControlsUpdate = true;
           }
-
-          loadRoadshowModule();
         }
       }
 
@@ -526,12 +552,12 @@ introRig.target.copy(introVisibleStartTarget);
                 introState.progress = 0;
                 introState.finished = false;
 
-          introRig.position.copy(introVisibleStartCameraPosition);
-introRig.target.copy(introVisibleStartTarget);
+                introRig.position.copy(introVisibleStartCameraPosition);
+                introRig.target.copy(introVisibleStartTarget);
 
-camera.position.copy(introVisibleStartCameraPosition);
-controls.target.copy(introVisibleStartTarget);
-camera.lookAt(introVisibleStartTarget);
+                camera.position.copy(introVisibleStartCameraPosition);
+                controls.target.copy(introVisibleStartTarget);
+                camera.lookAt(introVisibleStartTarget);
 
                 introCanStart = true;
               }, 500);
@@ -608,6 +634,20 @@ camera.lookAt(introVisibleStartTarget);
 
       scene.remove(model);
     }
+
+    function getFocusTargetFromObject(obj: THREE.Object3D) {
+      const box = new THREE.Box3().setFromObject(obj);
+      const center = new THREE.Vector3();
+      const size = new THREE.Vector3();
+
+      box.getCenter(center);
+      box.getSize(size);
+
+      // lift target a bit so camera looks at facade/mid area, not ground
+      center.y += size.y * 0.2;
+
+      return center;
+    }
     const handleClick = (event: MouseEvent) => {
       // return;
       const clickMouse = new THREE.Vector2(
@@ -632,22 +672,43 @@ camera.lookAt(introVisibleStartTarget);
 
       if (!obj) return;
 
-      if (obj.name === "road_show_building_grp") {
-        console.log("✅ CLICK DETECTED");
-        currentScreen = "roadshow";
+      if (
+        obj.name === "road_show_building_grp" ||
+        obj.name === "wall_painting_building_grp"
+      ) {
+        console.log("✅ CLICK DETECTED:", obj.name);
 
         mouseMovedAfterIntro = false;
         hoveredBuilding = null;
         isMouseMoving = false;
         isUserControllingCamera = true;
 
+        let destinationPosition: THREE.Vector3;
+        let destinationTarget: THREE.Vector3;
+
+        if (obj.name === "road_show_building_grp") {
+          currentScreen = "roadshow";
+          activeDestination = "roadshow";
+
+          destinationPosition = cameraTargets.roadshow.position.clone();
+          destinationTarget = cameraTargets.roadshow.target.clone();
+        } else {
+          currentScreen = "main";
+          activeDestination = "wallPainting";
+
+          destinationPosition = cameraTargets.wallPainting.position.clone();
+
+          // focus the clicked wall painting building itself
+          destinationTarget = getFocusTargetFromObject(obj);
+        }
+
         startFlyToTarget({
           camera,
           controls,
           rig: cameraRig,
           flyState,
-          destinationPosition: cameraTargets.roadshow.position,
-          destinationTarget: cameraTargets.roadshow.target,
+          destinationPosition,
+          destinationTarget,
         });
 
         controls.enabled = false;
@@ -663,6 +724,20 @@ camera.lookAt(introVisibleStartTarget);
       setTimeout(() => {
         isUserControllingCamera = false;
       }, 100); // small delay prevents accidental hover switch
+    });
+
+    controls.addEventListener("change", () => {
+      console.log(`
+garageCameraPosition:
+${camera.position.x},
+${camera.position.y},
+${camera.position.z}
+
+garageTarget:
+${controls.target.x},
+${controls.target.y},
+${controls.target.z}
+  `);
     });
 
     return () => {
