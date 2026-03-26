@@ -165,7 +165,7 @@ export default function Hero() {
     loader.setDRACOLoader(dracoLoader);
 
     let currentModel: THREE.Object3D | null = null;
-    let currentModelName = "all_services";
+    
     const modelCache: Record<string, THREE.Object3D> = {};
     let mixer: THREE.AnimationMixer | null = null;
     const buildingGroups: Record<string, THREE.Object3D> = {};
@@ -185,20 +185,84 @@ export default function Hero() {
 
     let hoveredBuilding: THREE.Object3D | null = null;
 
+    const HOVER_DIM_COLOR = new THREE.Color("#CBD0D0");
+
+function storeOriginalMaterial(mesh: THREE.Mesh) {
+  if (Array.isArray(mesh.material)) {
+    mesh.material = mesh.material.map((mat: any) => {
+      const clonedMat = mat.clone();
+      if (clonedMat.color && !clonedMat.userData.originalColor) {
+        clonedMat.userData.originalColor = clonedMat.color.clone();
+      }
+      return clonedMat;
+    });
+  } else {
+    const mat: any = mesh.material.clone();
+    if (mat.color && !mat.userData.originalColor) {
+      mat.userData.originalColor = mat.color.clone();
+    }
+    mesh.material = mat;
+  }
+}
+
+function setMeshColor(mesh: THREE.Mesh, color: THREE.Color) {
+  if (Array.isArray(mesh.material)) {
+    mesh.material.forEach((mat: any) => {
+      if (mat.color) {
+        mat.color.copy(color);
+      }
+    });
+  } else {
+    const mat: any = mesh.material;
+    if (mat.color) {
+      mat.color.copy(color);
+    }
+  }
+}
+
+function restoreMeshColor(mesh: THREE.Mesh) {
+  if (Array.isArray(mesh.material)) {
+    mesh.material.forEach((mat: any) => {
+      if (mat.color && mat.userData.originalColor) {
+        mat.color.copy(mat.userData.originalColor);
+      }
+    });
+  } else {
+    const mat: any = mesh.material;
+    if (mat.color && mat.userData.originalColor) {
+      mat.color.copy(mat.userData.originalColor);
+    }
+  }
+}
+
+function highlightOtherBuildings(activeName: string) {
+  Object.entries(buildingGroups).forEach(([name, group]) => {
+    group.traverse((obj: THREE.Object3D) => {
+      if ((obj as THREE.Mesh).isMesh) {
+        const mesh = obj as THREE.Mesh;
+        if (name !== activeName) {
+          setMeshColor(mesh, HOVER_DIM_COLOR);
+        } else {
+          restoreMeshColor(mesh);
+        }
+      }
+    });
+  });
+}
+
+function resetBuildingColors() {
+  Object.values(buildingGroups).forEach((group) => {
+    group.traverse((obj: THREE.Object3D) => {
+      if ((obj as THREE.Mesh).isMesh) {
+        restoreMeshColor(obj as THREE.Mesh);
+      }
+    });
+  });
+}
+
     const nonClickable = ["hq_back_dummy_building_grp"];
 
-    const buildingModels = [
-      "all_services",
-      "adinn_hq_building_grp",
-      "digital_marketing_building_grp",
-      "event_building_grp",
-      "fixtures_building_grp",
-      "media_ads_building_grp",
-      "road_show_building_grp",
-      "sinage_side_building_grp",
-      "wall_painting_building_grp",
-      "ooh_building_grp",
-    ];
+    const buildingModels = ["all_services"];
 
     // controls pan limit
 
@@ -376,18 +440,20 @@ export default function Hero() {
             obj = obj.parent;
           }
 
-          if (obj && obj !== hoveredBuilding) {
-            hoveredBuilding = obj;
+     if (obj && obj !== hoveredBuilding) {
+  hoveredBuilding = obj;
 
-            const modelName = obj.name;
+  const modelName = obj.name;
 
-            if (!nonClickable.includes(modelName)) {
-              // switchModel(modelName);
-            }
-          }
+  if (!nonClickable.includes(modelName)) {
+    highlightOtherBuildings(modelName);
+  }
+}
         } else {
-          hoveredBuilding = null;
-          switchModel("all_services");
+          if (hoveredBuilding) {
+            hoveredBuilding = null;
+            resetBuildingColors();
+          }
         }
       }
       /* ---------- FLOATING CAMERA ---------- */
@@ -414,51 +480,37 @@ export default function Hero() {
           flyState,
         });
 
-  if (finished) {
-  hoveredBuilding = null;
+        if (finished) {
+          hoveredBuilding = null;
 
-  if (
-    activeDestination === "roadshow" ||
-    activeDestination === "wallPainting"
-  ) {
-    window.removeEventListener("mousemove", handleMouseMove);
-    window.removeEventListener("click", handleClick);
+          if (
+            activeDestination === "roadshow" ||
+            activeDestination === "wallPainting"
+          ) {
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("click", handleClick);
 
-    Object.values(modelCache).forEach((model) => {
-      disposeModel(model);
-    });
+            Object.values(modelCache).forEach((model) => {
+              disposeModel(model);
+            });
 
-    for (const key in modelCache) {
-      delete modelCache[key];
-    }
+            for (const key in modelCache) {
+              delete modelCache[key];
+            }
 
-    if (activeDestination === "roadshow") {
-      loadRoadshowModule();
-    } else {
-      loadWallPaintingModule();
-    }
-  }
-}
+            if (activeDestination === "roadshow") {
+              loadRoadshowModule();
+            } else {
+              loadWallPaintingModule();
+            }
+          }
+        }
       }
 
       renderer.render(scene, camera);
     }
 
-    function switchModel(name: string) {
-      if (name === currentModelName) return;
-
-      const newModel = modelCache[name];
-      const oldModel = modelCache[currentModelName];
-
-      if (!newModel) return;
-
-      if (oldModel) oldModel.visible = false;
-
-      newModel.visible = true;
-
-      currentModelName = name;
-      currentModel = newModel;
-    }
+   
 
     let modelsLoaded = 0;
     const totalModels = buildingModels.length;
@@ -471,34 +523,43 @@ export default function Hero() {
 
         loader.load(path, (gltf: GLTF) => {
           const model = gltf.scene;
+model.traverse((obj: THREE.Object3D) => {
+  if (obj.isMesh) {
+    const mesh = obj as THREE.Mesh;
+    storeOriginalMaterial(mesh);
+  }
 
-          model.traverse((obj: THREE.Object3D) => {
-            /* change Ground1 color */ if (
-              obj.isMesh &&
-              obj.name === "Ground1"
-            ) {
-              const mesh = obj as THREE.Mesh;
-              if (Array.isArray(mesh.material)) {
-                mesh.material.forEach((mat: any) => {
-                  if (mat.color) mat.color.set("#b9b9b9");
-                });
-              } else {
-                const material = mesh.material as THREE.MeshStandardMaterial;
-                material.color.set("#b9b9b9");
-              }
-            } /* change Ground1 color */
+  /* change Ground1 color */
+  if (obj.isMesh && obj.name === "Ground1") {
+    const mesh = obj as THREE.Mesh;
+    if (Array.isArray(mesh.material)) {
+      mesh.material.forEach((mat: any) => {
+        if (mat.color) {
+          mat.color.set("#b9b9b9");
+          mat.userData.originalColor = mat.color.clone();
+        }
+      });
+    } else {
+      const material = mesh.material as any;
+      if (material.color) {
+        material.color.set("#b9b9b9");
+        material.userData.originalColor = material.color.clone();
+      }
+    }
+  }
+  /* change Ground1 color */
 
-            if (obj.name.endsWith("_grp")) {
-              buildingGroups[obj.name] = obj;
-            }
+  if (obj.name.endsWith("_grp")) {
+    buildingGroups[obj.name] = obj;
+  }
 
-            if (obj.isMesh && obj.name === "animation_led") {
-              obj.material = new THREE.MeshBasicMaterial({
-                map: videoTexture,
-                toneMapped: false,
-              });
-            }
-          });
+  if (obj.isMesh && obj.name === "animation_led") {
+    obj.material = new THREE.MeshBasicMaterial({
+      map: videoTexture,
+      toneMapped: false,
+    });
+  }
+});
 
           model.scale.set(1, 1, 1);
           model.position.set(0, 0, 0);
@@ -697,7 +758,6 @@ export default function Hero() {
           activeDestination = "wallPainting";
 
           destinationPosition = cameraTargets.wallPainting.position.clone();
-          
         }
 
         startFlyToTarget({
