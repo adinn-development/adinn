@@ -185,7 +185,7 @@ export default function Hero() {
 
     let hoveredBuilding: THREE.Object3D | null = null;
 
-    const HOVER_DIM_COLOR = new THREE.Color("#CBD0D0");
+    const HOVER_DIM_COLOR = new THREE.Color("#B7BCC0");
 
 function storeOriginalMaterial(mesh: THREE.Mesh) {
   if (Array.isArray(mesh.material)) {
