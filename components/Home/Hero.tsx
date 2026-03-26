@@ -22,8 +22,8 @@ export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
-    let currentScreen: "main" | "roadshow" = "main";
-    
+    let currentScreen: "main" | "roadshow" | "wallPainting" = "main";
+
     if (!mountRef.current) return;
     const { scene, camera, renderer, controls } = createThreeBase(
       mountRef.current,
@@ -340,18 +340,18 @@ export default function Hero() {
         mouseDeltaX = 0;
         mouseDeltaY = 0;
       }
-if (
-  currentScreen === "main" &&
-  introState.finished &&
-  !flyState.isFlying &&
-  (activeDestination !== "wallPainting" || controls.enabled)
-) {
-  if (skipNextControlsUpdate) {
-    skipNextControlsUpdate = false;
-  } else {
-    controls.update();
-  }
-}
+      if (
+        currentScreen === "main" &&
+        introState.finished &&
+        !flyState.isFlying &&
+        (activeDestination !== "wallPainting" || controls.enabled)
+      ) {
+        if (skipNextControlsUpdate) {
+          skipNextControlsUpdate = false;
+        } else {
+          controls.update();
+        }
+      }
 
       /* ---------- HOVER DETECTION ---------- */
 
@@ -414,42 +414,31 @@ if (
           flyState,
         });
 
-        if (finished) {
-          hoveredBuilding = null;
+  if (finished) {
+  hoveredBuilding = null;
 
-          if (activeDestination === "roadshow") {
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("click", handleClick);
+  if (
+    activeDestination === "roadshow" ||
+    activeDestination === "wallPainting"
+  ) {
+    window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("click", handleClick);
 
-            Object.values(modelCache).forEach((model) => {
-              disposeModel(model);
-            });
+    Object.values(modelCache).forEach((model) => {
+      disposeModel(model);
+    });
 
-            for (const key in modelCache) {
-              delete modelCache[key];
-            }
+    for (const key in modelCache) {
+      delete modelCache[key];
+    }
 
-            loadRoadshowModule();
-          } else {
-            // force exact landed state
-            camera.position.copy(cameraRig.position);
-            controls.target.copy(cameraRig.target);
-            camera.lookAt(cameraRig.target);
-
-            // sync OrbitControls internal spherical state to landed camera
-            controls.enableDamping = false;
-            controls.enabled = true;
-            controls.update();
-
-            targetAzimuth = controls.getAzimuthalAngle();
-            targetPolar = controls.getPolarAngle();
-
-            mouseMovedAfterIntro = false;
-            isMouseMoving = false;
-            isUserControllingCamera = false;
-            skipNextControlsUpdate = true;
-          }
-        }
+    if (activeDestination === "roadshow") {
+      loadRoadshowModule();
+    } else {
+      loadWallPaintingModule();
+    }
+  }
+}
       }
 
       renderer.render(scene, camera);
@@ -617,6 +606,17 @@ if (
       });
     }
 
+    function loadWallPaintingModule() {
+      import("./lib/wallPaintingModule").then((mod) => {
+        mod.initWallPainting({
+          scene,
+          camera,
+          controls,
+          renderer,
+        });
+      });
+    }
+
     function disposeModel(model: THREE.Object3D) {
       model.traverse((obj: any) => {
         if (obj.isMesh) {
@@ -693,13 +693,11 @@ if (
           destinationPosition = cameraTargets.roadshow.position.clone();
           destinationTarget = cameraTargets.roadshow.target.clone();
         } else {
-          currentScreen = "main";
+          currentScreen = "wallPainting";
           activeDestination = "wallPainting";
 
           destinationPosition = cameraTargets.wallPainting.position.clone();
-
-          // focus the clicked wall painting building itself
-          destinationTarget = getFocusTargetFromObject(obj);
+          
         }
 
         startFlyToTarget({
