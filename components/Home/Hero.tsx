@@ -165,7 +165,7 @@ export default function Hero() {
     loader.setDRACOLoader(dracoLoader);
 
     let currentModel: THREE.Object3D | null = null;
-    
+
     const modelCache: Record<string, THREE.Object3D> = {};
     let mixer: THREE.AnimationMixer | null = null;
     const buildingGroups: Record<string, THREE.Object3D> = {};
@@ -186,79 +186,110 @@ export default function Hero() {
     let hoveredBuilding: THREE.Object3D | null = null;
 
     const HOVER_DIM_COLOR = new THREE.Color("#B7BCC0");
+    const HOVER_FADE_SPEED = 1.35;
 
-function storeOriginalMaterial(mesh: THREE.Mesh) {
-  if (Array.isArray(mesh.material)) {
-    mesh.material = mesh.material.map((mat: any) => {
-      const clonedMat = mat.clone();
-      if (clonedMat.color && !clonedMat.userData.originalColor) {
-        clonedMat.userData.originalColor = clonedMat.color.clone();
+    function ensureFadeData(mesh: THREE.Mesh) {
+      if (Array.isArray(mesh.material)) {
+        mesh.material = mesh.material.map((mat: any) => {
+          const clonedMat = mat.clone();
+
+          if (clonedMat.color && !clonedMat.userData.originalColor) {
+            clonedMat.userData.originalColor = clonedMat.color.clone();
+          }
+
+          if (clonedMat.userData.fadeMix === undefined) {
+            clonedMat.userData.fadeMix = 0;
+          }
+
+          if (clonedMat.userData.targetFadeMix === undefined) {
+            clonedMat.userData.targetFadeMix = 0;
+          }
+
+          return clonedMat;
+        });
+      } else {
+        const mat: any = mesh.material.clone();
+
+        if (mat.color && !mat.userData.originalColor) {
+          mat.userData.originalColor = mat.color.clone();
+        }
+
+        if (mat.userData.fadeMix === undefined) {
+          mat.userData.fadeMix = 0;
+        }
+
+        if (mat.userData.targetFadeMix === undefined) {
+          mat.userData.targetFadeMix = 0;
+        }
+
+        mesh.material = mat;
       }
-      return clonedMat;
-    });
-  } else {
-    const mat: any = mesh.material.clone();
-    if (mat.color && !mat.userData.originalColor) {
-      mat.userData.originalColor = mat.color.clone();
     }
-    mesh.material = mat;
-  }
-}
 
-function setMeshColor(mesh: THREE.Mesh, color: THREE.Color) {
-  if (Array.isArray(mesh.material)) {
-    mesh.material.forEach((mat: any) => {
-      if (mat.color) {
-        mat.color.copy(color);
-      }
-    });
-  } else {
-    const mat: any = mesh.material;
-    if (mat.color) {
-      mat.color.copy(color);
-    }
-  }
-}
-
-function restoreMeshColor(mesh: THREE.Mesh) {
-  if (Array.isArray(mesh.material)) {
-    mesh.material.forEach((mat: any) => {
-      if (mat.color && mat.userData.originalColor) {
-        mat.color.copy(mat.userData.originalColor);
-      }
-    });
-  } else {
-    const mat: any = mesh.material;
-    if (mat.color && mat.userData.originalColor) {
-      mat.color.copy(mat.userData.originalColor);
-    }
-  }
-}
-
-function highlightOtherBuildings(activeName: string) {
-  Object.entries(buildingGroups).forEach(([name, group]) => {
-    group.traverse((obj: THREE.Object3D) => {
-      if ((obj as THREE.Mesh).isMesh) {
-        const mesh = obj as THREE.Mesh;
-        if (name !== activeName) {
-          setMeshColor(mesh, HOVER_DIM_COLOR);
-        } else {
-          restoreMeshColor(mesh);
+    function setMeshFadeTarget(mesh: THREE.Mesh, target: number) {
+      if (Array.isArray(mesh.material)) {
+        mesh.material.forEach((mat: any) => {
+          if (mat.color) {
+            mat.userData.targetFadeMix = target;
+          }
+        });
+      } else {
+        const mat: any = mesh.material;
+        if (mat.color) {
+          mat.userData.targetFadeMix = target;
         }
       }
-    });
-  });
-}
+    }
+    function updateMeshFade(mesh: THREE.Mesh) {
+      if (Array.isArray(mesh.material)) {
+        mesh.material.forEach((mat: any) => {
+          if (!mat.color || !mat.userData.originalColor) return;
 
-function resetBuildingColors() {
-  Object.values(buildingGroups).forEach((group) => {
-    group.traverse((obj: THREE.Object3D) => {
-      if ((obj as THREE.Mesh).isMesh) {
-        restoreMeshColor(obj as THREE.Mesh);
+          const current = mat.userData.fadeMix ?? 0;
+          const target = mat.userData.targetFadeMix ?? 0;
+          const next = THREE.MathUtils.lerp(current, target, HOVER_FADE_SPEED);
+
+          mat.userData.fadeMix = next;
+          mat.color
+            .copy(mat.userData.originalColor)
+            .lerp(HOVER_DIM_COLOR, next);
+        });
+      } else {
+        const mat: any = mesh.material;
+        if (!mat.color || !mat.userData.originalColor) return;
+
+        const current = mat.userData.fadeMix ?? 0;
+        const target = mat.userData.targetFadeMix ?? 0;
+        const next = THREE.MathUtils.lerp(current, target, HOVER_FADE_SPEED);
+
+        mat.userData.fadeMix = next;
+        mat.color.copy(mat.userData.originalColor).lerp(HOVER_DIM_COLOR, next);
       }
-    });
-  });
-}
+    }
+
+    function storeOriginalMaterial(mesh: THREE.Mesh) {
+      ensureFadeData(mesh);
+    }
+
+    function highlightOtherBuildings(activeName: string) {
+      Object.entries(buildingGroups).forEach(([name, group]) => {
+        group.traverse((obj: THREE.Object3D) => {
+          if ((obj as THREE.Mesh).isMesh) {
+            const mesh = obj as THREE.Mesh;
+            setMeshFadeTarget(mesh, name !== activeName ? 1 : 0);
+          }
+        });
+      });
+    }
+    function resetBuildingColors() {
+      Object.values(buildingGroups).forEach((group) => {
+        group.traverse((obj: THREE.Object3D) => {
+          if ((obj as THREE.Mesh).isMesh) {
+            setMeshFadeTarget(obj as THREE.Mesh, 0);
+          }
+        });
+      });
+    }
 
     const nonClickable = ["hq_back_dummy_building_grp"];
 
@@ -351,6 +382,14 @@ function resetBuildingColors() {
 
       if (mixer) mixer.update(delta);
 
+      Object.values(buildingGroups).forEach((group) => {
+        group.traverse((obj: THREE.Object3D) => {
+          if ((obj as THREE.Mesh).isMesh) {
+            updateMeshFade(obj as THREE.Mesh);
+          }
+        });
+      });
+
       if (
         currentScreen === "main" &&
         modelsReady &&
@@ -440,15 +479,15 @@ function resetBuildingColors() {
             obj = obj.parent;
           }
 
-     if (obj && obj !== hoveredBuilding) {
-  hoveredBuilding = obj;
+          if (obj && obj !== hoveredBuilding) {
+            hoveredBuilding = obj;
 
-  const modelName = obj.name;
+            const modelName = obj.name;
 
-  if (!nonClickable.includes(modelName)) {
-    highlightOtherBuildings(modelName);
-  }
-}
+            if (!nonClickable.includes(modelName)) {
+              highlightOtherBuildings(modelName);
+            }
+          }
         } else {
           if (hoveredBuilding) {
             hoveredBuilding = null;
@@ -510,8 +549,6 @@ function resetBuildingColors() {
       renderer.render(scene, camera);
     }
 
-   
-
     let modelsLoaded = 0;
     const totalModels = buildingModels.length;
     let modelsReady = false;
@@ -523,43 +560,43 @@ function resetBuildingColors() {
 
         loader.load(path, (gltf: GLTF) => {
           const model = gltf.scene;
-model.traverse((obj: THREE.Object3D) => {
-  if (obj.isMesh) {
-    const mesh = obj as THREE.Mesh;
-    storeOriginalMaterial(mesh);
-  }
+          model.traverse((obj: THREE.Object3D) => {
+            if (obj.isMesh) {
+              const mesh = obj as THREE.Mesh;
+              storeOriginalMaterial(mesh);
+            }
 
-  /* change Ground1 color */
-  if (obj.isMesh && obj.name === "Ground1") {
-    const mesh = obj as THREE.Mesh;
-    if (Array.isArray(mesh.material)) {
-      mesh.material.forEach((mat: any) => {
-        if (mat.color) {
-          mat.color.set("#b9b9b9");
-          mat.userData.originalColor = mat.color.clone();
-        }
-      });
-    } else {
-      const material = mesh.material as any;
-      if (material.color) {
-        material.color.set("#b9b9b9");
-        material.userData.originalColor = material.color.clone();
-      }
-    }
-  }
-  /* change Ground1 color */
+            /* change Ground1 color */
+            if (obj.isMesh && obj.name === "Ground1") {
+              const mesh = obj as THREE.Mesh;
+              if (Array.isArray(mesh.material)) {
+                mesh.material.forEach((mat: any) => {
+                  if (mat.color) {
+                    mat.color.set("#b9b9b9");
+                    mat.userData.originalColor = mat.color.clone();
+                  }
+                });
+              } else {
+                const material = mesh.material as any;
+                if (material.color) {
+                  material.color.set("#b9b9b9");
+                  material.userData.originalColor = material.color.clone();
+                }
+              }
+            }
+            /* change Ground1 color */
 
-  if (obj.name.endsWith("_grp")) {
-    buildingGroups[obj.name] = obj;
-  }
+            if (obj.name.endsWith("_grp")) {
+              buildingGroups[obj.name] = obj;
+            }
 
-  if (obj.isMesh && obj.name === "animation_led") {
-    obj.material = new THREE.MeshBasicMaterial({
-      map: videoTexture,
-      toneMapped: false,
-    });
-  }
-});
+            if (obj.isMesh && obj.name === "animation_led") {
+              obj.material = new THREE.MeshBasicMaterial({
+                map: videoTexture,
+                toneMapped: false,
+              });
+            }
+          });
 
           model.scale.set(1, 1, 1);
           model.position.set(0, 0, 0);
