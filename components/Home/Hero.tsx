@@ -22,7 +22,11 @@ export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
-    let currentScreen: "main" | "roadshow" | "wallPainting" = "main";
+    let currentScreen:
+      | "main"
+      | "roadshow"
+      | "wallPainting"
+      | "digitalMarketing" = "main";
 
     if (!mountRef.current) return;
     const { scene, camera, renderer, controls } = createThreeBase(
@@ -36,7 +40,7 @@ export default function Hero() {
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
     let introCanStart = false;
-    const ENABLE_INTRO = false; 
+    const ENABLE_INTRO = false;
     let skipNextControlsUpdate = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
@@ -47,7 +51,11 @@ export default function Hero() {
     scene.background = new THREE.Color(0xa0d8f0);
 
     let isUserControllingCamera = false;
-    let activeDestination: "roadshow" | "wallPainting" | null = null;
+    let activeDestination:
+      | "roadshow"
+      | "wallPainting"
+      | "digitalMarketing"
+      | null = null;
     /* CAMERA */
     const endCameraPosition = new THREE.Vector3(
       -28.349296,
@@ -120,7 +128,7 @@ export default function Hero() {
     controls.target.copy(introRig.target);
     camera.lookAt(introRig.target);
 
-       controls.enabled = false;
+    controls.enabled = false;
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.screenSpacePanning = false;
@@ -362,7 +370,7 @@ export default function Hero() {
           introState,
           introRig,
         });
-              if (introDone) {
+        if (introDone) {
           camera.position.copy(introRig.position);
           controls.target.copy(introRig.target);
           camera.lookAt(introRig.target);
@@ -533,7 +541,8 @@ export default function Hero() {
 
           if (
             activeDestination === "roadshow" ||
-            activeDestination === "wallPainting"
+            activeDestination === "wallPainting" ||
+            activeDestination === "digitalMarketing"
           ) {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("click", handleClick);
@@ -548,9 +557,20 @@ export default function Hero() {
 
             if (activeDestination === "roadshow") {
               loadRoadshowModule();
-            } else {
+            } else if (activeDestination === "wallPainting") {
               loadWallPaintingModule();
+            } else {
+              loadDigitalMarketingModule();
             }
+          } else if (activeDestination === "digitalMarketing") {
+            controls.enabled = true;
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.enableZoom = false;
+            controls.update();
+
+            hoveredBuilding = null;
+            isUserControllingCamera = false;
           }
         }
       }
@@ -570,7 +590,7 @@ export default function Hero() {
         loader.load(path, (gltf: GLTF) => {
           const model = gltf.scene;
           model.traverse((obj: THREE.Object3D) => {
-            console.log(obj.name)
+            console.log(obj.name);
             if (obj.isMesh) {
               const mesh = obj as THREE.Mesh;
               storeOriginalMaterial(mesh);
@@ -658,7 +678,7 @@ export default function Hero() {
                   camera.lookAt(introVisibleStartTarget);
 
                   introCanStart = true;
-                                } else {
+                } else {
                   introState.finished = true;
 
                   camera.position.copy(endCameraPosition);
@@ -728,7 +748,7 @@ export default function Hero() {
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-      function loadRoadshowModule() {
+    function loadRoadshowModule() {
       controls.enableZoom = false;
 
       import("./lib/roadshowModule").then((mod) => {
@@ -746,6 +766,19 @@ export default function Hero() {
 
       import("./lib/wallPaintingModule").then((mod) => {
         mod.initWallPainting({
+          scene,
+          camera,
+          controls,
+          renderer,
+        });
+      });
+    }
+
+    function loadDigitalMarketingModule() {
+      controls.enableZoom = false;
+
+      import("./lib/digitalMarketingModule").then((mod) => {
+        mod.initDigitalMarketing({
           scene,
           camera,
           controls,
@@ -811,7 +844,8 @@ export default function Hero() {
 
       if (
         obj.name === "road_show_building_grp" ||
-        obj.name === "wall_painting_building_grp"
+        obj.name === "wall_painting_building_grp" ||
+        obj.name === "digital_marketing_building_grp"
       ) {
         console.log("✅ CLICK DETECTED:", obj.name);
 
@@ -823,21 +857,27 @@ export default function Hero() {
         let destinationPosition: THREE.Vector3;
         let destinationTarget: THREE.Vector3;
 
-          if (obj.name === "road_show_building_grp") {
+        if (obj.name === "road_show_building_grp") {
           currentScreen = "roadshow";
           activeDestination = "roadshow";
 
           destinationPosition = cameraTargets.roadshow.position.clone();
           destinationTarget = cameraTargets.roadshow.target.clone();
-        } else {
+        } else if (obj.name === "wall_painting_building_grp") {
           currentScreen = "wallPainting";
           activeDestination = "wallPainting";
 
           destinationPosition = cameraTargets.wallPainting.position.clone();
-          
+          destinationTarget = cameraTargets.wallPainting.target.clone();
+        } else if (obj.name === "digital_marketing_building_grp") {
+          currentScreen = "digitalMarketing";
+          activeDestination = "digitalMarketing";
+
+          destinationPosition = cameraTargets.digitalMarketing.position.clone();
+          destinationTarget = cameraTargets.digitalMarketing.target.clone();
         }
 
-           // 1st screen -> 2nd screen fly scenario la mattum zoom allow
+        // 1st screen -> 2nd screen fly scenario la mattum zoom allow
         controls.enableZoom = true;
 
         startFlyToTarget({

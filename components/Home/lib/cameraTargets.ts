@@ -27,4 +27,19 @@ export const cameraTargets: Record<string, CameraTargetConfig> = {
       3.4864535730775468,
     ),
   },
+
+    digitalMarketing: {
+    position: new THREE.Vector3(
+      -7.3771064604067895,
+      4.538773150841211,
+      16.53152625774275,
+    ),
+    target: new THREE.Vector3(
+      1.8173932258873564,
+      -3.269266320232634e-17,
+      3.1518557902791082,
+    ),
+  },
+
+  
 };
