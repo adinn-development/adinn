@@ -1,7 +1,5 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
-import { EXRLoader } from "three/examples/jsm/loaders/EXRLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 type InitWallPaintingParams = {
@@ -17,48 +15,72 @@ export async function initWallPainting({
   controls,
   renderer,
 }: InitWallPaintingParams) {
- /* =========================
+  /* =========================
      CONTROLS SETUP (2nd SCREEN)
   ========================= */
 
   controls.enabled = true;
 
-  controls.minAzimuthAngle = -Infinity;
-  controls.maxAzimuthAngle = Infinity;
+  camera.position.set(
+    -10.610568933641602,
+    3.8282194178856863,
+    15.053302140309448,
+  );
 
-  controls.minPolarAngle = 0.01;
-  controls.maxPolarAngle = Math.PI - 0.01;
+  controls.target.set(
+    0.8937263705648809,
+    -9.90993256925678e-18,
+    0.05298164520602297,
+  );
 
-  controls.enablePan = true;
+  controls.enablePan = false;
   controls.enableZoom = true;
-  controls.enableRotate = true;
+  controls.enableRotate = false;
   controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
 
-  // better viewing angle (IMPORTANT)
-  camera.position.set(10, 5, 10);
+  controls.minPolarAngle = Math.PI / 2.45; // up
+  controls.maxPolarAngle = Math.PI / 2.42; // down
 
-  controls.target.set(0, 0, 0);
+  controls.minDistance = 5;
+  controls.maxDistance = 30;
+
   controls.update();
 
   /* =========================
      VARIABLES
   ========================= */
 
-  let rotationVelocity = 0;
-
   const loader = new GLTFLoader();
-  let vehicles: THREE.Object3D[] = [];
+  let wallPaintingRoot: THREE.Object3D | null = null;
 
-  const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
-  let selectedObject: THREE.Object3D | null = null;
-  
-  let isDragging = false;
-  let prevMouseX = 0;
+  const DEBUG_VALUES = true;
 
-  const Y_AXIS = new THREE.Vector3(0, 1, 0);
+  let targetRotationY = 0;
+  let isLeftMouseDown = false;
+  let lastMouseX = 0;
 
+  // smooth tilt values
+  let targetTiltValue = 0;
+  let currentTiltValue = 0;
+  let lastAppliedTiltValue = 0;
+
+  const baseObjectPosition = new THREE.Vector3(
+    -0.8022948871239564,
+    -8.881784197001252e-16,
+    1.4786092764825085,
+  );
+
+  const baseObjectRotation = new THREE.Euler(0, 0, 0);
+  const baseObjectScale = new THREE.Vector3(1, 1, 1);
+
+  const rotationSmooth = 0.08;
+  const autoTiltAmount = 0.14;
+  const tiltSmooth = 0.1;
+  const edgeSoftness = 0.85;
+  const maxTiltLimit = 0.11;
   /* =========================
      LOAD MODEL
   ========================= */
@@ -66,6 +88,14 @@ export async function initWallPainting({
   loader.load("/models/wall_painting_building_grp.glb", (gltf) => {
     const model = gltf.scene;
     scene.add(model);
+
+    wallPaintingRoot = model;
+
+    wallPaintingRoot.position.copy(baseObjectPosition);
+    wallPaintingRoot.rotation.copy(baseObjectRotation);
+    wallPaintingRoot.scale.copy(baseObjectScale);
+
+    targetRotationY = wallPaintingRoot.rotation.y;
 
     model.traverse((obj: any) => {
       if (obj.isMesh) {
@@ -75,69 +105,93 @@ export async function initWallPainting({
       }
     });
 
-    const v1 = model.getObjectByName("vehicle_1");
-    const v2 = model.getObjectByName("vehicle_2");
-    const v3 = model.getObjectByName("vehicle_3");
-
-    vehicles = [v1, v2, v3].filter(Boolean) as THREE.Object3D[];
+    if (DEBUG_VALUES) {
+      printAllValues("MODEL LOADED");
+    }
   });
 
+  function printAllValues(label = "DEBUG") {
+    if (!wallPaintingRoot) return;
+
+    console.log(`
+[${label}]
+
+camera.position:
+x: ${camera.position.x},
+y: ${camera.position.y},
+z: ${camera.position.z}
+
+controls.target:
+x: ${controls.target.x},
+y: ${controls.target.y},
+z: ${controls.target.z}
+
+object.position:
+x: ${wallPaintingRoot.position.x},
+y: ${wallPaintingRoot.position.y},
+z: ${wallPaintingRoot.position.z}
+
+object.rotation:
+x: ${wallPaintingRoot.rotation.x},
+y: ${wallPaintingRoot.rotation.y},
+z: ${wallPaintingRoot.rotation.z}
+
+object.scale:
+x: ${wallPaintingRoot.scale.x},
+y: ${wallPaintingRoot.scale.y},
+z: ${wallPaintingRoot.scale.z}
+`);
+  }
+
   /* =========================
-     MOUSE EVENTS
+     MOUSE INTERACTION
   ========================= */
 
   function onMouseDown(event: MouseEvent) {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-    raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(vehicles, true);
-
-    if (intersects.length > 0) {
-      let obj = intersects[0].object;
-
-      // ensure full vehicle selection
-      while (obj.parent && !vehicles.includes(obj)) {
-        obj = obj.parent;
-      }
-
-      selectedObject = obj;
-
-      isDragging = true;
-      prevMouseX = event.clientX;
-
-      rotationVelocity = 0;
-
-      // disable camera movement while dragging
-      controls.enableRotate = false;
-      controls.enablePan = false;
-      controls.enableZoom = false;
-    }
+    if (event.button !== 0) return; // left click only
+    isLeftMouseDown = true;
+    lastMouseX = event.clientX;
   }
 
   function onMouseMove(event: MouseEvent) {
-    if (!isDragging || !selectedObject) return;
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-    const deltaX = event.clientX - prevMouseX;
-    prevMouseX = event.clientX;
+    // center la normal response
+    // edge kitta pona speed reduce aagum
+    const absY = Math.abs(mouse.y);
+    const easedY = mouse.y * absY;
 
-    // store velocity (smooth rotation)
-    rotationVelocity = deltaX * 0.005;
+    // boundary pakkam pona soft falloff
+    const edgeFactor = 1 - Math.pow(absY, 2) * (1 - edgeSoftness);
+
+    const nextTilt = easedY * autoTiltAmount * edgeFactor;
+
+    // manual safe clamp before OrbitControls clamp
+    targetTiltValue = THREE.MathUtils.clamp(
+      nextTilt,
+      -maxTiltLimit,
+      maxTiltLimit,
+    );
+
+    // left click hold pannina mattum object rotate
+    if (!wallPaintingRoot || !isLeftMouseDown) return;
+
+    const deltaX = event.clientX - lastMouseX;
+    lastMouseX = event.clientX;
+
+    targetRotationY += deltaX * 0.01;
   }
 
-  function onMouseUp() {
-    isDragging = false;
-    selectedObject = null;
-
-    // re-enable camera
-    controls.enableRotate = true;
-    controls.enablePan = true;
-    controls.enableZoom = true;
+  function onMouseUp(event: MouseEvent) {
+    if (event.button !== 0) return;
+    isLeftMouseDown = false;
   }
 
   window.addEventListener("mousedown", onMouseDown);
   window.addEventListener("mousemove", onMouseMove);
   window.addEventListener("mouseup", onMouseUp);
+  window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   /* =========================
      ANIMATION LOOP
@@ -146,12 +200,37 @@ export async function initWallPainting({
   function animate() {
     requestAnimationFrame(animate);
 
-    if (selectedObject) {
-      selectedObject.rotateOnWorldAxis(Y_AXIS, rotationVelocity);
+    if (wallPaintingRoot) {
+      wallPaintingRoot.rotation.y = THREE.MathUtils.lerp(
+        wallPaintingRoot.rotation.y,
+        targetRotationY,
+        rotationSmooth,
+      );
 
-      // smooth slowdown
-      rotationVelocity *= 0.9;
+      wallPaintingRoot.position.x = baseObjectPosition.x;
+      wallPaintingRoot.position.y = baseObjectPosition.y;
+      wallPaintingRoot.position.z = baseObjectPosition.z;
     }
+
+    // smooth tilt apply
+    // smooth tilt apply
+    currentTiltValue = THREE.MathUtils.lerp(
+      currentTiltValue,
+      targetTiltValue,
+      tiltSmooth,
+    );
+
+    // very small delta near boundary / settling time la jitter avoid
+    let tiltDelta = currentTiltValue - lastAppliedTiltValue;
+
+    // deadzone for smoother landing
+    if (Math.abs(tiltDelta) < 0.00015) {
+      tiltDelta = 0;
+    }
+
+    lastAppliedTiltValue = currentTiltValue;
+
+    controls.rotateUp(tiltDelta);
 
     controls.update();
     renderer.render(scene, camera);

@@ -36,6 +36,7 @@ export default function Hero() {
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
     let introCanStart = false;
+    const ENABLE_INTRO = false; 
     let skipNextControlsUpdate = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
@@ -119,12 +120,13 @@ export default function Hero() {
     controls.target.copy(introRig.target);
     camera.lookAt(introRig.target);
 
-    controls.enabled = false;
+       controls.enabled = false;
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.screenSpacePanning = false;
     controls.minDistance = 1;
     controls.maxDistance = 50;
+    controls.enableZoom = true;
 
     controls.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
     controls.mouseButtons.LEFT = THREE.MOUSE.PAN;
@@ -346,6 +348,7 @@ export default function Hero() {
       /* CAMERA INTRO ANIMATION */
 
       if (
+        ENABLE_INTRO &&
         currentScreen === "main" &&
         introCanStart &&
         !introState.finished &&
@@ -359,7 +362,7 @@ export default function Hero() {
           introState,
           introRig,
         });
-        if (introDone) {
+              if (introDone) {
           camera.position.copy(introRig.position);
           controls.target.copy(introRig.target);
           camera.lookAt(introRig.target);
@@ -371,6 +374,12 @@ export default function Hero() {
 
           controls.minAzimuthAngle = -0.65;
           controls.maxAzimuthAngle = -0.55;
+
+          // intro mudinja odane zoom cut
+          controls.enableZoom = false;
+
+          // intro mudinja odane pan limit apply pannanum
+          limitPan();
 
           mouse.set(999, 999);
           hoveredBuilding = null;
@@ -561,6 +570,7 @@ export default function Hero() {
         loader.load(path, (gltf: GLTF) => {
           const model = gltf.scene;
           model.traverse((obj: THREE.Object3D) => {
+            console.log(obj.name)
             if (obj.isMesh) {
               const mesh = obj as THREE.Mesh;
               storeOriginalMaterial(mesh);
@@ -636,17 +646,42 @@ export default function Hero() {
                 loaderRef.current.style.display = "none";
 
                 // reset intro exactly at start point
-                introState.progress = 0;
-                introState.finished = false;
+                if (ENABLE_INTRO) {
+                  introState.progress = 0;
+                  introState.finished = false;
 
-                introRig.position.copy(introVisibleStartCameraPosition);
-                introRig.target.copy(introVisibleStartTarget);
+                  introRig.position.copy(introVisibleStartCameraPosition);
+                  introRig.target.copy(introVisibleStartTarget);
 
-                camera.position.copy(introVisibleStartCameraPosition);
-                controls.target.copy(introVisibleStartTarget);
-                camera.lookAt(introVisibleStartTarget);
+                  camera.position.copy(introVisibleStartCameraPosition);
+                  controls.target.copy(introVisibleStartTarget);
+                  camera.lookAt(introVisibleStartTarget);
 
-                introCanStart = true;
+                  introCanStart = true;
+                                } else {
+                  introState.finished = true;
+
+                  camera.position.copy(endCameraPosition);
+                  controls.target.copy(endTarget);
+                  camera.lookAt(endTarget);
+
+                  controls.enabled = true;
+
+                  controls.minDistance = 1;
+                  controls.maxDistance = 50;
+
+                  controls.minAzimuthAngle = -0.65;
+                  controls.maxAzimuthAngle = -0.55;
+
+                  // intro skip panninalum final main scene la zoom off irukkanum
+                  // controls.enableZoom = false;
+
+                  // intro finished state-ku once pan limit apply pannu
+                  // limitPan();
+
+                  targetAzimuth = controls.getAzimuthalAngle();
+                  targetPolar = controls.getPolarAngle();
+                }
               }, 500);
             } else {
               introCanStart = true;
@@ -693,7 +728,9 @@ export default function Hero() {
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    function loadRoadshowModule() {
+      function loadRoadshowModule() {
+      controls.enableZoom = false;
+
       import("./lib/roadshowModule").then((mod) => {
         mod.initRoadshow({
           scene,
@@ -705,6 +742,8 @@ export default function Hero() {
     }
 
     function loadWallPaintingModule() {
+      controls.enableZoom = false;
+
       import("./lib/wallPaintingModule").then((mod) => {
         mod.initWallPainting({
           scene,
@@ -784,7 +823,7 @@ export default function Hero() {
         let destinationPosition: THREE.Vector3;
         let destinationTarget: THREE.Vector3;
 
-        if (obj.name === "road_show_building_grp") {
+          if (obj.name === "road_show_building_grp") {
           currentScreen = "roadshow";
           activeDestination = "roadshow";
 
@@ -795,7 +834,11 @@ export default function Hero() {
           activeDestination = "wallPainting";
 
           destinationPosition = cameraTargets.wallPainting.position.clone();
+          
         }
+
+           // 1st screen -> 2nd screen fly scenario la mattum zoom allow
+        controls.enableZoom = true;
 
         startFlyToTarget({
           camera,
