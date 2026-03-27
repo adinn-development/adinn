@@ -41,5 +41,18 @@ export const cameraTargets: Record<string, CameraTargetConfig> = {
     ),
   },
 
-  
+  fixtures: {
+  position: new THREE.Vector3(
+    -7.429264986539309,
+    4.217257581676869,
+    9.44234572930943,
+  ),
+  target: new THREE.Vector3(
+    1.6995825782370575,
+    3.0244508485889363e-19,
+    -2.5660661861958483,
+  ),
+},
+
+
 };

@@ -22,11 +22,8 @@ export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
-    let currentScreen:
-      | "main"
-      | "roadshow"
-      | "wallPainting"
-      | "digitalMarketing" = "main";
+    let currentScreen: "main" | "roadshow" | "digitalMarketing" | "fixtures" =
+      "main";
 
     if (!mountRef.current) return;
     const { scene, camera, renderer, controls } = createThreeBase(
@@ -55,6 +52,7 @@ export default function Hero() {
       | "roadshow"
       | "wallPainting"
       | "digitalMarketing"
+      | "fixtures"
       | null = null;
     /* CAMERA */
     const endCameraPosition = new THREE.Vector3(
@@ -538,11 +536,11 @@ export default function Hero() {
 
         if (finished) {
           hoveredBuilding = null;
-
           if (
             activeDestination === "roadshow" ||
             activeDestination === "wallPainting" ||
-            activeDestination === "digitalMarketing"
+            activeDestination === "digitalMarketing" ||
+            activeDestination === "fixtures"
           ) {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("click", handleClick);
@@ -559,8 +557,10 @@ export default function Hero() {
               loadRoadshowModule();
             } else if (activeDestination === "wallPainting") {
               loadWallPaintingModule();
-            } else {
+            } else if (activeDestination === "digitalMarketing") {
               loadDigitalMarketingModule();
+            } else if (activeDestination === "fixtures") {
+              loadFixturesModule();
             }
           } else if (activeDestination === "digitalMarketing") {
             controls.enabled = true;
@@ -787,6 +787,8 @@ export default function Hero() {
       });
     }
 
+    function loadFixturesModule() {}
+
     function disposeModel(model: THREE.Object3D) {
       model.traverse((obj: any) => {
         if (obj.isMesh) {
@@ -819,7 +821,6 @@ export default function Hero() {
       return center;
     }
     const handleClick = (event: MouseEvent) => {
-      // return;
       const clickMouse = new THREE.Vector2(
         (event.clientX / window.innerWidth) * 2 - 1,
         -(event.clientY / window.innerHeight) * 2 + 1,
@@ -845,7 +846,8 @@ export default function Hero() {
       if (
         obj.name === "road_show_building_grp" ||
         obj.name === "wall_painting_building_grp" ||
-        obj.name === "digital_marketing_building_grp"
+        obj.name === "digital_marketing_building_grp" ||
+        obj.name === "fixtures_building_grp"
       ) {
         console.log("✅ CLICK DETECTED:", obj.name);
 
@@ -875,9 +877,14 @@ export default function Hero() {
 
           destinationPosition = cameraTargets.digitalMarketing.position.clone();
           destinationTarget = cameraTargets.digitalMarketing.target.clone();
+        } else {
+          currentScreen = "fixtures";
+          activeDestination = "fixtures";
+
+          destinationPosition = cameraTargets.fixtures.position.clone();
+          destinationTarget = cameraTargets.fixtures.target.clone();
         }
 
-        // 1st screen -> 2nd screen fly scenario la mattum zoom allow
         controls.enableZoom = true;
 
         startFlyToTarget({
