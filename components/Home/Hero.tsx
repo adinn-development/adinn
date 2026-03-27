@@ -22,9 +22,13 @@ export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
-    let currentScreen: "main" | "roadshow" | "digitalMarketing" | "fixtures" =
-      "main";
-
+    let currentScreen:
+      | "main"
+      | "roadshow"
+      | "wallPainting"
+      | "digitalMarketing"
+      | "fixtures"
+      | "event" = "main";
     if (!mountRef.current) return;
     const { scene, camera, renderer, controls } = createThreeBase(
       mountRef.current,
@@ -53,6 +57,7 @@ export default function Hero() {
       | "wallPainting"
       | "digitalMarketing"
       | "fixtures"
+      | "event"
       | null = null;
     /* CAMERA */
     const endCameraPosition = new THREE.Vector3(
@@ -540,7 +545,8 @@ export default function Hero() {
             activeDestination === "roadshow" ||
             activeDestination === "wallPainting" ||
             activeDestination === "digitalMarketing" ||
-            activeDestination === "fixtures"
+            activeDestination === "fixtures" ||
+            activeDestination === "event"
           ) {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("click", handleClick);
@@ -561,6 +567,8 @@ export default function Hero() {
               loadDigitalMarketingModule();
             } else if (activeDestination === "fixtures") {
               loadFixturesModule();
+            } else if (activeDestination === "event") {
+              loadEventModule();
             }
           } else if (activeDestination === "digitalMarketing") {
             controls.enabled = true;
@@ -723,6 +731,7 @@ export default function Hero() {
     window.addEventListener("resize", handleResize);
 
     const handleMouseMove = (event: MouseEvent) => {
+      
       const newMouseX = (event.clientX / window.innerWidth) * 2 - 1;
       const newMouseY = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -788,10 +797,23 @@ export default function Hero() {
     }
 
     function loadFixturesModule() {
+      controls.enableZoom = false;
+
+      import("./lib/fixturesModule").then((mod) => {
+        mod.initFixtures({
+          scene,
+          camera,
+          controls,
+          renderer,
+        });
+      });
+    }
+
+function loadEventModule() {
   controls.enableZoom = false;
 
-  import("./lib/fixturesModule").then((mod) => {
-    mod.initFixtures({
+  import("./lib/eventModule").then((mod) => {
+    mod.initEvent({
       scene,
       camera,
       controls,
@@ -858,7 +880,8 @@ export default function Hero() {
         obj.name === "road_show_building_grp" ||
         obj.name === "wall_painting_building_grp" ||
         obj.name === "digital_marketing_building_grp" ||
-        obj.name === "fixtures_building_grp"
+        obj.name === "fixtures_building_grp" ||
+        obj.name === "event_building_grp"
       ) {
         console.log("✅ CLICK DETECTED:", obj.name);
 
@@ -888,12 +911,20 @@ export default function Hero() {
 
           destinationPosition = cameraTargets.digitalMarketing.position.clone();
           destinationTarget = cameraTargets.digitalMarketing.target.clone();
-        } else {
+        } else if (obj.name === "fixtures_building_grp") {
           currentScreen = "fixtures";
           activeDestination = "fixtures";
 
           destinationPosition = cameraTargets.fixtures.position.clone();
           destinationTarget = cameraTargets.fixtures.target.clone();
+        } else if (obj.name === "event_building_grp") {
+          currentScreen = "event";
+          activeDestination = "event";
+
+          destinationPosition = cameraTargets.event.position.clone();
+          destinationTarget = cameraTargets.event.target.clone();
+        } else {
+          return;
         }
 
         controls.enableZoom = true;
