@@ -538,13 +538,13 @@ export default function Hero() {
 
         if (finished) {
           hoveredBuilding = null;
-
           if (
             activeDestination === "roadshow" ||
             activeDestination === "wallPainting" ||
             activeDestination === "digitalMarketing" ||
             activeDestination === "fixtures" ||
-            activeDestination === "event"
+            activeDestination === "event" ||
+            activeDestination === "adinnHQ"
           ) {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("click", handleClick);
@@ -567,16 +567,9 @@ export default function Hero() {
               loadFixturesModule();
             } else if (activeDestination === "event") {
               loadEventModule();
+            } else if (activeDestination === "adinnHQ") {
+              loadAdinnHQModule();
             }
-          } else if (activeDestination === "adinnHQ") {
-            controls.enabled = true;
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.enableZoom = false;
-            controls.update();
-
-            hoveredBuilding = null;
-            isUserControllingCamera = false;
           }
         }
       }
@@ -782,6 +775,19 @@ export default function Hero() {
 
       import("./lib/digitalMarketingModule").then((mod) => {
         mod.initDigitalMarketing({
+          scene,
+          camera,
+          controls,
+          renderer,
+        });
+      });
+    }
+
+    function loadAdinnHQModule() {
+      controls.enableZoom = false;
+
+      import("./lib/adinnHQModule").then((mod) => {
+        mod.initAdinnHQ({
           scene,
           camera,
           controls,
