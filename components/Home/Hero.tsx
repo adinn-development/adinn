@@ -30,7 +30,8 @@ export default function Hero() {
       | "digitalMarketing"
       | "fixtures"
       | "event"
-      | "adinnHQ" = "main";
+      | "adinnHQ"
+      | "mediaAds" = "main";
 
     if (!mountRef.current) return;
 
@@ -63,6 +64,7 @@ export default function Hero() {
       | "fixtures"
       | "event"
       | "adinnHQ"
+      | "mediaAds"
       | null = null;
 
     /* CAMERA */
@@ -544,7 +546,8 @@ export default function Hero() {
             activeDestination === "digitalMarketing" ||
             activeDestination === "fixtures" ||
             activeDestination === "event" ||
-            activeDestination === "adinnHQ"
+            activeDestination === "adinnHQ" ||
+            activeDestination === "mediaAds"
           ) {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("click", handleClick);
@@ -569,6 +572,8 @@ export default function Hero() {
               loadEventModule();
             } else if (activeDestination === "adinnHQ") {
               loadAdinnHQModule();
+            } else if (activeDestination === "mediaAds") {
+              loadMediaAdsModule();
             }
           }
         }
@@ -796,6 +801,18 @@ export default function Hero() {
       });
     }
 
+    function loadMediaAdsModule() {
+      controls.enableZoom = false;
+
+      import("./lib/mediaAdsModule").then((mod) => {
+        mod.initMediaAds({
+          scene,
+          camera,
+          controls,
+          renderer,
+        });
+      });
+    }
     function loadFixturesModule() {
       controls.enableZoom = false;
 
@@ -881,7 +898,8 @@ export default function Hero() {
         obj.name === "digital_marketing_building_grp" ||
         obj.name === "fixtures_building_grp" ||
         obj.name === "event_building_grp" ||
-        obj.name === "adinn_hq_building_grp"
+        obj.name === "adinn_hq_building_grp" ||
+        obj.name === "media_ads_building_grp"
       ) {
         console.log("✅ CLICK DETECTED:", obj.name);
 
@@ -929,6 +947,12 @@ export default function Hero() {
 
           destinationPosition = cameraTargets.adinnHQ.position.clone();
           destinationTarget = cameraTargets.adinnHQ.target.clone();
+        } else if (obj.name === "media_ads_building_grp") {
+          currentScreen = "mediaAds";
+          activeDestination = "mediaAds";
+
+          destinationPosition = cameraTargets.mediaAds.position.clone();
+          destinationTarget = cameraTargets.mediaAds.target.clone();
         } else {
           return;
         }

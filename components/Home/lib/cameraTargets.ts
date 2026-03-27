@@ -74,4 +74,17 @@ export const cameraTargets: Record<string, CameraTargetConfig> = {
       -4.924925891933217,
     ),
   },
+
+  mediaAds: {
+    position: new THREE.Vector3(
+      -12.53877647614928,
+      5.915949256331285,
+      9.312708289037815,
+    ),
+    target: new THREE.Vector3(
+      -1.4300768090060412,
+      -1.5972734141224055e-17,
+      -8.69452699576114,
+    ),
+  },
 };
