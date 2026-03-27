@@ -257,52 +257,82 @@ const Footer = () => {
     return errors;
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
+  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setLoading(true);
 
-    const APPS_SCRIPT_URL =
-      "https://backend-bq11.onrender.com/sendMailAdinnContactUs";
+  //   const APPS_SCRIPT_URL =
+  //     "https://backend-bq11.onrender.com/sendMailAdinnContactUs";
 
-    try {
-      const payload = {
-        firstName: formData.firstName.trim(),
-        lastName: formData.lastName.trim(),
-        email: formData.email.trim().toLowerCase(),
-        message: formData.message.trim(),
-        timestamp: new Date().toISOString(),
-        source: "footer",
-      };
+  //   try {
+  //     const payload = {
+  //       firstName: formData.firstName.trim(),
+  //       lastName: formData.lastName.trim(),
+  //       email: formData.email.trim().toLowerCase(),
+  //       message: formData.message.trim(),
+  //       timestamp: new Date().toISOString(),
+  //       source: "footer",
+  //     };
 
-      const response = await fetch(APPS_SCRIPT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+  //     const response = await fetch(APPS_SCRIPT_URL, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(payload),
+  //     });
 
-      const result = await response.json();
+  //     const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.message || "Failed to send message");
-      }
+  //     if (!response.ok) {
+  //       throw new Error(result.message || "Failed to send message");
+  //     }
 
-      toast.success("Your message has been sent successfully!");
+  //     toast.success("Your message has been sent successfully!");
 
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        message: "",
-      });
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
+  //     setFormData({
+  //       firstName: "",
+  //       lastName: "",
+  //       email: "",
+  //       message: "",
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //     toast.error("Failed to send message. Please try again.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+
+  try {
+    const response = await fetch("https://adinndigital.com/api/index.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        mailtype: "adinnEnquiry",
+        userFirstName: formData.firstName,
+        userLastName: formData.lastName,
+        userEnquiryEmail: formData.email,
+        userEnquiryMessage: formData.message,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      alert("Your enquiry has been submitted successfully!");
     }
-  };
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const FooterLogos = [
     {
