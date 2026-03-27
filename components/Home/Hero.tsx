@@ -787,7 +787,18 @@ export default function Hero() {
       });
     }
 
-    function loadFixturesModule() {}
+    function loadFixturesModule() {
+  controls.enableZoom = false;
+
+  import("./lib/fixturesModule").then((mod) => {
+    mod.initFixtures({
+      scene,
+      camera,
+      controls,
+      renderer,
+    });
+  });
+}
 
     function disposeModel(model: THREE.Object3D) {
       model.traverse((obj: any) => {
@@ -870,7 +881,7 @@ export default function Hero() {
           activeDestination = "wallPainting";
 
           destinationPosition = cameraTargets.wallPainting.position.clone();
-          destinationTarget = cameraTargets.wallPainting.target.clone();
+          // destinationTarget = cameraTargets.wallPainting.target.clone();
         } else if (obj.name === "digital_marketing_building_grp") {
           currentScreen = "digitalMarketing";
           activeDestination = "digitalMarketing";
