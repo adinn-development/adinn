@@ -67,14 +67,14 @@ export async function initDigitalMarketing({
   let currentTiltValue = 0;
   let lastAppliedTiltValue = 0;
 
-  // model oda original transform preserve pannrom
-  const baseObjectPosition = new THREE.Vector3();
-  const baseObjectRotation = new THREE.Euler();
+  // direct root transform preserve pannrom
+  const baseObjectPosition = new THREE.Vector3(0, 0, 0);
+  const baseObjectRotation = new THREE.Euler(0, 0, 0);
   const baseObjectScale = new THREE.Vector3(1, 1, 1);
 
   const rotationSmooth = 0.08;
   const autoTiltAmount = 0.14;
-  const tiltSmooth = 0.10;
+  const tiltSmooth = 0.1;
   const edgeSoftness = 0.85;
   const maxTiltLimit = 0.11;
 
@@ -88,10 +88,9 @@ export async function initDigitalMarketing({
 
     digitalMarketingRoot = model;
 
-    // current exported model transform ah base-a store pannrom
-    baseObjectPosition.copy(model.position);
-    baseObjectRotation.copy(model.rotation);
-    baseObjectScale.copy(model.scale);
+    digitalMarketingRoot.position.copy(baseObjectPosition);
+    digitalMarketingRoot.rotation.copy(baseObjectRotation);
+    digitalMarketingRoot.scale.copy(baseObjectScale);
 
     targetRotationY = digitalMarketingRoot.rotation.y;
 
@@ -208,10 +207,6 @@ z: ${digitalMarketingRoot.scale.z}
       digitalMarketingRoot.position.x = baseObjectPosition.x;
       digitalMarketingRoot.position.y = baseObjectPosition.y;
       digitalMarketingRoot.position.z = baseObjectPosition.z;
-
-      digitalMarketingRoot.scale.copy(baseObjectScale);
-      digitalMarketingRoot.rotation.x = baseObjectRotation.x;
-      digitalMarketingRoot.rotation.z = baseObjectRotation.z;
     }
 
     // smooth tilt apply
@@ -221,8 +216,10 @@ z: ${digitalMarketingRoot.scale.z}
       tiltSmooth,
     );
 
+    // very small delta near boundary / settling time la jitter avoid
     let tiltDelta = currentTiltValue - lastAppliedTiltValue;
 
+    // deadzone for smoother landing
     if (Math.abs(tiltDelta) < 0.00015) {
       tiltDelta = 0;
     }
