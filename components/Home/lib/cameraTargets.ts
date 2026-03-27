@@ -62,4 +62,16 @@ export const cameraTargets: Record<string, CameraTargetConfig> = {
       -1.3231030714503371,
     ),
   },
+  adinnHQ: {
+    position: new THREE.Vector3(
+      -2.8564102922397883,
+      5.600962998498171,
+      11.582807582599205,
+    ),
+    target: new THREE.Vector3(
+      8.494384681463266,
+      9.468981736316157e-18,
+      -4.924925891933217,
+    ),
+  },
 };
