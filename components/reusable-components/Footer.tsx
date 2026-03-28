@@ -21,6 +21,15 @@ interface FooterFormData {
   email: string;
   message: string;
 }
+
+// NEW: Add errors interface
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  message?: string;
+}
+
 const PrivacyPolicyContent = () => (
   <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
     <p className="text-xs text-gray-400">
@@ -216,10 +225,12 @@ const Footer = () => {
   });
 
   const [loading, setLoading] = useState<boolean>(false);
-
   const [policyModal, setPolicyModal] = useState<"terms" | "privacy" | null>(
     null
   );
+  
+  // NEW: Add errors state
+  const [errors, setErrors] = useState<FormErrors>({});
 
   // Handle input change
   const handleChange = (
@@ -227,34 +238,51 @@ const Footer = () => {
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    // NEW: Clear error for this field when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors({ ...errors, [name]: undefined });
+    }
   };
 
-  // Validate form data
-  const validateForm = (): string[] => {
-    const errors: string[] = [];
+  // NEW: Validate form data
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
 
     if (!formData.firstName.trim()) {
-      errors.push("First name is required");
+      newErrors.firstName = "First name is required";
+    } else if (formData.firstName.trim().length < 2) {
+      newErrors.firstName = "First name must be at least 2 characters";
+    } else if (!/^[a-zA-Z\s]*$/.test(formData.firstName)) {
+      newErrors.firstName = "First name should only contain letters";
     }
 
     if (!formData.lastName.trim()) {
-      errors.push("Last name is required");
+      newErrors.lastName = "Last name is required";
+    } else if (formData.lastName.trim().length < 2) {
+      newErrors.lastName = "Last name must be at least 2 characters";
+    } else if (!/^[a-zA-Z\s]*$/.test(formData.lastName)) {
+      newErrors.lastName = "Last name should only contain letters";
     }
 
     if (!formData.email.trim()) {
-      errors.push("Email is required");
+      newErrors.email = "Email is required";
     } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
-        errors.push("Please enter a valid email address");
+        newErrors.email = "Please enter a valid email address";
       }
     }
 
     if (!formData.message.trim()) {
-      errors.push("Message is required");
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    } else if (formData.message.trim().length > 1000) {
+      newErrors.message = "Message must be less than 1000 characters";
     }
 
-    return errors;
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -303,36 +331,71 @@ const Footer = () => {
   //     setLoading(false);
   //   }
   // };
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
-
-  try {
-    const response = await fetch("https://adinndigital.com/api/index.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        mailtype: "adinnEnquiry",
-        userFirstName: formData.firstName,
-        userLastName: formData.lastName,
-        userEnquiryEmail: formData.email,
-        userEnquiryMessage: formData.message,
-      }),
-    });
-
-    const result = await response.json();
-
-    if (result.status === "success") {
-      alert("Your enquiry has been submitted successfully!");
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // NEW: Validate form before submission
+    if (!validateForm()) {
+      toast.error("Please fix the errors in the form");
+      return;
     }
-  } catch (error) {
-    console.log(error);
-  } finally {
-    setLoading(false);
-  }
-};
+    
+    setLoading(true);
+    
+    // NEW: Show loading toast
+    const loadingToast = toast.loading("Sending your enquiry...");
+    
+    try {
+      const response = await fetch("https://adinndigital.com/api/index.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          mailtype: "adinnEnquiry",
+          userFirstName: formData.firstName,
+          userLastName: formData.lastName,
+          userEnquiryEmail: formData.email,
+          userEnquiryMessage: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+      
+      // NEW: Dismiss loading toast
+      toast.dismiss(loadingToast);
+      
+     if (result.status === "success") {
+  // Simple toast without custom icon
+  toast.success("Thank you for your enquiry! We'll get back soon", {
+    autoClose: 5000,
+  });
+        
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+        });
+        // NEW: Clear errors
+        setErrors({});
+        
+      } else {
+        // NEW: Show error toast
+        toast.error(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      // NEW: Dismiss loading toast
+      toast.dismiss(loadingToast);
+      // NEW: Show network error toast
+      toast.error("Network error. Please check your internet connection and try again.");
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const FooterLogos = [
     {
@@ -359,7 +422,19 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   return (
     <div className="bg-[#0C0C0C] w-full min-h-auto p-8 md:p-12">
-      <ToastContainer position="top-right" autoClose={3000} />
+      {/* NEW: Enhanced ToastContainer configuration */}
+      <ToastContainer 
+        position="top-right" 
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
 
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
         {/* Left Section */}
@@ -476,9 +551,15 @@ const handleSubmit = async (e: React.FormEvent) => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white"
-                  required
+                  // NEW: Add error styling
+                  className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${
+                    errors.firstName ? 'border-red-500' : 'border-white/16'
+                  }`}
                 />
+                {/* NEW: Add error message */}
+                {errors.firstName && (
+                  <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+                )}
               </div>
 
               <div className="flex flex-col space-y-3 sm:space-y-4 flex-1">
@@ -489,9 +570,15 @@ const handleSubmit = async (e: React.FormEvent) => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white"
-                  required
+                  // NEW: Add error styling
+                  className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${
+                    errors.lastName ? 'border-red-500' : 'border-white/16'
+                  }`}
                 />
+                {/* NEW: Add error message */}
+                {errors.lastName && (
+                  <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
+                )}
               </div>
             </div>
 
@@ -504,9 +591,15 @@ const handleSubmit = async (e: React.FormEvent) => {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white"
-                required
+                // NEW: Add error styling
+                className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${
+                  errors.email ? 'border-red-500' : 'border-white/16'
+                }`}
               />
+              {/* NEW: Add error message */}
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
             </div>
 
             <div className="flex flex-col space-y-3 sm:space-y-4">
@@ -517,18 +610,36 @@ const handleSubmit = async (e: React.FormEvent) => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="border-b border-white/16 focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full min-h-[60px] resize-none text-white"
+                // NEW: Add error styling
+                className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full min-h-[60px] resize-none text-white ${
+                  errors.message ? 'border-red-500' : 'border-white/16'
+                }`}
                 rows={2}
-                required
               />
+              {/* NEW: Add error message */}
+              {errors.message && (
+                <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+              )}
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 text-[7.5px] md:text-[12px] rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer hover:bg-[#EC2B45] hover:bg-none disabled:opacity-70"
+              // NEW: Add disabled cursor styling
+              className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 text-[7.5px] md:text-[12px] rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer hover:bg-[#EC2B45] hover:bg-none disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {loading ? "SUBMITTING..." : "SUBMIT"}
+              {/* NEW: Add loading spinner */}
+              {loading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  SUBMITTING...
+                </span>
+              ) : (
+                "SUBMIT"
+              )}
             </button>
           </form>
         </div>
