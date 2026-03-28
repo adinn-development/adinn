@@ -337,7 +337,7 @@ const Footer = () => {
     
     // NEW: Validate form before submission
     if (!validateForm()) {
-      toast.error("Please fix the errors in the form");
+      toast.error("Please fill in all required fields.");
       return;
     }
     
