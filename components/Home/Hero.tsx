@@ -349,7 +349,7 @@ export default function Hero() {
     }
 
     /* CAMERA INTRO */
-    const flyState = createFlyState(2);
+    const flyState = createFlyState(2.35);
     const clock = new THREE.Clock();
     const cameraSpeed = 1.25;
     let animationId: number;
@@ -530,58 +530,58 @@ export default function Hero() {
       }
 
       /* CAMERA FLY */
-      if (flyState.isFlying) {
-        const finished = updateFlyAnimation({
-          delta,
-          camera,
-          controls,
-          rig: cameraRig,
-          flyState,
-        });
+const finished = updateFlyAnimation({
+  delta,
+  camera,
+  controls,
+  rig: cameraRig,
+  flyState,
+});
 
-        if (finished) {
-          hoveredBuilding = null;
-          if (
-            activeDestination === "roadshow" ||
-            activeDestination === "wallPainting" ||
-            activeDestination === "digitalMarketing" ||
-            activeDestination === "fixtures" ||
-            activeDestination === "event" ||
-            activeDestination === "adinnHQ" ||
-            activeDestination === "mediaAds" ||
-            activeDestination === "sinageSide"
-          ) {
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("click", handleClick);
+if (finished) {
+  hoveredBuilding = null;
 
-            Object.values(modelCache).forEach((model) => {
-              disposeModel(model);
-            });
+  if (
+    activeDestination === "roadshow" ||
+    activeDestination === "wallPainting" ||
+    activeDestination === "digitalMarketing" ||
+    activeDestination === "fixtures" ||
+    activeDestination === "event" ||
+    activeDestination === "adinnHQ" ||
+    activeDestination === "mediaAds" ||
+    activeDestination === "sinageSide"
+  ) {
+    window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("click", handleClick);
 
-            for (const key in modelCache) {
-              delete modelCache[key];
-            }
+    Object.values(modelCache).forEach((model) => {
+      disposeModel(model);
+    });
 
-            if (activeDestination === "roadshow") {
-              loadRoadshowModule();
-            } else if (activeDestination === "wallPainting") {
-              loadWallPaintingModule();
-            } else if (activeDestination === "digitalMarketing") {
-              loadDigitalMarketingModule();
-            } else if (activeDestination === "fixtures") {
-              loadFixturesModule();
-            } else if (activeDestination === "event") {
-              loadEventModule();
-            } else if (activeDestination === "adinnHQ") {
-              loadAdinnHQModule();
-            } else if (activeDestination === "mediaAds") {
-              loadMediaAdsModule();
-            } else if (activeDestination === "sinageSide") {
-              loadSinageSideModule();
-            }
-          }
-        }
-      }
+    for (const key in modelCache) {
+      delete modelCache[key];
+    }
+
+    if (activeDestination === "roadshow") {
+      loadRoadshowModule();
+    } else if (activeDestination === "wallPainting") {
+      loadWallPaintingModule();
+    } else if (activeDestination === "digitalMarketing") {
+      loadDigitalMarketingModule();
+    } else if (activeDestination === "fixtures") {
+      loadFixturesModule();
+    } else if (activeDestination === "event") {
+      loadEventModule();
+    } else if (activeDestination === "adinnHQ") {
+      loadAdinnHQModule();
+    } else if (activeDestination === "mediaAds") {
+      loadMediaAdsModule();
+    } else if (activeDestination === "sinageSide") {
+      loadSinageSideModule();
+    }
+  }
+}
+    
 
       renderer.render(scene, camera);
     }
@@ -940,7 +940,7 @@ export default function Hero() {
           activeDestination = "wallPainting";
 
           destinationPosition = cameraTargets.wallPainting.position.clone();
-          // destinationTarget = cameraTargets.wallPainting.target.clone();
+          destinationTarget = cameraTargets.wallPainting.target.clone();
         } else if (obj.name === "digital_marketing_building_grp") {
           currentScreen = "digitalMarketing";
           activeDestination = "digitalMarketing";
@@ -990,6 +990,8 @@ export default function Hero() {
           flyState,
           destinationPosition,
           destinationTarget,
+          duration: 2.5,
+          ease: "power4.inOut",
         });
 
         controls.enabled = false;
@@ -1029,7 +1031,9 @@ ${controls.target.z}
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("click", handleClick);
-
+      if (flyState.tween) {
+        flyState.tween.kill();
+      }
       cancelAnimationFrame(animationId);
 
       controls.dispose();
