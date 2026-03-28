@@ -31,8 +31,8 @@ export default function Hero() {
       | "fixtures"
       | "event"
       | "adinnHQ"
-      | "mediaAds" = "main";
-
+      | "mediaAds"
+      | "sinageSide" = "main";
     if (!mountRef.current) return;
 
     const { scene, camera, renderer, controls } = createThreeBase(
@@ -65,6 +65,7 @@ export default function Hero() {
       | "event"
       | "adinnHQ"
       | "mediaAds"
+      | "sinageSide"
       | null = null;
 
     /* CAMERA */
@@ -547,7 +548,8 @@ export default function Hero() {
             activeDestination === "fixtures" ||
             activeDestination === "event" ||
             activeDestination === "adinnHQ" ||
-            activeDestination === "mediaAds"
+            activeDestination === "mediaAds" ||
+            activeDestination === "sinageSide"
           ) {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("click", handleClick);
@@ -574,6 +576,8 @@ export default function Hero() {
               loadAdinnHQModule();
             } else if (activeDestination === "mediaAds") {
               loadMediaAdsModule();
+            } else if (activeDestination === "sinageSide") {
+              loadSinageSideModule();
             }
           }
         }
@@ -813,6 +817,19 @@ export default function Hero() {
         });
       });
     }
+
+    function loadSinageSideModule() {
+      controls.enableZoom = false;
+
+      import("./lib/sinageSideModule").then((mod) => {
+        mod.initSinageSide({
+          scene,
+          camera,
+          controls,
+          renderer,
+        });
+      });
+    }
     function loadFixturesModule() {
       controls.enableZoom = false;
 
@@ -899,7 +916,8 @@ export default function Hero() {
         obj.name === "fixtures_building_grp" ||
         obj.name === "event_building_grp" ||
         obj.name === "adinn_hq_building_grp" ||
-        obj.name === "media_ads_building_grp"
+        obj.name === "media_ads_building_grp" ||
+        obj.name === "sinage_side_building_grp"
       ) {
         console.log("✅ CLICK DETECTED:", obj.name);
 
@@ -953,6 +971,12 @@ export default function Hero() {
 
           destinationPosition = cameraTargets.mediaAds.position.clone();
           destinationTarget = cameraTargets.mediaAds.target.clone();
+        } else if (obj.name === "sinage_side_building_grp") {
+          currentScreen = "sinageSide";
+          activeDestination = "sinageSide";
+
+          destinationPosition = cameraTargets.sinageSide.position.clone();
+          destinationTarget = cameraTargets.sinageSide.target.clone();
         } else {
           return;
         }

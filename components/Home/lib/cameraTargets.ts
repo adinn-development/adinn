@@ -87,4 +87,16 @@ export const cameraTargets: Record<string, CameraTargetConfig> = {
       -8.69452699576114,
     ),
   },
+  sinageSide: {
+    position: new THREE.Vector3(
+      -1.1559381621420073,
+      4.595926363075464,
+      4.487227042565418,
+    ),
+    target: new THREE.Vector3(
+      12.918766443936095,
+      4.232383154865208e-17,
+      -1.9698728631895719,
+    ),
+  },
 };
