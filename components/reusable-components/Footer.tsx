@@ -622,13 +622,12 @@ const Footer = () => {
               )}
             </div>
 
-            <button
+            {/* <button
               type="submit"
               disabled={loading}
-              // NEW: Add disabled cursor styling
               className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 text-[7.5px] md:text-[12px] rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer hover:bg-[#EC2B45] hover:bg-none disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {/* NEW: Add loading spinner */}
+            
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
                   <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -640,7 +639,14 @@ const Footer = () => {
               ) : (
                 "SUBMIT"
               )}
-            </button>
+            </button> */}
+            <button
+  type="submit"
+  disabled={loading}
+  className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 text-[7.5px] md:text-[12px] rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer hover:bg-[#EC2B45] hover:bg-none disabled:opacity-70 disabled:cursor-not-allowed"
+>
+  SUBMIT
+</button>
           </form>
         </div>
       </div>
