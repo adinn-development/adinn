@@ -889,19 +889,18 @@ export default function Hero() {
         ease: "power3.inOut",
       });
     }
-    function loadWallPaintingModule() {
-      controls.enableZoom = false;
+function loadWallPaintingModule() {
+  controls.enableZoom = false;
 
-      import("./lib/wallPaintingModule").then((mod) => {
-        disposeActiveModule = mod.initWallPainting({
-          scene,
-          camera,
-          controls,
-          renderer,
-          onBackToMain: handleBackToMain,
-        });
-      });
-    }
+  import("./lib/wallPaintingModule").then((mod) => {
+    disposeActiveModule = mod.initWallPainting({
+      scene,
+      camera,
+      controls,
+      renderer,
+    });
+  });
+}
 
     function loadDigitalMarketingModule() {
       controls.enableZoom = false;

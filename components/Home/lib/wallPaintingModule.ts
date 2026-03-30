@@ -1,20 +1,18 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { createBackToMainButton } from "./createBackToMainButton";
+
 type InitWallPaintingParams = {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   controls: OrbitControls;
   renderer: THREE.WebGLRenderer;
-  onBackToMain: () => void;
 };
 export function initWallPainting({
   scene,
   camera,
   controls,
   renderer,
-  onBackToMain,
 }: InitWallPaintingParams) {
   /* =========================
      CONTROLS SETUP (2nd SCREEN)
@@ -61,7 +59,7 @@ export function initWallPainting({
 
   let animationId = 0;
 
-  const removeBackButton = createBackToMainButton(onBackToMain);
+  
 
   let targetRotationY = 0;
   let isLeftMouseDown = false;
@@ -250,7 +248,7 @@ z: ${wallPaintingRoot.scale.z}
     window.removeEventListener("mousemove", onMouseMove);
     window.removeEventListener("mouseup", onMouseUp);
 
-    removeBackButton();
+    
 
     if (wallPaintingRoot) {
       wallPaintingRoot.traverse((obj: any) => {
