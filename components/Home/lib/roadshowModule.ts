@@ -1,8 +1,23 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createBackToMainButton } from "./createBackToMainButton";
 
-export function initRoadshow({ scene, camera, controls, renderer }: any) {
+type InitRoadshowParams = {
+  scene: THREE.Scene;
+  camera: THREE.PerspectiveCamera;
+  controls: OrbitControls;
+  renderer: THREE.WebGLRenderer;
+  onBackToMain: () => void;
+};
 
+export function initRoadshow({
+  scene,
+  camera,
+  controls,
+  renderer,
+  onBackToMain,
+}: InitRoadshowParams) {
   /* =========================
      CONTROLS SETUP (2nd SCREEN)
   ========================= */
@@ -20,10 +35,13 @@ export function initRoadshow({ scene, camera, controls, renderer }: any) {
   controls.enableRotate = true;
   controls.enableDamping = true;
 
-  // better viewing angle (IMPORTANT)
-  camera.position.set(10, 5, 10);
+  camera.position.set(
+    -16.651605760184015,
+    6.8,
+    16.2,
+  );
 
-  controls.target.set(0, 0, 0);
+  controls.target.set(-2.3, 1.0, -3);
   controls.update();
 
   /* =========================
@@ -31,15 +49,17 @@ export function initRoadshow({ scene, camera, controls, renderer }: any) {
   ========================= */
 
   let rotationVelocity = 0;
+  let animationId = 0;
+  const removeBackButton = createBackToMainButton(onBackToMain);
 
   const loader = new GLTFLoader();
+  let roadshowRoot: THREE.Object3D | null = null;
   let vehicles: THREE.Object3D[] = [];
 
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
   let selectedObject: THREE.Object3D | null = null;
-  
   let isDragging = false;
   let prevMouseX = 0;
 
@@ -52,6 +72,8 @@ export function initRoadshow({ scene, camera, controls, renderer }: any) {
   loader.load("/models/roadshow.glb", (gltf) => {
     const model = gltf.scene;
     scene.add(model);
+
+    roadshowRoot = model;
 
     model.traverse((obj: any) => {
       if (obj.isMesh) {
@@ -82,19 +104,15 @@ export function initRoadshow({ scene, camera, controls, renderer }: any) {
     if (intersects.length > 0) {
       let obj = intersects[0].object;
 
-      // ensure full vehicle selection
       while (obj.parent && !vehicles.includes(obj)) {
         obj = obj.parent;
       }
 
       selectedObject = obj;
-
       isDragging = true;
       prevMouseX = event.clientX;
-
       rotationVelocity = 0;
 
-      // disable camera movement while dragging
       controls.enableRotate = false;
       controls.enablePan = false;
       controls.enableZoom = false;
@@ -107,7 +125,6 @@ export function initRoadshow({ scene, camera, controls, renderer }: any) {
     const deltaX = event.clientX - prevMouseX;
     prevMouseX = event.clientX;
 
-    // store velocity (smooth rotation)
     rotationVelocity = deltaX * 0.005;
   }
 
@@ -115,7 +132,6 @@ export function initRoadshow({ scene, camera, controls, renderer }: any) {
     isDragging = false;
     selectedObject = null;
 
-    // re-enable camera
     controls.enableRotate = true;
     controls.enablePan = true;
     controls.enableZoom = true;
@@ -130,12 +146,10 @@ export function initRoadshow({ scene, camera, controls, renderer }: any) {
   ========================= */
 
   function animate() {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 
     if (selectedObject) {
       selectedObject.rotateOnWorldAxis(Y_AXIS, rotationVelocity);
-
-      // smooth slowdown
       rotationVelocity *= 0.9;
     }
 
@@ -144,4 +158,35 @@ export function initRoadshow({ scene, camera, controls, renderer }: any) {
   }
 
   animate();
+
+  return () => {
+    cancelAnimationFrame(animationId);
+
+    window.removeEventListener("mousedown", onMouseDown);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("mouseup", onMouseUp);
+
+    removeBackButton();
+
+    if (roadshowRoot) {
+      roadshowRoot.traverse((obj: any) => {
+        if (obj.isMesh) {
+          if (obj.geometry) obj.geometry.dispose();
+
+          if (obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((m: any) => m.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        }
+      });
+
+      scene.remove(roadshowRoot);
+      roadshowRoot = null;
+    }
+
+    vehicles = [];
+  };
 }

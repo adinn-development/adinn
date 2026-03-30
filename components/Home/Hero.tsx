@@ -840,18 +840,19 @@ export default function Hero() {
 
     window.addEventListener("mousemove", handleMouseMove);
 
-    function loadRoadshowModule() {
-      controls.enableZoom = false;
+   function loadRoadshowModule() {
+  controls.enableZoom = false;
 
-      import("./lib/roadshowModule").then((mod) => {
-        mod.initRoadshow({
-          scene,
-          camera,
-          controls,
-          renderer,
-        });
-      });
-    }
+  import("./lib/roadshowModule").then((mod) => {
+    disposeActiveModule = mod.initRoadshow({
+      scene,
+      camera,
+      controls,
+      renderer,
+      onBackToMain: handleBackToMain,
+    });
+  });
+}
 
     function handleBackToMain() {
       if (disposeActiveModule) {
