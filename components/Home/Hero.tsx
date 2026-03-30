@@ -46,7 +46,7 @@ export default function Hero() {
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
     let introCanStart = false;
-    const ENABLE_INTRO = false;
+    const ENABLE_INTRO = true;
     let skipNextControlsUpdate = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
@@ -597,47 +597,65 @@ if (finished) {
       buildingModels.forEach((name) => {
         const path = `/models/${name}.glb`;
 
-        loader.load(path, (gltf: GLTF) => {
-          const model = gltf.scene;
+    loader.load(path, (gltf: GLTF) => {
+  const model = gltf.scene;
 
-          model.traverse((obj: THREE.Object3D) => {
-            console.log(obj.name);
+  if (name === "all_services" && gltf.animations.length > 0) {
+    mixer = new THREE.AnimationMixer(model);
 
-            if (obj.isMesh) {
-              const mesh = obj as THREE.Mesh;
-              storeOriginalMaterial(mesh);
-            }
+    gltf.animations.forEach((clip, index) => {
+      console.log(`Playing clip ${index}: ${clip.name}`);
 
-            if (obj.isMesh && obj.name === "Ground1") {
-              const mesh = obj as THREE.Mesh;
+      const action = mixer!.clipAction(clip);
+      action.reset();
+      action.play();
+    });
+  }
 
-              if (Array.isArray(mesh.material)) {
-                mesh.material.forEach((mat: any) => {
-                  if (mat.color) {
-                    mat.color.set("#b9b9b9");
-                    mat.userData.originalColor = mat.color.clone();
-                  }
-                });
-              } else {
-                const material = mesh.material as any;
-                if (material.color) {
-                  material.color.set("#b9b9b9");
-                  material.userData.originalColor = material.color.clone();
-                }
-              }
-            }
+  const videoScreenNames = [
+    "l_type_led_screen",
+    "l_type_led_screen_1",
+  ];
 
-            if (obj.name.endsWith("_grp")) {
-              buildingGroups[obj.name] = obj;
-            }
+  model.traverse((obj: THREE.Object3D) => {
+    if (obj.isMesh) {
+      const mesh = obj as THREE.Mesh;
+      storeOriginalMaterial(mesh);
+    }
 
-            if (obj.isMesh && obj.name === "animation_led") {
-              obj.material = new THREE.MeshBasicMaterial({
-                map: videoTexture,
-                toneMapped: false,
-              });
-            }
-          });
+    if (obj.isMesh && obj.name === "Ground1") {
+      const mesh = obj as THREE.Mesh;
+
+      if (Array.isArray(mesh.material)) {
+        mesh.material.forEach((mat: any) => {
+          if (mat.color) {
+            mat.color.set("#b9b9b9");
+            mat.userData.originalColor = mat.color.clone();
+          }
+        });
+      } else {
+        const material = mesh.material as any;
+        if (material.color) {
+          material.color.set("#b9b9b9");
+          material.userData.originalColor = material.color.clone();
+        }
+      }
+    }
+
+    if (obj.name.endsWith("_grp")) {
+      buildingGroups[obj.name] = obj;
+    }
+
+    if (obj.isMesh && videoScreenNames.includes(obj.name)) {
+      const mesh = obj as THREE.Mesh;
+
+      mesh.material = new THREE.MeshBasicMaterial({
+        map: videoTexture,
+        toneMapped: false,
+        side: THREE.DoubleSide,
+      });
+    }
+  });
 
           model.scale.set(1, 1, 1);
           model.position.set(0, 0, 0);
