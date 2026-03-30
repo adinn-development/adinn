@@ -1,24 +1,23 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createBackToMainButton } from "./createBackToMainButton";
 
 type InitEventParams = {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   controls: OrbitControls;
   renderer: THREE.WebGLRenderer;
+  onBackToMain: () => void;
 };
 
-export async function initEvent({
+export function initEvent({
   scene,
   camera,
   controls,
   renderer,
+  onBackToMain,
 }: InitEventParams) {
-  /* =========================
-     CONTROLS SETUP (2nd SCREEN)
-  ========================= */
-
   controls.enabled = true;
 
   camera.position.set(6.59448535746776, 1.5317653135284646, 7.402466638312257);
@@ -43,15 +42,14 @@ export async function initEvent({
 
   controls.update();
 
-  /* =========================
-     VARIABLES
-  ========================= */
-
   const loader = new GLTFLoader();
   let eventRoot: THREE.Object3D | null = null;
 
   const mouse = new THREE.Vector2();
   const DEBUG_VALUES = true;
+
+  let animationId = 0;
+  const removeBackButton = createBackToMainButton(onBackToMain);
 
   let targetRotationY = 0;
   let isLeftMouseDown = false;
@@ -70,10 +68,6 @@ export async function initEvent({
   const tiltSmooth = 0.1;
   const edgeSoftness = 0.85;
   const maxTiltLimit = 0.11;
-
-  /* =========================
-     LOAD MODEL
-  ========================= */
 
   loader.load("/models/event_building_grp.glb", (gltf) => {
     const model = gltf.scene;
@@ -133,10 +127,6 @@ z: ${eventRoot.scale.z}
 `);
   }
 
-  /* =========================
-     MOUSE INTERACTION
-  ========================= */
-
   function onMouseDown(event: MouseEvent) {
     if (event.button !== 0) return;
     isLeftMouseDown = true;
@@ -176,12 +166,8 @@ z: ${eventRoot.scale.z}
   window.addEventListener("mouseup", onMouseUp);
   window.addEventListener("contextmenu", (e) => e.preventDefault());
 
-  /* =========================
-     ANIMATION LOOP
-  ========================= */
-
   function animate() {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 
     if (eventRoot) {
       eventRoot.rotation.y = THREE.MathUtils.lerp(
@@ -216,4 +202,33 @@ z: ${eventRoot.scale.z}
   }
 
   animate();
+
+  return () => {
+    cancelAnimationFrame(animationId);
+
+    window.removeEventListener("mousedown", onMouseDown);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("mouseup", onMouseUp);
+
+    removeBackButton();
+
+    if (eventRoot) {
+      eventRoot.traverse((obj: any) => {
+        if (obj.isMesh) {
+          if (obj.geometry) obj.geometry.dispose();
+
+          if (obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((m: any) => m.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        }
+      });
+
+      scene.remove(eventRoot);
+      eventRoot = null;
+    }
+  };
 }

@@ -974,11 +974,12 @@ export default function Hero() {
       controls.enableZoom = false;
 
       import("./lib/eventModule").then((mod) => {
-        mod.initEvent({
+        disposeActiveModule = mod.initEvent({
           scene,
           camera,
           controls,
           renderer,
+          onBackToMain: handleBackToMain,
         });
       });
     }
