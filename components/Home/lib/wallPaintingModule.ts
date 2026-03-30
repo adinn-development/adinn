@@ -1,23 +1,23 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createBackToMainButton } from "./createBackToMainButton";
 
 type InitWallPaintingParams = {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   controls: OrbitControls;
   renderer: THREE.WebGLRenderer;
+  onBackToMain: () => void;
 };
+
 export function initWallPainting({
   scene,
   camera,
   controls,
   renderer,
+  onBackToMain,
 }: InitWallPaintingParams) {
-  /* =========================
-     CONTROLS SETUP (2nd SCREEN)
-  ========================= */
-
   controls.enabled = true;
 
   camera.position.set(
@@ -38,34 +38,26 @@ export function initWallPainting({
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
 
-  controls.minPolarAngle = Math.PI / 2.45; // up
-  controls.maxPolarAngle = Math.PI / 2.42; // down
-
+  controls.minPolarAngle = Math.PI / 2.45;
+  controls.maxPolarAngle = Math.PI / 2.42;
   controls.minDistance = 5;
   controls.maxDistance = 30;
 
   controls.update();
 
-  /* =========================
-     VARIABLES
-  ========================= */
-
   const loader = new GLTFLoader();
   let wallPaintingRoot: THREE.Object3D | null = null;
 
   const mouse = new THREE.Vector2();
-
   const DEBUG_VALUES = true;
-
   let animationId = 0;
 
-  
+  const removeBackButton = createBackToMainButton(onBackToMain);
 
   let targetRotationY = 0;
   let isLeftMouseDown = false;
   let lastMouseX = 0;
 
-  // smooth tilt values
   let targetTiltValue = 0;
   let currentTiltValue = 0;
   let lastAppliedTiltValue = 0;
@@ -84,9 +76,6 @@ export function initWallPainting({
   const tiltSmooth = 0.1;
   const edgeSoftness = 0.85;
   const maxTiltLimit = 0.11;
-  /* =========================
-     LOAD MODEL
-  ========================= */
 
   loader.load("/models/wall_painting_building_grp.glb", (gltf) => {
     const model = gltf.scene;
@@ -146,12 +135,8 @@ z: ${wallPaintingRoot.scale.z}
 `);
   }
 
-  /* =========================
-     MOUSE INTERACTION
-  ========================= */
-
   function onMouseDown(event: MouseEvent) {
-    if (event.button !== 0) return; // left click only
+    if (event.button !== 0) return;
     isLeftMouseDown = true;
     lastMouseX = event.clientX;
   }
@@ -160,24 +145,17 @@ z: ${wallPaintingRoot.scale.z}
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-    // center la normal response
-    // edge kitta pona speed reduce aagum
     const absY = Math.abs(mouse.y);
     const easedY = mouse.y * absY;
-
-    // boundary pakkam pona soft falloff
     const edgeFactor = 1 - Math.pow(absY, 2) * (1 - edgeSoftness);
-
     const nextTilt = easedY * autoTiltAmount * edgeFactor;
 
-    // manual safe clamp before OrbitControls clamp
     targetTiltValue = THREE.MathUtils.clamp(
       nextTilt,
       -maxTiltLimit,
       maxTiltLimit,
     );
 
-    // left click hold pannina mattum object rotate
     if (!wallPaintingRoot || !isLeftMouseDown) return;
 
     const deltaX = event.clientX - lastMouseX;
@@ -196,10 +174,6 @@ z: ${wallPaintingRoot.scale.z}
   window.addEventListener("mouseup", onMouseUp);
   window.addEventListener("contextmenu", (e) => e.preventDefault());
 
-  /* =========================
-     ANIMATION LOOP
-  ========================= */
-
   function animate() {
     animationId = requestAnimationFrame(animate);
 
@@ -215,18 +189,14 @@ z: ${wallPaintingRoot.scale.z}
       wallPaintingRoot.position.z = baseObjectPosition.z;
     }
 
-    // smooth tilt apply
-    // smooth tilt apply
     currentTiltValue = THREE.MathUtils.lerp(
       currentTiltValue,
       targetTiltValue,
       tiltSmooth,
     );
 
-    // very small delta near boundary / settling time la jitter avoid
     let tiltDelta = currentTiltValue - lastAppliedTiltValue;
 
-    // deadzone for smoother landing
     if (Math.abs(tiltDelta) < 0.00015) {
       tiltDelta = 0;
     }
@@ -234,7 +204,6 @@ z: ${wallPaintingRoot.scale.z}
     lastAppliedTiltValue = currentTiltValue;
 
     controls.rotateUp(tiltDelta);
-
     controls.update();
     renderer.render(scene, camera);
   }
@@ -248,7 +217,7 @@ z: ${wallPaintingRoot.scale.z}
     window.removeEventListener("mousemove", onMouseMove);
     window.removeEventListener("mouseup", onMouseUp);
 
-    
+    removeBackButton();
 
     if (wallPaintingRoot) {
       wallPaintingRoot.traverse((obj: any) => {

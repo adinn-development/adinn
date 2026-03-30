@@ -47,7 +47,7 @@ export default function Hero() {
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
     let introCanStart = false;
-    const ENABLE_INTRO = true;
+    const ENABLE_INTRO = false;
     let skipNextControlsUpdate = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
@@ -898,6 +898,7 @@ function loadWallPaintingModule() {
       camera,
       controls,
       renderer,
+      onBackToMain: handleBackToMain,
     });
   });
 }
