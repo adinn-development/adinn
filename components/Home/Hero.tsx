@@ -944,18 +944,19 @@ export default function Hero() {
       });
     }
 
-    function loadSinageSideModule() {
-      controls.enableZoom = false;
+ function loadSinageSideModule() {
+  controls.enableZoom = false;
 
-      import("./lib/sinageSideModule").then((mod) => {
-        mod.initSinageSide({
-          scene,
-          camera,
-          controls,
-          renderer,
-        });
-      });
-    }
+  import("./lib/sinageSideModule").then((mod) => {
+    disposeActiveModule = mod.initSinageSide({
+      scene,
+      camera,
+      controls,
+      renderer,
+      onBackToMain: handleBackToMain,
+    });
+  });
+}
     function loadFixturesModule() {
       controls.enableZoom = false;
 

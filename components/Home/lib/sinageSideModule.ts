@@ -1,19 +1,22 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createBackToMainButton } from "./createBackToMainButton";
 
 type InitSinageSideParams = {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   controls: OrbitControls;
   renderer: THREE.WebGLRenderer;
+  onBackToMain: () => void;
 };
 
-export async function initSinageSide({
+export function initSinageSide({
   scene,
   camera,
   controls,
   renderer,
+  onBackToMain,
 }: InitSinageSideParams) {
   controls.enabled = true;
 
@@ -47,8 +50,10 @@ export async function initSinageSide({
   let sinageSideRoot: THREE.Object3D | null = null;
 
   const mouse = new THREE.Vector2();
-
   const DEBUG_VALUES = true;
+
+  let animationId = 0;
+  const removeBackButton = createBackToMainButton(onBackToMain);
 
   let targetRotationY = 0;
   let isLeftMouseDown = false;
@@ -166,7 +171,7 @@ z: ${sinageSideRoot.scale.z}
   window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   function animate() {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 
     if (sinageSideRoot) {
       sinageSideRoot.rotation.y = THREE.MathUtils.lerp(
@@ -201,4 +206,33 @@ z: ${sinageSideRoot.scale.z}
   }
 
   animate();
+
+  return () => {
+    cancelAnimationFrame(animationId);
+
+    window.removeEventListener("mousedown", onMouseDown);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("mouseup", onMouseUp);
+
+    removeBackButton();
+
+    if (sinageSideRoot) {
+      sinageSideRoot.traverse((obj: any) => {
+        if (obj.isMesh) {
+          if (obj.geometry) obj.geometry.dispose();
+
+          if (obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((m: any) => m.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        }
+      });
+
+      scene.remove(sinageSideRoot);
+      sinageSideRoot = null;
+    }
+  };
 }
