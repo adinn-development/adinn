@@ -1,24 +1,23 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createBackToMainButton } from "./createBackToMainButton";
 
 type InitDigitalMarketingParams = {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   controls: OrbitControls;
   renderer: THREE.WebGLRenderer;
+  onBackToMain: () => void;
 };
 
-export async function initDigitalMarketing({
+export function initDigitalMarketing({
   scene,
   camera,
   controls,
   renderer,
+  onBackToMain,
 }: InitDigitalMarketingParams) {
-  /* =========================
-     CONTROLS SETUP (2nd SCREEN)
-  ========================= */
-
   controls.enabled = true;
 
   camera.position.set(
@@ -39,35 +38,27 @@ export async function initDigitalMarketing({
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
 
-  controls.minPolarAngle = Math.PI / 2.45; // up
-  controls.maxPolarAngle = Math.PI / 2.42; // down
-
+  controls.minPolarAngle = Math.PI / 2.45;
+  controls.maxPolarAngle = Math.PI / 2.42;
   controls.minDistance = 5;
   controls.maxDistance = 30;
-
   controls.update();
-
-  /* =========================
-     VARIABLES
-  ========================= */
 
   const loader = new GLTFLoader();
   let digitalMarketingRoot: THREE.Object3D | null = null;
-
   const mouse = new THREE.Vector2();
 
-  const DEBUG_VALUES = true;
+  let animationId = 0;
+  const removeBackButton = createBackToMainButton(onBackToMain);
 
   let targetRotationY = 0;
   let isLeftMouseDown = false;
   let lastMouseX = 0;
 
-  // smooth tilt values
   let targetTiltValue = 0;
   let currentTiltValue = 0;
   let lastAppliedTiltValue = 0;
 
-  // direct root transform preserve pannrom
   const baseObjectPosition = new THREE.Vector3(0, 0, 0);
   const baseObjectRotation = new THREE.Euler(0, 0, 0);
   const baseObjectScale = new THREE.Vector3(1, 1, 1);
@@ -78,16 +69,11 @@ export async function initDigitalMarketing({
   const edgeSoftness = 0.85;
   const maxTiltLimit = 0.11;
 
-  /* =========================
-     LOAD MODEL
-  ========================= */
-
   loader.load("/models/digital_marketing_building_grp.glb", (gltf) => {
     const model = gltf.scene;
     scene.add(model);
 
     digitalMarketingRoot = model;
-
     digitalMarketingRoot.position.copy(baseObjectPosition);
     digitalMarketingRoot.rotation.copy(baseObjectRotation);
     digitalMarketingRoot.scale.copy(baseObjectScale);
@@ -101,51 +87,10 @@ export async function initDigitalMarketing({
         obj.receiveShadow = false;
       }
     });
-
-    if (DEBUG_VALUES) {
-      printAllValues("MODEL LOADED");
-    }
   });
 
-  function printAllValues(label = "DEBUG") {
-    if (!digitalMarketingRoot) return;
-
-    console.log(`
-[${label}]
-
-camera.position:
-x: ${camera.position.x},
-y: ${camera.position.y},
-z: ${camera.position.z}
-
-controls.target:
-x: ${controls.target.x},
-y: ${controls.target.y},
-z: ${controls.target.z}
-
-object.position:
-x: ${digitalMarketingRoot.position.x},
-y: ${digitalMarketingRoot.position.y},
-z: ${digitalMarketingRoot.position.z}
-
-object.rotation:
-x: ${digitalMarketingRoot.rotation.x},
-y: ${digitalMarketingRoot.rotation.y},
-z: ${digitalMarketingRoot.rotation.z}
-
-object.scale:
-x: ${digitalMarketingRoot.scale.x},
-y: ${digitalMarketingRoot.scale.y},
-z: ${digitalMarketingRoot.scale.z}
-`);
-  }
-
-  /* =========================
-     MOUSE INTERACTION
-  ========================= */
-
   function onMouseDown(event: MouseEvent) {
-    if (event.button !== 0) return; // left click only
+    if (event.button !== 0) return;
     isLeftMouseDown = true;
     lastMouseX = event.clientX;
   }
@@ -154,29 +99,21 @@ z: ${digitalMarketingRoot.scale.z}
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-    // center la normal response
-    // edge kitta pona speed reduce aagum
     const absY = Math.abs(mouse.y);
     const easedY = mouse.y * absY;
-
-    // boundary pakkam pona soft falloff
     const edgeFactor = 1 - Math.pow(absY, 2) * (1 - edgeSoftness);
-
     const nextTilt = easedY * autoTiltAmount * edgeFactor;
 
-    // manual safe clamp before OrbitControls clamp
     targetTiltValue = THREE.MathUtils.clamp(
       nextTilt,
       -maxTiltLimit,
       maxTiltLimit,
     );
 
-    // left click hold pannina mattum object rotate
     if (!digitalMarketingRoot || !isLeftMouseDown) return;
 
     const deltaX = event.clientX - lastMouseX;
     lastMouseX = event.clientX;
-
     targetRotationY += deltaX * 0.01;
   }
 
@@ -188,14 +125,9 @@ z: ${digitalMarketingRoot.scale.z}
   window.addEventListener("mousedown", onMouseDown);
   window.addEventListener("mousemove", onMouseMove);
   window.addEventListener("mouseup", onMouseUp);
-  window.addEventListener("contextmenu", (e) => e.preventDefault());
-
-  /* =========================
-     ANIMATION LOOP
-  ========================= */
 
   function animate() {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 
     if (digitalMarketingRoot) {
       digitalMarketingRoot.rotation.y = THREE.MathUtils.lerp(
@@ -204,33 +136,53 @@ z: ${digitalMarketingRoot.scale.z}
         rotationSmooth,
       );
 
-      digitalMarketingRoot.position.x = baseObjectPosition.x;
-      digitalMarketingRoot.position.y = baseObjectPosition.y;
-      digitalMarketingRoot.position.z = baseObjectPosition.z;
+      digitalMarketingRoot.position.copy(baseObjectPosition);
     }
 
-    // smooth tilt apply
     currentTiltValue = THREE.MathUtils.lerp(
       currentTiltValue,
       targetTiltValue,
       tiltSmooth,
     );
 
-    // very small delta near boundary / settling time la jitter avoid
     let tiltDelta = currentTiltValue - lastAppliedTiltValue;
-
-    // deadzone for smoother landing
-    if (Math.abs(tiltDelta) < 0.00015) {
-      tiltDelta = 0;
-    }
+    if (Math.abs(tiltDelta) < 0.00015) tiltDelta = 0;
 
     lastAppliedTiltValue = currentTiltValue;
 
     controls.rotateUp(tiltDelta);
-
     controls.update();
     renderer.render(scene, camera);
   }
 
   animate();
+
+  return () => {
+    cancelAnimationFrame(animationId);
+
+    window.removeEventListener("mousedown", onMouseDown);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("mouseup", onMouseUp);
+
+    removeBackButton();
+
+    if (digitalMarketingRoot) {
+      digitalMarketingRoot.traverse((obj: any) => {
+        if (obj.isMesh) {
+          if (obj.geometry) obj.geometry.dispose();
+
+          if (obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((m: any) => m.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        }
+      });
+
+      scene.remove(digitalMarketingRoot);
+      digitalMarketingRoot = null;
+    }
+  };
 }

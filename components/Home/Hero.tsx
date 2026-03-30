@@ -186,7 +186,8 @@ export default function Hero() {
 
     const modelCache: Record<string, THREE.Object3D> = {};
     let mixer: THREE.AnimationMixer | null = null;
-    let disposeWallPaintingModule: (() => void) | null = null;
+
+    let disposeActiveModule: (() => void) | null = null;
     const buildingGroups: Record<string, THREE.Object3D> = {};
 
     const raycaster = new THREE.Raycaster();
@@ -470,6 +471,7 @@ export default function Hero() {
       }
 
       if (
+        !isReturningToMain &&
         (currentScreen === "main" || currentScreen === "adinnHQ") &&
         introState.finished &&
         !flyState.isFlying &&
@@ -614,13 +616,7 @@ export default function Hero() {
           window.removeEventListener("mousemove", handleMouseMove);
           window.removeEventListener("click", handleClick);
 
-          Object.values(modelCache).forEach((model) => {
-            disposeModel(model);
-          });
-
-          for (const key in modelCache) {
-            delete modelCache[key];
-          }
+          setMainSceneVisible(false);
 
           if (activeDestination === "roadshow") {
             loadRoadshowModule();
@@ -858,12 +854,11 @@ export default function Hero() {
     }
 
     function handleBackToMain() {
-      if (disposeWallPaintingModule) {
-        disposeWallPaintingModule();
-        disposeWallPaintingModule = null;
+      if (disposeActiveModule) {
+        disposeActiveModule();
+        disposeActiveModule = null;
       }
 
-      currentScreen = "main";
       activeDestination = "backToMain";
       isReturningToMain = true;
       hoveredBuilding = null;
@@ -871,34 +866,34 @@ export default function Hero() {
       isMouseMoving = false;
       isUserControllingCamera = true;
 
-      preloadModels({
-        skipIntro: true,
-        onComplete: () => {
-          cameraRig.position.copy(camera.position);
-          cameraRig.target.copy(controls.target);
+      // freeze controls immediately so there is no settling / damping shake
+      controls.enabled = false;
+      controls.enableDamping = false;
+      controls.update();
 
-          startFlyToTarget({
-            camera,
-            controls,
-            rig: cameraRig,
-            flyState,
-            destinationPosition: endCameraPosition.clone(),
-            destinationTarget: endTarget.clone(),
-            duration: 2.8,
-            ease: "power4.inOut",
-          });
+      // show main city immediately, no reload
+      setMainSceneVisible(true);
 
-          controls.enabled = false;
-          controls.enableDamping = false;
-        },
+      // start tween from exact current module camera state
+      cameraRig.position.copy(camera.position);
+      cameraRig.target.copy(controls.target);
+
+      startFlyToTarget({
+        camera,
+        controls,
+        rig: cameraRig,
+        flyState,
+        destinationPosition: endCameraPosition.clone(),
+        destinationTarget: endTarget.clone(),
+        duration: 2.8,
+        ease: "power3.inOut",
       });
     }
-
     function loadWallPaintingModule() {
       controls.enableZoom = false;
 
       import("./lib/wallPaintingModule").then((mod) => {
-        disposeWallPaintingModule = mod.initWallPainting({
+        disposeActiveModule = mod.initWallPainting({
           scene,
           camera,
           controls,
@@ -912,11 +907,12 @@ export default function Hero() {
       controls.enableZoom = false;
 
       import("./lib/digitalMarketingModule").then((mod) => {
-        mod.initDigitalMarketing({
+        disposeActiveModule = mod.initDigitalMarketing({
           scene,
           camera,
           controls,
           renderer,
+          onBackToMain: handleBackToMain,
         });
       });
     }
@@ -1153,6 +1149,11 @@ ${controls.target.y},
 ${controls.target.z}
   `);
     });
+    function setMainSceneVisible(visible: boolean) {
+      Object.values(modelCache).forEach((model) => {
+        model.visible = visible;
+      });
+    }
 
     return () => {
       isDisposed = true;
