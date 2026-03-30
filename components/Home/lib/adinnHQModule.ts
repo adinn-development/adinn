@@ -1,34 +1,28 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createBackToMainButton } from "./createBackToMainButton";
 
 type InitAdinnHQParams = {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   controls: OrbitControls;
   renderer: THREE.WebGLRenderer;
+  onBackToMain: () => void;
 };
 
-export async function initAdinnHQ({
+export function initAdinnHQ({
   scene,
   camera,
   controls,
   renderer,
+  onBackToMain,
 }: InitAdinnHQParams) {
   controls.enabled = true;
 
-  // cameraTargets.ts la adinnHQ values vechukonga
-  camera.position.set(
-    2.5,
-    5.2,
-    14.8,
-  );
+  camera.position.set(2.5, 5.2, 14.8);
 
-  controls.target.set(
-    2.0,
-    1.4,
-    0.5,
-  );
+  controls.target.set(2.0, 1.4, 0.5);
 
   controls.enablePan = false;
   controls.enableZoom = false;
@@ -48,6 +42,9 @@ export async function initAdinnHQ({
   let adinnHQRoot: THREE.Object3D | null = null;
 
   const mouse = new THREE.Vector2();
+
+  let animationId = 0;
+  const removeBackButton = createBackToMainButton(onBackToMain);
 
   let targetRotationY = 0;
   let isLeftMouseDown = false;
@@ -128,7 +125,7 @@ export async function initAdinnHQ({
   window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   function animate() {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 
     if (adinnHQRoot) {
       adinnHQRoot.rotation.y = THREE.MathUtils.lerp(
@@ -163,4 +160,33 @@ export async function initAdinnHQ({
   }
 
   animate();
+
+  return () => {
+    cancelAnimationFrame(animationId);
+
+    window.removeEventListener("mousedown", onMouseDown);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("mouseup", onMouseUp);
+
+    removeBackButton();
+
+    if (adinnHQRoot) {
+      adinnHQRoot.traverse((obj: any) => {
+        if (obj.isMesh) {
+          if (obj.geometry) obj.geometry.dispose();
+
+          if (obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((m: any) => m.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        }
+      });
+
+      scene.remove(adinnHQRoot);
+      adinnHQRoot = null;
+    }
+  };
 }

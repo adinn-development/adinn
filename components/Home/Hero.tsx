@@ -918,18 +918,19 @@ export default function Hero() {
       });
     }
 
-    function loadAdinnHQModule() {
-      controls.enableZoom = false;
+function loadAdinnHQModule() {
+  controls.enableZoom = false;
 
-      import("./lib/adinnHQModule").then((mod) => {
-        mod.initAdinnHQ({
-          scene,
-          camera,
-          controls,
-          renderer,
-        });
-      });
-    }
+  import("./lib/adinnHQModule").then((mod) => {
+    disposeActiveModule = mod.initAdinnHQ({
+      scene,
+      camera,
+      controls,
+      renderer,
+      onBackToMain: handleBackToMain,
+    });
+  });
+}
 
     function loadMediaAdsModule() {
       controls.enableZoom = false;
