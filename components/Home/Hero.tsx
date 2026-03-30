@@ -840,19 +840,19 @@ export default function Hero() {
 
     window.addEventListener("mousemove", handleMouseMove);
 
-   function loadRoadshowModule() {
-  controls.enableZoom = false;
+    function loadRoadshowModule() {
+      controls.enableZoom = false;
 
-  import("./lib/roadshowModule").then((mod) => {
-    disposeActiveModule = mod.initRoadshow({
-      scene,
-      camera,
-      controls,
-      renderer,
-      onBackToMain: handleBackToMain,
-    });
-  });
-}
+      import("./lib/roadshowModule").then((mod) => {
+        disposeActiveModule = mod.initRoadshow({
+          scene,
+          camera,
+          controls,
+          renderer,
+          onBackToMain: handleBackToMain,
+        });
+      });
+    }
 
     function handleBackToMain() {
       if (disposeActiveModule) {
@@ -890,19 +890,19 @@ export default function Hero() {
         ease: "power3.inOut",
       });
     }
-function loadWallPaintingModule() {
-  controls.enableZoom = false;
+    function loadWallPaintingModule() {
+      controls.enableZoom = false;
 
-  import("./lib/wallPaintingModule").then((mod) => {
-    disposeActiveModule = mod.initWallPainting({
-      scene,
-      camera,
-      controls,
-      renderer,
-      onBackToMain: handleBackToMain,
-    });
-  });
-}
+      import("./lib/wallPaintingModule").then((mod) => {
+        disposeActiveModule = mod.initWallPainting({
+          scene,
+          camera,
+          controls,
+          renderer,
+          onBackToMain: handleBackToMain,
+        });
+      });
+    }
 
     function loadDigitalMarketingModule() {
       controls.enableZoom = false;
@@ -960,11 +960,12 @@ function loadWallPaintingModule() {
       controls.enableZoom = false;
 
       import("./lib/fixturesModule").then((mod) => {
-        mod.initFixtures({
+        disposeActiveModule = mod.initFixtures({
           scene,
           camera,
           controls,
           renderer,
+          onBackToMain: handleBackToMain,
         });
       });
     }

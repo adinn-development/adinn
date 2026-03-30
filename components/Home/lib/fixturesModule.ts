@@ -1,19 +1,22 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createBackToMainButton } from "./createBackToMainButton";
 
 type InitFixturesParams = {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   controls: OrbitControls;
   renderer: THREE.WebGLRenderer;
+  onBackToMain: () => void;
 };
 
-export async function initFixtures({
+export function initFixtures({
   scene,
   camera,
   controls,
   renderer,
+  onBackToMain,
 }: InitFixturesParams) {
   /* =========================
      CONTROLS SETUP (2nd SCREEN)
@@ -56,6 +59,9 @@ export async function initFixtures({
 
   const mouse = new THREE.Vector2();
   const DEBUG_VALUES = true;
+
+  let animationId = 0;
+  const removeBackButton = createBackToMainButton(onBackToMain);
 
   let targetRotationY = 0;
   let isLeftMouseDown = false;
@@ -148,7 +154,6 @@ z: ${fixturesRoot.scale.z}
   }
 
   function onMouseMove(event: MouseEvent) {
-    
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -186,7 +191,7 @@ z: ${fixturesRoot.scale.z}
   ========================= */
 
   function animate() {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 
     if (fixturesRoot) {
       fixturesRoot.rotation.y = THREE.MathUtils.lerp(
@@ -221,4 +226,33 @@ z: ${fixturesRoot.scale.z}
   }
 
   animate();
+
+  return () => {
+    cancelAnimationFrame(animationId);
+
+    window.removeEventListener("mousedown", onMouseDown);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("mouseup", onMouseUp);
+
+    removeBackButton();
+
+    if (fixturesRoot) {
+      fixturesRoot.traverse((obj: any) => {
+        if (obj.isMesh) {
+          if (obj.geometry) obj.geometry.dispose();
+
+          if (obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((m: any) => m.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        }
+      });
+
+      scene.remove(fixturesRoot);
+      fixturesRoot = null;
+    }
+  };
 }
