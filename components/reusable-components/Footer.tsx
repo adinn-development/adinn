@@ -347,7 +347,7 @@ const Footer = () => {
     const loadingToast = toast.loading("Sending your enquiry...");
     
     try {
-      const response = await fetch("https://adinndigital.com/api/index.php", {
+      const response = await fetch("https://adinndigital.com/api/index_adinnenquiry.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
