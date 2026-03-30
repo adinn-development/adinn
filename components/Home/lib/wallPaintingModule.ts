@@ -7,13 +7,14 @@ type InitWallPaintingParams = {
   camera: THREE.PerspectiveCamera;
   controls: OrbitControls;
   renderer: THREE.WebGLRenderer;
+  onBackToMain: () => void;
 };
-
-export async function initWallPainting({
+export function initWallPainting({
   scene,
   camera,
   controls,
   renderer,
+  onBackToMain,
 }: InitWallPaintingParams) {
   /* =========================
      CONTROLS SETUP (2nd SCREEN)
@@ -57,6 +58,28 @@ export async function initWallPainting({
   const mouse = new THREE.Vector2();
 
   const DEBUG_VALUES = true;
+
+  let animationId = 0;
+
+  const backButton = document.createElement("button");
+  backButton.textContent = "Main Page";
+
+  Object.assign(backButton.style, {
+    position: "fixed",
+    top: "24px",
+    left: "24px",
+    zIndex: "9999",
+    padding: "12px 18px",
+    borderRadius: "12px",
+    border: "none",
+    background: "#111",
+    color: "#fff",
+    fontSize: "14px",
+    cursor: "pointer",
+  });
+
+  backButton.addEventListener("click", onBackToMain);
+  document.body.appendChild(backButton);
 
   let targetRotationY = 0;
   let isLeftMouseDown = false;
@@ -198,7 +221,7 @@ z: ${wallPaintingRoot.scale.z}
   ========================= */
 
   function animate() {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 
     if (wallPaintingRoot) {
       wallPaintingRoot.rotation.y = THREE.MathUtils.lerp(
@@ -237,4 +260,34 @@ z: ${wallPaintingRoot.scale.z}
   }
 
   animate();
+
+  return () => {
+    cancelAnimationFrame(animationId);
+
+    window.removeEventListener("mousedown", onMouseDown);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("mouseup", onMouseUp);
+
+    backButton.removeEventListener("click", onBackToMain);
+    backButton.remove();
+
+    if (wallPaintingRoot) {
+      wallPaintingRoot.traverse((obj: any) => {
+        if (obj.isMesh) {
+          if (obj.geometry) obj.geometry.dispose();
+
+          if (obj.material) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((m: any) => m.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        }
+      });
+
+      scene.remove(wallPaintingRoot);
+      wallPaintingRoot = null;
+    }
+  };
 }

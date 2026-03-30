@@ -43,6 +43,7 @@ export default function Hero() {
     let targetAzimuth = 0;
     let targetPolar = 0;
     let isDisposed = false;
+    let isReturningToMain = false;
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
     let introCanStart = false;
@@ -66,8 +67,8 @@ export default function Hero() {
       | "adinnHQ"
       | "mediaAds"
       | "sinageSide"
+      | "backToMain"
       | null = null;
-
     /* CAMERA */
     const endCameraPosition = new THREE.Vector3(
       -28.349296,
@@ -185,6 +186,7 @@ export default function Hero() {
 
     const modelCache: Record<string, THREE.Object3D> = {};
     let mixer: THREE.AnimationMixer | null = null;
+    let disposeWallPaintingModule: (() => void) | null = null;
     const buildingGroups: Record<string, THREE.Object3D> = {};
 
     const raycaster = new THREE.Raycaster();
@@ -419,6 +421,7 @@ export default function Hero() {
         mouseMovedAfterIntro &&
         !isUserControllingCamera &&
         !flyState.isFlying &&
+        !isReturningToMain &&
         activeDestination !== "wallPainting"
       ) {
         const rotationSpeedX = 0.35;
@@ -485,7 +488,8 @@ export default function Hero() {
         introState.finished &&
         !isUserControllingCamera &&
         !isMouseMoving &&
-        !flyState.isFlying
+        !flyState.isFlying &&
+        !isReturningToMain
       ) {
         raycaster.setFromCamera(mouse, camera);
 
@@ -523,6 +527,7 @@ export default function Hero() {
         currentScreen === "main" &&
         !flyState.isFlying &&
         !isUserControllingCamera &&
+        !isReturningToMain &&
         activeDestination !== "wallPainting"
       ) {
         camera.position.x += Math.sin(clock.elapsedTime * 0.2) * 0.001;
@@ -530,58 +535,112 @@ export default function Hero() {
       }
 
       /* CAMERA FLY */
-const finished = updateFlyAnimation({
-  delta,
-  camera,
-  controls,
-  rig: cameraRig,
-  flyState,
-});
+      const finished = updateFlyAnimation({
+        delta,
+        camera,
+        controls,
+        rig: cameraRig,
+        flyState,
+      });
 
-if (finished) {
-  hoveredBuilding = null;
+      if (finished) {
+        hoveredBuilding = null;
 
-  if (
-    activeDestination === "roadshow" ||
-    activeDestination === "wallPainting" ||
-    activeDestination === "digitalMarketing" ||
-    activeDestination === "fixtures" ||
-    activeDestination === "event" ||
-    activeDestination === "adinnHQ" ||
-    activeDestination === "mediaAds" ||
-    activeDestination === "sinageSide"
-  ) {
-    window.removeEventListener("mousemove", handleMouseMove);
-    window.removeEventListener("click", handleClick);
+        if (activeDestination === "backToMain") {
+          activeDestination = null;
+          currentScreen = "main";
 
-    Object.values(modelCache).forEach((model) => {
-      disposeModel(model);
-    });
+          // hard lock exact final main camera state
+          camera.position.copy(endCameraPosition);
+          controls.target.copy(endTarget);
+          camera.lookAt(endTarget);
 
-    for (const key in modelCache) {
-      delete modelCache[key];
-    }
+          cameraRig.position.copy(endCameraPosition);
+          cameraRig.target.copy(endTarget);
 
-    if (activeDestination === "roadshow") {
-      loadRoadshowModule();
-    } else if (activeDestination === "wallPainting") {
-      loadWallPaintingModule();
-    } else if (activeDestination === "digitalMarketing") {
-      loadDigitalMarketingModule();
-    } else if (activeDestination === "fixtures") {
-      loadFixturesModule();
-    } else if (activeDestination === "event") {
-      loadEventModule();
-    } else if (activeDestination === "adinnHQ") {
-      loadAdinnHQModule();
-    } else if (activeDestination === "mediaAds") {
-      loadMediaAdsModule();
-    } else if (activeDestination === "sinageSide") {
-      loadSinageSideModule();
-    }
-  }
-}
-    
+          // reset all motion leftovers
+          hoveredBuilding = null;
+          mouseMovedAfterIntro = false;
+          isMouseMoving = false;
+          mouseDeltaX = 0;
+          mouseDeltaY = 0;
+          prevMouseX = mouse.x;
+          prevMouseY = mouse.y;
+
+          controls.enabled = true;
+          controls.enableDamping = true;
+          controls.enablePan = true;
+          controls.enableRotate = true;
+          controls.enableZoom = false;
+
+          controls.minDistance = 1;
+          controls.maxDistance = 50;
+          controls.minAzimuthAngle = -0.65;
+          controls.maxAzimuthAngle = -0.55;
+          controls.minPolarAngle = Math.PI / 2.45;
+          controls.maxPolarAngle = Math.PI / 2.42;
+
+          controls.update();
+          limitPan();
+
+          window.removeEventListener("mousemove", handleMouseMove);
+          window.removeEventListener("click", handleClick);
+
+          window.addEventListener("mousemove", handleMouseMove);
+          window.addEventListener("click", handleClick);
+
+          targetAzimuth = controls.getAzimuthalAngle();
+          targetPolar = controls.getPolarAngle();
+
+          // wait a tiny bit before allowing main logic again
+          setTimeout(() => {
+            isUserControllingCamera = false;
+            isReturningToMain = false;
+          }, 120);
+
+          return;
+        }
+
+        if (
+          activeDestination === "roadshow" ||
+          activeDestination === "wallPainting" ||
+          activeDestination === "digitalMarketing" ||
+          activeDestination === "fixtures" ||
+          activeDestination === "event" ||
+          activeDestination === "adinnHQ" ||
+          activeDestination === "mediaAds" ||
+          activeDestination === "sinageSide"
+        ) {
+          window.removeEventListener("mousemove", handleMouseMove);
+          window.removeEventListener("click", handleClick);
+
+          Object.values(modelCache).forEach((model) => {
+            disposeModel(model);
+          });
+
+          for (const key in modelCache) {
+            delete modelCache[key];
+          }
+
+          if (activeDestination === "roadshow") {
+            loadRoadshowModule();
+          } else if (activeDestination === "wallPainting") {
+            loadWallPaintingModule();
+          } else if (activeDestination === "digitalMarketing") {
+            loadDigitalMarketingModule();
+          } else if (activeDestination === "fixtures") {
+            loadFixturesModule();
+          } else if (activeDestination === "event") {
+            loadEventModule();
+          } else if (activeDestination === "adinnHQ") {
+            loadAdinnHQModule();
+          } else if (activeDestination === "mediaAds") {
+            loadMediaAdsModule();
+          } else if (activeDestination === "sinageSide") {
+            loadSinageSideModule();
+          }
+        }
+      }
 
       renderer.render(scene, camera);
     }
@@ -593,69 +652,78 @@ if (finished) {
     preloadModels();
     animate();
 
-    function preloadModels() {
+    function preloadModels(options?: {
+      skipIntro?: boolean;
+      onComplete?: () => void;
+    }) {
+      const { skipIntro = false, onComplete } = options ?? {};
+
+      modelsLoaded = 0;
+      modelsReady = false;
+
+      Object.keys(buildingGroups).forEach((key) => {
+        delete buildingGroups[key];
+      });
+
       buildingModels.forEach((name) => {
         const path = `/models/${name}.glb`;
 
-    loader.load(path, (gltf: GLTF) => {
-  const model = gltf.scene;
+        loader.load(path, (gltf: GLTF) => {
+          const model = gltf.scene;
 
-  if (name === "all_services" && gltf.animations.length > 0) {
-    mixer = new THREE.AnimationMixer(model);
+          if (name === "all_services" && gltf.animations.length > 0) {
+            mixer = new THREE.AnimationMixer(model);
 
-    gltf.animations.forEach((clip, index) => {
-      console.log(`Playing clip ${index}: ${clip.name}`);
+            gltf.animations.forEach((clip, index) => {
+              console.log(`Playing clip ${index}: ${clip.name}`);
 
-      const action = mixer!.clipAction(clip);
-      action.reset();
-      action.play();
-    });
-  }
-
-  const videoScreenNames = [
-    "l_type_led_screen",
-    "l_type_led_screen_1",
-  ];
-
-  model.traverse((obj: THREE.Object3D) => {
-    if (obj.isMesh) {
-      const mesh = obj as THREE.Mesh;
-      storeOriginalMaterial(mesh);
-    }
-
-    if (obj.isMesh && obj.name === "Ground1") {
-      const mesh = obj as THREE.Mesh;
-
-      if (Array.isArray(mesh.material)) {
-        mesh.material.forEach((mat: any) => {
-          if (mat.color) {
-            mat.color.set("#b9b9b9");
-            mat.userData.originalColor = mat.color.clone();
+              const action = mixer!.clipAction(clip);
+              action.reset();
+              action.play();
+            });
           }
-        });
-      } else {
-        const material = mesh.material as any;
-        if (material.color) {
-          material.color.set("#b9b9b9");
-          material.userData.originalColor = material.color.clone();
-        }
-      }
-    }
 
-    if (obj.name.endsWith("_grp")) {
-      buildingGroups[obj.name] = obj;
-    }
+          const videoScreenNames = ["l_type_led_screen", "l_type_led_screen_1"];
 
-    if (obj.isMesh && videoScreenNames.includes(obj.name)) {
-      const mesh = obj as THREE.Mesh;
+          model.traverse((obj: THREE.Object3D) => {
+            if (obj.isMesh) {
+              const mesh = obj as THREE.Mesh;
+              storeOriginalMaterial(mesh);
+            }
 
-      mesh.material = new THREE.MeshBasicMaterial({
-        map: videoTexture,
-        toneMapped: false,
-        side: THREE.DoubleSide,
-      });
-    }
-  });
+            if (obj.isMesh && obj.name === "Ground1") {
+              const mesh = obj as THREE.Mesh;
+
+              if (Array.isArray(mesh.material)) {
+                mesh.material.forEach((mat: any) => {
+                  if (mat.color) {
+                    mat.color.set("#b9b9b9");
+                    mat.userData.originalColor = mat.color.clone();
+                  }
+                });
+              } else {
+                const material = mesh.material as any;
+                if (material.color) {
+                  material.color.set("#b9b9b9");
+                  material.userData.originalColor = material.color.clone();
+                }
+              }
+            }
+
+            if (obj.name.endsWith("_grp")) {
+              buildingGroups[obj.name] = obj;
+            }
+
+            if (obj.isMesh && videoScreenNames.includes(obj.name)) {
+              const mesh = obj as THREE.Mesh;
+
+              mesh.material = new THREE.MeshBasicMaterial({
+                map: videoTexture,
+                toneMapped: false,
+                side: THREE.DoubleSide,
+              });
+            }
+          });
 
           model.scale.set(1, 1, 1);
           model.position.set(0, 0, 0);
@@ -682,53 +750,58 @@ if (finished) {
 
           if (modelsLoaded === totalModels) {
             modelsReady = true;
-            console.log("All models loaded. Waiting for loader to hide.");
+            console.log("All models loaded.");
 
-            if (loaderRef.current) {
+            const finishLoad = () => {
+              if (skipIntro) {
+                introState.finished = true;
+                introCanStart = false;
+                onComplete?.();
+                return;
+              }
+
+              if (ENABLE_INTRO) {
+                introState.progress = 0;
+                introState.finished = false;
+
+                introRig.position.copy(introVisibleStartCameraPosition);
+                introRig.target.copy(introVisibleStartTarget);
+
+                camera.position.copy(introVisibleStartCameraPosition);
+                controls.target.copy(introVisibleStartTarget);
+                camera.lookAt(introVisibleStartTarget);
+
+                introCanStart = true;
+              } else {
+                introState.finished = true;
+
+                camera.position.copy(endCameraPosition);
+                controls.target.copy(endTarget);
+                camera.lookAt(endTarget);
+
+                controls.enabled = true;
+                controls.minDistance = 1;
+                controls.maxDistance = 50;
+                controls.minAzimuthAngle = -0.65;
+                controls.maxAzimuthAngle = -0.55;
+
+                targetAzimuth = controls.getAzimuthalAngle();
+                targetPolar = controls.getPolarAngle();
+              }
+
+              onComplete?.();
+            };
+
+            if (!skipIntro && loaderRef.current) {
               loaderRef.current.style.opacity = "0";
 
               setTimeout(() => {
                 if (!loaderRef.current) return;
-
                 loaderRef.current.style.display = "none";
-
-                if (ENABLE_INTRO) {
-                  introState.progress = 0;
-                  introState.finished = false;
-
-                  introRig.position.copy(introVisibleStartCameraPosition);
-                  introRig.target.copy(introVisibleStartTarget);
-
-                  camera.position.copy(introVisibleStartCameraPosition);
-                  controls.target.copy(introVisibleStartTarget);
-                  camera.lookAt(introVisibleStartTarget);
-
-                  introCanStart = true;
-                } else {
-                  introState.finished = true;
-
-                  camera.position.copy(endCameraPosition);
-                  controls.target.copy(endTarget);
-                  camera.lookAt(endTarget);
-
-                  controls.enabled = true;
-                  controls.minDistance = 1;
-                  controls.maxDistance = 50;
-                  controls.minAzimuthAngle = -0.65;
-                  controls.maxAzimuthAngle = -0.55;
-
-                  // intro skip panninalum final main scene la zoom off irukkanum
-                  // controls.enableZoom = false;
-
-                  // intro finished state-ku once pan limit apply pannu
-                  // limitPan();
-
-                  targetAzimuth = controls.getAzimuthalAngle();
-                  targetPolar = controls.getPolarAngle();
-                }
+                finishLoad();
               }, 500);
             } else {
-              introCanStart = true;
+              finishLoad();
             }
           }
         });
@@ -784,15 +857,53 @@ if (finished) {
       });
     }
 
+    function handleBackToMain() {
+      if (disposeWallPaintingModule) {
+        disposeWallPaintingModule();
+        disposeWallPaintingModule = null;
+      }
+
+      currentScreen = "main";
+      activeDestination = "backToMain";
+      isReturningToMain = true;
+      hoveredBuilding = null;
+      mouseMovedAfterIntro = false;
+      isMouseMoving = false;
+      isUserControllingCamera = true;
+
+      preloadModels({
+        skipIntro: true,
+        onComplete: () => {
+          cameraRig.position.copy(camera.position);
+          cameraRig.target.copy(controls.target);
+
+          startFlyToTarget({
+            camera,
+            controls,
+            rig: cameraRig,
+            flyState,
+            destinationPosition: endCameraPosition.clone(),
+            destinationTarget: endTarget.clone(),
+            duration: 2.8,
+            ease: "power4.inOut",
+          });
+
+          controls.enabled = false;
+          controls.enableDamping = false;
+        },
+      });
+    }
+
     function loadWallPaintingModule() {
       controls.enableZoom = false;
 
       import("./lib/wallPaintingModule").then((mod) => {
-        mod.initWallPainting({
+        disposeWallPaintingModule = mod.initWallPainting({
           scene,
           camera,
           controls,
           renderer,
+          onBackToMain: handleBackToMain,
         });
       });
     }
