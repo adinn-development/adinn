@@ -5,7 +5,7 @@
   import Image from "next/image";
   import { BackgroundImage } from "../reusable-components/Icons/Icons";
   import Subtract from "@/public/Subtract.svg";
-
+  import styles from './Hero.module.css';
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import VideoImage from "../reusable-components/VideoImage";
@@ -101,7 +101,7 @@
     })
         .addLabel("fadeout")
         .fromTo(
-          ".bottom-image",
+          ".bottomImage",
           { visibility: "hidden", opacity: 0, y: 150 },
           {
             opacity: 1,
@@ -169,13 +169,15 @@
             </div>
 
             {/* Bottom Image */}
-            <div
-              className={`bottom-image absolute bottom-0 w-full ${
-                isMobile ? "h-[39vh] z-20" : "lg:h-[100vh] h-[60vh]"
-              } ${
-                !isMobile && !videoVisible ? "opacity-0 pointer-events-none" : ""
-              }`}
-            >
+            {/* <div
+              className={`bottom-image absolute bottom-0 w-full ${ */}
+                <div
+  className={`${styles.bottomImage} ${
+    isMobile ? "h-[39vh] z-20" : "lg:h-[100vh] h-[60vh]"
+  } ${
+    !isMobile && !videoVisible ? "opacity-0 pointer-events-none" : ""
+  }`}
+>
               {isMobile && (
                 <div className="relative w-[100%] max-w-[1050px] mx-auto">
                   {/* Background vide frame mobile */}

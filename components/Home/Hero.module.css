@@ -1,0 +1,14 @@
+/* BottomImage.module.css */
+.bottomImage {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  bottom: 0;
+}
+
+/* For screens 1920px and above */
+@media (min-width: 1920px) {
+  .bottomImage {
+    bottom: -250px;
+  }
+}
