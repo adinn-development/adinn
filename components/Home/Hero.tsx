@@ -47,7 +47,7 @@ export default function Hero() {
     let isMouseMoving = false;
     let mouseStopTimer: NodeJS.Timeout | null = null;
     let introCanStart = false;
-    const ENABLE_INTRO = false;
+    const ENABLE_INTRO = true;
     let skipNextControlsUpdate = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
@@ -918,46 +918,47 @@ export default function Hero() {
       });
     }
 
-function loadAdinnHQModule() {
-  controls.enableZoom = false;
+    function loadAdinnHQModule() {
+      controls.enableZoom = false;
 
-  import("./lib/adinnHQModule").then((mod) => {
-    disposeActiveModule = mod.initAdinnHQ({
-      scene,
-      camera,
-      controls,
-      renderer,
-      onBackToMain: handleBackToMain,
-    });
-  });
-}
+      import("./lib/adinnHQModule").then((mod) => {
+        disposeActiveModule = mod.initAdinnHQ({
+          scene,
+          camera,
+          controls,
+          renderer,
+          onBackToMain: handleBackToMain,
+        });
+      });
+    }
 
     function loadMediaAdsModule() {
       controls.enableZoom = false;
 
       import("./lib/mediaAdsModule").then((mod) => {
-        mod.initMediaAds({
+        disposeActiveModule = mod.initMediaAds({
           scene,
           camera,
           controls,
           renderer,
+          onBackToMain: handleBackToMain,
         });
       });
     }
 
- function loadSinageSideModule() {
-  controls.enableZoom = false;
+    function loadSinageSideModule() {
+      controls.enableZoom = false;
 
-  import("./lib/sinageSideModule").then((mod) => {
-    disposeActiveModule = mod.initSinageSide({
-      scene,
-      camera,
-      controls,
-      renderer,
-      onBackToMain: handleBackToMain,
-    });
-  });
-}
+      import("./lib/sinageSideModule").then((mod) => {
+        disposeActiveModule = mod.initSinageSide({
+          scene,
+          camera,
+          controls,
+          renderer,
+          onBackToMain: handleBackToMain,
+        });
+      });
+    }
     function loadFixturesModule() {
       controls.enableZoom = false;
 
