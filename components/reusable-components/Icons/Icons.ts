@@ -137,6 +137,8 @@ export {default as nikonDigital} from '@/assets/projects/digital/nikon.webp';
 //service
 export {default as ServiceHero} from '@/assets/service/ServiceHero.webp';
 
+// careers
+export { default as CareerBanner } from '@/assets/careers/careerbanner.jpg';
 
 //about
 export {default as AboutHero} from '@/assets/about/AboutHero.webp';
