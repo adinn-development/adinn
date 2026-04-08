@@ -68,32 +68,71 @@ export default function AdinnCareerForm() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setFileName(file.name);
-      setSelectedFile(file);
+ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  if (file) {
+    // Validate file type
+    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    if (!validTypes.includes(file.type)) {
+      showToast("Please upload PDF or DOC/DOCX files only", "error");
+      return;
     }
-  };
+    
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      showToast("File size should be less than 5MB", "error");
+      return;
+    }
+    
+    setFileName(file.name);
+    setSelectedFile(file);
+  }
+};
 
   const showToast = (message: string, type: "success" | "error") => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 5000);
   };
 
-  const handleSubmit = async (e: React.MouseEvent) => {
-    e.preventDefault();
+ const handleSubmit = async (e: React.MouseEvent) => {
+  e.preventDefault();
 
-    if (!form.fullName.trim()) { showToast("Please enter your full name", "error"); return; }
-    if (!form.phone.trim()) { showToast("Please enter your phone number", "error"); return; }
-    if (!form.email.trim()) { showToast("Please enter your email address", "error"); return; }
-    if (!form.location.trim()) { showToast("Please enter your location", "error"); return; }
+ // Name validation
+if (!form.fullName.trim()) { showToast("Please enter your full name", "error"); return; }
+const nameRegex = /^[A-Za-z\s]+$/;
+if (!nameRegex.test(form.fullName.trim())) { 
+  showToast("Name should only contain letters and spaces", "error"); 
+  return; 
+}
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) { showToast("Please enter a valid email address", "error"); return; }
+// Phone validation
+// Phone validation - strictly 10 digits only
+if (!form.phone.trim()) { showToast("Please enter your phone number", "error"); return; }
+const phoneRegex = /^[0-9]+$/;
+if (!phoneRegex.test(form.phone.trim())) { 
+  showToast("Phone number should only contain digits (0-9)", "error"); 
+  return; 
+}
+if (form.phone.trim().length !== 10) { 
+  showToast("Phone number must be exactly 10 digits", "error"); 
+  return; 
+}
 
-    setIsLoading(true);
+// Email validation
+if (!form.email.trim()) { showToast("Please enter your email address", "error"); return; }
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(form.email)) { showToast("Please enter a valid email address", "error"); return; }
 
+// Location validation
+if (!form.location.trim()) { showToast("Please enter your location", "error"); return; }
+
+// Resume validation (MANDATORY)
+if (!selectedFile) { 
+  showToast("Please upload your resume (PDF, DOC, or DOCX format)", "error"); 
+  return; 
+}
+
+  setIsLoading(true);
     try {
       const formData = new FormData();
       formData.append("mailtype", "adinncareers");
@@ -250,19 +289,19 @@ export default function AdinnCareerForm() {
             <div className="adinn-form">
               <div className="adinn-field">
                 <input type="text" name="fullName" value={form.fullName} onChange={handleChange}
-                  placeholder="Full Name" className="adinn-input" disabled={isLoading} />
+                  placeholder="Full Name *" className="adinn-input" disabled={isLoading} />
               </div>
               <div className="adinn-field">
                 <input type="tel" name="phone" value={form.phone} onChange={handleChange}
-                  placeholder="Phone Number" className="adinn-input" disabled={isLoading} />
+                  placeholder="Phone Number *" className="adinn-input" disabled={isLoading} />
               </div>
               <div className="adinn-field">
                 <input type="email" name="email" value={form.email} onChange={handleChange}
-                  placeholder="Email Address" className="adinn-input" disabled={isLoading} />
+                  placeholder="Email Address *" className="adinn-input" disabled={isLoading} />
               </div>
               <div className="adinn-field">
                 <input type="text" name="location" value={form.location} onChange={handleChange}
-                  placeholder="Location" className="adinn-input" disabled={isLoading} />
+                  placeholder="Location *" className="adinn-input" disabled={isLoading} />
               </div>
 
               {/* Upload Resume */}
@@ -272,8 +311,10 @@ export default function AdinnCareerForm() {
                 style={{ opacity: isLoading ? 0.6 : 1, cursor: isLoading ? "not-allowed" : "pointer" }}
               >
                 <Image src={uploadIcon} alt="Upload" width={40} height={30} />
-                <span className="adinn-upload-text">{fileName ? fileName : "Upload Resume"}</span>
-                <span className="adinn-upload-hint">(PDF/DOC, max 5MB)</span>
+                {/* <span className="adinn-upload-text">{fileName ? fileName : "Upload Resume"}</span>
+                <span className="adinn-upload-hint">(PDF/DOC, max 5MB)</span> */}
+                <span className="adinn-upload-text">{fileName ? fileName : "Upload Resume *"}</span>
+<span className="adinn-upload-hint">(PDF/DOC/DOCX, max 5MB)</span>
                 <input ref={fileInputRef} type="file" accept=".pdf,.doc,.docx"
                   onChange={handleFileChange} style={{ display: "none" }} disabled={isLoading} />
               </div>
@@ -641,6 +682,11 @@ padding-top: 10px;
   font-size: 15px;
   color: #555;
   margin: 0;
+}
+
+.adinn-upload-required {
+  border-color: #ff6b6b;
+  background: #fff5f5;
 }
 
 /* Responsive */
