@@ -567,7 +567,7 @@ vertical-align: middle;
         }
 
         .adinn-submit {
-          width: 129px;
+          width: 140px;
           border-radius: 35px;
           padding: 10px 35px;
           margin-top: 20px;
