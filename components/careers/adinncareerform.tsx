@@ -7,43 +7,61 @@ import uploadIcon from "@/assets/careers/noun-cloud-upload-857930.svg";
 const jobRoles = [
   {
     id: 1,
-    title: "Digital Marketing Executive",
-    description: "Create high-impact campaigns across Google, Meta & more",
+    title: "Business development executive",
+    description: "Ability to identify trends, opportunities, and customer needs",
     location: "Madurai / Onsite",
   },
   {
     id: 2,
-    title: "Front-End Developer (React.js)",
-    description: "Build fast, beautiful web interfaces",
+    title: "Sr. Business development executive",
+    description: "Drive revenue by identifying opportunities, building client relationships  and closing deals.",
     location: "Madurai / Onsite",
   },
   {
     id: 3,
-    title: "SEO Specialist",
-    description: "Boost visibility with smart, ethical strategies",
+    title: "Relationship manager",
+    description: "Strong ability to build, nurture, and maintain long-term client relationships",
     location: "Madurai / Onsite",
   },
   {
     id: 4,
-    title: "Telecaller Executive ( Female )",
-    description: "Generate leads, resolve queries, support sales",
+    title: "Office / Operation executive",
+    description: "Efficiently plan, prioritize, and manage daily operational tasks",
+    location: "Madurai / Onsite",
+  },
+   {
+    id: 5,
+    title: "Admin executive",
+    description: "Efficiently plan, prioritize, and manage daily operational tasks",
+    location: "Madurai / Onsite",
+  },
+   {
+    id: 6,
+    title: "Flutter developer",
+    description: "Strong understanding of Flutter and Dart for building cross-platform applications",
+    location: "Madurai / Onsite",
+  },
+  {
+    id: 6,
+    title: "Next.js",
+    description: "Strong understanding of Next.js framework and React for building server-side rendered and static web applications",
     location: "Madurai / Onsite",
   },
 ];
-const jobRole = [
-  {
-    id: 1,
-    title: "Digital Marketing Executive",
-    description: "Create high-impact campaigns across Google, Meta & more",
-    location: "Madurai / Onsite",
-  },
-  {
-    id: 2,
-    title: "Front-End Developer (React.js)",
-    description: "Build fast, beautiful web interfaces",
-    location: "Madurai / Onsite",
-  },
-];
+// const jobRole = [
+//   {
+//     id: 1,
+//     title: "Digital Marketing Executive",
+//     description: "Create high-impact campaigns across Google, Meta & more",
+//     location: "Madurai / Onsite",
+//   },
+//   {
+//     id: 2,
+//     title: "Front-End Developer (React.js)",
+//     description: "Build fast, beautiful web interfaces",
+//     location: "Madurai / Onsite",
+//   },
+// ];
 export default function AdinnCareerForm() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRole, setSelectedRole] = useState("");
@@ -179,7 +197,7 @@ if (!selectedFile) {
 
       {/* ── Why Join Adinn Section ── */}
 <div className="adinn-why-section">
-  <h2 className="adinn-why-title">Why to Join Adinn Advertising</h2>
+  <h2 className="adinn-why-title">Why join us ?</h2>
   <p className="adinn-why-subtitle">
     We don’t just hire people. We invest in talent.
   </p>
@@ -195,8 +213,8 @@ if (!selectedFile) {
         desc: "Explore bold ideas without boundaries",
       },
       {
-        title: "Digital-First Thinking",
-        desc: "Work that impacts globally",
+        title: "Trust and Autonomy",
+        desc: " We trust you to do great work",
       },
       {
         title: "Collaborative Culture",
@@ -253,12 +271,12 @@ if (!selectedFile) {
 
             {/* Header */}
             <div className="adinn-header">
-              <h2 className="adinn-title">Why to Join Adinn Advertising</h2>
+              {/* <h2 className="adinn-title">Why to Join Adinn Advertising</h2>
               <p className="adinn-subtitle">
                 We don&apos;t just hire people. We invest in talent.
-              </p>
+              </p> */}
               {selectedRole && (
-                <p className="adinn-role-badge">Applying for: <strong>{selectedRole}</strong></p>
+                <h4 className="adinn-role-badge">Applying for: <strong>{selectedRole}</strong></h4>
               )}
             </div>
 
@@ -328,6 +346,7 @@ leading-trim: NONE;
 line-height: 100%;
 letter-spacing: 0%;
 vertical-align: middle;
+padding-bottom: 20px;
         }
         .adinn-roles-subtitle {
           font-family: PlusJakartaSans;
@@ -379,7 +398,7 @@ font-weight: 400;
 font-style: Regular;
 font-size: 18px;
 leading-trim: NONE;
-line-height: 100%;
+line-height: 120%;
 letter-spacing: 0%;
 vertical-align: middle;
         }
@@ -474,15 +493,67 @@ vertical-align: middle;
           margin: 0;
           padding: 0px 10px 10px 0;
         }
-        .adinn-role-badge {
-          font-size: 13px;
-          color: #861927;
-          margin: 6px 0 0;
-          padding: 6px 12px;
-          background: #fdf0f1;
-          border-radius: 6px;
-          display: inline-block;
-        }
+        // .adinn-role-badge {
+        //   font-size: 20px;
+        //   color: #861927;
+        //   margin: 6px 0 0;
+        //   padding: 6px 12px;
+        //   background: #fdf0f1;
+        //   border-radius: 6px;
+        //   display: inline-block;
+        //   align-items: center;
+        // }
+        /* Role Badge as Centered Page Title */
+.adinn-role-badge {
+  font-size: 20px;
+  font-weight: 700;
+ background: linear-gradient(270deg, #861927 0%, #EC2B45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;  margin: 0 auto 20px auto;
+  padding: 12px 24px;
+  // background: linear-gradient(135deg, #2c3e66 0%, #1a2a4a 100%);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: fit-content;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.3px;
+  text-align: center;
+  backdrop-filter: blur(1px);
+}
+
+/* Optional: Add a subtle icon before the text */
+.adinn-role-badge::before {
+  
+  font-size: 24px;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+}
+
+/* Container to ensure centering */
+.role-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* For responsive - smaller screens */
+@media (max-width: 640px) {
+  .adinn-role-badge {
+    font-size: 20px;
+    padding: 8px 16px;
+    border-radius: 32px;
+  }
+  .adinn-role-badge::before {
+    font-size: 18px;
+  }
+}
 
         .adinn-form {
           display: flex;

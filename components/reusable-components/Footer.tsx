@@ -463,8 +463,8 @@ const Footer = () => {
                     info@adinn.co.in
                   </a>
                   {" | "}
-                  <a href="mailto:marketing@adinn.com" style={{ textDecoration: "none" }}>
-                    marketing@adinn.com
+                  <a href="mailto:ba@adinn.co.in" style={{ textDecoration: "none" }}>
+                    ba@adinn.co.in
                   </a>
                 </div>
                 <div>
