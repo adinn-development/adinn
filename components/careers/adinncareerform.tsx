@@ -42,7 +42,7 @@ const jobRoles = [
     location: "Madurai / Onsite",
   },
   {
-    id: 6,
+    id: 7,
     title: "Next.js",
     description: "Strong understanding of Next.js framework and React for building server-side rendered and static web applications",
     location: "Madurai / Onsite",
