@@ -32,7 +32,7 @@ const Hero1 = () => {
               className="
                 font-['PlusJakartaSans']
                 font-bold
-                text-[20px]
+                text-[16px]
                 sm:text-[22px]
                 md:text-[24px]
                 leading-[1.3]
@@ -57,10 +57,10 @@ const Hero1 = () => {
             
             {/* Main heading - responsive text sizes */}
             <h1 className="text-center text-white font-['PlusJakartaSans'] font-bold px-2 sm:px-4">
-              <span className="block text-[32px] sm:text-[42px] md:text-[56px] lg:text-[63px] leading-[1.2] sm:leading-[1.25] md:leading-tight">
+              <span className="block text-[24px] sm:text-[42px] md:text-[56px] lg:text-[63px] leading-[1.2] sm:leading-[1.25] md:leading-tight">
                 Build your <span className="text-[#EC2B45]">career</span> with
               </span>
-              <span className="block text-[32px] sm:text-[42px] md:text-[56px] lg:text-[63px] leading-[1.2] sm:leading-[1.25] md:leading-tight mt-2 sm:mt-3 md:mt-0">
+              <span className="block text-[24px] sm:text-[42px] md:text-[56px] lg:text-[63px] leading-[1.2] sm:leading-[1.25] md:leading-tight mt-2 sm:mt-3 md:mt-0">
                 Adinn Advertising ltd.
               </span>
             </h1>

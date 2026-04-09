@@ -12,7 +12,6 @@ import {
 } from "./Icons/Icons";
 import Image from "next/image";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 
 interface FooterFormData {
@@ -498,7 +497,7 @@ const Footer = () => {
               </div>
 
               {/* Addresss */}
-              <div className="flex flex-col m-8  sm:gap-2 mt-2 text-white">
+              <div className="flex flex-col m-8  sm:gap-2 mt-2 text-white text-base sm:text-base max-[400px]:text-sm ">
                 <div>
                   <span className="font-semibold">Address:</span>
                 </div>

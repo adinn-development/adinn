@@ -310,7 +310,17 @@ if (!selectedFile) {
                 onClick={() => !isLoading && fileInputRef.current?.click()}
                 style={{ opacity: isLoading ? 0.6 : 1, cursor: isLoading ? "not-allowed" : "pointer" }}
               >
-                <Image src={uploadIcon} alt="Upload" width={40} height={30} />
+               <img 
+  alt="Upload" 
+  loading="lazy" 
+  width="40" 
+  height="30" 
+  decoding="async" 
+  data-nimg="1" 
+  src="/_next/static/media/noun-cloud-upload-857930.29719d8b.svg" 
+  className="w-[40px] h-[30px] max-[600px]:!w-[30px] max-[600px]:!h-[20px]"
+  style={{ color: 'transparent' }}
+/>
                 {/* <span className="adinn-upload-text">{fileName ? fileName : "Upload Resume"}</span>
                 <span className="adinn-upload-hint">(PDF/DOC, max 5MB)</span> */}
                 <span className="adinn-upload-text">{fileName ? fileName : "Upload Resume *"}</span>
@@ -710,6 +720,7 @@ padding-top: 10px;
   }
   .adinn-role-desc, .adinn-role-location{
     font-size: 16px;
+    line-height: 120% !important;
   }
 }
 @media (max-width: 600px) {
@@ -719,7 +730,31 @@ padding-top: 10px;
   .adinn-why-grid {
     grid-template-columns: 1fr;
   }
+  .adinn-why-title{
+     font-size: 24px !important;
+     line-height: 120% !important;
+  }
+  .adinn-why-subtitle,.adinn-title, .adinn-roles-subtitle {
+     font-size: 20px !important;
+     line-height: 120% !important;
+  }
+  .adinn-subtitle,{
+    font-size: 16px !important;
+     line-height: 120% !important;
+  }   
+  .adinn-roles-section{
+     padding: 70px 20px !important;
+  }
+      }
+@media (max-width: 320px){
+.adinn-title, .adinn-roles-subtitle, .adinn-roles-subtitle, .adinn-role-name{
+  font-size: 18px !important;
 }
+    .adinn-subtitle,{
+  font-size: 14px !important;
+}
+} 
+
       `}</style>
     </>
   );
