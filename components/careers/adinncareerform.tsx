@@ -7,43 +7,43 @@ import uploadIcon from "@/assets/careers/noun-cloud-upload-857930.svg";
 const jobRoles = [
   {
     id: 1,
-    title: "Business development executive",
-    description: "Ability to identify trends, opportunities, and customer needs",
+    title: "Business Development Executive",
+    description: "Ability to identify trends, opportunities and customer needs",
     location: "Madurai / Onsite",
   },
   {
     id: 2,
-    title: "Sr. Business development executive",
+    title: "Sr. Business Development Executive",
     description: "Drive revenue by identifying opportunities, building client relationships  and closing deals.",
     location: "Madurai / Onsite",
   },
   {
     id: 3,
-    title: "Relationship manager",
-    description: "Strong ability to build, nurture, and maintain long-term client relationships",
+    title: "Relationship Manager",
+    description: "Strong ability to build, nurture and maintain long-term client relationships",
     location: "Madurai / Onsite",
   },
   {
     id: 4,
-    title: "Office / Operation executive",
-    description: "Efficiently plan, prioritize, and manage daily operational tasks",
+    title: "Operation Executive",
+    description: "Efficiently plan, prioritize and manage daily operational tasks",
     location: "Madurai / Onsite",
   },
    {
     id: 5,
-    title: "Admin executive",
-    description: "Efficiently plan, prioritize, and manage daily operational tasks",
+    title: "Admin Executive",
+    description: "Efficiently plan, prioritize and manage daily operational tasks",
     location: "Madurai / Onsite",
   },
    {
     id: 6,
-    title: "Flutter developer",
+    title: "Flutter Developer",
     description: "Strong understanding of Flutter and Dart for building cross-platform applications",
     location: "Madurai / Onsite",
   },
   {
     id: 7,
-    title: "Next.js",
+    title: "Next.Js",
     description: "Strong understanding of Next.js framework and React for building server-side rendered and static web applications",
     location: "Madurai / Onsite",
   },
@@ -276,7 +276,7 @@ if (!selectedFile) {
                 We don&apos;t just hire people. We invest in talent.
               </p> */}
               {selectedRole && (
-                <h4 className="adinn-role-badge">Applying for: <strong>{selectedRole}</strong></h4>
+                <h4 className="adinn-role-badge">Applying for:<strong>{selectedRole}</strong></h4>
               )}
             </div>
 
@@ -517,7 +517,7 @@ vertical-align: middle;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 6px;
   width: fit-content;
   max-width: 90%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
