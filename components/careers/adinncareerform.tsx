@@ -322,7 +322,7 @@ if (!selectedFile) {
               {/* Submit */}
               <button className="adinn-submit" onClick={handleSubmit} disabled={isLoading}
                 style={{ opacity: isLoading ? 0.7 : 1, cursor: isLoading ? "not-allowed" : "pointer" }}>
-                {isLoading ? "Submitting..." : "Submit"}
+                {isLoading ? "Submitting.." : "Submit"}
               </button>
             </div>
           </div>
