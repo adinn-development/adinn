@@ -222,9 +222,7 @@ if (!selectedFile) {
       {/* ── Open Roles Section ── */}
       <div id="open-roles-section" className="adinn-roles-section">
     <h2 className="adinn-roles-title">Open Roles</h2>
-    <p className="adinn-roles-subtitle">
-      Explore current roles at <strong>Adinn Digital</strong>
-    </p>
+    
 
     <div className="adinn-roles-grid">
       {jobRoles.map((job) => (
@@ -243,28 +241,7 @@ if (!selectedFile) {
     </div>
   </div>
 
-      <div className="adinn-roles-section">
-        <h2 className="adinn-roles-title">Open Roles</h2>
-        <p className="adinn-roles-subtitle">
-          Explore current roles at <strong>Adinn Outdoor</strong>
-        </p>
-
-        <div className="adinn-roles-grid">
-          {jobRole.map((job) => (
-            <div key={job.id} className="adinn-role-card">
-              <h3 className="adinn-role-name">{job.title}</h3>
-              <p className="adinn-role-desc">{job.description}</p>
-              <p className="adinn-role-location">{job.location}</p>
-              <button
-                className="adinn-apply-btn"
-                onClick={() => handleOpenModal(job.title)}
-              >
-                Apply Now
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
+      
 
       {/* ── Modal ── */}
       {isOpen && (
