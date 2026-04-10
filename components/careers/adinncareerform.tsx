@@ -43,7 +43,7 @@ const jobRoles = [
   },
   {
     id: 7,
-    title: "Next.Js",
+    title: "Next.Js Developer",
     description: "Strong understanding of Next.js framework and React for building server-side rendered and static web applications",
     location: "Madurai / Onsite",
   },
