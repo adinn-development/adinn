@@ -227,7 +227,7 @@ const Footer = () => {
   const [policyModal, setPolicyModal] = useState<"terms" | "privacy" | null>(
     null
   );
-  
+
   // NEW: Add errors state
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -330,21 +330,21 @@ const Footer = () => {
   //     setLoading(false);
   //   }
   // };
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // NEW: Validate form before submission
     if (!validateForm()) {
       toast.error("Please fill in all required fields.");
       return;
     }
-    
+
     setLoading(true);
-    
+
     // NEW: Show loading toast
     const loadingToast = toast.loading("Sending your enquiry...");
-    
+
     try {
       const response = await fetch("https://adinndigital.com/api/index_adinnenquiry.php", {
         method: "POST",
@@ -361,16 +361,16 @@ const Footer = () => {
       });
 
       const result = await response.json();
-      
+
       // NEW: Dismiss loading toast
       toast.dismiss(loadingToast);
-      
-     if (result.status === "success") {
-  // Simple toast without custom icon
-  toast.success("Thank you for your enquiry! We'll get back soon", {
-    autoClose: 5000,
-  });
-        
+
+      if (result.status === "success") {
+        // Simple toast without custom icon
+        toast.success("Thank you for your enquiry! We'll get back soon", {
+          autoClose: 5000,
+        });
+
         // Reset form
         setFormData({
           firstName: "",
@@ -380,7 +380,7 @@ const Footer = () => {
         });
         // NEW: Clear errors
         setErrors({});
-        
+
       } else {
         // NEW: Show error toast
         toast.error(result.message || "Something went wrong. Please try again.");
@@ -422,8 +422,8 @@ const Footer = () => {
   return (
     <div className="bg-[#0C0C0C] w-full min-h-auto p-8 md:p-12">
       {/* NEW: Enhanced ToastContainer configuration */}
-      <ToastContainer 
-        position="top-right" 
+      <ToastContainer
+        position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -473,7 +473,7 @@ const Footer = () => {
                   <a href="tel:8015806062" style={{ textDecoration: "none" }}>
                     {" "}
                     +918015806062{" "}
-                  </a> 
+                  </a>
                   {/* |
                   <a href="tel:9626987861" style={{ textDecoration: "none" }}>
                     {" "}
@@ -505,11 +505,17 @@ const Footer = () => {
                   29, 1st Cross Street, Vanamamalai Nagar, Bypass road, <br></br>
                   <b>Madurai - 625010.</b>
                 </div>
-                <div>
+                {/* <div>
                   No. 3, Vijayalakshmi Street, Mahalingapuram,
                   Nungambakkam,
                   <br></br>
                   <b>Chennai - 600034.</b>
+                </div> */}
+                <div>
+                  No. 19/43, MG Chakrapani Street,
+                  Sathya Garden, Saligramam,
+                  <br></br>
+                  <b>Chennai - 600092.</b>
                 </div>
                 <div>
                   No. 407/8, 4th Cross, Jayanagar 7th Block,
@@ -551,9 +557,8 @@ const Footer = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                   // NEW: Add error styling
-                  className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${
-                    errors.firstName ? 'border-red-500' : 'border-white/16'
-                  }`}
+                  className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${errors.firstName ? 'border-red-500' : 'border-white/16'
+                    }`}
                 />
                 {/* NEW: Add error message */}
                 {errors.firstName && (
@@ -570,9 +575,8 @@ const Footer = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                   // NEW: Add error styling
-                  className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${
-                    errors.lastName ? 'border-red-500' : 'border-white/16'
-                  }`}
+                  className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${errors.lastName ? 'border-red-500' : 'border-white/16'
+                    }`}
                 />
                 {/* NEW: Add error message */}
                 {errors.lastName && (
@@ -591,9 +595,8 @@ const Footer = () => {
                 value={formData.email}
                 onChange={handleChange}
                 // NEW: Add error styling
-                className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${
-                  errors.email ? 'border-red-500' : 'border-white/16'
-                }`}
+                className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${errors.email ? 'border-red-500' : 'border-white/16'
+                  }`}
               />
               {/* NEW: Add error message */}
               {errors.email && (
@@ -610,9 +613,8 @@ const Footer = () => {
                 value={formData.message}
                 onChange={handleChange}
                 // NEW: Add error styling
-                className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full min-h-[60px] resize-none text-white ${
-                  errors.message ? 'border-red-500' : 'border-white/16'
-                }`}
+                className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full min-h-[60px] resize-none text-white ${errors.message ? 'border-red-500' : 'border-white/16'
+                  }`}
                 rows={2}
               />
               {/* NEW: Add error message */}
@@ -640,12 +642,12 @@ const Footer = () => {
               )}
             </button> */}
             <button
-  type="submit"
-  disabled={loading}
-  className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 text-[7.5px] md:text-[12px] rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer hover:bg-[#EC2B45] hover:bg-none disabled:opacity-70 disabled:cursor-not-allowed"
->
-  SUBMIT
-</button>
+              type="submit"
+              disabled={loading}
+              className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 text-[7.5px] md:text-[12px] rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer hover:bg-[#EC2B45] hover:bg-none disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              SUBMIT
+            </button>
           </form>
         </div>
       </div>
