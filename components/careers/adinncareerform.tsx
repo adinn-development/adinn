@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import uploadIcon from "@/assets/careers/noun-cloud-upload-857930.svg";
 
@@ -76,12 +76,35 @@ export default function AdinnCareerForm() {
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  // Math CAPTCHA state
+const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, operator: '+', answer: 0 });
+const [captchaInput, setCaptchaInput] = useState<string>('');
+const [captchaError, setCaptchaError] = useState<string>('');
 
   const handleOpenModal = (roleTitle: string) => {
     setSelectedRole(roleTitle);
     setIsOpen(true);
   };
-
+// Generate random math CAPTCHA
+const generateCaptcha = () => {
+  const operators = ['+', '-', '×'];
+  const operator = operators[Math.floor(Math.random() * operators.length)];
+  let num1 = Math.floor(Math.random() * 10) + 1;
+  let num2 = Math.floor(Math.random() * 10) + 1;
+  let answer = 0;
+  if (operator === '+') answer = num1 + num2;
+  if (operator === '-') {
+    if (num2 > num1) [num1, num2] = [num2, num1];
+    answer = num1 - num2;
+  }
+  if (operator === '×') answer = num1 * num2;
+  setCaptcha({ num1, num2, operator, answer });
+  setCaptchaInput('');
+  setCaptchaError('');
+};
+useEffect(() => {
+  generateCaptcha();
+}, []);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -149,7 +172,16 @@ if (!selectedFile) {
   showToast("Please upload your resume (PDF, DOC, or DOCX format)", "error"); 
   return; 
 }
-
+// CAPTCHA validation
+if (!captchaInput.trim()) {
+  showToast("Please answer the math question", "error");
+  return;
+}
+if (parseInt(captchaInput) !== captcha.answer) {
+  showToast("Incorrect math answer. Please try again.", "error");
+  generateCaptcha();
+  return;
+}
   setIsLoading(true);
     try {
       const formData = new FormData();
@@ -174,6 +206,8 @@ if (!selectedFile) {
         setFileName("");
         setSelectedFile(null);
         setTimeout(() => setIsOpen(false), 2000);
+        setCaptchaInput('');
+generateCaptcha();
       } else {
         showToast(result.message || "Failed to submit application. Please try again.", "error");
       }
@@ -318,7 +352,58 @@ if (!selectedFile) {
                 <input ref={fileInputRef} type="file" accept=".pdf,.doc,.docx"
                   onChange={handleFileChange} style={{ display: "none" }} disabled={isLoading} />
               </div>
-
+              {/* Math CAPTCHA */}
+<div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+  <label style={{ fontSize: '13px', color: '#555', fontFamily: 'PlusJakartaSans, sans-serif' }}>
+    Solve this *
+  </label>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <div style={{
+      background: '#EEEEEE', padding: '10px 14px', borderRadius: '8px',
+      fontWeight: 'bold', fontSize: '14px', whiteSpace: 'nowrap', userSelect: 'none'
+    }}>
+      {captcha.num1} {captcha.operator} {captcha.num2} = ?
+    </div>
+    <input
+      type="number"
+      value={captchaInput}
+      onChange={(e) => {
+        const val = e.target.value;
+        setCaptchaInput(val);
+        if (val && parseInt(val) !== captcha.answer) {
+          setCaptchaError('❌ Wrong answer, try again');
+        } else {
+          setCaptchaError('');
+        }
+      }}
+      placeholder="Answer"
+      className="adinn-input"
+      style={{ width: '110px' }}
+      disabled={isLoading}
+    />
+    <button
+      type="button"
+      onClick={generateCaptcha}
+      disabled={isLoading}
+      style={{
+        background: 'none', border: 'none', cursor: 'pointer',
+        color: '#EC2B45', padding: '6px', borderRadius: '50%',
+        display: 'flex', alignItems: 'center', justifyContent: 'center'
+      }}
+      title="Refresh CAPTCHA"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M23 4v6h-6" />
+        <path d="M1 20v-6h6" />
+        <path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15" />
+      </svg>
+    </button>
+  </div>
+  {captchaError && (
+    <p style={{ color: '#EC2B45', fontSize: '12px', margin: '2px 0 0' }}>{captchaError}</p>
+  )}
+</div>
               {/* Submit */}
               <button className="adinn-submit" onClick={handleSubmit} disabled={isLoading}
                 style={{ opacity: isLoading ? 0.7 : 1, cursor: isLoading ? "not-allowed" : "pointer" }}>

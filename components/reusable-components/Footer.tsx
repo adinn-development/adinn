@@ -230,7 +230,32 @@ const Footer = () => {
 
   // NEW: Add errors state
   const [errors, setErrors] = useState<FormErrors>({});
+// Math CAPTCHA state
+const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, operator: '+', answer: 0 });
+const [captchaInput, setCaptchaInput] = useState<string>('');
+const [captchaError, setCaptchaError] = useState<string>('');
 
+React.useEffect(() => {
+  generateCaptcha();
+}, []);
+
+// Generate random math CAPTCHA
+const generateCaptcha = () => {
+  const operators = ['+', '-', '×'];
+  const operator = operators[Math.floor(Math.random() * operators.length)];
+  let num1 = Math.floor(Math.random() * 10) + 1;
+  let num2 = Math.floor(Math.random() * 10) + 1;
+  let answer = 0;
+  if (operator === '+') answer = num1 + num2;
+  if (operator === '-') {
+    if (num2 > num1) [num1, num2] = [num2, num1];
+    answer = num1 - num2;
+  }
+  if (operator === '×') answer = num1 * num2;
+  setCaptcha({ num1, num2, operator, answer });
+  setCaptchaInput('');
+  setCaptchaError('');
+};
   // Handle input change
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -280,6 +305,17 @@ const Footer = () => {
       newErrors.message = "Message must be less than 1000 characters";
     }
 
+    // CAPTCHA validation
+if (!captchaInput.trim()) {
+  newErrors.firstName = newErrors.firstName; // keep existing
+  toast.error("Please answer the math question");
+  generateCaptcha();
+  return false;
+} else if (parseInt(captchaInput) !== captcha.answer) {
+  toast.error("Incorrect math answer. Please try again.");
+  generateCaptcha();
+  return false;
+}
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -380,6 +416,7 @@ const Footer = () => {
         });
         // NEW: Clear errors
         setErrors({});
+generateCaptcha();
 
       } else {
         // NEW: Show error toast
@@ -641,6 +678,45 @@ const Footer = () => {
                 "SUBMIT"
               )}
             </button> */}
+            {/* Math CAPTCHA */}
+<div className="flex flex-col space-y-3">
+  <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
+    SOLVE THIS *
+  </label>
+  <div className="flex items-center gap-3">
+    <div className="bg-white/10 px-3 py-2 rounded-lg font-bold text-white text-[14px] whitespace-nowrap select-none">
+      {captcha.num1} {captcha.operator} {captcha.num2} = ?
+    </div>
+    <input
+      type="number"
+      value={captchaInput}
+      onChange={(e) => {
+        const val = e.target.value;
+        setCaptchaInput(val);
+        if (val && parseInt(val) !== captcha.answer) {
+          setCaptchaError('❌ Wrong answer, try again');
+        } else {
+          setCaptchaError('');
+        }
+      }}
+      className="w-32 border-b border-white/16 focus:border-white/30 bg-transparent outline-none pb-2 text-white"
+      placeholder="Answer"
+    />
+    <button
+      type="button"
+      onClick={generateCaptcha}
+      className="p-2 rounded-full hover:bg-white/10 cursor-pointer text-[#EC2B45] transition-all duration-300"
+      title="Refresh CAPTCHA"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M23 4v6h-6" />
+        <path d="M1 20v-6h6" />
+        <path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15" />
+      </svg>
+    </button>
+  </div>
+  {captchaError && <p className="text-[#EC2B45] text-xs mt-1">{captchaError}</p>}
+</div>
             <button
               type="submit"
               disabled={loading}
