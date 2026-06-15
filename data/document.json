@@ -1,0 +1,49 @@
+{
+  "offerDocuments": {
+    "title": "Offer Documents",
+    "footer": "All documents will be updated after approval from the relevant authorities.",
+    "items": [
+      {
+        "title": "Draft Red Herring Prospectus (DRHP)",
+        "status": "Available",
+        "url": "https://adinn-space.sgp1.digitaloceanspaces.com/roadshow/quotations/20260613/est-30038/sabarinathan-jewellers-est-30038-pdf.pdf"
+      },
+      {
+        "title": "Red Herring Prospectus (RHP)",
+        "status": "Available",
+        "url": "https://adinn-space.sgp1.digitaloceanspaces.com/roadshow/quotations/20260613/est-30038/sabarinathan-jewellers-est-30038-pdf.pdf"
+      },
+      {
+        "title": "Prospectus",
+        "status": "Available",
+        "url": "https://adinn-space.sgp1.digitaloceanspaces.com/roadshow/quotations/20260613/est-30038/sabarinathan-jewellers-est-30038-pdf.pdf"
+      },
+      {
+        "title": "Issue Advertisement",
+        "status": "Available",
+        "url": "https://adinn-space.sgp1.digitaloceanspaces.com/roadshow/quotations/20260613/est-30038/sabarinathan-jewellers-est-30038-pdf.pdf"
+      }
+    ]
+  },
+  "financialInformation": {
+    "title": "Financial Information",
+    "footer": "Financial information is updated post review and approval by the management.",
+    "items": [
+      {
+        "title": "Annual Report FY 2024-25",
+       "status": "Available",
+        "url": "https://adinn-space.sgp1.digitaloceanspaces.com/roadshow/quotations/20260613/est-30038/sabarinathan-jewellers-est-30038-pdf.pdf"
+      },
+      {
+        "title": "Audited Financial Statements FY 2024-25",
+        "status": "Available",
+        "url": "https://adinn-space.sgp1.digitaloceanspaces.com/roadshow/quotations/20260613/est-30038/sabarinathan-jewellers-est-30038-pdf.pdf"
+      },
+      {
+        "title": "Half Year Financial Results",
+        "status": "Available",
+        "url": "https://adinn-space.sgp1.digitaloceanspaces.com/roadshow/quotations/20260613/est-30038/sabarinathan-jewellers-est-30038-pdf.pdf"
+      }
+    ]
+  }
+}

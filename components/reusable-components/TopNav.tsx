@@ -58,6 +58,7 @@ const TopNav = () => {
         { name: 'Services', link: '/service' },
         { name: 'Projects', link: '/projects' },
         { name: 'Careers', link: '/careers' },
+         { name: 'Investor Relations', link: '/investor-relations' },
         // { name: 'Contact Us', link: '/contact' }
     ];
 

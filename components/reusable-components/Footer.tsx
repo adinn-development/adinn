@@ -230,32 +230,32 @@ const Footer = () => {
 
   // NEW: Add errors state
   const [errors, setErrors] = useState<FormErrors>({});
-// Math CAPTCHA state
-const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, operator: '+', answer: 0 });
-const [captchaInput, setCaptchaInput] = useState<string>('');
-const [captchaError, setCaptchaError] = useState<string>('');
+  // Math CAPTCHA state
+  const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, operator: '+', answer: 0 });
+  const [captchaInput, setCaptchaInput] = useState<string>('');
+  const [captchaError, setCaptchaError] = useState<string>('');
 
-React.useEffect(() => {
-  generateCaptcha();
-}, []);
+  React.useEffect(() => {
+    generateCaptcha();
+  }, []);
 
-// Generate random math CAPTCHA
-const generateCaptcha = () => {
-  const operators = ['+', '-', '×'];
-  const operator = operators[Math.floor(Math.random() * operators.length)];
-  let num1 = Math.floor(Math.random() * 10) + 1;
-  let num2 = Math.floor(Math.random() * 10) + 1;
-  let answer = 0;
-  if (operator === '+') answer = num1 + num2;
-  if (operator === '-') {
-    if (num2 > num1) [num1, num2] = [num2, num1];
-    answer = num1 - num2;
-  }
-  if (operator === '×') answer = num1 * num2;
-  setCaptcha({ num1, num2, operator, answer });
-  setCaptchaInput('');
-  setCaptchaError('');
-};
+  // Generate random math CAPTCHA
+  const generateCaptcha = () => {
+    const operators = ['+', '-', '×'];
+    const operator = operators[Math.floor(Math.random() * operators.length)];
+    let num1 = Math.floor(Math.random() * 10) + 1;
+    let num2 = Math.floor(Math.random() * 10) + 1;
+    let answer = 0;
+    if (operator === '+') answer = num1 + num2;
+    if (operator === '-') {
+      if (num2 > num1) [num1, num2] = [num2, num1];
+      answer = num1 - num2;
+    }
+    if (operator === '×') answer = num1 * num2;
+    setCaptcha({ num1, num2, operator, answer });
+    setCaptchaInput('');
+    setCaptchaError('');
+  };
   // Handle input change
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -306,16 +306,16 @@ const generateCaptcha = () => {
     }
 
     // CAPTCHA validation
-if (!captchaInput.trim()) {
-  newErrors.firstName = newErrors.firstName; // keep existing
-  toast.error("Please answer the math question");
-  generateCaptcha();
-  return false;
-} else if (parseInt(captchaInput) !== captcha.answer) {
-  toast.error("Incorrect math answer. Please try again.");
-  generateCaptcha();
-  return false;
-}
+    if (!captchaInput.trim()) {
+      newErrors.firstName = newErrors.firstName; // keep existing
+      toast.error("Please answer the math question");
+      generateCaptcha();
+      return false;
+    } else if (parseInt(captchaInput) !== captcha.answer) {
+      toast.error("Incorrect math answer. Please try again.");
+      generateCaptcha();
+      return false;
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -416,7 +416,7 @@ if (!captchaInput.trim()) {
         });
         // NEW: Clear errors
         setErrors({});
-generateCaptcha();
+        generateCaptcha();
 
       } else {
         // NEW: Show error toast
@@ -475,42 +475,35 @@ generateCaptcha();
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-6 sm:gap-7 md:gap-8 mb-7">
         {/* Left Section */}
         <div className="flex flex-col items-center lg:items-start gap-6 sm:gap-7 md:gap-8 w-full lg:w-[55%]">
-          <div className="relative w-full min-h-[600px] sm:min-h-[480px] md:min-h-[590px]">
+        
+
+          <div className="relative w-full rounded-[20px] sm:rounded-[28px] overflow-hidden">
+            {/* Background image */}
             <Image
               src={Card}
               alt="card"
               fill
-              className="object-cover rounded-[20px] sm:rounded-[28px]"
+              className="object-cover"
               priority
             />
-            <div className="absolute  top-6 sm:top-8 md:top-10 left-3 sm:left-6 md:left-8 flex flex-col gap-2 sm:gap-3 max-w-[90%]">
-              {/* Heading */}
-              <div className="text-white m-3 mx-9 text-lg sm:text-2xl xl:text-[34px] font-semibold leading-tight">
+          
+            <div className="relative z-10 flex flex-col gap-3 sm:gap-4 p-6 sm:p-8 md:p-10">
+      
+              <div className="text-white text-lg sm:text-2xl xl:text-[34px] font-semibold leading-tight">
                 Let&apos;s Work Together
               </div>
 
               {/* Phone Numbers */}
-              <div className="flex flex-col top-9 m-8 sm:gap-1 text-white">
+              <div className="flex flex-col gap-1 text-white text-sm sm:text-base">
                 <div>
                   <span className="font-semibold">Email: </span>
-                  <a
-                    href="mailto:info@adinn.co.in"
-                    style={{ textDecoration: "none" }}
-                  >
-                    info@adinn.co.in
-                  </a>
+                  <a href="mailto:info@adinn.co.in">info@adinn.co.in</a>
                   {" | "}
-                  <a href="mailto:ba@adinn.co.in" style={{ textDecoration: "none" }}>
-                    ba@adinn.co.in
-                  </a>
+                  <a href="mailto:ba@adinn.co.in">ba@adinn.co.in</a>
                 </div>
                 <div>
                   <span className="font-semibold">Phone: </span>
-                  {/* YOGESH  - ADMIN */}
-                  <a href="tel:8015806062" style={{ textDecoration: "none" }}>
-                    {" "}
-                    +918015806062{" "}
-                  </a>
+                  <a href="tel:8015806062">+918015806062</a>
                   {/* |
                   <a href="tel:9626987861" style={{ textDecoration: "none" }}>
                     {" "}
@@ -533,41 +526,34 @@ generateCaptcha();
                 </div>
               </div>
 
-              {/* Addresss */}
-              <div className="flex flex-col m-8  sm:gap-2 mt-2 text-white text-base sm:text-base max-[400px]:text-sm ">
-                <div>
-                  <span className="font-semibold">Address:</span>
-                </div>
-                <div>
-                  29, 1st Cross Street, Vanamamalai Nagar, Bypass road, <br></br>
+              {/* Address */}
+              <div className="flex flex-col gap-2 text-white text-sm sm:text-base">
+                <div><span className="font-semibold">Address:</span></div>
+                <div className="leading-snug">
+                  29, 1st Cross Street, Vanamamalai Nagar, Bypass road,<br />
                   <b>Madurai - 625010.</b>
                 </div>
-                {/* <div>
+                 {/* <div>
                   No. 3, Vijayalakshmi Street, Mahalingapuram,
                   Nungambakkam,
                   <br></br>
                   <b>Chennai - 600034.</b>
                 </div> */}
                 <div>
-                  No. 19/43, MG Chakrapani Street,
-                  Sathya Garden, Saligramam,
-                  <br></br>
+                  No. 19/43, MG Chakrapani Street, Sathya Garden, Saligramam,<br />
                   <b>Chennai - 600092.</b>
                 </div>
                 <div>
-                  No. 407/8, 4th Cross, Jayanagar 7th Block,
-                  Opp- Saraswat Cooperative Bank,
-                  <br></br>
+                  No. 407/8, 4th Cross, Jayanagar 7th Block, Opp- Saraswat Cooperative Bank,<br />
                   <b>Bangalore - 560070.</b>
                 </div>
                 <div>
-                  No. 13,  Sivasakthi Colony, (Near coimbatore roller flour mill), Ganapathy,
-                  <br></br><b>Coimbatore - 641006.</b>
+                  No. 13, Sivasakthi Colony, (Near coimbatore roller flour mill), Ganapathy,<br />
+                  <b>Coimbatore - 641006.</b>
                 </div>
               </div>
             </div>
           </div>
-
           {/* <div className="w-full">
             <Image
               src={AdinnLogoFooter}
@@ -679,44 +665,44 @@ generateCaptcha();
               )}
             </button> */}
             {/* Math CAPTCHA */}
-<div className="flex flex-col space-y-3">
-  <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
-    SOLVE THIS *
-  </label>
-  <div className="flex items-center gap-3">
-    <div className="bg-white/10 px-3 py-2 rounded-lg font-bold text-white text-[14px] whitespace-nowrap select-none">
-      {captcha.num1} {captcha.operator} {captcha.num2} = ?
-    </div>
-    <input
-      type="number"
-      value={captchaInput}
-      onChange={(e) => {
-        const val = e.target.value;
-        setCaptchaInput(val);
-        if (val && parseInt(val) !== captcha.answer) {
-          setCaptchaError('❌ Wrong answer, try again');
-        } else {
-          setCaptchaError('');
-        }
-      }}
-      className="w-32 border-b border-white/16 focus:border-white/30 bg-transparent outline-none pb-2 text-white"
-      placeholder="Answer"
-    />
-    <button
-      type="button"
-      onClick={generateCaptcha}
-      className="p-2 rounded-full hover:bg-white/10 cursor-pointer text-[#EC2B45] transition-all duration-300"
-      title="Refresh CAPTCHA"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M23 4v6h-6" />
-        <path d="M1 20v-6h6" />
-        <path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15" />
-      </svg>
-    </button>
-  </div>
-  {captchaError && <p className="text-[#EC2B45] text-xs mt-1">{captchaError}</p>}
-</div>
+            <div className="flex flex-col space-y-3">
+              <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
+                SOLVE THIS *
+              </label>
+              <div className="flex items-center gap-3">
+                <div className="bg-white/10 px-3 py-2 rounded-lg font-bold text-white text-[14px] whitespace-nowrap select-none">
+                  {captcha.num1} {captcha.operator} {captcha.num2} = ?
+                </div>
+                <input
+                  type="number"
+                  value={captchaInput}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setCaptchaInput(val);
+                    if (val && parseInt(val) !== captcha.answer) {
+                      setCaptchaError('❌ Wrong answer, try again');
+                    } else {
+                      setCaptchaError('');
+                    }
+                  }}
+                  className="w-32 border-b border-white/16 focus:border-white/30 bg-transparent outline-none pb-2 text-white"
+                  placeholder="Answer"
+                />
+                <button
+                  type="button"
+                  onClick={generateCaptcha}
+                  className="p-2 rounded-full hover:bg-white/10 cursor-pointer text-[#EC2B45] transition-all duration-300"
+                  title="Refresh CAPTCHA"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M23 4v6h-6" />
+                    <path d="M1 20v-6h6" />
+                    <path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15" />
+                  </svg>
+                </button>
+              </div>
+              {captchaError && <p className="text-[#EC2B45] text-xs mt-1">{captchaError}</p>}
+            </div>
             <button
               type="submit"
               disabled={loading}
