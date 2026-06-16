@@ -555,10 +555,9 @@ generateCaptcha();
                   <b>Chennai - 600092.</b>
                 </div>
                 <div>
-                  No. 407/8, 4th Cross, Jayanagar 7th Block,
-                  Opp- Saraswat Cooperative Bank,
+                 No.24, 2nd floor, 9th A Cross road, Park area, Wilson Garden, 
                   <br></br>
-                  <b>Bangalore - 560070.</b>
+                  <b>Bangalore - 560027.</b>
                 </div>
                 <div>
                   No. 13,  Sivasakthi Colony, (Near coimbatore roller flour mill), Ganapathy,
