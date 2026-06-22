@@ -156,23 +156,47 @@ export default function Hero() {
     controls.maxPolarAngle = Math.PI / 2.42; // down
 
     /* VIDEO TEXTURE */
-    const video = document.createElement("video");
-    video.src = "/led-video.mp4";
-    video.loop = true;
-    video.muted = true;
-    video.autoplay = true;
-    video.playsInline = true;
 
-    video.play().catch(() => {});
 
-    const videoTexture = new THREE.VideoTexture(video);
-    videoTexture.colorSpace = THREE.SRGBColorSpace;
-    videoTexture.flipY = false;
-    videoTexture.minFilter = THREE.LinearFilter;
-    videoTexture.magFilter = THREE.LinearFilter;
-    videoTexture.generateMipmaps = false;
-    videoTexture.wrapS = THREE.ClampToEdgeWrapping;
-    videoTexture.wrapT = THREE.ClampToEdgeWrapping;
+    // led screens video
+    const ledVideo = document.createElement("video");
+    ledVideo.src = "/led-video.mp4";
+    ledVideo.loop = true;
+    ledVideo.muted = true;
+    ledVideo.autoplay = true;
+    ledVideo.playsInline = true;
+
+    ledVideo.play().catch((err) => { console.error("LED video play failed:", err); });
+
+    const ledVideoTexture = new THREE.VideoTexture(ledVideo);
+    ledVideoTexture.colorSpace = THREE.SRGBColorSpace;
+    ledVideoTexture.flipY = false;
+    ledVideoTexture.minFilter = THREE.LinearFilter;
+    ledVideoTexture.magFilter = THREE.LinearFilter;
+    ledVideoTexture.generateMipmaps = false;
+    ledVideoTexture.wrapS = THREE.ClampToEdgeWrapping;
+    ledVideoTexture.wrapT = THREE.ClampToEdgeWrapping;
+
+    // signage led board video
+    const signageVideo = document.createElement("video");
+    signageVideo.src = "/led-video.mp4";
+    signageVideo.loop = true;
+    signageVideo.muted = true;
+    signageVideo.autoplay = true;
+    signageVideo.playsInline = true;
+
+    signageVideo.play().catch((err) => {  console.error("Signage video play failed:", err); });
+
+    const signageVideoTexture = new THREE.VideoTexture(signageVideo);
+    signageVideoTexture.colorSpace = THREE.SRGBColorSpace;
+    signageVideoTexture.flipY = false;
+    signageVideoTexture.minFilter = THREE.LinearFilter;
+    signageVideoTexture.magFilter = THREE.LinearFilter;
+    signageVideoTexture.generateMipmaps = false;
+    signageVideoTexture.wrapS = THREE.ClampToEdgeWrapping;
+    signageVideoTexture.wrapT = THREE.ClampToEdgeWrapping;
+
+    
 
     /* GLB */
     const loader = new GLTFLoader();
@@ -679,7 +703,8 @@ export default function Hero() {
             });
           }
 
-          const videoScreenNames = ["l_type_led_screen", "l_type_led_screen_1"];
+          const ledVideoScreenNames = ["l_type_led_screen", "l_type_led_screen_1"];
+          const signageVideoScreenNames = ["sinage_led_board"];
 
           model.traverse((obj: THREE.Object3D) => {
             if (obj.isMesh) {
@@ -710,11 +735,21 @@ export default function Hero() {
               buildingGroups[obj.name] = obj;
             }
 
-            if (obj.isMesh && videoScreenNames.includes(obj.name)) {
+            if (obj.isMesh && ledVideoScreenNames.includes(obj.name)) {
               const mesh = obj as THREE.Mesh;
 
               mesh.material = new THREE.MeshBasicMaterial({
-                map: videoTexture,
+                map: ledVideoTexture,
+                toneMapped: false,
+                side: THREE.DoubleSide,
+              });
+            }
+
+            if (obj.isMesh && signageVideoScreenNames.includes(obj.name)) {
+              const mesh = obj as THREE.Mesh;
+
+              mesh.material = new THREE.MeshBasicMaterial({
+                map: signageVideoTexture,
                 toneMapped: false,
                 side: THREE.DoubleSide,
               });
@@ -728,6 +763,15 @@ export default function Hero() {
 
           scene.add(model);
           modelCache[name] = model;
+
+
+          if (name === "all_services") {
+            console.log("===== all_services : all objects =====");
+
+            model.traverse((obj: THREE.Object3D) => {
+              console.log("object name:", obj.name, "| type:", obj.type);
+            });
+          }
 
           if (name === "all_services") {
             model.visible = true;
@@ -1143,17 +1187,17 @@ export default function Hero() {
     });
 
     controls.addEventListener("change", () => {
-      console.log(`
-garageCameraPosition:
-${camera.position.x},
-${camera.position.y},
-${camera.position.z}
+      //       console.log(`
+      // garageCameraPosition:
+      // ${camera.position.x},
+      // ${camera.position.y},
+      // ${camera.position.z}
 
-garageTarget:
-${controls.target.x},
-${controls.target.y},
-${controls.target.z}
-  `);
+      // garageTarget:
+      // ${controls.target.x},
+      // ${controls.target.y},
+      // ${controls.target.z}
+      //   `);
     });
     function setMainSceneVisible(visible: boolean) {
       Object.values(modelCache).forEach((model) => {
@@ -1175,8 +1219,14 @@ ${controls.target.z}
       controls.dispose();
       dracoLoader.dispose();
 
-      video.pause();
-      video.src = "";
+      ledVideo.pause();
+      ledVideo.src = "";
+
+      signageVideo.pause();
+      signageVideo.src = "";
+
+      ledVideoTexture.dispose();
+      signageVideoTexture.dispose();
 
       scene.traverse((obj) => {
         if ((obj as THREE.Mesh).geometry) {
