@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import {
   FacebookLogo,
   InstagramLogo,
@@ -237,6 +237,13 @@ const [captchaError, setCaptchaError] = useState<string>('');
 
 React.useEffect(() => {
   generateCaptcha();
+}, []);
+
+// Open the relevant policy modal when linked to via #privacy-policy / #terms-conditions
+useEffect(() => {
+  const hash = window.location.hash;
+  if (hash === "#privacy-policy") setPolicyModal("privacy");
+  else if (hash === "#terms-conditions") setPolicyModal("terms");
 }, []);
 
 // Generate random math CAPTCHA
