@@ -1,0 +1,135 @@
+.notFound {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: "PlusJakartaSans", sans-serif;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  object-fit: cover;
+  object-position: bottom center;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px 100px;
+  max-width: 640px;
+}
+
+.art {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: "PlusJakartaSans", sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: #1d1d1f;
+  margin: 4px 0 18px;
+}
+
+.message {
+  font-family: "PlusJakartaSans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 165%;
+  color: #6b7280;
+  margin: 0 0 30px;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: "PlusJakartaSans", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #1d1d1f;
+  margin: 0 0 26px;
+  width: 100%;
+}
+
+.back::before,
+.back::after {
+  content: "";
+  height: 1px;
+  width: 60px;
+  background: #d9d9df;
+}
+
+.back span {
+  color: #ec2b45;
+}
+
+.button {
+  display: inline-block;
+  background: #ec2b45;
+  color: #ffffff;
+  font-family: "PlusJakartaSans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 14px 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(236, 43, 69, 0.28);
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+.button:active {
+  transform: scale(0.98);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .title {
+    font-size: 28px;
+  }
+  .message {
+    font-size: 15px;
+  }
+  .art {
+    max-width: 340px;
+  }
+  .back {
+    font-size: 13px;
+    gap: 10px;
+  }
+  .back::before,
+  .back::after {
+    width: 36px;
+  }
+  .button {
+    padding: 12px 30px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .content {
+    padding: 20px 16px 70px;
+  }
+  .title {
+    font-size: 24px;
+  }
+}

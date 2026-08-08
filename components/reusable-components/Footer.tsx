@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import {
   FacebookLogo,
   InstagramLogo,
@@ -29,191 +29,6 @@ interface FormErrors {
   message?: string;
 }
 
-const PrivacyPolicyContent = () => (
-  <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
-    <p className="text-xs text-gray-400">
-      <span className="block">Effective Date: 04-11-2014</span>
-      <span className="block">Last Updated: 18-06-2025</span>
-    </p>
-
-    <p>
-      At <span className="text-white font-medium">Adinn</span>, we value your
-      privacy and are committed to protecting the personal and business
-      information shared with us. This Privacy Policy explains how we collect,
-      use, store, and safeguard client data while delivering our advertising and
-      marketing services.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">
-      Information We Collect
-    </h3>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>Name, company name, and designation</li>
-      <li>Phone number, WhatsApp number, and email address</li>
-      <li>Business address and location details</li>
-      <li>Campaign-related data shared for service execution</li>
-      <li>
-        Information submitted through website forms, WhatsApp, email, or calls
-      </li>
-    </ul>
-
-    <p>
-      We do not collect sensitive personal data unless required and consented.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">
-      How We Use Your Information
-    </h3>
-    <p>
-      We use the collected data strictly for legitimate business purposes such
-      as:
-    </p>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>Executing advertising and marketing campaigns</li>
-      <li>Managing OOH Media, Roadshows, Signage, Events & Activation</li>
-      <li>Providing digital marketing and WhatsApp campaign services</li>
-      <li>Client communication, support, and billing</li>
-      <li>Improving service quality and customer experience</li>
-    </ul>
-
-    <h3 className="text-white font-semibold text-base">Data Sharing</h3>
-
-    <p>
-      We do not sell, rent, or misuse client data.<br></br>
-      Information may be shared only with:
-    </p>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>Authorized service partners (Meta, WhatsApp API providers)</li>
-      <li>Internal teams for campaign execution</li>
-      <li>Legal authorities if required by law</li>
-    </ul>
-
-    <h3 className="text-white font-semibold text-base">Data Security</h3>
-    <p>We take reasonable measures to protect client data, including:</p>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>Controlled access to information</li>
-      <li>Secure digital storage</li>
-      <li>Confidential handling of all client records</li>
-    </ul>
-
-    <h3 className="text-white font-semibold text-base">Data Retention</h3>
-    <p>
-      Client information is retained only for as long as required for service
-      delivery, legal, or accounting purposes and is securely deleted afterward.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">Your Rights</h3>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>Access your data</li>
-      <li>Correct or delete your data</li>
-      <li>Withdraw consent for communication</li>
-    </ul>
-
-    <p>
-      Requests can be sent to{" "}
-      <a
-        href="mailto:info@adinn.co.in"
-        className="text-[#EC2B45] hover:underline"
-      >
-        info@adinn.co.in
-      </a>
-    </p>
-
-    <h3 className="text-white font-semibold text-base">Contact Us</h3>
-    <p>
-      Email:{" "}
-      <a
-        href="mailto:info@adinn.co.in"
-        className="text-[#EC2B45] hover:underline"
-      >
-        info@adinn.co.in
-      </a>
-      <br />
-      Phone: +919790257861 | +918015806062
-    </p>
-  </div>
-);
-
-const TermsContent = () => (
-  <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
-    <p>
-      <strong>Effective Date:</strong> 04-11-2014
-    </p>
-    <p>
-      By accessing our website or using our services, you agree to the following
-      Terms & Conditions.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">Services</h3>
-    <p>We provide advertising and marketing services including:</p>
-    <ul className="list-disc list-inside">
-      <li>OOH Media</li>
-      <li>Roadshows</li>
-      <li>Signage</li>
-      <li>Events & Activation</li>
-      <li>Fixtures</li>
-      <li>POPs & Offsets</li>
-      <li>Wall Painting</li>
-      <li>Digital Marketing & WhatsApp Campaigns</li>
-    </ul>
-    <p>
-      Service scope, timelines, and costs are defined before project execution.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">
-      Client Responsibilities
-    </h3>
-    <p>Clients agree to:</p>
-    <ul className="list-disc list-inside">
-      <li>Provide accurate and lawful campaign information</li>
-      <li>Ensure content and contact data comply with applicable laws</li>
-      <li>
-        Obtain prior consent from customers for WhatsApp or digital promotions
-      </li>
-    </ul>
-    <p>
-      We are not responsible for issues arising from incorrect or unauthorized
-      data provided by clients.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">
-      Intellectual Property
-    </h3>
-    <p>
-      All creatives, designs, and materials developed by us remain our
-      intellectual property unless otherwise agreed in writing.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">
-      Limitation of Liability
-    </h3>
-    <p>We are not liable for:</p>
-    <ul className="list-disc list-inside">
-      <li>Platform downtime (Meta, WhatsApp, Google, etc.)</li>
-      <li>Third-party delays or failures</li>
-      <li>Marketing performance beyond agreed deliverables</li>
-    </ul>
-
-    <h3 className="text-white font-semibold text-base">Confidentiality</h3>
-    <p>
-      All client data and campaign details are treated as confidential and used
-      only for service execution.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">Governing Law</h3>
-    <p>
-      These Terms are governed by the laws of India. Any disputes shall be
-      subject to local jurisdiction.
-    </p>
-
-    <h3 className="text-white font-semibold text-base">Updates</h3>
-    <p>
-      We reserve the right to modify these Terms at any time. Continued use of
-      our services indicates acceptance of updated terms.
-    </p>
-  </div>
-);
-
 const Footer = () => {
   // State to manage form data
   const [formData, setFormData] = useState<FooterFormData>({
@@ -224,45 +39,36 @@ const Footer = () => {
   });
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [policyModal, setPolicyModal] = useState<"terms" | "privacy" | null>(
-    null
-  );
 
   // NEW: Add errors state
   const [errors, setErrors] = useState<FormErrors>({});
-// Math CAPTCHA state
-const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, operator: '+', answer: 0 });
-const [captchaInput, setCaptchaInput] = useState<string>('');
-const [captchaError, setCaptchaError] = useState<string>('');
+  // Math CAPTCHA state
+  const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, operator: '+', answer: 0 });
+  const [captchaInput, setCaptchaInput] = useState<string>('');
+  const [captchaError, setCaptchaError] = useState<string>('');
 
-React.useEffect(() => {
-  generateCaptcha();
-}, []);
+  React.useEffect(() => {
+    generateCaptcha();
+  }, []);
 
-// Open the relevant policy modal when linked to via #privacy-policy / #terms-conditions
-useEffect(() => {
-  const hash = window.location.hash;
-  if (hash === "#privacy-policy") setPolicyModal("privacy");
-  else if (hash === "#terms-conditions") setPolicyModal("terms");
-}, []);
+  // Generate random math CAPTCHA
+  const generateCaptcha = () => {
+    const operators = ['+', '-', '×'];
+    const operator = operators[Math.floor(Math.random() * operators.length)];
+    let num1 = Math.floor(Math.random() * 10) + 1;
+    let num2 = Math.floor(Math.random() * 10) + 1;
+    let answer = 0;
+    if (operator === '+') answer = num1 + num2;
+    if (operator === '-') {
+      if (num2 > num1) [num1, num2] = [num2, num1];
+      answer = num1 - num2;
+    }
+    if (operator === '×') answer = num1 * num2;
+    setCaptcha({ num1, num2, operator, answer });
+    setCaptchaInput('');
+    setCaptchaError('');
+  };
 
-// Generate random math CAPTCHA
-const generateCaptcha = () => {
-  const operators = ['+', '-', '×'];
-  const operator = operators[Math.floor(Math.random() * operators.length)];
-  let num1 = Math.floor(Math.random() * 10) + 1;
-  let num2 = Math.floor(Math.random() * 10) + 1;
-  let answer = 0;
-  if (operator === '+') answer = num1 + num2;
-  if (operator === '-') {
-    if (num2 > num1) [num1, num2] = [num2, num1];
-    answer = num1 - num2;
-  }
-  if (operator === '×') answer = num1 * num2;
-  setCaptcha({ num1, num2, operator, answer });
-  setCaptchaInput('');
-  setCaptchaError('');
-};
   // Handle input change
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -313,66 +119,19 @@ const generateCaptcha = () => {
     }
 
     // CAPTCHA validation
-if (!captchaInput.trim()) {
-  newErrors.firstName = newErrors.firstName; // keep existing
-  toast.error("Please answer the math question");
-  generateCaptcha();
-  return false;
-} else if (parseInt(captchaInput) !== captcha.answer) {
-  toast.error("Incorrect math answer. Please try again.");
-  generateCaptcha();
-  return false;
-}
+    if (!captchaInput.trim()) {
+      newErrors.firstName = newErrors.firstName; // keep existing
+      toast.error("Please answer the math question");
+      generateCaptcha();
+      return false;
+    } else if (parseInt(captchaInput) !== captcha.answer) {
+      toast.error("Incorrect math answer. Please try again.");
+      generateCaptcha();
+      return false;
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
-  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-
-  //   const APPS_SCRIPT_URL =
-  //     "https://backend-bq11.onrender.com/sendMailAdinnContactUs";
-
-  //   try {
-  //     const payload = {
-  //       firstName: formData.firstName.trim(),
-  //       lastName: formData.lastName.trim(),
-  //       email: formData.email.trim().toLowerCase(),
-  //       message: formData.message.trim(),
-  //       timestamp: new Date().toISOString(),
-  //       source: "footer",
-  //     };
-
-  //     const response = await fetch(APPS_SCRIPT_URL, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(payload),
-  //     });
-
-  //     const result = await response.json();
-
-  //     if (!response.ok) {
-  //       throw new Error(result.message || "Failed to send message");
-  //     }
-
-  //     toast.success("Your message has been sent successfully!");
-
-  //     setFormData({
-  //       firstName: "",
-  //       lastName: "",
-  //       email: "",
-  //       message: "",
-  //     });
-  //   } catch (error) {
-  //     console.error(error);
-  //     toast.error("Failed to send message. Please try again.");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -423,7 +182,7 @@ if (!captchaInput.trim()) {
         });
         // NEW: Clear errors
         setErrors({});
-generateCaptcha();
+        generateCaptcha();
 
       } else {
         // NEW: Show error toast
@@ -518,25 +277,6 @@ generateCaptcha();
                     {" "}
                     +918015806062{" "}
                   </a>
-                  {/* |
-                  <a href="tel:9626987861" style={{ textDecoration: "none" }}>
-                    {" "}
-                    +919626987861{" "}
-                  </a>|
-                
-                  <a href="tel:7373785048" style={{ textDecoration: "none" }}>
-                    {" "}
-                    +917373785048{" "}
-                  </a>
-                  |
-           
-                  <a
-                    href="tel:7339509090"
-                    style={{ textDecoration: "none" }}
-                  >
-                    {" "}
-                    +917339509090{" "}
-                  </a> */}
                 </div>
               </div>
 
@@ -549,12 +289,6 @@ generateCaptcha();
                   29, 1st Cross Street, Vanamamalai Nagar, Bypass road, <br></br>
                   <b>Madurai - 625010.</b>
                 </div>
-                {/* <div>
-                  No. 3, Vijayalakshmi Street, Mahalingapuram,
-                  Nungambakkam,
-                  <br></br>
-                  <b>Chennai - 600034.</b>
-                </div> */}
                 <div>
                   No. 19/43, MG Chakrapani Street,
                   Sathya Garden, Saligramam,
@@ -573,14 +307,6 @@ generateCaptcha();
               </div>
             </div>
           </div>
-
-          {/* <div className="w-full">
-            <Image
-              src={AdinnLogoFooter}
-              className="rounded-[20px] sm:rounded-[28px] w-full h-auto"
-              alt="card"
-            />
-          </div> */}
         </div>
 
         {/* Right Section - Form */}
@@ -666,63 +392,46 @@ generateCaptcha();
               )}
             </div>
 
-            {/* <button
-              type="submit"
-              disabled={loading}
-              className="bg-gradient-to-r from-[#EC2B45] via-[#BE3234] to-[#790619] text-white w-full px-4 py-3 text-[7.5px] md:text-[12px] rounded-[20px] sm:rounded-[28px] transition-all duration-300 cursor-pointer hover:bg-[#EC2B45] hover:bg-none disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-            
-              {loading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  SUBMITTING...
-                </span>
-              ) : (
-                "SUBMIT"
-              )}
-            </button> */}
             {/* Math CAPTCHA */}
-<div className="flex flex-col space-y-3">
-  <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
-    SOLVE THIS *
-  </label>
-  <div className="flex items-center gap-3">
-    <div className="bg-white/10 px-3 py-2 rounded-lg font-bold text-white text-[14px] whitespace-nowrap select-none">
-      {captcha.num1} {captcha.operator} {captcha.num2} = ?
-    </div>
-    <input
-      type="number"
-      value={captchaInput}
-      onChange={(e) => {
-        const val = e.target.value;
-        setCaptchaInput(val);
-        if (val && parseInt(val) !== captcha.answer) {
-          setCaptchaError('❌ Wrong answer, try again');
-        } else {
-          setCaptchaError('');
-        }
-      }}
-      className="w-32 border-b border-white/16 focus:border-white/30 bg-transparent outline-none pb-2 text-white"
-      placeholder="Answer"
-    />
-    <button
-      type="button"
-      onClick={generateCaptcha}
-      className="p-2 rounded-full hover:bg-white/10 cursor-pointer text-[#EC2B45] transition-all duration-300"
-      title="Refresh CAPTCHA"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M23 4v6h-6" />
-        <path d="M1 20v-6h6" />
-        <path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15" />
-      </svg>
-    </button>
-  </div>
-  {captchaError && <p className="text-[#EC2B45] text-xs mt-1">{captchaError}</p>}
-</div>
+            <div className="flex flex-col space-y-3">
+              <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
+                SOLVE THIS *
+              </label>
+              <div className="flex items-center gap-3">
+                <div className="bg-white/10 px-3 py-2 rounded-lg font-bold text-white text-[14px] whitespace-nowrap select-none">
+                  {captcha.num1} {captcha.operator} {captcha.num2} = ?
+                </div>
+                <input
+                  type="number"
+                  value={captchaInput}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setCaptchaInput(val);
+                    if (val && parseInt(val) !== captcha.answer) {
+                      setCaptchaError('❌ Wrong answer, try again');
+                    } else {
+                      setCaptchaError('');
+                    }
+                  }}
+                  className="w-32 border-b border-white/16 focus:border-white/30 bg-transparent outline-none pb-2 text-white"
+                  placeholder="Answer"
+                />
+                <button
+                  type="button"
+                  onClick={generateCaptcha}
+                  className="p-2 rounded-full hover:bg-white/10 cursor-pointer text-[#EC2B45] transition-all duration-300"
+                  title="Refresh CAPTCHA"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M23 4v6h-6" />
+                    <path d="M1 20v-6h6" />
+                    <path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15" />
+                  </svg>
+                </button>
+              </div>
+              {captchaError && <p className="text-[#EC2B45] text-xs mt-1">{captchaError}</p>}
+            </div>
+
             <button
               type="submit"
               disabled={loading}
@@ -758,18 +467,12 @@ generateCaptcha();
       <div className="relative mt-12 flex flex-col items-center gap-4">
         {/* Left bottom links */}
         <div className="flex gap-4 text-[12px] text-white/70">
-          <button
-            onClick={() => setPolicyModal("terms")}
-            className="hover:underline"
-          >
+          <Link href="/terms-conditions" className="hover:underline">
             Terms & Conditions
-          </button>
-          <button
-            onClick={() => setPolicyModal("privacy")}
-            className="hover:underline"
-          >
+          </Link>
+          <Link href="/privacy-policy" className="hover:underline">
             Privacy Policy
-          </button>
+          </Link>
         </div>
 
         {/* Center copyright */}
@@ -785,31 +488,6 @@ generateCaptcha();
           </a>
         </div>
       </div>
-
-      {/* Modal */}
-      {policyModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-          <div className="bg-[#111] text-white max-w-lg w-full mx-4 rounded-2xl p-6 relative">
-            <button
-              onClick={() => setPolicyModal(null)}
-              className="absolute top-3 right-4 text-xl"
-            >
-              ✕
-            </button>
-
-            <h2 className="text-xl font-semibold mb-4">
-              {policyModal === "terms"
-                ? "Terms & Conditions"
-                : "Privacy Policy"}
-            </h2>
-
-            <div className="text-sm text-gray-300 space-y-3 max-h-[450px] overflow-y-auto hide-scrollbar">
-              {policyModal === "privacy" && <PrivacyPolicyContent />}
-              {policyModal === "terms" && <TermsContent />}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
