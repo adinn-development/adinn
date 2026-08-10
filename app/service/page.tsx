@@ -5,6 +5,15 @@ import ServiceOffered from '@/components/service/ServiceOffered'
 import Gallery from '@/components/service/Gallery'
 import Footer from '@/components/reusable-components/Footer'
 import LandingDreamProject from '@/components/Home/DreamProject'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Our Services | Roadshow, OOH Media, Signage & Event Marketing - Adinn',
+  description: "Explore Adinn's advertising services: roadshow campaigns, OOH media, signage, events & activations, digital marketing, and more.",
+  alternates: {
+    canonical: 'https://www.adinn.com/service',
+  },
+}
 
 const serviceSchema = {
   "@context": "https://schema.org",

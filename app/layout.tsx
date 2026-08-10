@@ -175,6 +175,9 @@ export const metadata: Metadata = {
   verification: {
     google: "ZCG_8p_9edjm1fYQvR7CxQQBU1EAhvbpksSXtRuDzqo",
   },
+   alternates: {
+    canonical: 'https://www.adinn.com/about-us',
+  },
 };
 
 export default function RootLayout({
@@ -215,7 +218,7 @@ export default function RootLayout({
             }),
           }}
         />
-        
+
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

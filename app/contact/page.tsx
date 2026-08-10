@@ -3,6 +3,15 @@ import ContactFooter from '@/components/Contact/ContactFooter'
 import Form from '@/components/Contact/Form'
 import Message from '@/components/Contact/Message'
 import React from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact Adinn Advertising | Madurai, Chennai, Bangalore, Coimbatore',
+  description: 'Get in touch with Adinn Advertising Services. Offices in Madurai, Chennai, Bangalore, and Coimbatore. Call or email us today.',
+  alternates: {
+    canonical: 'https://www.adinn.com/contact',
+  },
+}
 
 const locations = [
   {

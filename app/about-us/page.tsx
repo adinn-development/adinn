@@ -6,6 +6,16 @@ import Footer from '@/components/reusable-components/Footer'
 import Achievements from '@/components/AboutUs/Achievements'
 import ShowCase from '@/components/AboutUs/ShowCase'
 import VideoBanner from '@/components/AboutUs/VideoBanner'  
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About Adinn | 24+ Years of Advertising Excellence in Madurai, Tamil Nadu',
+  description: 'Learn about Adinn Advertising Services — a full-service marketing agency with 24+ years of experience serving brands across South India.',
+  alternates: {
+    canonical: 'https://www.adinn.com/about-us',
+  },
+}
+
 
 const page = () => {
   return (

@@ -6,8 +6,15 @@ import Gallery from '@/components/service/Gallery'
 import Footer from '@/components/reusable-components/Footer'
 // import LandingDreamProject from '@/components/Home/DreamProject'
 import Careers from "@/components/careers/careers";
+import type { Metadata } from 'next'
 
-
+export const metadata: Metadata = {
+  title: 'Careers at Adinn | Join Our Advertising & Marketing Team',
+  description: 'Explore career opportunities at Adinn Advertising Services in Madurai. Join a team driving creative advertising across South India.',
+  alternates: {
+    canonical: 'https://www.adinn.com/careers',
+  },
+}
 
 const page = () => {
   return (
