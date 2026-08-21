@@ -18,6 +18,7 @@ interface FooterFormData {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
   message: string;
 }
 
@@ -26,8 +27,15 @@ interface FormErrors {
   firstName?: string;
   lastName?: string;
   email?: string;
+  phone?: string;
   message?: string;
 }
+
+// Indian mobile number: 10 digits starting 6-9, optional +91/91/0 prefix
+const validatePhone = (phone: string): boolean => {
+  const cleaned = phone.replace(/[\s-]/g, "");
+  return /^(?:\+91|91|0)?[6-9]\d{9}$/.test(cleaned);
+};
 
 const PrivacyPolicyContent = () => (
   <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
@@ -220,6 +228,7 @@ const Footer = () => {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     message: "",
   });
 
@@ -302,6 +311,12 @@ const generateCaptcha = () => {
       if (!emailRegex.test(formData.email)) {
         newErrors.email = "Please enter a valid email address";
       }
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!validatePhone(formData.phone)) {
+      newErrors.phone = "Please enter a valid 10-digit phone number";
     }
 
     if (!formData.message.trim()) {
@@ -399,6 +414,7 @@ if (!captchaInput.trim()) {
           userFirstName: formData.firstName,
           userLastName: formData.lastName,
           userEnquiryEmail: formData.email,
+          userPhone: formData.phone.replace(/[\s-]/g, ""),
           userEnquiryMessage: formData.message,
         }),
       });
@@ -419,6 +435,7 @@ if (!captchaInput.trim()) {
           firstName: "",
           lastName: "",
           email: "",
+          phone: "",
           message: "",
         });
         // NEW: Clear errors
@@ -644,6 +661,23 @@ generateCaptcha();
               {/* NEW: Add error message */}
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
+            </div>
+
+            <div className="flex flex-col space-y-3 sm:space-y-4">
+              <label className="text-[12px] font-medium text-[#BDBDBD] tracking-[2px]">
+                PHONE
+              </label>
+              <input
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                className={`border-b focus:border-white/30 bg-transparent outline-none transition-colors pb-2 w-full text-white ${errors.phone ? 'border-red-500' : 'border-white/16'
+                  }`}
+              />
+              {errors.phone && (
+                <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
               )}
             </div>
 

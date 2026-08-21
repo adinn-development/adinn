@@ -11,8 +11,15 @@ interface FormData {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
   message: string;
 }
+
+// Indian mobile number: 10 digits starting 6-9, optional +91/91/0 prefix
+const validatePhone = (phone: string): boolean => {
+  const cleaned = phone.replace(/[\s-]/g, "");
+  return /^(?:\+91|91|0)?[6-9]\d{9}$/.test(cleaned);
+};
 
 const Form = () => {
   // State to manage form data
@@ -20,6 +27,7 @@ const Form = () => {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     message: "",
   });
 
@@ -77,6 +85,12 @@ const generateCaptcha = () => {
       if (!emailRegex.test(formData.email)) {
         errors.push("Please enter a valid email address");
       }
+    }
+
+    if (!formData.phone.trim()) {
+      errors.push("Phone number is required");
+    } else if (!validatePhone(formData.phone)) {
+      errors.push("Please enter a valid 10-digit phone number");
     }
 
     if (!formData.message.trim()) {
@@ -174,6 +188,7 @@ if (!captchaInput.trim()) {
           userFirstName: formData.firstName.trim(),
           userLastName: formData.lastName.trim(),
           userEnquiryEmail: formData.email.trim().toLowerCase(),
+          userPhone: formData.phone.replace(/[\s-]/g, ""),
           userEnquiryMessage: formData.message.trim(),
         }),
       });
@@ -190,6 +205,7 @@ if (!captchaInput.trim()) {
           firstName: "",
           lastName: "",
           email: "",
+          phone: "",
           message: "",
         });
       } else {
@@ -283,6 +299,23 @@ if (!captchaInput.trim()) {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl focus:outline-none bg-[#EFF0F5]"
                 placeholder="Enter your email address"
+                required
+              />
+            </div>
+
+            {/* Phone Field */}
+            <div>
+              <label htmlFor="phone" className="block text-[16px] text-gray-700 mb-2 font-medium">
+                Phone Number <span className="text-[#EC2B45]">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl focus:outline-none bg-[#EFF0F5]"
+                placeholder="Enter your phone number"
                 required
               />
             </div>
