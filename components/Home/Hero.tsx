@@ -229,8 +229,8 @@ export default function Hero() {
 
     let hoveredBuilding: THREE.Object3D | null = null;
 
-    const HOVER_BRIGHTEN = 0.08; // hovered building +8%
-    const HOVER_DIM = 0.06; // other buildings -6%
+    const HOVER_GREY_COLOR = new THREE.Color("#dadee0");
+    const HOVER_GREY_MIX = 0.8; // how grey other buildings get (keeps some shading)
     const HOVER_FADE_SPEED = 0.12; // per-frame lerp, ~250ms at 60fps
 
     function ensureFadeData(mesh: THREE.Mesh) {
@@ -271,7 +271,7 @@ export default function Hero() {
       }
     }
 
-    // fadeMix: 1 = hovered (slightly brighter), -1 = others (slightly dimmer), 0 = original
+    // fadeMix: 0 = original color, 1 = soft grey
     function setMeshFadeTarget(mesh: THREE.Mesh, target: number) {
       const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
       mats.forEach((mat: any) => {
@@ -296,7 +296,7 @@ export default function Hero() {
         mat.userData.fadeMix = next;
         mat.color
           .copy(mat.userData.originalColor)
-          .multiplyScalar(1 + next * (next > 0 ? HOVER_BRIGHTEN : HOVER_DIM));
+          .lerp(HOVER_GREY_COLOR, next * HOVER_GREY_MIX);
       });
     }
 
@@ -306,10 +306,12 @@ export default function Hero() {
 
     function highlightOtherBuildings(activeName: string) {
       Object.entries(buildingGroups).forEach(([name, group]) => {
+        // grey only buildings; train, roads, trees etc. stay unchanged
+        if (!name.endsWith("_building_grp")) return;
+
         group.traverse((obj: THREE.Object3D) => {
           if ((obj as THREE.Mesh).isMesh) {
-            const mesh = obj as THREE.Mesh;
-            setMeshFadeTarget(mesh, name !== activeName ? -1 : 1);
+            setMeshFadeTarget(obj as THREE.Mesh, name !== activeName ? 1 : 0);
           }
         });
       });
@@ -325,7 +327,9 @@ export default function Hero() {
       });
     }
 
-    const nonClickable = ["hq_back_dummy_building_grp"];
+    const nonClickable = ["hq_back_dummy_building_grp", "ooh_building_grp"];
+    const isHoverable = (name: string) =>
+      name.endsWith("_building_grp") && !nonClickable.includes(name);
     const buildingModels = ["all_services"];
 
     // controls pan limit: small drag radius around the main view target
@@ -507,7 +511,7 @@ export default function Hero() {
             hoveredBuilding = obj;
 
             const modelName = obj.name;
-            if (!nonClickable.includes(modelName)) {
+            if (isHoverable(modelName)) {
               highlightOtherBuildings(modelName);
             } else {
               resetBuildingColors();
@@ -524,7 +528,7 @@ export default function Hero() {
       renderer.domElement.style.cursor =
         currentScreen === "main" &&
         hoveredBuilding &&
-        !nonClickable.includes(hoveredBuilding.name)
+        isHoverable(hoveredBuilding.name)
           ? "pointer"
           : "";
 
