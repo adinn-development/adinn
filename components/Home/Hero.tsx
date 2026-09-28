@@ -327,7 +327,7 @@ export default function Hero() {
       });
     }
 
-    const nonClickable = ["hq_back_dummy_building_grp", "ooh_building_grp"];
+    const nonClickable = ["hq_back_dummy_building_grp"];
     const isHoverable = (name: string) =>
       name.endsWith("_building_grp") && !nonClickable.includes(name);
     const buildingModels = ["all_services"];
