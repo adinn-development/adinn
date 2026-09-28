@@ -340,39 +340,22 @@ export default function Hero() {
     const nonClickable = ["hq_back_dummy_building_grp"];
     const buildingModels = ["all_services"];
 
-    // controls pan limit
+    // controls pan limit: small drag radius around the main view target
+    const PAN_LIMIT = 0.5;
+    const panOrigin = endTarget.clone();
+    const panOffset = new THREE.Vector3();
+
+    function setPanOrigin() {
+      panOrigin.copy(controls.target);
+    }
 
     function limitPan() {
-      const minX = -2.3;
-      const maxX = 12.6;
+      panOffset.subVectors(controls.target, panOrigin);
+      if (panOffset.length() <= PAN_LIMIT) return;
 
-      const minY = -6.4;
-      const maxY = 7.4;
-
-      const minZ = -14.7;
-      const maxZ = -0.3;
-
-      const target = controls.target;
-
-      const clampedX = THREE.MathUtils.clamp(target.x, minX, maxX);
-      const clampedY = THREE.MathUtils.clamp(target.y, minY, maxY);
-      const clampedZ = THREE.MathUtils.clamp(target.z, minZ, maxZ);
-
-      // Only update if actually outside bounds
-      if (
-        clampedX !== target.x ||
-        clampedY !== target.y ||
-        clampedZ !== target.z
-      ) {
-        const delta = new THREE.Vector3(
-          clampedX - target.x,
-          clampedY - target.y,
-          clampedZ - target.z,
-        );
-
-        target.set(clampedX, clampedY, clampedZ);
-        camera.position.add(delta);
-      }
+      panOffset.setLength(PAN_LIMIT).add(panOrigin).sub(controls.target);
+      controls.target.add(panOffset);
+      camera.position.add(panOffset);
     }
 
     /* CAMERA INTRO */
@@ -418,8 +401,8 @@ export default function Hero() {
           // intro mudinja odane zoom cut
           controls.enableZoom = false;
 
-          // intro mudinja odane pan limit apply pannanum
-          limitPan();
+          // intro mudinja odane pan origin set pannanum
+          setPanOrigin();
 
           mouse.set(999, 999);
           hoveredBuilding = null;
@@ -505,6 +488,7 @@ export default function Hero() {
           skipNextControlsUpdate = false;
         } else {
           controls.update();
+          if (currentScreen === "main") limitPan();
         }
       }
 
@@ -607,7 +591,7 @@ export default function Hero() {
           controls.maxPolarAngle = Math.PI / 2.42;
 
           controls.update();
-          limitPan();
+          setPanOrigin();
 
           window.removeEventListener("mousemove", handleMouseMove);
           window.removeEventListener("click", handleClick);
