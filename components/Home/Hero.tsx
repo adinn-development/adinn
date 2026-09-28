@@ -12,27 +12,29 @@ import {
   updateFlyAnimation,
   startFlyToTarget,
 } from "./lib/cameraTransitions";
+import { showBuildingInfoPanel } from "./lib/buildingInfoPanel";
 import {
   createIntroState,
   createIntroRig,
   updateIntroAnimation,
 } from "./lib/introCamera";
 
+type BuildingScreen =
+  | "roadshow"
+  | "wallPainting"
+  | "digitalMarketing"
+  | "fixtures"
+  | "event"
+  | "adinnHQ"
+  | "mediaAds"
+  | "sinageSide";
+
 export default function Hero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    let currentScreen:
-      | "main"
-      | "roadshow"
-      | "wallPainting"
-      | "digitalMarketing"
-      | "fixtures"
-      | "event"
-      | "adinnHQ"
-      | "mediaAds"
-      | "sinageSide" = "main";
+    let currentScreen: "main" | BuildingScreen | "info" = "main";
     if (!mountRef.current) return;
 
     const { scene, camera, renderer, controls } = createThreeBase(
@@ -48,6 +50,9 @@ export default function Hero() {
     let mouseStopTimer: NodeJS.Timeout | null = null;
     let introCanStart = false;
     const ENABLE_INTRO = true;
+    // true = open building 2nd screen after camera fly; false = stay in city + show info panel
+    const SECOND_SCREEN = false;
+    let selectedBuilding: THREE.Object3D | null = null;
     let skipNextControlsUpdate = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
@@ -58,17 +63,8 @@ export default function Hero() {
     scene.background = new THREE.Color(0xa0d8f0);
 
     let isUserControllingCamera = false;
-    let activeDestination:
-      | "roadshow"
-      | "wallPainting"
-      | "digitalMarketing"
-      | "fixtures"
-      | "event"
-      | "adinnHQ"
-      | "mediaAds"
-      | "sinageSide"
-      | "backToMain"
-      | null = null;
+    let activeDestination: BuildingScreen | "backToMain" | "info" | null =
+      null;
     /* CAMERA */
     const endCameraPosition = new THREE.Vector3(
       -28.349296,
@@ -330,6 +326,19 @@ export default function Hero() {
     const nonClickable = ["hq_back_dummy_building_grp"];
     const isHoverable = (name: string) =>
       name.endsWith("_building_grp") && !nonClickable.includes(name);
+
+    // building group -> 2nd screen (buildings not listed use the info panel)
+    const buildingScreens: Record<string, BuildingScreen> = {
+      road_show_building_grp: "roadshow",
+      wall_painting_building_grp: "wallPainting",
+      digital_marketing_building_grp: "digitalMarketing",
+      fixtures_building_grp: "fixtures",
+      event_building_grp: "event",
+      adinn_hq_building_grp: "adinnHQ",
+      media_ads_building_grp: "mediaAds",
+      sinage_side_building_grp: "sinageSide",
+      signage_side_building_grp: "sinageSide", // name used in all_services.glb
+    };
     const buildingModels = ["all_services"];
 
     // controls pan limit: small drag radius around the main view target
@@ -612,7 +621,16 @@ export default function Hero() {
           return;
         }
 
-        if (
+        if (activeDestination === "info" && selectedBuilding) {
+          // SECOND_SCREEN = false: stay in the city, show building info only
+          window.removeEventListener("mousemove", handleMouseMove);
+          window.removeEventListener("click", handleClick);
+
+          disposeActiveModule = showBuildingInfoPanel(
+            selectedBuilding.name,
+            handleBackToMain,
+          );
+        } else if (
           activeDestination === "roadshow" ||
           activeDestination === "wallPainting" ||
           activeDestination === "digitalMarketing" ||
@@ -892,6 +910,8 @@ export default function Hero() {
       activeDestination = "backToMain";
       isReturningToMain = true;
       hoveredBuilding = null;
+      selectedBuilding = null;
+      resetBuildingColors();
       mouseMovedAfterIntro = false;
       isMouseMoving = false;
       isUserControllingCamera = true;
@@ -1063,22 +1083,12 @@ export default function Hero() {
 
       let obj: THREE.Object3D | null = intersects[0].object;
 
-      while (obj && !obj.name.endsWith("_grp")) {
+      // child mesh -> its parent building group
+      while (obj && !obj.name.endsWith("_building_grp")) {
         obj = obj.parent;
       }
 
-      if (!obj) return;
-
-      if (
-        obj.name === "road_show_building_grp" ||
-        obj.name === "wall_painting_building_grp" ||
-        obj.name === "digital_marketing_building_grp" ||
-        obj.name === "fixtures_building_grp" ||
-        obj.name === "event_building_grp" ||
-        obj.name === "adinn_hq_building_grp" ||
-        obj.name === "media_ads_building_grp" ||
-        obj.name === "sinage_side_building_grp"
-      ) {
+      if (obj && isHoverable(obj.name)) {
         console.log("✅ CLICK DETECTED:", obj.name);
 
         mouseMovedAfterIntro = false;
@@ -1086,60 +1096,31 @@ export default function Hero() {
         isMouseMoving = false;
         isUserControllingCamera = true;
 
+        const screen: BuildingScreen | undefined = buildingScreens[obj.name];
+        const openSecondScreen = SECOND_SCREEN && !!screen;
+
+        selectedBuilding = obj;
+        currentScreen = openSecondScreen ? screen : "info";
+        activeDestination = openSecondScreen ? screen : "info";
+
         let destinationPosition: THREE.Vector3;
         let destinationTarget: THREE.Vector3;
 
-        if (obj.name === "road_show_building_grp") {
-          currentScreen = "roadshow";
-          activeDestination = "roadshow";
-
-          destinationPosition = cameraTargets.roadshow.position.clone();
-          destinationTarget = cameraTargets.roadshow.target.clone();
-        } else if (obj.name === "wall_painting_building_grp") {
-          currentScreen = "wallPainting";
-          activeDestination = "wallPainting";
-
-          destinationPosition = cameraTargets.wallPainting.position.clone();
-          destinationTarget = cameraTargets.wallPainting.target.clone();
-        } else if (obj.name === "digital_marketing_building_grp") {
-          currentScreen = "digitalMarketing";
-          activeDestination = "digitalMarketing";
-
-          destinationPosition = cameraTargets.digitalMarketing.position.clone();
-          destinationTarget = cameraTargets.digitalMarketing.target.clone();
-        } else if (obj.name === "fixtures_building_grp") {
-          currentScreen = "fixtures";
-          activeDestination = "fixtures";
-
-          destinationPosition = cameraTargets.fixtures.position.clone();
-          destinationTarget = cameraTargets.fixtures.target.clone();
-        } else if (obj.name === "event_building_grp") {
-          currentScreen = "event";
-          activeDestination = "event";
-
-          destinationPosition = cameraTargets.event.position.clone();
-          destinationTarget = cameraTargets.event.target.clone();
-        } else if (obj.name === "adinn_hq_building_grp") {
-          currentScreen = "adinnHQ";
-          activeDestination = "adinnHQ";
-
-          destinationPosition = cameraTargets.adinnHQ.position.clone();
-          destinationTarget = cameraTargets.adinnHQ.target.clone();
-        } else if (obj.name === "media_ads_building_grp") {
-          currentScreen = "mediaAds";
-          activeDestination = "mediaAds";
-
-          destinationPosition = cameraTargets.mediaAds.position.clone();
-          destinationTarget = cameraTargets.mediaAds.target.clone();
-        } else if (obj.name === "sinage_side_building_grp") {
-          currentScreen = "sinageSide";
-          activeDestination = "sinageSide";
-
-          destinationPosition = cameraTargets.sinageSide.position.clone();
-          destinationTarget = cameraTargets.sinageSide.target.clone();
+        if (screen) {
+          destinationPosition = cameraTargets[screen].position.clone();
+          destinationTarget = cameraTargets[screen].target.clone();
         } else {
-          return;
+          // no preset camera (e.g. OOH): frame the building from the main view angle
+          destinationTarget = getFocusTargetFromObject(obj);
+          destinationPosition = endCameraPosition
+            .clone()
+            .sub(endTarget)
+            .setLength(22)
+            .add(destinationTarget);
         }
+
+        // info panel mode: keep clicked building in color, grey the others
+        if (!openSecondScreen) highlightOtherBuildings(obj.name);
 
         controls.enableZoom = true;
 
