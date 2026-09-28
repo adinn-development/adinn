@@ -229,8 +229,9 @@ export default function Hero() {
 
     let hoveredBuilding: THREE.Object3D | null = null;
 
-    const HOVER_DIM_COLOR = new THREE.Color("#B7BCC0");
-    const HOVER_FADE_SPEED = 1.35;
+    const HOVER_BRIGHTEN = 0.08; // hovered building +8%
+    const HOVER_DIM = 0.06; // other buildings -6%
+    const HOVER_FADE_SPEED = 0.12; // per-frame lerp, ~250ms at 60fps
 
     function ensureFadeData(mesh: THREE.Mesh) {
       if (Array.isArray(mesh.material)) {
@@ -270,46 +271,33 @@ export default function Hero() {
       }
     }
 
+    // fadeMix: 1 = hovered (slightly brighter), -1 = others (slightly dimmer), 0 = original
     function setMeshFadeTarget(mesh: THREE.Mesh, target: number) {
-      if (Array.isArray(mesh.material)) {
-        mesh.material.forEach((mat: any) => {
-          if (mat.color) {
-            mat.userData.targetFadeMix = target;
-          }
-        });
-      } else {
-        const mat: any = mesh.material;
-        if (mat.color) {
-          mat.userData.targetFadeMix = target;
-        }
-      }
+      const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+      mats.forEach((mat: any) => {
+        if (mat.color) mat.userData.targetFadeMix = target;
+      });
     }
 
     function updateMeshFade(mesh: THREE.Mesh) {
-      if (Array.isArray(mesh.material)) {
-        mesh.material.forEach((mat: any) => {
-          if (!mat.color || !mat.userData.originalColor) return;
-
-          const current = mat.userData.fadeMix ?? 0;
-          const target = mat.userData.targetFadeMix ?? 0;
-          const next = THREE.MathUtils.lerp(current, target, HOVER_FADE_SPEED);
-
-          mat.userData.fadeMix = next;
-          mat.color
-            .copy(mat.userData.originalColor)
-            .lerp(HOVER_DIM_COLOR, next);
-        });
-      } else {
-        const mat: any = mesh.material;
+      const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+      mats.forEach((mat: any) => {
         if (!mat.color || !mat.userData.originalColor) return;
 
         const current = mat.userData.fadeMix ?? 0;
         const target = mat.userData.targetFadeMix ?? 0;
-        const next = THREE.MathUtils.lerp(current, target, HOVER_FADE_SPEED);
+        if (current === target) return;
+
+        const next =
+          Math.abs(target - current) < 0.001
+            ? target
+            : THREE.MathUtils.lerp(current, target, HOVER_FADE_SPEED);
 
         mat.userData.fadeMix = next;
-        mat.color.copy(mat.userData.originalColor).lerp(HOVER_DIM_COLOR, next);
-      }
+        mat.color
+          .copy(mat.userData.originalColor)
+          .multiplyScalar(1 + next * (next > 0 ? HOVER_BRIGHTEN : HOVER_DIM));
+      });
     }
 
     function storeOriginalMaterial(mesh: THREE.Mesh) {
@@ -321,7 +309,7 @@ export default function Hero() {
         group.traverse((obj: THREE.Object3D) => {
           if ((obj as THREE.Mesh).isMesh) {
             const mesh = obj as THREE.Mesh;
-            setMeshFadeTarget(mesh, name !== activeName ? 1 : 0);
+            setMeshFadeTarget(mesh, name !== activeName ? -1 : 1);
           }
         });
       });
@@ -521,6 +509,8 @@ export default function Hero() {
             const modelName = obj.name;
             if (!nonClickable.includes(modelName)) {
               highlightOtherBuildings(modelName);
+            } else {
+              resetBuildingColors();
             }
           }
         } else {
@@ -530,6 +520,13 @@ export default function Hero() {
           }
         }
       }
+
+      renderer.domElement.style.cursor =
+        currentScreen === "main" &&
+        hoveredBuilding &&
+        !nonClickable.includes(hoveredBuilding.name)
+          ? "pointer"
+          : "";
 
       /* FLOATING CAMERA */
       if (
