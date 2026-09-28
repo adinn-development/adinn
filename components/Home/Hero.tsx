@@ -209,6 +209,7 @@ export default function Hero() {
 
     let disposeActiveModule: (() => void) | null = null;
     const buildingGroups: Record<string, THREE.Object3D> = {};
+    const hiddenForFocus: THREE.Object3D[] = []; // meshes hidden while one building is focused
 
     const raycaster = new THREE.Raycaster();
     raycaster.firstHitOnly = true;
@@ -626,6 +627,7 @@ export default function Hero() {
           window.removeEventListener("mousemove", handleMouseMove);
           window.removeEventListener("click", handleClick);
 
+          isolateBuilding(selectedBuilding);
           disposeActiveModule = showBuildingInfoPanel(
             selectedBuilding.name,
             handleBackToMain,
@@ -911,6 +913,7 @@ export default function Hero() {
       isReturningToMain = true;
       hoveredBuilding = null;
       selectedBuilding = null;
+      restoreIsolatedBuilding();
       resetBuildingColors();
       mouseMovedAfterIntro = false;
       isMouseMoving = false;
@@ -1169,6 +1172,27 @@ export default function Hero() {
       Object.values(modelCache).forEach((model) => {
         model.visible = visible;
       });
+    }
+
+    // hide every city mesh except the selected building (visibility only, nothing removed)
+    function isolateBuilding(building: THREE.Object3D) {
+      Object.values(modelCache).forEach((model) => {
+        model.traverse((obj: THREE.Object3D) => {
+          if (!(obj as THREE.Mesh).isMesh || !obj.visible) return;
+
+          let parent: THREE.Object3D | null = obj;
+          while (parent && parent !== building) parent = parent.parent;
+          if (parent) return; // part of the selected building
+
+          obj.visible = false;
+          hiddenForFocus.push(obj);
+        });
+      });
+    }
+
+    function restoreIsolatedBuilding() {
+      hiddenForFocus.forEach((obj) => (obj.visible = true));
+      hiddenForFocus.length = 0;
     }
 
     return () => {
