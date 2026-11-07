@@ -10,7 +10,7 @@ export { default as HavLogo } from '@/assets/client/Havells.png';
 export { default as KFCLogo } from '@/assets/client/KFC.png';
 export { default as tvsLogo } from '@/assets/client/tvsLogo.svg';
 export { default as DBSLogo } from '@/assets/client/DBSLogo.svg';
-export { default as ZomatoLogo } from '@/assets/client/ZomatoLogo.svg';
+export { default as MilkyMistLogo } from '@/assets/client/Milky Mist.png';
 export { default as AmulLogo2 } from '@/assets/client/AmulLogo2.png';
 export { default as HaierLogo2} from '@/assets/client/Haier.png';
 export { default as DaikinLogo } from '@/assets/client/DaikinLogo.png';
